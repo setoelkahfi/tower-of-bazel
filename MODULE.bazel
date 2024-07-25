@@ -1,0 +1,36 @@
+###############################################################################
+# Bazel now uses Bzlmod by default to manage external dependencies.
+# Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel.
+#
+# For more details, please check https://github.com/bazelbuild/bazel/issues/18958
+###############################################################################
+
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "rules_ruby", version = "0.12.1")
+bazel_dep(name = "rules_apple", version = "3.6.0", repo_name = "build_bazel_rules_apple")
+bazel_dep(name = "rules_xcodeproj", version = "2.5.2")
+bazel_dep(name = "apple_support", version = "1.15.1", repo_name = "build_bazel_apple_support")
+bazel_dep(name = "rules_swift", version = "1.18.0", repo_name = "build_bazel_rules_swift")
+
+ruby = use_extension("@rules_ruby//ruby:extensions.bzl", "ruby")
+ruby.toolchain(
+    name = "ruby",
+    version_file = "//backend/app:.ruby-version",
+)
+use_repo(ruby, "ruby")
+ruby.bundle_fetch(
+    name = "bundle",
+    gemfile = "//backend/app:Gemfile",
+    gemfile_lock = "//backend/app:Gemfile.lock",
+)
+use_repo(ruby, "bundle", "ruby_toolchains")
+
+# rules_apple dependencies
+bazel_dep(
+    name = "buildifier_prebuilt",
+    version = "6.4.0",
+    dev_dependency = True,
+)
+
+non_module_dependencies = use_extension("//frontend/apple/tools:extensions.bzl", "non_module_dependencies")
+use_repo(non_module_dependencies, "SwiftLint")
