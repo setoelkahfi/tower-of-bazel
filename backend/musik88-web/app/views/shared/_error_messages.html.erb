@@ -1,0 +1,11 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <% if @user.errors.any? %>
+      <div class="alert alert-danger">
+      <% @user.errors.messages.each do |msg| %>
+        <%= msg.drop(1).join(", ").capitalize %></br>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

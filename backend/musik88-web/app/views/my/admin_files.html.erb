@@ -1,0 +1,50 @@
+<% content_for :meta_head do %>
+    <title><%= @meta_title %> | Admin</title>
+    <meta name="description" content="<%= @meta_description %>">
+<% end %>
+    
+    <div class="row">
+      <!-- BEGIN content -->
+      <div class="col-md-12">
+        
+          <div class="page-header">
+              <h1><%= t("my") %> / Admin Arsip 📁</h1>
+          </div>
+			    <%= render "shared/flash_message", object: flash %>
+        
+      </div>
+      <div class="col-md-2">
+        <%= render "my/partial_menu" %>
+      </div>
+      <div class="col-md-10">
+        
+          <div class="row">
+            <!-- BEGIN content -->
+            <div class="col-md-12">
+              <h2>Files</h2>
+              <% if @audio_files.count == 0 %>
+                You don't have any files.
+              <% else %>
+                <table style="width: 100%">
+                  <% @audio_files.each_with_index do |audio_file, index| %>
+                    <%= render "my/partial_admin_files_row", audio_file: audio_file %>
+                  <% end %>
+                </table>
+              <% end %>
+            </div>
+          </div>
+        
+      </div>
+      <!-- END content -->
+    </div>
+    
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-12">
+        
+          <ol class="breadcrumb">
+            <li><%= link_to t("breadcrumb_home"), root_path %></li>
+          </ol>
+        
+      </div>
+    </div>
+    

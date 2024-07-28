@@ -1,0 +1,36 @@
+<div class="meta-line mb-5">
+    <% if user_signed_in? && @song.users.include?(current_user) %>
+        <%= link_to(
+                '<i class="bi bi-heart-fill"></i>'.html_safe,
+                song_chord_pleas_unloved_path(id: @song.id),
+                remote: true,
+                method: :delete,
+                :id => "ajax_trigger"
+            )
+        %>
+    <% else %>
+        <%= link_to(
+                '<i class="bi bi-heart"></i>'.html_safe,
+                song_chord_pleas_loved_path(id: @song.id),
+                remote: true,
+                method: :post,
+                :id => "ajax_trigger"
+            )
+        %>
+    <% end %>
+    
+    <% if @lovers != nil && @lovers.count > 0 %>
+        <span class="meta-line-by"><%= t('by') %><span>
+        <% @lovers.each_with_index do |user, index| %>
+            <%= " " if index != 0 %>
+                <span class="meta-line-lovers">
+                    <%= link_to name_or_username(user), profile_path_enhanced(user) %>
+                </span>
+            <%= "," if index != @lovers.count - 1 %>
+        <% end %>
+    <% else %>
+        <span class="meta-line-no-love">
+            <%= t('somebody_to_love') %>
+        <span>
+    <% end %>
+</div>

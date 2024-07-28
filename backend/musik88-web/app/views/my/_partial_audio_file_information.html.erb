@@ -1,0 +1,15 @@
+<div class="audio-file-information" style="padding: 10px;">
+    <% if !audio_file.song.nil? %>
+      <div class="audio-file-information-song" style="margin-bottom: 5px;">
+        <%= "<b>Song</b>: #{audio_file.song.name}".html_safe %>
+      </div>
+      <div class="audio-file-information-album" style="margin-bottom: 5px;">
+        <%= "<b>Album</b>: #{audio_file.song.album.name}".html_safe %>
+      </div>
+      <div class="audio-file-information-artists" style="margin-bottom: 5px;">
+        <%= "<b>Artist(s)</b>: #{audio_file.song.artists.map{|artist| artist.name}.join(", ")}".html_safe %>
+      </div>
+    <% else %>
+      <i>Add information about this file? (WIP)</i>
+    <% end %>
+</div>

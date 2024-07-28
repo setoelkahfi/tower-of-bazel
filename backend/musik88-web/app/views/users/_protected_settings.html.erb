@@ -1,0 +1,182 @@
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <%= render('partial_menus', active_menu: 'settings' ) %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <%= render "shared/flash_message", object: flash %>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <h4><%= t('your_invitees') %></h4>
+        <p><%= t('your_invitees_explanation') %></p>
+        <%= link_to(t('invite_button'), new_user_invitation_path, class: 'btn btn-primary', target: '__blank') %>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"><%= t("no") %></th>
+                <th scope="col"><%= t("your_invite_email") %></th>
+                <th scope="col"><%= t("your_invite_date") %></th>
+                <th scope="col"><%= t("your_invite_status") %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @current_user.invitees.each_with_index do |invite, index| %>
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td>
+                  <%= invite.email %>
+                </td>
+                <td>
+                  <%= time_ago_in_words invite.created_at %>
+                </td>
+                <td>
+                  <%= invite.invitation_accepted? ? '<i class="bi bi-check"></i>'.html_safe
+                                                  : '<i class="bi bi-send-check"></i>'.html_safe %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <h4><%= t('your_wallet_address') %></h4>
+        <p><%= t('your_wallet_address_explanation', href: link_to('Raydium', 'https://beta.raydium.io/swap/?inputMint=CTQBjyrX8pYyqbNa8vAhQfnRXfu9cUxnvrxj5PvbzTmf&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', target: '_blank')).html_safe %></p>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"><%= t("no") %></th>
+                <th scope="col"><%= t("your_wallet_pubkey") %></th>
+                <th scope="col"><%= t("your_wallet_creation_date") %></th>
+                <th scope="col"><%= t("your_wallet_type") %></th>
+                <th scope="col"><%= t("your_wallet_action") %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @current_user.wallets.each_with_index do |wallet, index| %>
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td>
+                  <%= wallet.pubkey %>
+                </td>
+                <td>
+                  <%= time_ago_in_words wallet.created_at %>
+                </td>
+                <td>
+                  <%= wallet.wallet_type %>
+                </td>
+                <td>
+                  <% if wallet.solana? %>
+                    <%= link_to('Solscan', "https://solscan.io/account/#{wallet.pubkey}", target: '__blank') %>
+                    <%= link_to(t('activate_solana_wallet'), settings_activate_solana_path, class: 'btn btn-primary', method: :post) if !wallet.done? %>
+                  <% end %>
+                  <% if wallet.evm? %>
+                    <%= link_to('BscScan', "https://bscscan.com/address/#{wallet.pubkey}", target: '__blank') %>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <h4><%= t('your_account_connections') %></h1>
+        <p><%= t('your_account_connections_explanation') %></p>
+        <div class="form-check form-switch mb-3">
+          <input class="form-check-input sync-spotify" type="checkbox" <%= 'checked' if @current_user.user_setting&.sync_spotify? %>>
+          <label class="form-check-label" for="flexSwitchCheckChecked">Spotify</label>
+        </div>
+        <p><%= t('your_account_connections_spotify_token_explanation') %></p>
+        <div class="form-check form-switch mb-3">
+          <input class="form-check-input allowed-use-spotify-token" type="checkbox" <%= 'checked' if @current_user.user_setting&.allowed_use_spotify_token? %>>
+          <label class="form-check-label" for="flexSwitchCheckChecked">Spotify Token</label>
+        </div>
+        <p><%= t('your_account_connections_google_explanation') %></p>
+        <div class="form-check form-switch mb-3">
+          <input class="form-check-input allowed-use-google-token" type="checkbox" <%= 'checked' if @current_user.user_setting&.allowed_use_google_token? %>>
+          <label class="form-check-label" for="flexSwitchCheckChecked">Google Token</label>
+        </div>
+        <div class="alert alert-warning alert-sync" role="alert" style='display:none;'>
+          <strong>Updated!</strong>.
+        </div>
+      </li>
+      <li class="list-group-item">
+        <h4><%= t('your_locale') %></h1>
+        <p><%= t('your_locale_explanation') %></p>
+        <script>
+          function changeDefaultLocale(locale) {
+            $.ajax({
+            type: "POST",
+            url: "<%= settings_locale_path %>",
+            data: { authenticity_token: "<%= form_authenticity_token %>", default_locale: locale.value },
+            success(data) {
+              location.reload();
+              return false;
+            },
+            error(data) {
+              alert('Something wrong. Try again later.');
+              return false;
+            }
+          })
+          }
+        </script>
+        <select id="select-locale" class="form-select" aria-label="Locale" onchange="changeDefaultLocale(this)">
+          <% I18n.available_locales.each do |locale| %>
+            <option <%= 'selected' if I18n.locale == locale %> value="<%= locale_index(locale) %>"><%= t('locale_name', locale: locale) %></option>
+          <% end %>
+        </select>
+      </li>
+    </ul>
+  </div>
+<script>
+// Track a timeoutID
+var timeoutID;
+
+function prepareUpdate() {
+  if (timeoutID) {
+    clearTimeout(timeoutID);
+  }
+  $('.alert-sync').hide();
+}
+
+function updateSettings(type, value) {
+  $.ajax({
+          method: 'PUT',
+          url: '<%= update_settings_path %>',
+          data: {
+            authenticity_token: '<%= form_authenticity_token %>',
+            settings: {
+              type: type,
+              value: value
+            }
+          },
+          dataType: 'json',
+          success: function(data) {
+            if (data.code == 200) {
+              $('.alert-sync').show();
+              timeoutID = setTimeout(
+                function() {
+                  $('.alert-sync').hide();
+                }, 3000
+              );
+            }
+          }
+      });
+}
+
+$('.sync-spotify').on('change', function(e) {
+    prepareUpdate();
+    updateSettings('sync_spotify', e.target.checked);
+})
+$('.allowed-use-spotify-token').on('change', function(e) {
+    prepareUpdate();
+    updateSettings('allowed_use_spotify_token', e.target.checked);
+})
+$('.allowed-use-google-token').on('change', function(e) {
+    prepareUpdate();
+    updateSettings('allowed_use_google_token', e.target.checked);
+});
+</script>

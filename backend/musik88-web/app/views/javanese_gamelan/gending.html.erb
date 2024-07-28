@@ -1,0 +1,75 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= javanese_gamelan_url %>" />
+<% end %>
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "<%= root_url %>",
+          "name": "<%= t("site_name") %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "<%= javanese_gamelan_url %>",
+          "name": "<%= t("nav_javanese_gamelan") %>"
+        }
+      }]
+    }
+  </script>
+<% end %>
+<div class="row">
+  <div class="col-12">
+    <h2><%= @page.title if @page %></h2>
+    <div class="lead">
+      <%= raw @page.page_content if @page %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col"><%= t("gending_name") %></th>
+          <th scope="col"></th>
+          <th scope="col"><%= t("added_by") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @gendings.each_with_index do |gending, index| %>
+          <tr>
+            <th scope="row"><%= @gendings.offset + index + 1 %></th>
+            <td>
+              <%= image_pack_tag("image-placeholder-#{rand(0...3)}.jpg", alt:"#{gending.name} cover image.", style:"width:100px;height:100px;", class: 'img-thumbnail rounded-circle mx-auto d-block') %>
+            </td>
+            <td>
+              <%= link_to gending.name, javanese_gending_detail_path("gending-notation-" + gending.slug) %>
+              <% if gending.users.count > 0 %>
+                <%= render('partial_like_this', users: gending.users) %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to("@#{gending.user_or_nowhereman.username_or_name}", profile_path(gending.user_or_nowhereman.username_or_id), title: "@#{gending.user_or_nowhereman.username_or_name}") %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @gendings, class: 'flickr_pagination' %>
+  </div>
+</div>
+<%= render "shared/partial_breadcrumbs" do %>
+  <li class="breadcrumb-item"><%= link_to t("nav_javanese_gamelan"), javanese_gamelan_path %></li>
+<% end %>

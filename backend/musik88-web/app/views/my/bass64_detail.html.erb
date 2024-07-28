@@ -1,0 +1,62 @@
+<% content_for :meta_head do %>
+    <title><%= @meta_title %> | <%= @user.name %></title>
+    <meta name="description" content="<%= @meta_description %>">
+<% end %>
+    
+    <div class="row">
+      <!-- BEGIN content -->
+      <div class="col-md-12">
+        
+          <div class="page-header">
+              <h1><%= t("my") %> / Bass64 🎸 / Results</h1>
+          </div>
+        
+      </div>
+      <div class="col-md-2">
+        <%= render "my/partial_menu" %>
+      </div>
+      <div class="col-md-10">
+        
+          <div class="row">
+            <!-- BEGIN content -->
+            <div class="col-md-12">
+              <div class="lead">
+                <b>File name</b>: <%= @audio_file.source_file.blob.filename unless !@audio_file.source_file.attached? %>
+              </div>
+                <% if @audio_file.bass_backing_track.nil? %>
+                    No result yet. Go back and click SplitFire 🔥
+                <% else %>
+                    <table style="width: 100%">
+                        <tr>
+                            <td style="padding: 10px 10px 10px 0;">
+                                <%= @audio_file.source_file.blob.filename %>
+                            </td>
+                            <td style="padding: 10px; width: 130px">
+                                <%= link_to("<i class='icon-download'></i> Download".html_safe, rails_blob_path(@audio_file.source_file, disposition: "attachment"))%>
+                            </td>
+                            <td style="padding: 10px; width: 100px">
+                                <%= link_to("<i class='icon-remove'></i> Delete".html_safe, my_bass64_delete_path(@audio_file.id), data: { confirm: 'Are you sure?' }, method: :delete )%>
+                            </td>
+                        </tr>
+                    </table>
+                <% end %>
+                <div class="modul" style="margin-top: 20px; padding-right: 6px;">
+                  <%= render "my/partial_bass64_version" %>
+                </div>
+            </div>
+          </div>
+        
+      </div>
+      <!-- END content -->
+    </div>
+    
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-12">
+        
+          <ol class="breadcrumb">
+            <li><%= link_to t("breadcrumb_home"), root_path %></li>
+          </ol>
+        
+      </div>
+    </div>
+    

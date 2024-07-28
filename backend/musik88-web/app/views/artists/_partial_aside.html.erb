@@ -1,0 +1,23 @@
+<aside>
+  <h2 class="mb-4"><%= t("top_10_artists") %></h2>
+  <% @trending_artists.each_with_index do |artist, index| %>
+    <div class="row mb-4">
+      <div class="col-4">
+        <%= image_pack_tag(
+                      "image-placeholder-#{rand(0...3)}.jpg",
+                      alt:"#{artist.name} image",
+                      class: "img-thumbnail rounded-circle  "
+                  )
+      %>
+      </div>
+      <div class="col-8 fs-6">
+        <h3 class="fs-6 mt-2 mb-3">
+          <%= "#{index + 1}." %>
+          <%= link_to artist.name, artist_detail_path(artist.slug) %>
+        </h3>
+        <i class="bi bi-graph-up-arrow"></i>
+        <span class="badge rounded-pill bg-warning text-dark"><%= artist.views_count %></span>
+      </div>
+    </div>
+  <% end %>
+</aside>

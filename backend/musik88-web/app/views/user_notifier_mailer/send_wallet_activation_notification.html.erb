@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= t("user_send_wallet_activation_notification_heading", user_name: @user.name) %></h1>
+    <p><%= t("user_send_wallet_activation_notification_p1") %></p>
+    <p><a href="https://solscan.io/account/<%= @user.wallet.pubkey %><%= @cluster %>" target="__blank"><%= t("user_send_wallet_activation_notification_address") %></a></p>
+    <h2><%= t("user_notifier_projects") %></h2>
+    <p><a href="https://nft.musik88.com/" target="__blank">NFT</a></p>
+    <p><a href="https://splitfire.ai/" target="__blank">SplitFire AI</a></p>
+    <p><a href="https://discord.gg/kdZSk6mdAE" target="__blank">Join our Discord server</a></p>
+    </br>
+    </br>
+    <p>With ❤️ from Stockholm,</p>
+    <p><a href="https://<%= @host %>/@seto" target="__blank">@seto</a></p>
+  </body>
+</html>

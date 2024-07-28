@@ -1,0 +1,55 @@
+<div class="col-12 mb-2 mt-2">
+  <div class="row">
+    <div class="col-1 text-center">
+      <%= link_to(
+              gravatar_for(comment.user),
+              profile_path(comment.user.username_or_id),
+              title: "Author: @#{comment.user.username_or_id}"
+            ) %>
+    </div>
+    <div class="col-11">
+      <%= link_to(
+              comment.user.username_or_name,
+              profile_path(comment.user.username_or_id),
+              title: "@#{comment.user.username_or_id}"
+            ) %>
+      <span class="fst-italic fw-light">
+        , <%= time_ago_in_words(comment.created_at) %> <%= t('ago') %>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1 text-center">
+      <div class="border-start border-primary" style="width: 1px;height: 100%;margin-left: auto;margin-right: auto;">
+      </div>
+    </div>
+    <div class="col-11">
+      <%= comment.body %>
+      <div class="row mt-1 mb-3">
+        <div class="col-1">
+            <a href="javascript:void(0)" onclick="toggleForm('reply-form-<%= comment.id %>')">
+                <i class="bi bi-reply-fill"></i>
+            </a>
+        </div>
+      </div>
+      <%= form_for [comment, Comment.new], html:{style: 'display:none;width:100%;', class: "reply-form-#{comment.id}"} do |f| %>
+        <%= f.text_area :body, placeholder: t('add_a_reply'), rows: "4" , cols: "50%"%><br/>
+          <%= f.hidden_field :user_id, value: current_user.id if user_signed_in? %>
+        <%= f.submit t('reply'), class: "btn btn-primary" %>
+      <% end %>
+      <div class="col-12">
+        <%= render partial: 'comments/comment', collection: comment.comments %>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function toggleForm(id) {
+    var x = document.getElementsByClassName(id)[0];
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>

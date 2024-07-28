@@ -1,0 +1,56 @@
+<% content_for :meta_head do %>
+    <title><%= @meta_title %> | <%= @user.name %></title>
+    <meta name="description" content="<%= @meta_description %>">
+<% end %>
+
+    <div class="row">
+      <!-- BEGIN content -->
+      <div class="col-md-12">
+        
+          <div class="page-header">
+              <h1><%= t("my") %> / Bass64 🎸</h1>
+          </div>
+			    <%= render "shared/flash_message", object: flash %>
+        
+      </div>
+      <div class="col-md-2">
+        <%= render "my/partial_menu" %>
+      </div>
+      <div class="col-md-10">
+        
+          <div class="row">
+            <!-- BEGIN content -->
+            <div class="col-md-12">
+              <div class="lead page-info">
+                <b><i>Bass64</i></b> is your AI personal assistant to generate <b><i>bass backing track</i></b> from a song.
+              </div>
+              <h2>Files</h2>
+              <% if @audio_files.count == 0 %>
+                You don't have any files to generate the bass backing track from.
+              <% else %>
+                <table style="width: 100%">
+                  <% @audio_files.each_with_index do |audio_file, index| %>
+                    <%= render "my/partial_bass64_row", audio_file: audio_file %>
+                  <% end %>
+                </table>
+              <% end %>
+              <div class="modul" style="margin-top: 20px; padding-right: 6px;">
+                <%= render "my/partial_bass64_version" %>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <!-- END content -->
+    </div>
+    
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-12">
+        
+          <ol class="breadcrumb">
+            <li><%= link_to t("breadcrumb_home"), root_path %></li>
+          </ol>
+        
+      </div>
+    </div>
+    

@@ -1,0 +1,72 @@
+<% content_for :meta_head do %>
+  <title>Bonzo 🥁 - Artificial intelligence free drum backing track generator</title>
+  <meta name="description" content="Bonzo 🥁 - Artificial intelligence free drum backing track generator" />
+  <meta property="og:title" content="Bonzo 🥁 - Artificial intelligence free drum backing track generator" />
+  <meta property="og:description" content="Bonzo 🥁 - Artificial intelligence free drum backing track generator" />
+  <meta property="og:url" content="<%= request.base_url %>/bonzo" />
+<% end %>
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "<%= request.base_url %>",
+                "name": "Musik 88"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "<%= request.base_url %>/bonzo",
+                "name": "Bonzo 🥁"
+            }
+        }]
+    }
+  </script>
+<% end %>
+<div class="row">
+  <!-- BEGIN content -->
+  <div class="col-md-12">
+    <%= render("shared/partial_ai_tools", use_header: false, active_menu: 'bonzo') %>
+    <h1>Bonzo 🥁 - Drum backing track generator</h1>
+    <div>
+      <p class="lead">
+        Bonzo is an Artificial-Intelligence-(AI)-based drum backing track generator.
+      </p>
+      <p class="lead">
+        <%= link_to("@bonzo", profile_path('bonzo')) %>
+      </p>
+      <p>
+        When you're logged-in, you can find Bonzo in your <%= link_to("<b><i>profile page</i></b>".html_safe, my_bonzo_path) %>.
+      </p>
+      <p>
+        Bonzo can generate a drum backing track from a song.
+        This tool is provided to you as it is.
+        We might remove the files as part of our maintenance.
+        So we advise to download them right away after generating the backing track.
+        Use it for free for educational purpose.
+        You can use it for free with an account.
+        Your account is private by default.
+      </p>
+    </div>
+    <h2>Feedback</h2>
+    <div>
+      <p>hej at setoelkahfi dot se</p>
+    </div>
+    <h2>Changelog</h2>
+    <div>
+      <h3><a href="#v1-0-0">Version 1.0.0</a></h3>
+      <ul>
+        <li>Initial release.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<%= render "shared/partial_breadcrumbs" do %>
+  <li class="breadcrumb-item"><%= link_to "Bonzo", bonzo_branding_path %></li>
+<% end %>

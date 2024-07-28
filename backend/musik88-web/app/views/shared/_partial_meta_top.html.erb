@@ -1,0 +1,17 @@
+      
+<div class="row mb-5 mt-3">
+  <div class="col-sm-2">
+    <div class="fw-bold fst-italic d-inline-flex">
+      <%= link_to(
+                "@#{author.username_or_id}",
+                profile_path(author),
+                title: "Author: @#{author.username_or_id}"
+            ) %>
+    </div>
+  </div>
+  <div class="col-sm-2 offset-sm-8">
+    <span class="badge bg-primary rounded-pill fst-italic fw-light float-end">
+      <%= created_at.strftime("%B %-d, %Y") %>
+    </span>
+  </div>
+</div>

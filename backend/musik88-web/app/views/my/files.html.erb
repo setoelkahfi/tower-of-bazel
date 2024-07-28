@@ -1,0 +1,77 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %> | <%= @user.name %></title>
+  <meta name="description" content="<%= @meta_description %>">
+<% end %>
+<div class="row">
+  <!-- BEGIN content -->
+  <div class="col-md-12">
+    
+      <div class="page-header">
+        <h1><%= t("my") %> / Arsip 📁</h1>
+      </div>
+      <%= render "shared/flash_message", object: flash %>
+    
+  </div>
+  <div class="col-md-2">
+    <%= render "my/partial_menu" %>
+  </div>
+  <div class="col-md-10">
+    
+      <div class="row">
+        <!-- BEGIN content -->
+        <div class="col-md-12">
+          <div class="lead page-info">
+            <b><i>Arsip</i></b> is your file management system for all you <b><i>AI personal assistant</i></b> tools.
+          </div>
+          <%= form_with model: @audio_file, url: { action: "files" }, :method => :post, html: { :class => "form-horizontal" }  do |form| %>
+            <div class="form-group">
+              <label for="youtubeLink" class="col-sm-3 control-label">YouTube</label>
+              <div class="col-sm-9">
+                <%= form.text_field :youtube_video_url, class: "form-control", placeholder: "YouTube video link" %>
+                <%= form.hidden_field :user_id, :value => @user.id %>
+                <%= form.hidden_field :is_public, :value => 0 %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="audioFile" class="col-sm-3 control-label">Or use your audio file</label>
+              <div class="col-sm-9">
+                <%= form.file_field :source_file, accept: ".mp3,audio/*" %>
+                <p class="help-block">.mp3 or .wav file</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+                <%= form.submit "Split it!", class: "bb-button bb-blue bb-large bb-round" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <!-- BEGIN content -->
+        <div class="col-md-12">
+          <h2>Files</h2>
+          <% if @audio_files.count == 0 %>
+            You don't have any files.
+          <% else %>
+            <table style="width: 100%">
+              <% @audio_files.each_with_index do |audio_file, index| %>
+                <%= render "my/partial_files_row", audio_file: audio_file %>
+              <% end %>
+            </table>
+          <% end %>
+        </div>
+      </div>
+    
+  </div>
+  <!-- END content -->
+</div>
+<div class="row" style="margin-top: 20px;">
+  <div class="col-md-12">
+    
+      <ol class="breadcrumb">
+        <li><%= link_to t("breadcrumb_home"), root_path %></li>
+      </ol>
+    
+  </div>
+</div>

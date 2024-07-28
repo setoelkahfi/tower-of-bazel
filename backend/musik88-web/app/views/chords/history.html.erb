@@ -1,0 +1,87 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= @meta_url %>" />
+<% end %>
+<main>
+  <div class="row g-5">
+    <div class="col-md-12">
+      <h1><%= @page_title %> / History</h1>
+    </div>
+  </div>
+  <div class="row g-5">
+    <div class="col-sm-1">
+      <div class="position-sticky" style="top: 1rem;">
+        <div class="text-center mt-4">
+          <%= link_to(
+              "<i class='bi bi-music-note-list text-primary' style='font-size: 1.5rem;'></i>".html_safe,
+              guitar_chord_detail_path(@chord.slug),
+              title: "Back to chord"
+          ) %>
+        </div>
+        <div class="text-center mt-4">
+          <% if user_signed_in? && @chord.users.include?(current_user) %>
+            <%= link_to(
+                    '<i class="bi bi-heart-fill"></i>'.html_safe,
+                    chord_unvote_path(id: @chord.id),
+                    remote: true,
+                    method: :delete,
+                    :id => "ajax_trigger"
+                )
+            %>
+          <% else %>
+            <%= link_to(
+                      '<i class="bi bi-heart"></i>'.html_safe,
+                      chord_vote_path(id: @chord.id),
+                      remote: true,
+                      method: :post,
+                      title: t('somebody_to_love'),
+                      :id => "ajax_trigger"
+                  )
+              %>
+          <% end %>
+          <span class="badge rounded-pill bg-warning text-dark"><%= @chord.users.count %></span>
+        </div>
+        <div class="text-center mt-4">
+          <i class="bi bi-graph-up-arrow"></i>
+          <span class="badge rounded-pill bg-warning text-dark"><%= @chord.views_count %></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-11">
+      <ul class="list-group mt-5">
+        <% @chord_histories.each_with_index do |history, index| %>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold fst-italic">
+                <%= link_to(
+                    "@#{history.user.username_or_id}",
+                    profile_path(history.user.username_or_id),
+                    title: "Author: @#{history.user}"
+                ) %>
+              </div>
+              <%= history.name %>
+            </div>
+            <span class="badge bg-primary rounded-pill fst-italic fw-light"><%= (index == @chord_histories.size - 1 ? @chord.created_at : history.updated_at).strftime("%B %-d, %Y") %></span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <%= render 'shared/partial_breadcrumbs' do %>
+    <li class="breadcrumb-item">
+      <%= link_to(
+                t('guitar_chord_link', slug: @chord.link_title),
+                guitar_chord_detail_path(@chord.slug)
+              ) %>
+    </li>
+    <li class="breadcrumb-item">
+      <%= link_to(
+                t('guitar_chord_history'),
+                guitar_chord_history_path
+              ) %>
+    </li>
+  <% end %>
+</main>

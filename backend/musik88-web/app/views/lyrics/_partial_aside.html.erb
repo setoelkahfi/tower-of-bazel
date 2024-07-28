@@ -1,0 +1,27 @@
+
+  <aside class="mb-3">
+    <% if @chords.present? %>
+      <div class="bluebox-heading">
+        <h2><%= song.name %></h2>
+      </div>
+      <% @chords.each do |chord| %>
+        <h4>
+          <%= link_to(
+                chord.link_title,
+                guitar_chord_detail_path(chord.slug)
+              ) %>
+        </h4>
+        <span style="text-transform: capitalize;font-style: italic;">
+          <%= t("song_updated_at", date: chord.updated_at.strftime("%B %-d, %Y")) %>
+        </span>
+      <% end %>
+    <% end %>
+  </aside>
+  <aside class="mb-3">
+    <div class="mb-3">
+      <h2><%= song.album.name %></h2>
+    </div>
+    <% song.album.songs.each do |song| %>
+      <h4 class="mb-3 fs-6"><%= yield(song) %></h4>
+    <% end %>
+  </aside>

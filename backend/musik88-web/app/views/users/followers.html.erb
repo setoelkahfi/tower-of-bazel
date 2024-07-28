@@ -1,0 +1,28 @@
+<% content_for :meta_head do %>
+  <%= render('shared/partial_meta_tag', title: @meta_title, description: @meta_description) %>
+<% end %>
+<% content_for :breadcrumb do %>
+  <%= render 'shared/partial_breadcrumbs_schema' do %>
+    {
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+    "@id": "<%= users_url %>",
+    "name": "<%= t("user_profile") %> <%= @user.name %>"
+    }
+    }
+  <% end %>
+<% end %>
+<main>
+  <%= render('shared/flash_message', object: flash) %>
+  <%= render('partial_public_profile_user_information') %>
+  <%= render('partial_profile_followers') %>
+  <%= render 'shared/partial_breadcrumbs' do %>
+    <li class="breadcrumb-item">
+      <%= link_to(
+        "@#{@user.username_or_name}",
+        profile_path(@user.username_or_id)
+      ) %>
+    </li>
+  <% end %>
+</main>

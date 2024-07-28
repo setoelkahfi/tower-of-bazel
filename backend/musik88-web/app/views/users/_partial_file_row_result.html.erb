@@ -1,0 +1,32 @@
+        <div class="row" id="splitfire-result-<%= audio_file.id %>" style="display: none;">
+          <div class="col-md-12">
+            <% if !audio_file.youtube_video_url.nil? && !audio_file.youtube_video_id.nil? %>
+                <div style="padding-top: 10px;">
+                  <iframe 
+                    width="300" 
+                    height="150" 
+                    src="https://www.youtube.com/embed/<%= audio_file.youtube_video_id %>?controls=0" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                  </iframe>
+                </div>
+            <% end %>
+              <% audio_file.splitfire_results.each_with_index do |audio_file, index| %>
+                  <%= render "users/partial_splitfire_result_row", audio_file: audio_file %>
+              <% end %>
+
+              <% if !audio_file.bass_backing_track.nil? %>
+                  <%= render "users/partial_splitfire_result_row", audio_file: audio_file.bass_backing_track %>
+              <% end %>
+
+              <% if !audio_file.karaoke_file.nil? %>
+                  <%= render "users/partial_splitfire_result_row", audio_file: audio_file.karaoke_file %>
+              <% end %>
+
+              <% if !audio_file.drum_backing_track.nil? %>
+                  <%= render "users/partial_splitfire_result_row", audio_file: audio_file.drum_backing_track %>
+              <% end %>
+              
+          </div>
+        </div>

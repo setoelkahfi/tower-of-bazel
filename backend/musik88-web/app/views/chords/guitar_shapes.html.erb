@@ -1,0 +1,70 @@
+<% content_for :meta_head do %>
+    <title><%= @meta_title %></title>
+    <meta name="description" content="<%= @meta_description %>">
+    <meta property="og:title" content="<%= @meta_title %>" />
+    <meta property="og:description" content="<%= @meta_description %>" />
+    <meta property="og:url" content="<%= guitar_chord_shapes_url %>" />
+<% end %>
+  
+  <% content_for :breadcrumb do %>
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "<%= root_url %>",
+          "name": "<%= t("site_name") %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "<%= guitar_chord_shapes_url %>",
+          "name": "<%= t("nav_chords_shapes") %>"
+        }
+      }]
+    }
+    </script>
+  <% end %>
+<div class="row">
+  <div class="col-md-4">
+    <aside>
+      <div class="bluebox-heading">
+          <h2><%= t("guitar_chords_shape")%></h2>
+        </div>
+        <div class="events-list widget-wrap">
+        <% @chords.each_with_index do |chord, index| %>
+          <section class="event">
+            <div class="date">
+              <strong><%= index + 1 %>.</strong>
+            </div>
+            <div class="details">
+              <h1>
+                <%= link_to t("guitar_chord") + chord.name,
+                          guitar_chord_shape_path(chord.name.downcase.parameterize + "-" + chord.id.to_s) %>
+              </h1> 
+              <%= link_to t("see_chord_detail"),
+                          guitar_chord_shape_path(chord.name.downcase.parameterize + "-" + chord.id.to_s),
+                          class: "more-link" %>
+            </div>
+          </section>
+        <% end %>
+      </div>
+    </aside>
+  </div>
+  <div class="col-md-8">
+    
+      <h2><%= @page.title if @page %></h2>
+      <div class="lead">
+        <%= raw @page.page_content if @page %>
+      </div>
+    
+  </div>
+</div>
+
+<%= render "shared/partial_breadcrumbs" do %>
+  <li class="breadcrumb-item"><%= link_to t("nav_chords"), guitar_chords_path %></li>
+<% end %>

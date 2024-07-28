@@ -1,0 +1,124 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= javanese_gending_gamelan_notation_detail_url %>" />
+<% end %>
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "<%= root_url %>",
+          "name": "<%= t("site_name") %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "<%= javanese_gamelan_url %>",
+          "name": "<%= t("nav_javanese_gamelan") %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "<%= javanese_gending_gamelan_notation_detail_url %>",
+          "name": "<%= t("gending_notation") + @gending.name %>"
+        }
+      }]
+    }
+  </script>
+<% end %>
+<main>
+  <div class="row g-5">
+    <div class="col-12">
+      <div class="lead p-3">
+        <%=
+              t(
+                'gending_notation_add_explanation',
+                href: link_to(
+                  t('gending_notation_add'),
+                  add_gending_notation_path,
+                  class: 'btn btn-primary'
+                ),
+                bach_link: link_to("<span class='badge bg-warning text-dark'>€BACH</span>".html_safe, bach_path)
+              ).html_safe
+            %>
+      </div>
+    </div>
+  </div>
+  <div class="row g-5">
+    <div class="col-md-12">
+      <h1><%= @page_title %></h1>
+    </div>
+  </div>
+    <div class="row g-5">
+    <div class="col-sm-1">
+      <div class="position-sticky" style="top: 1rem;">
+        <div class="text-center mt-3">
+          <% if user_signed_in? && @gending.users.include?(current_user) %>
+            <%= link_to(
+                    '<i class="bi bi-heart-fill"></i>'.html_safe,
+                    javanese_gending_notation_unvote_path(id: @gending.id),
+                    remote: true,
+                    method: :delete,
+                    :id => "ajax_trigger"
+                )
+            %>
+          <% else %>
+            <%= link_to(
+                      '<i class="bi bi-heart"></i>'.html_safe,
+                      javanese_gending_notation_vote_path(id: @gending.id),
+                      remote: true,
+                      method: :post,
+                      :id => "ajax_trigger"
+                  )
+              %>
+          <% end %>
+          <span class="badge rounded-pill bg-warning text-dark"><%= @gending.gending_notation_vote.count %></span>
+        </div>
+        <div class="text-center mt-4">
+          <i class="bi bi-graph-up-arrow"></i>
+          <span class="badge rounded-pill bg-warning text-dark"><%= @gending.views_count %></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-11">
+      <%= render('shared/partial_meta_top', author: @author, created_at: @gending.created_at) %>
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <%= render('partial_menus', active_menu: 'legacy' ) %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mb-5 mt-3">
+          <%= @content_notation.html_safe %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 id="discussion"><%= t('discussion') %></h3>
+          <%= render "shared/flash_message", object: flash %>
+          <div class="mb-3">
+            <%= form_for [@gending, Comment.new] do |f| %>
+              <%= f.text_area :body, placeholder: t('discussion_comment_placeholder'), rows: "4" , cols: "50%" %><br/>
+              <%= f.hidden_field :user_id, value: current_user.id if user_signed_in? %>
+              <%= f.submit t('discussion_comment_button'), class: "btn btn-primary" %>
+            <% end %>
+          </div>
+          <%= render(partial: 'comments/comment', collection: @gending.comments) %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render "shared/partial_breadcrumbs" do %>
+    <li class="breadcrumb-item"><%= link_to t("nav_javanese_gamelan"), javanese_gamelan_path %></li>
+    <li class="breadcrumb-item"><%= link_to t("gending_notation") + @gending.name, javanese_gending_gamelan_notation_detail_path %></li>
+  <% end %>
+</main>

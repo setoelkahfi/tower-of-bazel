@@ -1,0 +1,31 @@
+<style>
+li.selected {
+    font-weight: bold;
+}
+</style>
+
+    <ul style="list-style: none; padding: 0px 10px 10px 10px">
+        <li style="padding: 0px 5px 10px 0" class="<%= current_profile_menu?('/my/profile') %>">
+            <%= link_to "😃 Profile", my_profile_path %>
+        </li>
+        <li style="padding: 0px 5px 10px 0" class="<%= current_profile_menu?('/my/files') %>">
+            <%= link_to "📁 Arsip", my_files_path %>
+        </li>
+        <li style="padding: 0px 5px 10px 0" class="<%= current_profile_menu?('/my/splitfire') %>">
+            <%= link_to "🔥 SplitFire", my_splitfire_path %>
+        </li>
+        <li style="padding: 0px 5px 10px 0" class="<%= current_profile_menu?('/my/bass64') %>">
+            <%= link_to "Bass backing tracks 🎸", my_bass64_path %>
+        </li>
+        <li style="padding: 0px 5px 10px 0" class="<%= current_profile_menu?('/my/karokowe') %>">
+            <%= link_to "Karaoke files 🎤", my_karokowe_path %>
+        </li>
+        <li style="padding: 0px 5px 10px 0" class="<%= current_profile_menu?('/my/bonzo') %>">
+            <%= link_to "Drum backing tracks 🥁", my_bonzo_path %>
+        </li>
+        <% if current_user.username == 'seto' %>
+            <li style="padding: 0px 5px 10px 0" class="<%= current_profile_menu?('/my/admin-files') %>">
+                <%= link_to "Admin Arsip 📁", my_admin_files_path %>
+            </li>
+        <% end %>
+    </ul>

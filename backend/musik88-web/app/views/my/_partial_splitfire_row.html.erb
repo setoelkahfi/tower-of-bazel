@@ -1,0 +1,32 @@
+<tr style="vertical-align: middle" id="spitfire-row-<%= audio_file.id %>">
+    <td style="padding: 10px 10px 10px 0;">
+      <% if audio_file.source_file.attached? %>
+        <%= link_to(audio_file.source_file.blob.filename, my_splitfire_detail_path(audio_file.id)) %>
+      <% elsif audio_file.audio_file_splitfire_status.youtube_converting? %>
+        Processing audio file...
+      <% else %>
+        File is missing. Please delete this.
+      <% end %>
+      <%= render "my/partial_audio_file_information", audio_file: audio_file %>
+      <% if !audio_file.audio_file_splitfire_status.nil? && audio_file.audio_file_splitfire_status.processing? %>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= audio_file.audio_file_splitfire_status.processing_progress %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= audio_file.audio_file_splitfire_status.processing_progress %>%"></div>
+        </div>
+      <% end %>
+    </td>
+    <td style="padding: 10px; width: 200px">
+      <% if !audio_file.source_file.attached? && !audio_file.audio_file_splitfire_status.youtube_converting? %>
+        Missing file.
+      <% elsif audio_file.audio_file_splitfire_status.nil? || (!audio_file.audio_file_splitfire_status.nil? && audio_file.audio_file_splitfire_status.pending? || audio_file.audio_file_splitfire_status.cancelled?) %>
+        <%= link_to("SplitFire 🔥", my_splitfire_start_path(audio_file.id), data: { confirm: '"This will take time 🔥" - SplitFire' }, method: :post) %>
+      <% elsif !audio_file.audio_file_splitfire_status.nil? && (audio_file.audio_file_splitfire_status.processing? || audio_file.audio_file_splitfire_status.youtube_converting?) %>
+        Splitfiring <%= image_pack_tag "fire.gif", :size => "25x25", :style => "vertical-align: bottom" %>
+        </br>
+        <%= link_to("<i class='icon-remove'></i> Cancel".html_safe, my_splitfire_cancel_path(audio_file.id), data: { confirm: 'This will cancel SplitFire 🔥.' }, method: :patch) %>
+      <% elsif !audio_file.audio_file_splitfire_status.nil? && audio_file.audio_file_splitfire_status.done? %>
+        <%= link_to("<i class='icon-list'></i> See results".html_safe, my_splitfire_detail_path(audio_file.id)) %>
+      <% elsif !audio_file.audio_file_splitfire_status.nil? && audio_file.audio_file_splitfire_status.no_results? %>
+        <%= link_to("SplitFire #{image_pack_tag('fire.gif', :size => '15x15', :style => 'vertical-align: top')} again?".html_safe, my_splitfire_start_path(audio_file.id), data: { confirm: '"This will take time 🔥" - SplitFire' }, method: :post) %>
+      <% end %>
+    </td>
+</tr>

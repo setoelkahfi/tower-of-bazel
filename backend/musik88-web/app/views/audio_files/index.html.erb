@@ -1,0 +1,26 @@
+ <% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= @meta_url %>" />
+<% end %>
+<main>
+  <%= render "shared/flash_message", object: flash %>
+    <h1><%= @page_title %></h1>
+    <div class="row lead">
+        <div class="col-md-9">
+            <% @audio_files.each do |audio_file| %>
+                <%= render 'partial_audio_file', item: audio_file %>
+            <% end %>
+        </div>
+        <div class="col-md-3">
+            <h2>Top users</h2>
+            <% @users.each do |user| %>
+                <%= render 'partial_user', user: user %>
+            <% end %>
+        </div>
+    </div>
+
+  <%= render('shared/partial_breadcrumbs') %>
+</main>

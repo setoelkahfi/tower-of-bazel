@@ -1,0 +1,21 @@
+<div id="audio-file-row-<%= audio_file.id %>" class="audio-file-row">
+  <% if audio_file.is_valid_row? %>
+
+    <%= render "partial_file_row_top.html", audio_file: audio_file %>
+    
+    <% if !audio_file.song.nil? %>
+      <%= render "partial_file_row_information.html", audio_file: audio_file %>
+    <% end %>
+
+    <% if audio_file.is_in_progress? %>
+      <%= render "partial_file_row_progress_bar.html", audio_file: audio_file %>
+    <% end %>
+    
+  <% else %>
+    <div class="row">
+      <div class="col-md-12" style="padding: 20px">
+        Something wrong with the file. Please report this.
+      </div>
+    </div>
+  <% end %>
+</div>

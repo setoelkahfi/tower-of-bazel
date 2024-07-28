@@ -1,0 +1,173 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= @meta_url %>" />
+<% end %>
+<main>
+  <div class="row g-5">
+    <div class="col-md-12">
+      <h1><%= @page_title %></h1>
+      <%= render "shared/flash_message", object: flash %>
+    </div>
+  </div>
+  <div class="row g-5">
+    <div class="col-sm-11">
+      <%= form_with model: @chord, url: { action: "add" }, html: { :class=> "row g-3" } do |form| %>
+        <div class="col-md-6">
+          <%= form.text_field :title, class: "form-control song-title", autocomplete: "off", placeholder: t('add_chord_placeholder_title') %>
+          <div class="valid-feedback mt-3 mb-3 add-song">
+            Cannot find the song? <a href="javascript:void(0)" class="add-song-button" data-bs-toggle="modal" data-bs-target="#add-song-modal"><i class="bi bi-file-plus"></i> Click to add it</a>
+          </div>
+          <div class="list-group song-list" style="display:none"></div>
+          <%= form.hidden_field :song_id, class: 'song-id' %>
+          <%= form.hidden_field :user_id, value: @user.id if @user.present? %>
+        </div>
+        <div class="col-md-6">
+          <p class="song-songwriters"><%= @chord_artists %></p>
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label"><%= t('add_chord_label_chord') %></label>
+          <%= form.hidden_field :chord, class: 'chord-content' %>
+          <div id="editor" style="height: 20rem; width: 100%;">
+            <%= raw(@chord.chord) %>
+          </div>
+        </div>
+        <div class="col-12">
+          <%=
+              "<div class='alert alert-danger' role='alert'>
+                #{t('add_chord_warning', href_login: link_to(t('login'), login_path(redirect_to: guitar_chord_add_path)), href: link_to('@nowhereman', profile_path('nowhereman')))}
+              </div>".html_safe unless user_signed_in?
+          %>
+          <%= form.submit(t('add_chord_share'), class: "btn btn-primary") %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-sm-1">
+      <div class="position-sticky" style="top: 1rem;">
+        <div class="text-center mt-4" data-bs-toggle="modal" data-bs-target="#how-to-modal">
+          <a href="javascript:void(0)">
+            <i class='bi bi-journal-check' style='font-size: 1.5rem;' title="<%= t('add_chord_how_to') %>"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="how-to-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><%= t('add_chord_how_to') %></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= t('add_chord_how_to_content') %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="add-song-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><%= t('add_chord_how_to') %></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= t('add_chord_how_to_content') %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/partial_breadcrumbs' do %>
+    <li class="breadcrumb-item">
+      <%= link_to(t('add_chord_title'), guitar_chord_add_path) %>
+    </li>
+  <% end %>
+</main>
+<script>
+  $.getScript("https://cdn.quilljs.com/1.3.6/quill.js", function() {
+     if ($(".ql-toolbar").length) return;
+
+       var quill = new Quill('#editor', {
+         modules: {
+           toolbar: [
+             [{ header: [2, 3, 4, 5, 6, false] }],
+             [{ color: [] }],
+             [
+               'bold', 'italic', 'underline', 'strike',
+               { 'script': 'super'},
+               { 'script': 'sub' },
+               'code', 'link'
+             ],
+             ['blockquote', 'code-block', 'image'],
+             [{ list: 'ordered' }, { list: 'bullet' }],
+             [{ align: ['center', 'right', 'justify', false] }],
+             [{ indent: '-1'}, { indent: '+1' }]
+           ]
+         },
+         theme: 'snow'
+       });
+        window.quill = quill;
+        quill.on('text-change', function(delta, oldDelta, source) {
+          if (source == 'user') {
+            $('input[class=chord-content]').val(quill.root.innerHTML)
+          }
+        });
+    })
+
+    $(document).on('turbolinks:load', function() {
+
+    $('input.song-title').on('input',function(e) {
+
+      $('.song-songwriters').hide()
+
+      if ($(this).val().length < 3)
+        return
+
+      var url = "<%= guitar_chord_add_song_search_path %>?s=" + $(this).val()
+      $.ajax({
+        type: "GET",
+        url: url,
+        success: function(res) {
+         
+          console.log(res);
+          var ins = ""
+          for (var i = 0; i < res.length; i++) {
+            const song = res[i]
+            var songwriters = ""
+            for (var j = 0; j < song.songwriters.length; j++) {
+              const songwriter = song.songwriters[j]
+              songwriters += `<a href="${songwriter.path}" target="__blank">${songwriter.name}</a> `
+            }
+
+            ins += `<div
+                  class="song list-group-item list-group-item-action flex-column align-items-start"
+                  data-id="${song.id}"
+                  data-title="${song.name}"
+                  style="cursor: pointer;">`
+            ins += "<div class='d-flex w-100 justify-content-between'>"
+            ins += "<h5 class='mb-1'>" + song.name + "</h5>"
+            ins += "<small class='text-muted'>" + song.created + "</small>"
+            ins += "</div>"
+            ins += "<p class='mb-1 songwriters-links'>"
+            ins += songwriters
+            ins += "</p>"
+            ins += "</div>"
+          };
+          $('.song-list').html(ins).show();
+        }
+      });
+    });
+
+    $('body').on('click', 'div.song', function() {
+      //console.log($(this).attr('data-title'))
+      $('.song-songwriters').show()
+      $('input.song-title').val($(this).attr('data-title'))
+      $('input.song-id').val($(this).attr('data-id'))
+      $('.song-songwriters').html($(this).find('.songwriters-links').clone())
+      $('.song-list').html("").hide()
+    });
+  })
+</script>

@@ -1,0 +1,500 @@
+---
+"ja-jp":
+  "10_most_loved_songs": >-
+    最も好きな曲トップ10
+  "active_admin":
+    "filters":
+      "predicates":
+        "from": >-
+          dari tanggal
+        "to": >-
+          sampai tanggal
+  "activerecord":
+    "errors":
+      "models":
+        "album":
+          "attributes":
+            "description":
+              "too_short": >-
+                アーティストの説明を空にすることはできません
+            "name":
+              "too_short": >-
+                アルバム名を空にすることはできません
+        "artist":
+          "attributes":
+            "description":
+              "too_short": >-
+                アーティストの説明を空にすることはできません
+            "name":
+              "too_short": >-
+                アーティスト名を空にすることはできません
+        "chord":
+          "attributes":
+            "chord":
+              "too_short": >-
+                Chord lagu tidak boleh kosong
+        "lyric":
+          "attributes":
+            "lyric":
+              "too_short": >-
+                Lirik lagu tidak boleh kosong
+        "page":
+          "attributes":
+            "page_content":
+              "too_short": >-
+                Konten halaman tidak boleh kosong
+            "page_slug":
+              "too_short": >-
+                Slug halaman tidak boleh kosong
+        "song":
+          "attributes":
+            "album":
+              "too_short": >-
+                アルバムを空にすることはできません
+            "description":
+              "too_short": >-
+                曲の説明を空にすることはできません
+            "name":
+              "too_short": >-
+                曲名を空にすることはできません
+        "user":
+          "attributes":
+            "email":
+              "blank": >-
+                Email tidak boleh kosong
+              "invalid": >-
+                Email tidak valid
+            "name":
+              "blank": >-
+                Nama tidak boleh kosong
+            "password":
+              "blank": >-
+                Password tidak boleh kosong
+              "too_short": >-
+                Password terlalu pendek
+            "password_confirmation":
+              "confirmation": >-
+                Konfirmasi password tidak sama
+  "add_chord_validation_success": >-
+    貢献していただきありがとうございます！
+  "album_artists": >-
+    アーティスト
+  "album_song_list": >-
+    曲リスト
+  "artist_profile_album_contribution_title": >-
+    %{artist} にも表示されます：
+  "artist_profile_album_title": >-
+    %{artist}のアルバム
+  "artist_profile_title": >-
+    %{artist} プロフィール
+  "breadcrumb_home": >-
+    ホーム
+  "breadcrumb_most_loved_songs": >-
+    最も好きな曲
+  "by": >-
+    Dicintai oleh
+  "cancel": >-
+    Batalkan
+  "confirm_email": >-
+    メールを確認する
+  "create_account": >-
+    アカウントを作成する
+  "discussion": >-
+    討論
+  "email": >-
+    Eメール
+  "find_your_artist": >-
+    Temukan Artist Idola Kamu
+  "find_your_favorite_album": >-
+    お気に入りの新しいアルバムを探す
+  "find_your_favorite_songs": >-
+    お気に入りの曲を探す
+  "followers": >-
+    フォロワー
+  "following": >-
+    従う
+  "footer": >-
+    すべての %{instagram} の %{profile} によって作成された流行&middot; &copy;2021年
+  "footer_world": >-
+    世界
+  "forgot_password": >-
+    パスワードを忘れましたか？
+  "gending_add": >-
+    あなたの性別表記を共有する
+  "gending_add_explanation": >-
+    ジャワガムランをオンラインでデジタル化するのを手伝ってください。 %{href}を選択し、%{bach_link}トークンを取得します。
+  "gending_description": >-
+    説明
+  "gending_name": >-
+    性別タイトル
+  "gending_notation": >-
+    性別表記
+  "gending_notation_add": >-
+    性別表記を追加
+  "gending_notation_link": >-
+    ジャワのジェンディング表記 %{slug}
+  "gending_notation_meta_desciption": >-
+    %{title}を表示するためのジャワ語のgending表記は次のとおりです。
+  "gending_notation_page_title": >-
+    性別表記%{title}
+  "guitar_chord_image": >-
+    Gambar Kunci Gitar
+  "guitar_chord_link": >-
+    ギターコード %{slug}
+  "guitar_chord_video": >-
+    Video Kunci Gitar
+  "guitar_chords_shape": >-
+    Bentuk Kunci Gitar
+  "h2_find_new_albums": >-
+    ここで新しいアルバムを見つけてください！
+  "h2_find_new_artists": >-
+    ここで新しいアーティストを見つけよう！
+  "h2_find_new_songs": >-
+    ここで新しい音楽を見つけよう！
+  "have_account": >-
+    すでにアカウントをお持ちですか？
+  "hello": >-
+    Lirik lagu terbaru! Koleksi lirik lagu terlengkap.
+  "home_guitar_chords": >-
+    ギターコード
+  "home_guitar_chords_headline": >-
+    ギターコードを送信して、貢献に対して%{bach_link}レピュテーショントークンを獲得してください。
+  "home_headline": >-
+    世界最大の音楽データベース！
+  "home_javanese_gending_notation": >-
+    ジャワの性別表記
+  "home_javanese_gending_notation_subheadline": >-
+    ジャワガムランをデジタル化し、貢献に対して%{bach_link}レピュテーショントークンを獲得します。
+  "home_lyrics": >-
+    歌詞
+  "home_new_entries": >-
+    新規エントリー
+  "home_others": >-
+    その他
+  "home_others_headline": >-
+    私の他のプロジェクトをチェックしてください。
+  "home_popular": >-
+    人気
+  "home_see_all": >-
+    すべてを見る
+  "home_share_gamelan_notation_now": >-
+    ジェンディング表記を共有しましょう！
+  "home_share_now": >-
+    あなたのコードを共有してください！
+  "home_signup_now": >-
+    今すぐサインアップ！
+  "home_songs": >-
+    曲
+  "home_subheadline": >-
+    英国の和音、インディーズバンドの和音、インドネシアの和音、スウェーデンの和音、日本のアーティストの和音、スウェーデンのアルバムなど！ 貢献して %{bach_link}レピュテーショントークンを獲得してください。
+  "home_youtube_karaoke": >-
+    Youtubeカラオケ
+  "home_youtube_karaoke_headline": >-
+    AIを搭載したお気に入りのYouTubeミュージックビデオのカラオケバージョン。
+  "invalid_login": >-
+    無効なメールアドレス/パスワード
+  "locale_name": "\U0001F1EF\U0001F1F5 日本"
+  "login": >-
+    ログイン！
+  "login_with_facebook": >-
+    Facebookでサインイン
+  "lyric": >-
+    Lirik Lagu
+  "lyric_cannot_be_empty": >-
+    Lirik tidak boleh kosong
+  "my_profile": >-
+    私のプロフィール
+  "my_profile_link_href": >-
+    tautan aman ini
+  "my_profile_link_html": >-
+    Ini adalah halaman publik lo. Ikuti %{href} kalo mau perbarui data lo.
+  "my_profile_private": >-
+    このプロファイルは非公開です
+  "name": >-
+    名前
+  "nav_albums": >-
+    アルバム
+  "nav_artists": >-
+    アーティスト
+  "nav_buy_bach": >-
+    買う €BACH
+  "nav_change_language": >-
+    Ganti Bahasa:
+  "nav_chords": >-
+    ギターコード
+  "nav_chords_shapes": >-
+    Bentuk Kunci Gitar
+  "nav_community": >-
+    Komunitas
+  "nav_en": >-
+    English
+  "nav_footer_about": >-
+    Tentang Kami
+  "nav_footer_company": >-
+    Perusahaan
+  "nav_footer_contact": >-
+    Kontak
+  "nav_footer_follow_us": >-
+    Ikuti kami
+  "nav_footer_privacy": >-
+    Kebijakan Privasi
+  "nav_footer_term": >-
+    Ketentuan Penggunaan
+  "nav_guitar": >-
+    Gitar
+  "nav_id": >-
+    Bahasa Indonesia
+  "nav_javanese_gamelan": >-
+    Gamelan Jawa
+  "nav_javanese_gamelan_about": >-
+    Tentang Gamelan Jawa
+  "nav_javanese_gending": >-
+    Gending Jawa
+  "nav_javanese_gending_notation": >-
+    Notasi Gending Jawa
+  "nav_login": >-
+    ログイン
+  "nav_login_dropdown": >-
+    アカウント
+  "nav_logout": >-
+    外出
+  "nav_lyrics": >-
+    歌詞
+  "nav_music_database": >-
+    Musik
+  "nav_signup": >-
+    アカウントリスト
+  "nav_songs": >-
+    歌
+  "nav_ukulele_chords": >-
+    Kunci Ukulele (segera)
+  "need_to_logged_in": >-
+    Masuk log dulu sebelum kasih love. Belum punya akun? Daftar aja dulu, gampang
+    kok. Bisa pake akun Facebook kamu lho.
+  "need_to_logged_in_my_profile": >-
+    このタスクを実行するには、ログインする必要があります。
+  "new_user": >-
+    新しいユーザー？
+  "or": >-
+    または
+  "our_community": >-
+    私たちのコミュニティ
+  "our_guitar_chords_collection": >-
+    Koleksi kunci gitar lagu terbaru dari kami
+  "our_newest_song_lyrics": >-
+    私たちの最新の歌の歌詞コレクション
+  "password": >-
+    パスワード
+  "password_confirmation": >-
+    パスワードを認証する
+  "routes":
+    "about_us": >-
+      私たちに関しては
+    "add_gending": >-
+      add-gending-gamelan
+    "add_javanese_gamelan_notation": >-
+      add-javanese-gamelan-notation
+    "album": >-
+      アルバム
+    "album_add": >-
+      add-album
+    "album_detail": >-
+      アルバム
+    "artist": >-
+      アーティスト
+    "artist_add": >-
+      add-artist
+    "artist_detail": >-
+      アーティスト
+    "audio_files": >-
+      audio-files
+    "bass_backing_track": >-
+      bass-backing-track-:slug
+    "community": >-
+      コミュニティ
+    "contact": >-
+      kontak
+    "drum_backing_track": >-
+      drum-backing-track-:slug
+    "followers": >-
+      followers
+    "following": >-
+      following
+    "guitar_backing_track": >-
+      guitar-backing-track-:slug
+    "guitar_chord_shape": >-
+      bentuk-kunci-gitar-:slug
+    "guitar_chord_shapes": >-
+      bentuk-kunci-gitar
+    "guitar_chords": >-
+      ギターコード
+    "guitar_chords_add": >-
+      tambah-akord
+    "guitar_chords_detail": >-
+      kunci-gitar-:slug
+    "guitar_chords_history": >-
+      kunci-gitar-:slug/sejarah
+    "guitar_chords_review": >-
+      kunci-gitar-:slug/review-akord
+    "javanese_gamelan": >-
+      gamelan-jawa
+    "javanese_gamelan_notation": >-
+      gamelan-jawa
+    "javanese_gending": >-
+      gending-jawa
+    "javanese_gending_detail": >-
+      gending-gamelan-jawa-:slug
+    "javanese_gending_gamelan_notation": >-
+      notasi-gending-gamelan-jawa
+    "javanese_gending_gamelan_notation_detail": >-
+      notasi-gending-gamelan-jawa-:slug
+    "login": >-
+      ログイン
+    "most_loved_songs": >-
+      最も人気のある曲
+    "privacy_policy": >-
+      kebijakan-privasi
+    "signup": >-
+      daftar
+    "song": >-
+      lagu
+    "song_add": >-
+      add-song
+    "song_audio": >-
+      song-audio
+    "song_bass_tab": >-
+      bass-tab-:slug
+    "song_chords": >-
+      kord-lagu
+    "song_detail": >-
+      lagu
+    "song_karaoke_detail": >-
+      karaoke-lagu-:slug
+    "song_lyrics": >-
+      歌詞
+    "song_lyrics_detail": >-
+      歌詞-:slug
+    "term_of_use": >-
+      ketentuan-penggunaan
+    "user_rep": >-
+      reputasi
+  "see_album_detail": >-
+    アルバムの詳細を表示
+  "see_artist_detail": >-
+    アーティストの詳細を表示
+  "see_chord_detail": >-
+    Lihat detail kord
+  "see_song_detail": >-
+    曲の詳細を表示
+  "signup": >-
+    リスト
+  "signup_now": >-
+    今すぐサインアップ！
+  "signup_to_claim": >-
+    これはあなたの物です？
+  "signup_with_facebook": >-
+    Facebookでサインアップ
+  "site_name": >-
+    Musik88.id
+  "somebody_to_love": >-
+    Cintai aku
+  "song_audio_page_title": >-
+    のオーディオファイル %{song_name}
+  "song_chord_page_title": >-
+    ギターキー%{song_name} by %{song_artist_name}
+  "song_chord_unavailable_content": >-
+    <span class='song-lyric-unavailable'>Kunci gitar %{song_name} dari %{song_artist_name}</span>
+    belum tersedia. Beri cinta <span class='glyphicon glyphicon-heart'></span> pada
+    lagu ini. Kami perlu setidaknya 2 cinta dari elo buat ngulik lagunya.
+  "song_chord_unavailable_meta_description": >-
+    Berikut adalah kunci gitar %{song_name} dari %{song_artist_name} dari album %{song_album_name}.
+  "song_chords_page_title": >-
+    ソングキー %{song_name}
+  "song_detail": >-
+    曲の詳細
+  "song_detail_page_meta_title": >-
+    Arti lagu %{song_name} dari %{song_artist_name} dari album %{song_album_name}.
+  "song_detail_page_title": >-
+    歌の意味 %{song_name}
+  "song_generate_your_own_bass_backing_track": >-
+    Buat sendiri backing track bas lagu %{song_name}
+  "song_generate_your_own_drum_backing_track": >-
+    Buat sendiri backing track drum lagu %{song_name}
+  "song_generate_your_own_karaoke": >-
+    Buat Versi Karaoke Lagu %{song_name}
+  "song_generate_your_own_stem_files": >-
+    Buat STEM Files dari lagu %{song_name}
+  "song_karaoke_download": >-
+    カラオケラグをダウンロード
+  "song_karaoke_page_title": >-
+    Download Lagu Karaoke %{song_name} Dari %{song_artist_name} Album %{song_album_name}
+  "song_karaoke_title": >-
+    %{filename} カラオケバージョン
+  "song_karaoke_unavailable_content": >-
+    Lagu karaoke %{song_name} dari %{song_artist_name} belum tersedia. Login untuk
+    request.
+  "song_karaoke_unavailable_meta_description": >-
+    Download Lagu Karaoke %{song_name} Dari %{song_artist_name} Album %{song_album_name}
+  "song_lyric_page_title": >-
+    Lirik Lagu %{song_name} dari %{song_artist_name}
+  "song_lyric_unavailable_content": >-
+    <span class='song-lyric-unavailable'>Lirik lagu %{song_name} dari %{song_artist_name}</span>
+    belum tersedia. Beri setidaknya 2 cinta <span class='glyphicon glyphicon-heart'></span>
+    atau %{href} pada lagu ini jadi kita bisa fokus buat ngulik kunci gitarnya.
+  "song_lyric_unavailable_content_add_lyric": >-
+    歌詞を追加
+  "song_lyric_unavailable_meta_description": >-
+    Berikut adalah lirik lagu %{song_name} dari %{song_artist_name} dari album %{song_album_name}.
+  "song_lyrics_page_title": >-
+    歌詞 %{song_name}
+  "song_menu_aside_audio": >-
+    オーディオ
+  "song_menu_aside_chords": >-
+    和音
+  "song_menu_aside_info": >-
+    情報
+  "song_menu_aside_lyrics": >-
+    歌詞
+  "song_menu_bass_backing_track": >-
+    Bass backing track %{song_name}
+  "song_menu_bass_tab": >-
+    Bass tab %{song_name}
+  "song_menu_drum_backing_track": >-
+    Drum backing track %{song_name}
+  "song_menu_guitar_chord": >-
+    Kunci Gitar %{song_name}
+  "song_menu_karaoke": >-
+    Karaoke Version %{song_name}
+  "song_menu_lyric": >-
+    Lirik Lagu %{song_name}
+  "song_updated_at": >-
+    Diperbarui: %{date}
+  "still_login": >-
+    私を覚えてますか
+  "time":
+    "formats":
+      "long": >-
+        %Y-%m-%d %H:%M:%S
+  "top_10_albums": >-
+    トップ10アルバム
+  "top_10_artists": >-
+    Top 10 アーティスト
+  "top_10_guitar_chords": >-
+    Top 10 ギターコード
+  "top_10_song_lyrics": >-
+    トップ10の歌の歌詞
+  "top_10_songs": >-
+    トップ10曲
+  "user_profile": >-
+    プロフィール
+  "user_signup_email_heading": >-
+    Terimakasih telah mendaftar, %{user_name}!
+  "user_signup_email_heading_p1": >-
+    クラブへようこそ！
+  "user_signup_email_heading_p2": >-
+    Kami dalam sebuah misi untuk mendigitalkan musik-musik yang kurang terekpose.
+    %{href} dan mulai berkontribusi :)
+  "user_signup_email_subject": >-
+    Musik88へようこそ！
+  "welcome_user": >-
+    ようこそ、%{user_name}！

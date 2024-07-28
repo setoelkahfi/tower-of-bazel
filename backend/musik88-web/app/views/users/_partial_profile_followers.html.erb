@@ -1,0 +1,21 @@
+<div class="row mt-5">
+  <div class="col-md-12">
+    <%= render('partial_menus', active_menu: 'friends' ) %>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-md-2">
+    <%= render('partial_menus_friends', active_menu: 'followers' ) %>
+  </div>
+  <div class="col-md-10">
+    <div class="row mt-5">
+      <% if @user.followers.count.positive? %>
+        <% @user.followers.each_with_index do |user, index| %>
+          <%= render('partial_user', user: user) %>
+        <% end %>
+      <% else %>
+        <p>All the lonely people, where do they all come from?</p>
+      <% end %>
+    </div>
+  </div>
+</div>

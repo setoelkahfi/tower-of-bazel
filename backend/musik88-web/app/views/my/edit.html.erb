@@ -1,0 +1,78 @@
+    <% content_for :meta_head do %>
+      <title><%= @meta_title %> | <%= @user.name %></title>
+      <meta name="description" content="<%= @meta_description %>">
+    <% end %>
+    
+    <div class="row">
+      <!-- BEGIN content -->
+      <div class="col-md-12">
+        
+          <div class="page-header">
+              <h1><%= t("my") %> / Profile 😃 / Edit</h1>
+          </div>
+        
+      </div>
+      <div class="col-md-2">
+        <%= render "my/partial_menu" %>
+      </div>
+      <div class="col-md-10">
+          
+            <%= gravatar_for @user %>
+          
+        
+			    <%= render "shared/flash_message", object: flash %>
+          <%= form_with model: @user do |form| %>
+            <div class="form-group">
+              <%= form.label :name, class: "col-sm-3 control-label" %>
+              <div class="col-sm-9">
+                <%= form.text_field :name %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= form.label :email, class: "col-sm-3 control-label" %>
+              <div class="col-sm-9">
+                <%= form.text_field :email, disabled: true %>
+                <%= form.hidden_field :id, :value => @user.id %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= form.label :username, class: "col-sm-3 control-label" %>
+              <div class="col-sm-9">
+                <%= form.text_field :username %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= form.label :instagram, class: "col-sm-3 control-label" %>
+              <div class="col-sm-9">
+                <%= form.text_field :instagram %>
+              </div>
+            </div>
+            <div class="form-group">
+                <%= form.label :is_private, class: "col-sm-3 control-label" %>
+                <div class="col-sm-9">
+                  <%= form.select :is_private, [["Define for yourself what is TRUE", "1"], ["Nah, make it public", "0"]], selected: 0 %>
+                </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+                <%= form.submit class: "bb-button bb-green bb-large" %>
+                <%= link_to t("cancel"), my_path, class: "bb-button bb-red bb-large" %>
+              </div>
+            </div>
+          <% end %>
+          
+        
+      </div>
+      <!-- END content -->
+    </div>
+    
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-12">
+        
+          <ol class="breadcrumb">
+            <li><%= link_to t("breadcrumb_home"), root_path %></li>
+          </ol>
+        
+      </div>
+    </div>
+    

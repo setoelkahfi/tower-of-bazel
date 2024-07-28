@@ -1,0 +1,31 @@
+ <% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= @meta_url %>" />
+<% end %>
+<main>
+  <%= render "shared/flash_message", object: flash %>
+    <h1><%= @page_title %></h1>
+    <div class="row lead">
+        <div class="col-md-9">
+            <% if @bass_backing_track.present? && @bass_backing_track.done? %>
+                <%= link_to "Open in SplitFire", @bass_backing_track.audio_file.splitfire_bass_backing_track_link, class: "btn btn-primary", target: :__blank %>
+            <% elsif @bass_backing_track.present? && @bass_backing_track.processing? %>
+                <%= "Processing progress #{@bass_backing_track.status_progress}" %>
+            <% else %>
+                <%= 'You need to logged-in to generate this bass backing track.' unless user_signed_in? %>
+                <%= link_to(t('Generate bass backing track now'), bass_backing_track_path, class: 'btn btn-primary btn-lg px-4', method: :post ) %>
+            <% end %>
+        </div>
+        <div class="col-md-3">
+            <h2>Top users</h2>
+            <% @users.each do |user| %>
+                <%= render 'partial_user', user: user %>
+            <% end %>
+        </div>
+    </div>
+
+  <%= render('shared/partial_breadcrumbs') %>
+</main>

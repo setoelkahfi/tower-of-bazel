@@ -1,0 +1,30 @@
+<div class="row" id="audio-file-information-<%= audio_file.id %>" style="margin: 10px;">
+    <div class="col-md-4">
+            Song: 
+            <%= link_to(
+              audio_file.song.name,
+              song_detail_path(audio_file.song.slug)
+            ) %>
+          </div>
+          <div class="col-md-4">
+            Album: 
+            <%= link_to(
+              audio_file.song.album.name,
+              album_detail_path(album_friendly_url(audio_file.song.album))
+            ) %>
+          </div>
+          <div class="col-md-4">
+            Artist(s): 
+            <% audio_file.song.album.artists.each_with_index do |artist, index| %>
+              <%= " " if index != 0 %>
+              
+              <%= link_to(
+                artist.name,
+                artist_detail_path(artist_friendly_url(artist))
+              ) %>
+
+            <%= "," if index != audio_file.song.album.artists.count - 1 %>
+
+            <% end %>
+    </div>
+</div>

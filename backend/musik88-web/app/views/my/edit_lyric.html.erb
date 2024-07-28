@@ -1,0 +1,47 @@
+<% content_for :meta_head do %>
+    <title><%= @meta_title %> | <%= @user.name %></title>
+    <meta name="description" content="<%= @meta_description %>">
+    <% end %>
+    
+    <div class="row">
+      <!-- BEGIN content -->
+      <div class="col-md-12">
+        
+          <div class="page-header">
+              <h1><%= t("song_lyric_unavailable_content_edit_lyric") %> - <%= @song.name %></h1>
+          </div>
+        
+      </div>
+      <div class="col-md-8">
+        <%= form_with model: @lyric, url: {action: "edit_lyric"}, html: { :class => "form-horizontal" } do |form| %>
+          <div class="form-group">
+            <%= form.label t("lyric"), class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= form.text_area :lyric, class: "col-md-6 form-control tinymce", :rows => 40, :cols => 120  %>
+              <%= form.hidden_field :song_id, :value => @lyric.song_id %>
+              <%= form.hidden_field :user_id, :value => @lyric.user_id %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-4">
+              <%= form.submit t("song_lyric_unavailable_content_add_lyric"), class: "bb-button bb-green bb-large" %></br>
+              <div class="vertical-separator"></div>
+              <%= link_to t("cancel"), my_path, class: "bb-button bb-red bb-large" %>
+            </div>
+          </div>
+        <% end %>
+        <%= tinymce %>
+      </div>
+      <!-- END content -->
+    </div>
+    
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-12">
+        
+          <ol class="breadcrumb">
+            <li><%= link_to t("breadcrumb_home"), root_path %></li>
+          </ol>
+        
+      </div>
+    </div>
+    

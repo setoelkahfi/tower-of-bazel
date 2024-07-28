@@ -1,0 +1,55 @@
+    <% content_for :meta_head do %>
+      <title><%= @meta_title %> | <%= @user.name %></title>
+      <meta name="description" content="<%= @meta_description %>">
+    <% end %>
+    
+    <div class="row">
+      <!-- BEGIN content -->
+      <div class="col-md-12">
+        
+          <div class="page-header">
+              <h1><%= t("my") %> / Profile 😃</h1>
+          </div>
+        
+      </div>
+      <div class="col-md-2">
+        <%= render "my/partial_menu" %>
+      </div>
+      <div class="col-md-4">
+        
+          <div class="lead">
+            <%= gravatar_for @user %>
+            <span style="vertical-align: top; margin-left: 10px;">
+              <%= link_to "Public URL", profile_path(@user.username.presence ? @user.username : @user.id) %>
+            </span>
+          </div>
+          <%= form_with model: @user do |form| %>
+              <%= form.label :name %>
+              <%= form.text_field :name, disabled: true %>
+              <%= form.label :email %>
+              <%= form.text_field :email, disabled: true %>
+              <%= form.label :username %>
+              <%= form.text_field :username, disabled: true %>
+              <%= form.label :instagram %>
+              <%= form.text_field :instagram, disabled: true %>
+              <%= form.label :is_private %>
+              <%= form.text_field :is_private, disabled: true %>
+            <% end %>
+            <div>
+              <%= link_to "Edit", my_profile_edit_path, class: "bb-button bb-green bb-large" %>
+            </div>
+        
+      </div>
+      <!-- END content -->
+    </div>
+    
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-12">
+        
+          <ol class="breadcrumb">
+            <li><%= link_to t("breadcrumb_home"), root_path %></li>
+          </ol>
+        
+      </div>
+    </div>
+    

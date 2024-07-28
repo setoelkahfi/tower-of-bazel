@@ -1,0 +1,5 @@
+$('.alert').fadeOut('slow', function() {
+    var div = $('<div class="alert alert-info"><%= @resend_text.html_safe %></div>').hide();
+    $(this).replaceWith(div);
+    $('.alert').fadeIn('slow');
+});

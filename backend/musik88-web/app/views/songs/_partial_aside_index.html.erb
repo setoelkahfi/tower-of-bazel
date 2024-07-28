@@ -1,0 +1,44 @@
+<div class="col-md-4">
+  <aside>
+    <div class="bluebox-heading">
+      <h2><%= t("10_most_loved_songs")%></h2>
+    </div>
+    <div class="widget-wrap">
+      <%= link_to t("see_all"), most_loved_songs_path, class: "bb-button bb-green bb-large" %>
+    </div>
+    <% @most_loved_songs.each_with_index do |song, index| %>
+      <h4>
+        <%= link_to "#{index + 1}. #{song.name}", song_detail_path(song.name.downcase.parameterize + "-" + song.id.to_s) %>
+      </h4>
+      <div style="padding: 8px;">
+        <i class="icon-heart"></i>
+        <%= song.users_count %>
+        <%= link_to t("see_song_detail"),
+                    song_detail_path(song.name.downcase.parameterize + "-" + song.id.to_s),
+                    class: "badge rounded-pill bg-warning float-end" %>
+      </div>
+      <span style="text-transform: capitalize;font-style: italic;">
+        <%= t("song_updated_at", date: song.updated_at.strftime("%B %-d, %Y")) %>
+      </span>
+    <% end %>
+    <span class="clear"></span>
+    <div class="bluebox-heading">
+      <h2><%= t("top_10_songs")%></h2>
+    </div>
+    <% @trending_songs.each_with_index do |song, index| %>
+      <h4>
+        <%= link_to "#{index + 1}. #{song.name}", song_detail_path(song.name.downcase.parameterize + "-" + song.id.to_s) %>
+      </h4>
+      <div style="padding: 8px;">
+        <i class="icon-eye-open"></i>
+        <%= song.views_count %>
+        <%= link_to t("see_song_detail"),
+                    song_detail_path(song.name.downcase.parameterize + "-" + song.id.to_s),
+                    class: "badge rounded-pill bg-warning float-end"  %>
+      </div>
+      <span style="text-transform: capitalize;font-style: italic;">
+        <%= t("song_updated_at", date: song.updated_at.strftime("%B %-d, %Y")) %>
+      </span>
+    <% end %>
+  </aside>
+</div>

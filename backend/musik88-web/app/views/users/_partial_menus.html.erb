@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs">
+            <%= render(
+                    "partial_menu",
+                    href_text: t("oh_hi"),
+                    href_link: profile_path,
+                    active: active_menu == 'show'
+                )
+            %>
+            <%= render(
+                    "partial_menu",
+                    href_text: t("reputation"),
+                    href_link: show_reputation_path,
+                    active: active_menu == 'reputation'
+                )
+            %>
+            <%= render(
+                    "partial_menu",
+                    href_text: t("settings"),
+                    href_link: settings_path,
+                    active: active_menu == 'settings'
+                ) if current_user == @user
+            %>
+        </ul>
+    </div>
+</div>

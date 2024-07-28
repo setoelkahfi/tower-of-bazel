@@ -1,0 +1,92 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= community_url %>" />
+<% end %>
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "<%= root_url %>",
+          "name": "<%= t("site_name") %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "<%= users_url %>",
+          "name": "<%= t("our_community") %>"
+        }
+      }]
+    }
+  </script>
+<% end %>
+<main>
+  <div class="row g-5">
+    <div class="col-md-12">
+      <h1><%= @page_title %></h1>
+    </div>
+  </div>
+  <div class="row g-5">
+    <div class="col-sm-3">
+      <div class="position-sticky" style="top: 1rem;">
+        <h2 class="mb-3 mt-3">Songs</h2>
+        <span class="badge bg-warning rounded-pill text-dark"><%= Song.all.size %></span>
+        &nbsp;<i class="bi bi-graph-up-arrow"></i>
+        <h2 class="mb-3 mt-3">Lyrics</h2>
+        <span class="badge bg-warning rounded-pill text-dark"><%= Lyric.all.size %></span>
+        &nbsp;<i class="bi bi-graph-up-arrow"></i>
+        <h2 class="mb-3 mt-3">Chords</h2>
+        <span class="badge bg-warning rounded-pill text-dark"><%= Chord.all.size %></span>
+        &nbsp;<i class="bi bi-graph-up-arrow"></i>
+        <h2 class="mb-3 mt-3">Artists</h2>
+        <span class="badge bg-warning rounded-pill text-dark"><%= Artist.all.size %></span>
+        &nbsp;<i class="bi bi-graph-up-arrow"></i>
+        <h2 class="mb-3 mt-3">Albums</h2>
+        <span class="badge bg-warning rounded-pill text-dark"><%= Album.all.size %></span>
+        &nbsp;<i class="bi bi-graph-up-arrow"></i>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <% @users.each_with_index do |user, index| %>
+        <% if (index == 0 || index % 3 == 0) %>
+          <!-- 3 items per row -->
+          <!-- Begin new row -->
+          <div class="row mb-3">
+        <% end %>
+        <div class="col-4">
+            <div class="card p-2">
+              <%= gravatar_for user %>
+              <div class="card-body">
+                <h5 class="card-title"><%= user.name %></h5>
+                <ul class="list-unstyled">
+                  <li>
+                    <%= link_to(
+                    "@#{user.username_or_id}",
+                    profile_path(user.username_or_id),
+                    title: "Author: @#{user.username_or_id}"
+                    ) %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+        <% if (index == @users.size - 1 || (index != 0 && (index + 1) % 3 == 0)) %>
+          <!-- End row -->
+          </div>
+        <% end %>
+    <% end %>
+    <%= will_paginate(@users, class: 'flickr_pagination') %>
+  </div>
+</div>
+<%= render "shared/partial_breadcrumbs" do %>
+  <li class="breadcrumb-item"><%= link_to t("our_community"), users_path %></li>
+<% end %>
+</main>

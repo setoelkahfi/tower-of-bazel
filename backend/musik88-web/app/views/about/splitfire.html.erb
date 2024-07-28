@@ -1,0 +1,105 @@
+<% content_for :meta_head do %>
+  <title>SplitFire 🔥 is an Artificial Intelligence (AI) software to remove vocal, drums, bass, piano, and guitar from a song.</title>
+  <meta name="description" content="SplitFire 🔥 is an Artificial Intelligence (AI) software, vocal remover, karaoke file generator, bass backing track generator, drums remover, piano remover.">
+  <meta property="og:title" content="SplitFire 🔥 is an Artificial Intelligence (AI) software, vocal remover, karaoke file generator, bass backing track generator, drums remover, piano remover." />
+  <meta property="og:description" content="SplitFire 🔥 is an Artificial Intelligence (AI) software, vocal remover, karaoke file generator, bass backing track generator, drums remover, piano remover." />
+  <meta property="og:url" content="<%= request.base_url %>/splitfire" />
+<% end %>
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "<%= request.base_url %>",
+                "name": "Musik 88"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "<%= request.base_url %>/splitfire",
+                "name": "SplitFire 🔥"
+            }
+        }]
+    }
+  </script>
+<% end %>
+<!-- BEGIN content -->
+<div class="row">
+  <div class="col-md-12">
+    <%= render("shared/partial_ai_tools", use_header: false, active_menu: 'splitfire') %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= "SplitFire #{image_pack_tag('fire.gif', :size => '34x34', :style => 'vertical-align: top')}".html_safe %></h1>
+    <p class="lead">
+      <%= link_to("@splitfire", profile_path('splitfire')) %>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <p class="lead">
+      SplitFire is an Artificial Intelligence (AI) software that can split vocal, drums, bass, piano, and guitar from a song.
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Free Download SplitFire iOS Beta App</h1>
+      <p class="lead">
+        <%= link_to(
+                image_pack_tag(
+                    "Pre-order_on_the_App_Store_Badge_US-UK_RGB_blk_121217.svg",
+                    size: "300x100",
+                    alt: "SplitFire iOS Beta App"
+                ), 
+                'https://testflight.apple.com/join/4cb0rDIo', 
+                target: "_blank"
+                ) %>
+      </p>
+      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/kDfg9GgxV1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 20px">
+    <div class="col-md-12">
+      <%= render "shared/partial_splitfire_version" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <a href="javascript:void(0)" id="splitfire-changelog-toggle">
+        <h2>Changelog</h2>
+      </a>
+      <div id="splitfire-changelog" style="display: none">
+        <b>
+          <a href="#v1-2-0">Version 1.2.0</a>
+        </b>
+        <ul>
+          <li>Add SplitFire user settings to customize model and frequency of the output files.</li>
+          <li>Real-time notification of the status of the file being processed (thank you, WebSocket).</li>
+        </ul>
+        <b>
+          <a href="#v1-1-0">Version 1.1.0</a>
+        </b>
+        <ul>
+          <li>Use the 2stems-16kHz model.</li>
+        </ul>
+        <b>
+          <a href="#v1-0-0">Version 1.0.0</a>
+        </b>
+        <ul>
+          <li>Initial release.</li>
+          <li>Support 2stems parameter.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <%= render "shared/partial_breadcrumbs" do %>
+    <li class="breadcrumb-item"><%= link_to "SplitFire", splitfire_path %></li>
+  <% end %>

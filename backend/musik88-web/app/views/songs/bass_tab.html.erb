@@ -1,0 +1,61 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= guitar_chord_detail_url(@song.slug) %>" />
+<% end %>
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "<%= root_url %>",
+          "name": "Musik 88"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "<%= artist_url %>",
+          "name": "<%= t("nav_artists") %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "<%= artist_detail_url(@song.album.artists[0].name.downcase.parameterize + "-" + @song.album.artists[0].id.to_s) %>",
+          "name": "<%= @song.album.artists[0].name %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@id": "<%= album_detail_url(@song.album.name.downcase.parameterize + '-' + @song.album.artists[0].name.downcase.parameterize + "-" + @song.album.id.to_s) %>",
+          "name": "<%= @song.album.name %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@id": "<%= guitar_chord_detail_url(@song.slug) %>",
+          "name": "<%= t("guitar_chord") + @song.name  + " " + @song.album.artists[0].name + " " + @song.album.name %>"
+        }
+      }]
+    }
+  </script>
+<% end %>
+<%= render("partial_menus_aside", active_menu: 'bass_tab' ) %>
+<div class="row">
+  <%= render("partial_content_drum_backing_track") %>
+</div>
+<%= render "shared/partial_breadcrumbs" do %>
+  <li class="breadcrumb-item"><%= link_to t("nav_artists"), artist_url %></li>
+  <li class="breadcrumb-item"><%= link_to @song.album.artists[0].name, artist_detail_url(@song.album.artists[0].name.downcase.parameterize + "-" + @song.album.artists[0].id.to_s) %></li>
+  <li class="breadcrumb-item"><%= link_to @song.album.name, album_detail_url(@song.album.name.downcase.parameterize + '-' + @song.album.artists[0].name.downcase.parameterize + "-" + @song.album.id.to_s) %></li>
+  <li class="breadcrumb-item"><%= link_to @song.name, guitar_chord_detail_url(@song.slug) %></li>
+<% end %>

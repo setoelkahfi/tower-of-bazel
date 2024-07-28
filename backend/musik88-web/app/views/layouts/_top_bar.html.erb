@@ -1,0 +1,21 @@
+<!-- BEGIN top bar -->
+<header class="top-bar">
+	<div class="full-width-info left">
+		<% unless current_page?(edit_user_password_path) %>
+			<%= t('nav_change_language') %>
+			<% I18n.available_locales.each do |locale| %>
+				<% if locale != I18n.locale %>
+					<%= link_to image_pack_tag("#{locale.to_s}-flag-icon-16.png", alt:"#{locale.to_s.upcase} flag icon", style: "margin:4px;width:24px;height:16px;"), current_domain_locale_url[locale], rel: 'alternate', hreflang: locale.to_s %>
+				<% end %>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="full-width-info right">
+	<% if user_signed_in? %>
+		<%= link_to current_user.name, my_path %> / <%= link_to t('nav_logout'), logout_path, method: :delete %>
+	<% else %>
+		<%= link_to t('nav_login'), login_path  %>
+	<% end %>
+	</div>
+</header>
+<!-- END top bar -->

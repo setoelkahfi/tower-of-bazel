@@ -1,0 +1,80 @@
+<% content_for :meta_head do %>
+  <title>Bass64 🎸 - Artificial Intelligence free bass backing track generator</title>
+  <meta name="description" content="Bass64 🎸 - Artificial Intelligence free bass backing track generator">
+  <meta property="og:title" content="Bass64 🎸 - Artificial Intelligence free bass backing track generator" />
+  <meta property="og:description" content="Bass64 🎸 - Artificial Intelligence free bass backing track generator" />
+  <meta property="og:url" content="<%= request.base_url %>/bass64" />
+<% end %>
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "<%= request.base_url %>",
+                "name": "Musik 88"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "<%= request.base_url %>/bass64",
+                "name": "Bass64 🎸"
+            }
+        }]
+    }
+  </script>
+<% end %>
+<div class="row">
+  <!-- BEGIN content -->
+  <div class="col-md-12">
+    <%= render("shared/partial_ai_tools", use_header: false, active_menu: 'bass64') %>
+    <h1>Bass64 🎸 - Bass backing track generator</h1>
+    <div>
+      <p class="lead">
+        Bass64 is an Artificial-Intelligence-(AI)-based bass backing track generator.
+      </p>
+      <p class="lead">
+        <%= link_to("@bass64", profile_path('bass64')) %>
+      </p>
+      <p>
+        When you're logged-in, you can find Bass64 in your <%= link_to("<b><i>profile page</i></b>".html_safe, my_bass64_path) %>.
+      </p>
+      <p>
+        Bass64 can generate a bass backing track from a song.
+        This tool is provided to you as it is.
+        We might remove the files as part of our maintenance.
+        So we advise to download them right away after generating the backing track.
+        Use it for free for educational purpose.
+        You can use it for free with an account.
+        Your account is private by default.
+      </p>
+    </div>
+    <h2>Connect with us</h2>
+    <div>
+      <p>Send your feedback through our social channels:</p>
+      <ul>
+        <li>
+          <a href="https://fb.com/bass64.official" target="__blank">Facebook</a>
+        </li>
+        <li>
+          <a href="https://instagram.com/bass64.official" target="__blank">Instagram</a>
+        </li>
+      </ul>
+    </div>
+    <h2>Changelog</h2>
+    <div>
+      <h3><a href="#v1-0-0">Version 1.0.0</a></h3>
+      <ul>
+        <li>Initial release.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<%= render "shared/partial_breadcrumbs" do %>
+  <li class="breadcrumb-item"><%= link_to "Bass64", bass64_branding_path %></li>
+<% end %>

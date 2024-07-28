@@ -1,0 +1,45 @@
+<div class="row mb-4">
+  <div class="col-4 text-center">
+    <%= link_to(
+        image_tag(
+          item.youtube_thumbnail,
+          class: "img-fluid rounded",
+          style: "width: 300px;"
+        ),
+        item.splitfire_link,
+      target: :_blank
+    ) %>
+  </div>
+  <div class="col-8">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <i class="bi bi-music-note-list"></i>
+        <%= link_to(
+      item.source_file.filename,
+      item.splitfire_link,
+      target: :_blank
+    ) %>
+      </li>
+      <li class="list-group-item">
+        <i class="bi bi-mic-fill"></i>
+        <%= link_to(
+      item.karaoke_title,
+      item.splitfire_karaoke_link,
+      target: :_blank
+    ) %>
+      </li>
+      <% if !item.song.nil? %>
+        <li class="list-group-item list-group-item-warning">
+          <div class="row mt-2">
+            <div class="col-1 text-center">
+              <i class="bi bi-info-circle-fill align-center"></i>
+            </div>
+            <div class="col-11">
+              <%= render 'partial_audio_file_information', audio_file: item %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

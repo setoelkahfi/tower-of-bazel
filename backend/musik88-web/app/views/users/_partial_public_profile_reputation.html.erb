@@ -1,0 +1,15 @@
+<div class="row mt-5">
+  <div class="col-md-12">
+    <%= render('partial_menus', active_menu: 'reputation' ) %>
+  </div>
+</div>
+<div class="row mt-3">
+    <div class="col-md-12">
+        <h2><%= t('badges') %></h2>
+    </div>
+    <% @user.badges.each do |badge| %>
+      <div class="col-4 col-sm-3 col-md-3">
+        <img src='<%= asset_pack_path(badge.custom_fields[:icon_path]) %>' class='img-fluid rounded img-thumbnail m-3' title='<%= badge.name %>' alt='Pretty badge, huh?'>
+      </div> 
+    <% end %>
+</div>

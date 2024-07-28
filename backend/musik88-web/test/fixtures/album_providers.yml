@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  album: one
+  provider_id: MyString
+  provider_type: 1
+  name: MyString
+
+two:
+  user: two
+  album: two
+  provider_id: MyString
+  provider_type: 1
+  name: MyString

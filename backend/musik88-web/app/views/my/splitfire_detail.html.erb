@@ -1,0 +1,55 @@
+<% content_for :meta_head do %>
+    <title><%= @meta_title %> | <%= @user.name %></title>
+    <meta name="description" content="<%= @meta_description %>">
+<% end %>
+    
+    <div class="row">
+      <!-- BEGIN content -->
+      <div class="col-md-12">
+        
+          <div class="page-header">
+              <h1><%= t("my") %> / <%= "SplitFire #{image_pack_tag('fire.gif', :size => '34x34', :style => 'vertical-align: top')}".html_safe %> / Results</h1>
+          </div>
+        
+      </div>
+      <div class="col-md-2">
+        <%= render "my/partial_menu" %>
+      </div>
+      <div class="col-md-10">
+        
+          <div class="row">
+            <!-- BEGIN content -->
+            <div class="col-md-12">
+              <div class="lead">
+                <b>File name</b>: <%= @audio_file.source_file.blob.filename unless !@audio_file.source_file.attached?  %>
+              </div>
+                <div id="splitfire-result-status" style="text-align: center;">
+                  <%= render "my/partial_splitfire_result_status", audio_file: @audio_file %>
+                </div>
+                <table style="width: 100%" id="splitfire-result-content">
+                  <tbody>
+                    <% @audio_file.splitfire_results.each_with_index do |audio_file, index| %>
+                      <%= render "my/partial_splitfire_result_row", audio_file: audio_file %>
+                    <% end %>
+                  </tbody>
+                </table>
+                <div class="modul" style="margin-top: 20px; padding-right: 6px;">
+                  <%= render "shared/partial_splitfire_version" %>
+                </div>
+            </div>
+          </div>
+        
+      </div>
+      <!-- END content -->
+    </div>
+    
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-12">
+        
+          <ol class="breadcrumb">
+            <li><%= link_to t("breadcrumb_home"), root_path %></li>
+          </ol>
+        
+      </div>
+    </div>
+    

@@ -1,0 +1,19 @@
+<div class="footer-sticky-player">
+    <div class="row">
+        <div class="col-md-12">
+            <% if !@audio_files.nil? %>
+                <div id="waveform-placeholder" style="width: 100px;margin: auto;text-align: center;">
+                    <i class="icon-music"></i>
+                    <p>Press play</p>
+                </div>
+            <% end %>
+            <div class="progress progress-loading-audio">
+                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                </div>
+            </div>
+            <div id="waveform-view" style="margin: -88px 40px 40px 40px; display: none;">
+                <div id="waveform"></div>
+            </div>
+        </div>
+    </div>
+</div>

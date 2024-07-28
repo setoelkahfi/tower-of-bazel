@@ -1,0 +1,39 @@
+<div class="row mb-4">
+  <div class="col-md-12 text-center mb-3">
+    <% if user_signed_in? && users.include?(current_user) %>
+      <%= link_to(
+                    '<i class="bi bi-heart-fill"></i>'.html_safe,
+                    album_unvote_path(id: id),
+                    remote: true,
+                    method: :delete,
+                    :id => "ajax_trigger"
+                )
+            %>
+    <% else %>
+      <%= link_to(
+                      '<i class="bi bi-heart"></i>'.html_safe,
+                      album_vote_path(id: id),
+                      remote: true,
+                      method: :post,
+                      :id => "ajax_trigger"
+                  )
+              %>
+    <% end %>
+    <span class="badge rounded-pill bg-warning text-dark"><%= users.count %></span>
+  </div>
+  <div class="col-md-12 text-center">
+    <i class="bi bi-graph-up-arrow"></i>
+    <span class="badge rounded-pill bg-warning text-dark"><%= counter %></span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="text-center">
+        <% if author == nil %>
+            <%= link_to(t('signup_to_claim'), login_path(redirect_to: request.path), class: 'more-link more-link-author') %>
+        <% else %>
+            <%= link_to("#{name_or_username(author)}".html_safe, profile_path_enhanced(author), class: 'more-link more-link-author') %>
+        <% end %>
+    </div>
+  </div>
+</div>

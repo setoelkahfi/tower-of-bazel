@@ -1,0 +1,125 @@
+module Api
+  module V1
+    class UserController < ApplicationController
+      skip_before_action :verify_authenticity_token
+
+      def login
+        username = params[:username]
+        password = params[:password]
+        find_user
+        if @user && @user.valid_password?(params[:password])
+          render json: {
+            code: 200,
+            message: 'OK.',
+            user: @user
+          }
+        else
+          render_error 'Invalid credentials.'
+        end
+      end
+
+      def register
+        name      = params[:name]
+        email     = params[:email]
+        password  = params[:password]
+
+        unless !name.nil? && !name.empty? && !email.nil? && !email.empty? && !password.nil? && !password.empty?
+          render_error 'Please fill name, email, and password.'
+          return
+        end
+
+        user = User.new(
+          name: name,
+          email: email,
+          password: password
+        )
+
+        if user.save
+          # Deliver the signup email.
+          UserNotifierMailer.send_signup_email(user).deliver
+
+          render json: {
+            code: 200,
+            message: 'OK',
+            user: user
+          }
+        else
+          # Get Devise proper error response.
+          render_error 'Something wrong with the registration process. Try again later.'
+        end
+      end
+
+      def profile
+        find_user
+        if @user
+          render json: {
+            code: 200,
+            message: 'OK.',
+            user: @user.as_json_packed
+          }
+        else
+          render_error 'Unknown user.'
+        end
+      end
+
+      def following
+        find_user
+        if @user
+          render json: {
+            code: 200,
+            message: 'OK.',
+            user: @user.as_json_packed,
+            following: @user.following.map(&:as_json_packed)
+          }
+        else
+          render_error 'Unknown user.'
+        end
+      end
+
+      def followers
+        find_user
+        if @user
+          render json: {
+            code: 200,
+            message: 'OK.',
+            user: @user.as_json_packed,
+            followers: @user.followers.map(&:as_json_packed)
+          }
+        else
+          render_error 'Unknown user.'
+        end
+      end
+
+      def community
+        username_to_exclude = params[:exclude]
+
+        users = User.all.order(created_at: :asc)
+        result = users.select{ |user| user.username != username_to_exclude}
+
+        if users
+          render json: {
+            code: 200,
+            message: 'OK.',
+            users: result.map(&:as_json_packed)
+          }
+        else
+          render_error 'Unknown error.'
+        end
+      end
+
+      private
+
+      def find_user
+        username = params[:username]
+        @user = User.find_by(username: username.downcase) || User.find_by(id: username.downcase)
+      end
+
+      def render_error(message)
+        render json: {
+          code: 500,
+          message: message
+        }
+      end
+    end
+  end
+end

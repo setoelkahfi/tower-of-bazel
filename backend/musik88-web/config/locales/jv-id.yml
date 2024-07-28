@@ -1,0 +1,705 @@
+---
+"jv-id":
+  "10_most_loved_songs": >-
+    10 Lagu paling banyak disuka
+  "Artist": >-
+    Artis
+  "JavaneseGending": >-
+    Gending Jawa
+  "JavaneseGendingNotation": >-
+    Notasi Gending Jawa
+  "Song": >-
+    Tembang
+  "activate_solana_wallet": >-
+    Aktifake dompet sampeyan
+  "active_admin":
+    "devise":
+      "change_password":
+        "submit": >-
+          Ganti sandi
+        "title": >-
+          Ganti tembung sandhi
+      "links":
+        "forgot_your_password": >-
+          Kelalen sandi?
+      "password":
+        "title": >-
+          Sandi
+      "password_confirmation":
+        "title": >-
+          Konfirmasi Sandi
+      "reset_password":
+        "submit": >-
+          Reset sandi
+        "title": >-
+          Kelalen sandi?
+      "username":
+        "title": >-
+          Jeneng panganggo
+    "filters":
+      "predicates":
+        "from": >-
+          dari tanggal
+        "to": >-
+          sampai tanggal
+    "next": >-
+      Saterusne
+  "activerecord":
+    "attributes":
+      "active_admin/comment":
+        "namespace": >-
+          Ruang jeneng
+    "errors":
+      "models":
+        "album":
+          "attributes":
+            "description":
+              "too_short": >-
+                Deskripsi artis tidak boleh kosong
+            "name":
+              "too_short": >-
+                Jeneng album ora bisa kosong
+        "artist":
+          "attributes":
+            "description":
+              "too_short": >-
+                Deskripsi artis tidak boleh kosong
+            "name":
+              "too_short": >-
+                Jeneng artis ora bisa kosong
+        "chord":
+          "attributes":
+            "chord":
+              "too_short": >-
+                Chord lagu tidak boleh kosong
+        "lyric":
+          "attributes":
+            "lyric":
+              "too_short": >-
+                Lirik lagu tidak boleh kosong
+        "page":
+          "attributes":
+            "page_content":
+              "too_short": >-
+                Konten halaman tidak boleh kosong
+            "page_slug":
+              "too_short": >-
+                Slug halaman tidak boleh kosong
+        "song":
+          "attributes":
+            "album":
+              "too_short": >-
+                Album tidak boleh kosong
+            "description":
+              "too_short": >-
+                Deskripsi lagu tidak boleh kosong
+            "name":
+              "too_short": >-
+                Jeneng lagu ora bisa kosong
+        "user":
+          "attributes":
+            "email":
+              "blank": >-
+                Email tidak boleh kosong
+              "invalid": >-
+                Email tidak valid
+            "name":
+              "blank": >-
+                Jeneng ora bisa kosong
+            "password":
+              "blank": >-
+                Tembung sandhi ora bisa kosong
+              "too_short": >-
+                Sandi cendhak banget
+            "password_confirmation":
+              "confirmation": >-
+                Konfirmasi sandhi ora padha
+  "bach_token_discussion": >-
+    Piye pendapatmu? Tertarik?
+  "bach_token_name": >-
+    Jeneng token
+  "breadcrumb_home": >-
+    Beranda
+  "breadcrumb_most_loved_songs": >-
+    Lagu-lagu Paling Banyak Disuka
+  "by": >-
+    Dicintai oleh
+  "cancel": >-
+    Batalkan
+  "change_language": >-
+    Ganti basa
+  "create_account": >-
+    Gawe akun
+  "devise":
+    "failure":
+      "unconfirmed": >-
+        Sampeyan kudu konfirmasi alamat email sadurunge nerusake.
+    "mailer":
+      "confirmation_instructions":
+        "subject": >-
+          Instruksi konfirmasi
+        "user_subject": >-
+          Konfirmasi email Musik88.com
+      "email_changed":
+        "subject": >-
+          Email telah diganti
+      "password_change":
+        "subject": >-
+          Sandi diganti
+      "reset_password_instructions":
+        "subject": >-
+          Reset instruksi sandi
+      "unlock_instructions":
+        "subject": >-
+          Instruksi buka kunci
+    "passwords":
+      "no_token": >-
+        Sampeyan ora bisa ngakses kaca iki tanpa teka saka email reset sandi. Yen
+        sampeyan teka saka email reset sandhi, priksa manawa sampeyan nggunakake URL
+        lengkap sing diwenehake.
+      "send_instructions": >-
+        Sampeyan bakal nampa email kanthi instruksi babagan carane ngreset sandhi
+        ing sawetara menit.
+      "send_paranoid_instructions": >-
+        Yen alamat email sampeyan ana ing database kita, sampeyan bakal nampa link
+        pemulihan sandi ing alamat email sampeyan ing sawetara menit.
+      "updated": >-
+        Tembung sandhi panjenengan wis kasil diganti. Sampeyan saiki wis mlebu.
+      "updated_not_active": >-
+        Tembung sandhi panjenengan wis kasil diganti.
+    "registrations":
+      "signed_up_but_unconfirmed": >-
+        Pesen kanthi link konfirmasi wis dikirim menyang alamat email sampeyan. Mangga
+        tindakake link kanggo ngaktifake akun.
+  "discussion": >-
+    Rembugan
+  "discussion_comment_button": >-
+    Kirim
+  "discussion_comment_placeholder": >-
+    Tulis komentar njenengan nang kene
+  "email": >-
+    Surel
+  "find_your_artist": >-
+    Temukan Artist Idola Kamu
+  "find_your_favorite_album": >-
+    Temukan Album Baru Kesukaanmu
+  "find_your_favorite_songs": >-
+    Temukan Lagu Kesukaanmu
+  "find_your_friends": >-
+    Kancane sampeyan nang kene...
+  "followers": >-
+    Pengikut
+  "following": >-
+    Ngikuti
+  "footer": >-
+    Anu gaweane iseng %{profile} kit seluruh %{instagram} &middot; &copy; 2021
+  "footer_world": >-
+    jagad
+  "forgot_password": >-
+    Kelalen password?
+  "friends": >-
+    Kanca
+  "gending_add": >-
+    Bagikan notasi gendingmu
+  "gending_add_explanation": >-
+    Bantu digitalisasi gamelan jawa online. %{href} lan entuk %{bach_link} duit kripto.
+  "gending_description": >-
+    Deskripsi
+  "gending_name": >-
+    Judul Gending
+  "gending_notation": >-
+    Notasi gending
+  "gending_notation_add": >-
+    Tambah notasi gending
+  "gending_notation_add_explanation": >-
+    Ada notasi gending yang pingin kamu bagi? %{href} lan entuk duit kripto %{bach_link}
+  "gending_notation_link": >-
+    Notasi gending Jawa %{slug}
+  "gending_notation_meta_desciption": >-
+    Berikut adalah notasi gending jawa untuk gending %{title}
+  "gending_notation_page_title": >-
+    Notasi Gending %{title}
+  "guitar_chord_image": >-
+    Gambar Kunci Gitar
+  "guitar_chord_link": >-
+    Kunci gitar %{slug}
+  "guitar_chord_video": >-
+    Video Kunci Gitar
+  "guitar_chords_shape": >-
+    Bentuk Kunci Gitar
+  "have_account": >-
+    Wis duwe akun?
+  "hello": >-
+    Lirik lagu terbaru! Koleksi lirik lagu terlengkap.
+  "home_guitar_chords": >-
+    Kunci Gitar
+  "home_guitar_chords_headline": >-
+    Bagikan koleksi kunci gitar sampeyan lan entuk duit kripto %{bach_link} kanggo
+    kontribusi sampeyan.
+  "home_headline": >-
+    Database musik paling lengkap sejagat raya!
+  "home_javanese_gending_notation": >-
+    Notasi Gending Jawa
+  "home_javanese_gending_notation_subheadline": >-
+    Digitalkan gamelan jawa dan dapatkan duit kripto %{bach_link} untuk kontribusimu.
+  "home_others": >-
+    Liyane
+  "home_others_headline": >-
+    Cek proyek-proyek ku sing liya.
+  "home_see_all": >-
+    Cek kabeh
+  "home_share_gamelan_notation_now": >-
+    Bagikan notasi gending!
+  "home_share_now": >-
+    Bagikan kunci gitarmu!
+  "home_signup_now": >-
+    Daftar siki!
+  "home_subheadline": >-
+    Kunci lagu Britis, kunci lagu band indie, kunci lagu Indonesia, kunci lagu Swedia,
+    kunci lagu Jepang, dsb! Daftar, mulai kontribusi (nambah artis, lagu, album, lsb)
+    ben ulih duit kripto %{bach_link} .
+  "home_what_is": >-
+    Apa kuwi Musik88?
+  "home_youtube_karaoke": >-
+    Youtube Karaoke
+  "home_youtube_karaoke_headline": >-
+    Versi karaoke dari video musik YouTube favorit kamu didukung oleh kecerdasan buatan.
+  "invalid_login": >-
+    Surel/kata sandi salah
+  "join_our_chord_community": >-
+    Gabung karo komunitas kita kanggo ndeleng %{song_name} saka %{song_artist_name}.
+    Sampeyan uga bisa entuk duit kripto €BACH kanthi ngaktifake dompet ing Profil
+    -> Setelan.
+  "join_our_javanese_community": >-
+    Gabung karo komunitas kita kanggo ndeleng notasi %{gending_name}. Sampeyan uga
+    bisa entuk duit kripto €BACH kanthi ngaktifake dompet ing Profil -> Setelan.
+  "join_our_lyric_community": >-
+    Gabung karo komunitas kita kanggo ndeleng %{song_name} lirik saka %{song_artist_name}.
+    Sampeyan uga bisa entuk duit kripto €BACH kanthi ngaktifake dompet ing Profil
+    -> Setelan.
+  "legacy_view": >-
+    Desain lawas
+  "like_this": >-
+    seneng iki
+  "locale_name": "\U0001F1EE\U0001F1E9 Basa Jawa"
+  "login": >-
+    Masuk log!
+  "login_with_facebook": >-
+    Mlebu nganggo Facebook
+  "lyric": >-
+    Lirik Lagu
+  "lyric_cannot_be_empty": >-
+    Lirik tidak boleh kosong
+  "my_profile": >-
+    Profil gue
+  "my_profile_link_href": >-
+    tautan aman ini
+  "my_profile_link_html": >-
+    Ini adalah halaman publik lo. Ikuti %{href} kalo mau perbarui data lo.
+  "my_profile_private": >-
+    Profil ini bersifat pribadi
+  "name": >-
+    Jeneng
+  "nav_albums": >-
+    Album
+  "nav_artists": >-
+    Artis
+  "nav_change_language": >-
+    Ganti Basa:
+  "nav_chords": >-
+    Kunci Gitar
+  "nav_chords_shapes": >-
+    Bentuk Kunci Gitar
+  "nav_community": >-
+    Komunitas
+  "nav_en": >-
+    English
+  "nav_footer_about": >-
+    Tentang Kami
+  "nav_footer_company": >-
+    Perusahaan
+  "nav_footer_contact": >-
+    Kontak
+  "nav_footer_follow_us": >-
+    Ikuti kami
+  "nav_footer_privacy": >-
+    Kebijakan Privasi
+  "nav_footer_term": >-
+    Ketentuan Penggunaan
+  "nav_guitar": >-
+    Gitar
+  "nav_id": >-
+    Bahasa Indonesia
+  "nav_javanese_gamelan": >-
+    Gamelan Jawa
+  "nav_javanese_gamelan_about": >-
+    Tentang Gamelan Jawa
+  "nav_javanese_gending": >-
+    Gending Jawa
+  "nav_javanese_gending_notation": >-
+    Notasi Gending Jawa
+  "nav_login": >-
+    Mlebu
+  "nav_login_dropdown": >-
+    Akun
+  "nav_logout": >-
+    Keluar
+  "nav_lyrics": >-
+    Lirik Lagu
+  "nav_music_database": >-
+    Musik
+  "nav_onboarding": >-
+    Onboarding
+  "nav_signup": >-
+    Daftar Akun
+  "nav_songs": >-
+    Lagu
+  "nav_ukulele_chords": >-
+    Kunci Ukulele (segera)
+  "need_to_logged_in": >-
+    Masuk log dulu sebelum kasih love. Belum punya akun? Daftar aja dulu, gampang
+    kok. Bisa pake akun Facebook kamu lho.
+  "need_to_logged_in_my_profile": >-
+    You need to be logged in to perform this task.
+  "new_user": >-
+    Pengguna anyar?
+  "new_view": >-
+    Desain anyar
+  "next": >-
+    Saterusne
+  "oh_hi": >-
+    Oh, hi!
+  "onboarding_done": >-
+    Kaya kuwe, %{user_name}!
+  "onboarding_done_button": >-
+    Aku siyap!
+  "onboarding_explanation": >-
+    Kanthi verifikasi email sampeyan, sampeyan entuk 0,1 BACH! Entuk luwih akeh BACH
+    kanthi tindakake langkah iki.
+  "onboarding_explanation_done": >-
+    Wis rampung kanggo saiki. Priksa profil sampeyan lan wiwiti nyumbang luwih akeh
+    kanggo komunitas.
+  "onboarding_sounds_good": >-
+    Koyone apik!
+  "onboarding_spotify_done": >-
+    Rampung. Sampeyan wis ngekspor data Spotify.
+  "onboarding_spotify_explanation": >-
+    Entuk nganti 50 BACH nalika sampeyan ngekspor dhaptar lagu!
+  "onboarding_spotify_heading": >-
+    Ekspor Data Spotify sampeyan
+  "onboarding_spotify_processing": >-
+    Ngekspor data sampeyan. Butuh wektu.
+  "onboarding_username_checking": >-
+    Priksa...
+  "onboarding_username_done": >-
+    Yeay! Sampeyan entuk jeneng pangguna sampeyan!
+  "onboarding_username_explanation": >-
+    Gawe @username sing unik lan entuk 0.1 BACH liyane!
+  "onboarding_username_heading": >-
+    @username
+  "or": >-
+    Utawa
+  "our_community": >-
+    Komunitas Kami
+  "our_guitar_chords_collection": >-
+    Koleksi kunci gitar lagu terbaru dari kami
+  "our_newest_song_lyrics": >-
+    Koleksi Lirik Lagu Terbaru Kami
+  "password": >-
+    Kata sandi
+  "password_button_update": >-
+    Nganyari
+  "password_confirmation": >-
+    Konfirmasi kata sandi
+  "password_new": >-
+    Ketik sandhi anyar
+  "password_new_confirmation": >-
+    Konfirmasi sandhi
+  "resend_email_confirmation": >-
+    Kirim maneh instruksi konfirmasi
+  "resend_email_confirmation_button": >-
+    Kirim maneh instruksi
+  "routes":
+    "about_us": >-
+      tentang-kami
+    "add_gending": >-
+      tambah-gending-gamelan
+    "add_javanese_gamelan_notation": >-
+      tambah-notasi-gamelan-jawa
+    "album": >-
+      album
+    "album_add": >-
+      add-album
+    "album_bridge": >-
+      albums-bridge
+    "album_detail": >-
+      album
+    "artist": >-
+      artis
+    "artist_add": >-
+      add-artist
+    "artist_bridge": >-
+      artists-bridge
+    "artist_detail": >-
+      artis
+    "audio_files": >-
+      audio-files
+    "bass_backing_track": >-
+      bass-backing-track-:slug
+    "community": >-
+      komunitas
+    "confirm_email": >-
+      konfirmasi-email
+    "contact": >-
+      kontak
+    "drum_backing_track": >-
+      drum-backing-track-:slug
+    "followers": >-
+      pengikut
+    "following": >-
+      mengikuti
+    "guitar_backing_track": >-
+      guitar-backing-track-:slug
+    "guitar_chord_shape": >-
+      bentuk-kunci-gitar-:slug
+    "guitar_chord_shapes": >-
+      bentuk-kunci-gitar
+    "guitar_chords": >-
+      kunci-gitar
+    "guitar_chords_add": >-
+      tambah-akord
+    "guitar_chords_detail": >-
+      kunci-gitar-:slug
+    "guitar_chords_history": >-
+      kunci-gitar-:slug/sejarah
+    "guitar_chords_review": >-
+      kunci-gitar-:slug/review-akord
+    "javanese_gamelan": >-
+      gamelan-jawa
+    "javanese_gamelan_notation": >-
+      gamelan-jawa
+    "javanese_gending": >-
+      gending-jawa
+    "javanese_gending_detail": >-
+      gending-gamelan-jawa-:slug
+    "javanese_gending_gamelan_notation": >-
+      notasi-gending-gamelan-jawa
+    "javanese_gending_gamelan_notation_detail": >-
+      notasi-gending-gamelan-jawa-:slug
+    "javanese_gending_gamelan_notation_detail_new": >-
+      notasi-gending-standar-:slug
+    "login": >-
+      masuk
+    "most_loved_songs": >-
+      lagu-paling-banyak-disuka
+    "privacy_policy": >-
+      kebijakan-privasi
+    "signup": >-
+      daftar
+    "song": >-
+      lagu
+    "song_add": >-
+      add-song
+    "song_audio": >-
+      song-audio
+    "song_bass_tab": >-
+      bass-tab-:slug
+    "song_bridge": >-
+      artists-bridge
+    "song_chords": >-
+      kord-lagu
+    "song_detail": >-
+      lagu
+    "song_karaoke_detail": >-
+      karaoke-lagu-:slug
+    "song_lyrics": >-
+      lirik-lagu
+    "song_lyrics_detail": >-
+      lirik-lagu-:slug
+    "term_of_use": >-
+      ketentuan-penggunaan
+    "user_rep": >-
+      reputasi
+  "save": >-
+    Simpen
+  "search": >-
+    Nggoleki
+  "search_placeholder_title": >-
+    Golek artis, tembang, utawa gending jawa...
+  "see_album_detail": >-
+    Lihat detail album
+  "see_artist_detail": >-
+    Lihat detail artis
+  "see_chord_detail": >-
+    Lihat detail kord
+  "see_song_detail": >-
+    Lihat detail lagu
+  "settings": >-
+    Setelan
+  "signup": >-
+    Daftar
+  "signup_now": >-
+    Daftar siki!
+  "signup_to_claim": >-
+    Iki duwekmu?
+  "signup_with_facebook": >-
+    Daftar nganggo Facebook
+  "site_name": >-
+    Musik88
+  "somebody_to_love": >-
+    Cintai aku
+  "song_audio_page_title": >-
+    File audio kanggo %{song_name}
+  "song_chord_page_title": >-
+    Kunci gitar %{song_name} by %{song_artist_name}
+  "song_chord_unavailable_content": >-
+    <span class='song-lyric-unavailable'>Kunci gitar %{song_name} dari %{song_artist_name}</span>
+    belum tersedia. Beri cinta <span class='glyphicon glyphicon-heart'></span> pada
+    lagu ini. Kami perlu setidaknya 2 cinta dari elo buat ngulik lagunya.
+  "song_chord_unavailable_meta_description": >-
+    Berikut adalah kunci gitar %{song_name} dari %{song_artist_name} dari album %{song_album_name}.
+  "song_chords_page_title": >-
+    Kunci Lagu %{song_name}
+  "song_detail": >-
+    Detail lagu
+  "song_detail_page_meta_title": >-
+    Arti lagu %{song_name} dari %{song_artist_name} dari album %{song_album_name}.
+  "song_detail_page_title": >-
+    Arti Lagu %{song_name}
+  "song_generate_your_own_bass_backing_track": >-
+    Buat sendiri backing track bas lagu %{song_name}
+  "song_generate_your_own_drum_backing_track": >-
+    Buat sendiri backing track drum lagu %{song_name}
+  "song_generate_your_own_karaoke": >-
+    Buat Versi Karaoke Lagu %{song_name}
+  "song_generate_your_own_stem_files": >-
+    Buat STEM Files dari lagu %{song_name}
+  "song_karaoke_download": >-
+    Download Lagu Karaoke
+  "song_karaoke_page_title": >-
+    Download Lagu Karaoke %{song_name} Dari %{song_artist_name} Album %{song_album_name}
+  "song_karaoke_title": >-
+    %{filename} Versi Karaoke
+  "song_karaoke_unavailable_content": >-
+    Lagu karaoke %{song_name} dari %{song_artist_name} belum tersedia. Login untuk
+    request.
+  "song_karaoke_unavailable_meta_description": >-
+    Download Lagu Karaoke %{song_name} Dari %{song_artist_name} Album %{song_album_name}
+  "song_lyric_page_title": >-
+    Lirik Lagu %{song_name} dari %{song_artist_name}
+  "song_lyric_unavailable_content": >-
+    <span class='song-lyric-unavailable'>Lirik lagu %{song_name} dari %{song_artist_name}</span>
+    belum tersedia. Beri setidaknya 2 cinta <span class='glyphicon glyphicon-heart'></span>
+    atau %{href} pada lagu ini jadi kita bisa fokus buat ngulik kunci gitarnya.
+  "song_lyric_unavailable_content_add_lyric": >-
+    Tambah Lirik
+  "song_lyric_unavailable_meta_description": >-
+    Berikut adalah lirik lagu %{song_name} dari %{song_artist_name} dari album %{song_album_name}.
+  "song_menu_aside_audio": >-
+    Audio
+  "song_menu_aside_chords": >-
+    Kord
+  "song_menu_aside_info": >-
+    Info
+  "song_menu_bass_backing_track": >-
+    Bass backing track %{song_name}
+  "song_menu_bass_tab": >-
+    Bass tab %{song_name}
+  "song_menu_drum_backing_track": >-
+    Drum backing track %{song_name}
+  "song_menu_guitar_chord": >-
+    Kunci Gitar %{song_name}
+  "song_menu_karaoke": >-
+    Karaoke Version %{song_name}
+  "song_menu_lyric": >-
+    Lirik Lagu %{song_name}
+  "song_updated_at": >-
+    Diperbarui: %{date}
+  "still_login": >-
+    Elingi aku
+  "time":
+    "formats":
+      "long": >-
+        %Y-%m-%d %H:%M:%S
+  "top_10_albums": >-
+    10 Album Teratas
+  "top_10_artists": >-
+    10 Artis Teratas
+  "top_10_guitar_chords": >-
+    Top 10 Kunci Gitar
+  "top_10_song_lyrics": >-
+    Top 10 Lirik Lagu
+  "top_10_songs": >-
+    10 Lagu Teratas
+  "user_email_confirmation_content": >-
+    Sampeyan bisa konfirmasi email akun liwat link ing ngisor iki:
+  "user_email_confirmation_cta": >-
+    Konfirmasi akunku
+  "user_email_confirmation_header": >-
+    Sugeng rawuh, %{email}!
+  "user_email_with_love": >-
+    Kanthi ❤️ saka Stockholm,
+  "user_notifier_projects": >-
+    Priksa proyek kita liyane
+  "user_profile": >-
+    Profil
+  "user_reset_password_email_heading": >-
+    Reset link sandi mung kanggo sampeyan, %{user_name}!
+  "user_reset_password_email_heading_p1": >-
+    Sampeyan entuk email iki amarga sampeyan nyoba ngakses akun sampeyan.
+  "user_reset_password_email_heading_p2": >-
+    Klik %{href} kanggo ngreset tembung sandhi.
+  "user_reset_password_email_link": >-
+    link siji iki
+  "user_send_reset_password_instructions_subject": >-
+    Reset instruksi sandi
+  "user_send_wallet_activation_notification_address": >-
+    Alamat dompet sampeyan
+  "user_send_wallet_activation_notification_heading": >-
+    Sugeng, %{user_name}. Sampeyan saiki duwe dompet crypto anyar!
+  "user_send_wallet_activation_notification_p1": >-
+    Duit kripto BACH sampeyan disimpen ing dompet sampeyan. Sampeyan bisa ndeleng
+    imbangan sampeyan ing link ing ngisor iki.
+  "user_send_wallet_activation_notification_subject": >-
+    Sampeyan duwe dompet anyar!
+  "user_signup_email_heading": >-
+    Terimakasih telah mendaftar, %{user_name}!
+  "user_signup_email_heading_p1": >-
+    Selamat bergabung!
+  "user_signup_email_heading_p2": >-
+    Kami dalam sebuah misi untuk mendigitalkan musik-musik yang kurang terekpose.
+    %{href} dan mulai berkontribusi :)
+  "user_signup_email_subject": >-
+    Selamat datang di Musik88!
+  "username_available": >-
+    Sugeng rawuh! Jeneng pangguna sampeyan kasedhiya.
+  "username_character_invalid": >-
+    Ngandhut karakter ilegal.
+  "username_length_invalid": >-
+    Jeneng pangguna minimal 4 huruf.
+  "username_letters_numbers_only": >-
+    Jeneng pangguna mung kudu ngemot huruf lan angka.
+  "username_should_starts_with_letters": >-
+    Sampeyan kudu miwiti karo huruf.
+  "username_taken": >-
+    Jeneng pangguna dijupuk.
+  "views":
+    "pagination":
+      "next": >-
+        Saterusne &rsaquo;
+  "welcome_user": >-
+    Sugeng rawuh, %{user_name}!
+  "welcome_user_unconfirmed": >-
+    Sugeng rawuh, %{user_name}! Priksa email kanggo konfirmasi akun.
+  "will_paginate":
+    "next_label": >-
+      Saterusne &#8594;
+  "your_locale": >-
+    Basa
+  "your_locale_explanation": >-
+    Preferensi basa sampeyan nang situs web iki
+  "your_wallet_address": >-
+    Alamat dompet sampeyan
+  "your_wallet_address_explanation": >-
+    Kita nyimpen duit kripto sampeyan ing alamat dompet sampeyan. Sampeyan bisa tuku,
+    ngedol, lan saham (stake) duit kripto sampeyan ing pasar mbukak, contone %{href}.

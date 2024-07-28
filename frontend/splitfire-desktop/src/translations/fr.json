@@ -1,0 +1,19 @@
+{
+    "header.home": "Accueil",
+    "header.about": "Sur",
+    "header.cv": "CV",
+    "header.contact": "Contact",
+    "header.fun": "Projets amusants",
+    "home.title": "Bonjour, je m'appelle {name}.",
+    "home.iam": "Je suis ",
+    "about.title": "Sur",
+    "about.skills": "Compétences",
+    "cv.title": "CV",
+    "contact.title": "Contact",
+    "player.instruction": "Cliquez sur l'icône de l'instrument pour le supprimer du morceau.",
+    "home.loading": "Chargement de SplitFire AI...",
+    "player.loadingYoutube": "En attente de YouTube...",
+    "footer.toTop": "Retour en haut",
+    "splitfire.whatIs": "Je suis un logiciel d'intelligence artificielle qui divisera votre musique préférée en ses composants séparés.",
+    "player.loading": "🤖 Je fais mes affaires..."
+}

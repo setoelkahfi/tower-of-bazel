@@ -1,0 +1,111 @@
+<% content_for :meta_head do %>
+  <%= render('shared/partial_meta_tag', title: @meta_title, description: @meta_description) %>
+<% end %>
+<% content_for :breadcrumb do %>
+  <%= render 'shared/partial_breadcrumbs_schema' do %>
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@id": "<%= signup_url %>",
+        "name": "<%= t("signup") %>"
+        }
+    }
+  <% end %>
+<% end %>
+<main>
+  <div class="row">
+    <div class="col-md-5">
+      <div class="row mb-3">
+        <h1><%= t("signup") %></h1>
+        <% if @provider %>
+          <p><%= t("signup_omniauth_explanation_provider", provider_name: @provider_name) %></p>
+        <% else %>
+          <p><%= t("signup_omniauth_explanation") %></p>
+        <% end %>
+      </div>
+      <%= form_for(@user, url: signup_path(request.query_parameters), :html => { :class => "form-horizontal" }) do |f| %>
+        <%= render "shared/flash_message" %>
+        <%= render "shared/error_messages" %>
+        <% if !@prefilled %>
+        <div class="row mb-3 text-center">
+          <% ab_test(:only_spotify_youtube, 'old', 'only_spotify_youtube') do |exp| %>
+              <%= link_to(
+                    '<i class="bi bi-spotify" style="font-size: 3rem; color: blue;"></i>'.html_safe,
+                    user_spotify_omniauth_authorize_path,
+                    method: :post,
+                    class: exp == 'old' ? "col-2 offset-3" : "col-2 offset-4",
+                    style: "padding: 0px",
+                    title: 'Connect with Spofity'
+                ) %>
+              <%= link_to(
+                    '<i class="bi bi-google" style="font-size: 3rem; color: blue;"></i>'.html_safe,
+                    user_google_oauth2_omniauth_authorize_path,
+                    method: :post,
+                    class: 'col-2',
+                    title: 'Connect with YouTube Music'
+                ) %>
+            <% if exp == 'old' %>
+              <%= link_to(
+                    '<i class="bi bi-facebook" style="font-size: 3rem; color: blue;"></i>'.html_safe,
+                    user_facebook_omniauth_authorize_path,
+                    method: :post,
+                    class: 'col-2',
+                    title: 'Connect with Facebook'
+                ) %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="row mb-3">
+          <hr class="col-5">
+          <div class="col-2 text-center">
+            <span><%= t("or") %></span>
+          </div>
+          <hr class="col-5">
+        </div>
+        <% end %>
+        <% ab_test(:only_spotify_youtube, 'old', 'only_spotify_youtube') do |exp| %>
+          <% if exp == 'old' %>
+            <div class="row mb-3">
+              <%= f.label t("name"), class: "col-4 col-form-label"  %>
+              <div class="col-8">
+                <%= f.text_field :name, class: 'form-control', placeholder: 'Optional' %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <%= f.label t("email"), class: "col-4 col-form-label" %>
+              <div class="col-8">
+                <%= f.email_field :email, class: 'form-control', readonly: @prefilled %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <%= f.label t("password"), class: "col-4 col-form-label"  %>
+              <div class="col-8">
+                <%= f.password_field :password, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <%= f.label t("password_confirmation"), class: "col-4 col-form-label"  %>
+              <div class="col-8">
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="offset-4 col-4 mt-2">
+                <%= f.submit t("create_account"), class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="row mb-3">
+          <div class="offset-4 col-8 mt-3">
+            <p><%= t("have_account") %> <%= link_to t("login"), login_path(request.query_parameters) %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'shared/partial_breadcrumbs' do %>
+    <li class="breadcrumb-item"><%= link_to t("signup"), signup_path(request.query_parameters) %></li>
+  <% end %>
+</main>

@@ -1,0 +1,40 @@
+<% return unless rich_format %>
+<% return unless rich_format['sections'] %>
+<% rich_format['sections'].each_with_index do | section, index | %>
+    <% next if section['type'] == 'title' || section['lines'].nil? %>
+    <% if ['ompak', 'buka', 'celuk', 'ngelik', 'suwuk', 'A', 'B', 'C', '[A]', '[B]', '[C]', ].include? section['type'] %>
+        <div class="row mb-3 mt-3">
+            <div class="col-12">
+                <span class="badge bg-primary fw-bold fst-italic"><%= section['type'].upcase %></span>
+            </div>
+        </div> 
+    <% end %>
+    <% section['lines'].each_with_index do | line, line_index | %>
+        <div class="row">
+            <% line['gatra'].each_with_index do | gatra, index | %>
+                <div class="col-3 <%= 'ml-5' if (line_index == 0 && index == 0) %>">
+                    <% next if gatra['content'].nil? %>
+                    <% if (line_index == 0 && index == 0) %>
+                        <span class="fw-bold "><%= line['prefix'] %></span>
+                    <% end %>
+                    <% gatra['content'].each_with_index do | content, index | %>
+                        <span 
+                            class="text-center p-1 pt-2 pb-2 <%= 'badge bg-primary badge-pill' if content['attributes'].include? 'gong_gede' %>" 
+                            style="display: inline-block; width: 20px;"
+                        >
+                            <%= content['number'] %>
+                        </span>
+                    <% end %>
+                    <% if (index == gatra['content'].count - 1) %>
+                        <span class="fw-bold "><%= line['suffix'] %></span>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+<% end %>
+<div class="row">
+    <div class="col-12 mt-5 fst-italic">
+        <%= link_to('gns', 'https://github.com/smbpndk/gns', target: '__blank') %> <%= rich_format['version'] %>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<% content_for :meta_head do %>
+  <title>KaroKowe 🎤 - AI-based free vocal remover online</title>
+  <meta name="description" content="KaroKowe 🎤 - AI-based free vocal remover online">
+  <meta property="og:title" content="KaroKowe 🎤 - AI-based free vocal remover online" />
+  <meta property="og:description" content="KaroKowe 🎤 - AI-based free vocal remover online" />
+  <meta property="og:url" content="<%= request.base_url %>/karokowe" />
+<% end %>
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "<%= request.base_url %>",
+                "name": "Musik 88"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "<%= request.base_url %>/karokowe",
+                "name": "KaroKowe 🎤"
+            }
+        }]
+    }
+  </script>
+<% end %>
+<div class="row">
+  <!-- BEGIN content -->
+  <div class="col-md-12">
+    <%= render("shared/partial_ai_tools", use_header: false, active_menu: 'karokowe') %>
+    <h1>KaroKowe 🎤 - Make karaoke version of song</h1>
+    <%=
+                    image_tag(
+                        "https://www.pngkit.com/png/full/151-1512033_studio-microphone-microphone-emoji-jpg.png",
+                        size: "100x200",
+                        style: "display: block;margin-left: auto;margin-right: auto; margin-bottom: 20px"
+                    )
+                %>
+    <div>
+      <p class="lead">
+        KaroKowe is a karaoke file generator, a free vocal remover tool built with an Artificial Intelligence (AI) software.</a>
+    </p>
+    <p class="lead">
+      <%= link_to("@karokowe", profile_path('karokowe')) %>
+    </p>
+    <p>
+      When you're logged-in, you can find KaroKowe in your <%= link_to("<b><i>profile page</i></b>".html_safe, my_karokowe_path) %>.
+    </p>
+    <p>
+      KaroKowe can generate a <b>karaoke version</b> of a given song in seconds. 
+      It is powered by ad advanced machine learning algorithm to isolate vocals from an audio file and then remove it.
+      The result is a clean <b>instrumental version</b> of a song.
+      It goes wihout saying that one should not use this tool for an instrumental song. <b>Sampai Di Sini</b> from <b>Gerarld Situmorang</b> for example.
+    </p>
+  </div>
+  <h2>Send your feedback</h2>
+  <div>
+    <p><b><i>hej</i></b> at <b><i>setoelkahfi</i></b> dot <b><i>se</i></b></p>
+  </div>
+  <h2>Changelog</h2>
+  <div>
+    <h3><a href="#v1-0-0">Version 1.0.0</a></h3>
+    <ul>
+      <li>Initial release.</li>
+    </ul>
+  </div>
+</div>
+</div>
+<%= render "shared/partial_breadcrumbs" do %>
+  <li class="breadcrumb-item"><%= link_to "KaroKowe", karokowe_branding_path %></li>
+<% end %>

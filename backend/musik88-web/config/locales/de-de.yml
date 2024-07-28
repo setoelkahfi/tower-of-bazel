@@ -1,0 +1,437 @@
+---
+"de-de":
+  "10_most_loved_songs": >-
+    10 beliebteste Lieder
+  "add_chord_validation_success": >-
+    Vielen Dank für Ihren Beitrag!
+  "album_artists": >-
+    Künstler
+  "artist_profile_album_contribution_title": >-
+    %{artist} erscheint auch auf:
+  "artist_profile_album_title": >-
+    Alben von %{artist}
+  "artist_profile_title": >-
+    %{artist}-Profil
+  "breadcrumb_home": >-
+    Heim
+  "breadcrumb_most_loved_songs": >-
+    Die beliebtesten Lieder
+  "by": >-
+    Loved by
+  "cancel": >-
+    Cancel
+  "confirm_email": >-
+    Bestätige deine E-Mail
+  "create_account": >-
+    Benutzerkonto erstellen
+  "email": >-
+    Email
+  "find_your_artist": >-
+    Find Your Favorite Artist
+  "find_your_favorite_album": >-
+    Finden Sie Ihr neues Lieblingsalbum
+  "find_your_favorite_songs": >-
+    Find Your Favorite Songs
+  "followers": >-
+    Anhängerin
+  "following": >-
+    Folge
+  "footer": >-
+    Aus Spaß erstellt von %{profile} aus der ganzen %{instagram} &middot; &copy; 2021
+  "footer_world": >-
+    Welt
+  "forgot_password": >-
+    Passwort vergessen?
+  "gending_add": >-
+    Share your gending notation
+  "gending_add_explanation": >-
+    Help us digitalize Javanese gamelan online. %{href} and earn %{bach_link} reputation
+    token.
+  "gending_description": >-
+    Description
+  "gending_name": >-
+    Gending Name
+  "gending_notation": >-
+    Gending Notation
+  "gending_notation_add": >-
+    Add gending notation
+  "gending_notation_link": >-
+    Javanese gending notation %{slug}
+  "gending_notation_meta_desciption": >-
+    This is the javanese gending notation for  %{title} gending.
+  "gending_notation_page_title": >-
+    Javanese Gending Notation %{title}
+  "guitar_chord_image": >-
+    Gitarren-Akkord-Bild
+  "guitar_chord_link": >-
+    Gitarrenakkord %{slug}
+  "guitar_chord_video": >-
+    Video zu Gitarrenakkorden
+  "guitar_chords_shape": >-
+    Gitarrenakkorde Form
+  "h2_find_new_albums": >-
+    Finden Sie hier neue Alben!
+  "h2_find_new_artists": >-
+    Finden Sie hier neue Künstler!
+  "have_account": >-
+    Sie haben bereits ein Konto?
+  "hello": >-
+    Welcome to Musik 88
+  "home_guitar_chords": >-
+    Gitarrenakkorde
+  "home_guitar_chords_headline": >-
+    Reichen Sie Ihre Gitarrenakkorde ein und verdienen Sie %{bach_link} Rufzeichen
+    für Ihren Beitrag.
+  "home_headline": >-
+    Die größte Musikdatenbank der Welt!
+  "home_javanese_gending_notation": >-
+    Javanische Gender-Notation
+  "home_javanese_gending_notation_subheadline": >-
+    Digitalisiere javanisches Gamelan und verdiene %{bach_link} Reputationstoken für
+    deinen Beitrag.
+  "home_lyrics": >-
+    Liedtext
+  "home_new_entries": >-
+    Neue Einträge
+  "home_others": >-
+    Andere
+  "home_others_headline": >-
+    Schauen Sie sich meine anderen Projekte an.
+  "home_popular": >-
+    Beliebt
+  "home_see_all": >-
+    Alles sehen
+  "home_share_gamelan_notation_now": >-
+    Teilen Sie die Geschlechternotation!
+  "home_share_now": >-
+    Teile deinen Akkord!
+  "home_signup_now": >-
+    Jetzt registrieren!
+  "home_songs": >-
+    Lieder
+  "home_subheadline": >-
+    Gitarrenakkorde? Liedtext? Albumkritiken? Javanische Geschlechtsnotation? etc!
+    Melden Sie sich an, leisten Sie einen Beitrag (fügen Sie Künstler, Alben, Texte
+    usw. hinzu) und verdienen Sie %{bach_link} Reputationstoken.
+  "home_youtube_karaoke": >-
+    Youtube Karaoke
+  "home_youtube_karaoke_headline": >-
+    Karaoke-Version Ihres Lieblings-YouTube-Musikvideos powered by AI.
+  "invalid_login": >-
+    Ungültige E-Mail/Passwort-Kombination
+  "locale_name": "\U0001F1E9\U0001F1EA Deutsch"
+  "login": >-
+    Anmeldung!
+  "login_with_facebook": >-
+    Mit Facebook einloggen
+  "lyric": >-
+    Liedtext
+  "lyric_cannot_be_empty": >-
+    Text darf nicht leer sein
+  "my_profile": >-
+    Mein Profil
+  "my_profile_link_href": >-
+    dieser sichere Link
+  "my_profile_link_html": >-
+    Dies ist Ihr öffentliches Profil. Folgen Sie %{href}, um Ihr Profil zu bearbeiten.
+  "my_profile_private": >-
+    Dieses Profil ist privat
+  "name": >-
+    Name
+  "nav_albums": >-
+    Alben
+  "nav_artists": >-
+    Künstler
+  "nav_chords": >-
+    Gitarrenakkorde
+  "nav_chords_shapes": >-
+    Gitarren-Akkorde-Diagramm
+  "nav_community": >-
+    Gemeinschaft
+  "nav_footer_about": >-
+    Über uns
+  "nav_footer_company": >-
+    Begleitung
+  "nav_footer_contact": >-
+    Kontakt
+  "nav_footer_follow_us": >-
+    Follow Us
+  "nav_footer_privacy": >-
+    Datenschutz-Bestimmungen
+  "nav_footer_term": >-
+    Nutzungsbedinungen
+  "nav_guitar": >-
+    Gitarre
+  "nav_javanese_gamelan": >-
+    Javanisches Gamelan
+  "nav_javanese_gamelan_about": >-
+    Über das javanische Gamelan
+  "nav_javanese_gending": >-
+    Javanisches Geschlecht
+  "nav_javanese_gending_notation": >-
+    Javanische Gender-Notation
+  "nav_login": >-
+    Anmeldung
+  "nav_login_dropdown": >-
+    Konto
+  "nav_logout": >-
+    Ausloggen
+  "nav_lyrics": >-
+    Liedtext
+  "nav_music_database": >-
+    Musics
+  "nav_new_entries": >-
+    Neue Einträge
+  "nav_signup": >-
+    Anmelden
+  "nav_songs": >-
+    Lieder
+  "nav_ukulele_chords": >-
+    Ukulele-Akkorde (bald)
+  "need_to_logged_in": >-
+    You need to logged in before giving this love. Don't have account yet? Just signup,
+    it's so easy. You can use your Facebook account if you want.
+  "need_to_logged_in_my_profile": >-
+    Sie müssen angemeldet sein, um diese Aufgabe auszuführen.
+  "new_user": >-
+    Neuer Benutzer?
+  "or": >-
+    Oder
+  "our_community": >-
+    Unsere Gemeinschaft
+  "our_guitar_chords_collection": >-
+    Unsere neuesten Gitarrenakkord-Sammlungen
+  "our_newest_song_lyrics": >-
+    Unsere neueste Songtext-Sammlung
+  "password": >-
+    Passwort
+  "password_button_update": >-
+    Aktualisieren
+  "password_confirmation": >-
+    Passwort Bestätigung
+  "password_new": >-
+    Neues Passwort eingeben
+  "password_new_confirmation": >-
+    Kennwort bestätigen
+  "routes":
+    "about_us": >-
+      über-uns
+    "add_gending": >-
+      add-gending-gamelan
+    "add_javanese_gamelan_notation": >-
+      add-javanese-gamelan-notation
+    "album": >-
+      alben
+    "album_add": >-
+      add-album
+    "album_detail": >-
+      albums
+    "artist": >-
+      künstler
+    "artist_add": >-
+      add-artist
+    "artist_detail": >-
+      artists
+    "audio_files": >-
+      audio-files
+    "bass_backing_track": >-
+      bass-backing-track-:slug
+    "community": >-
+      gemeinschaft
+    "contact": >-
+      kontakt
+    "drum_backing_track": >-
+      drum-backing-track-:slug
+    "followers": >-
+      anhänger
+    "following": >-
+      folgendes
+    "guitar_backing_track": >-
+      guitar-backing-track-:slug
+    "guitar_chord_shape": >-
+      gitarrenakkord-:slug
+    "guitar_chord_shapes": >-
+      all-gitarren-akkorde
+    "guitar_chords": >-
+      gitarrenakkorde
+    "guitar_chords_add": >-
+      add-chord
+    "guitar_chords_detail": >-
+      guitar-chords-:slug
+    "guitar_chords_history": >-
+      guitar-chords-:slug/history
+    "guitar_chords_review": >-
+      guitar-chords-:slug/review-chord
+    "javanese_gamelan": >-
+      javanese-gamelan
+    "javanese_gamelan_notation": >-
+      javanese-gamelan
+    "javanese_gending": >-
+      javanese-gending
+    "javanese_gending_detail": >-
+      javanese-gending-gamelan-:slug
+    "javanese_gending_gamelan_notation": >-
+      notation-for-javanese-gamelan
+    "javanese_gending_gamelan_notation_detail": >-
+      notation-for-javanese-gamelan-:slug
+    "login": >-
+      anmeldung
+    "most_loved_songs": >-
+      beliebteste-songs
+    "privacy_policy": >-
+      datenschutz-bestimmungen
+    "signup": >-
+      anmelden
+    "song": >-
+      lieder
+    "song_add": >-
+      add-song
+    "song_audio": >-
+      song-audio
+    "song_bass_tab": >-
+      bass-tab-:slug
+    "song_chords": >-
+      song-chords
+    "song_detail": >-
+      songs
+    "song_karaoke_detail": >-
+      karaoke-song-:slug
+    "song_lyrics": >-
+      liedtext
+    "song_lyrics_detail": >-
+      liedtext-:slug
+    "term_of_use": >-
+      nutzungsbedinungen
+    "user_rep": >-
+      ruf
+  "see_album_detail": >-
+    Siehe Albumdetails
+  "see_artist_detail": >-
+    Siehe Künstlerdetail
+  "see_chord_detail": >-
+    See chord detail
+  "see_song_detail": >-
+    See song detail
+  "signup": >-
+    Anmelden
+  "signup_now": >-
+    Jetzt registrieren!
+  "signup_to_claim": >-
+    Ist das deins?
+  "signup_with_facebook": >-
+    Mit Facebook anmelden
+  "site_name": >-
+    Musik88.com
+  "somebody_to_love": >-
+    Liebe mich
+  "song_audio_page_title": >-
+    Audio files for %{song_name}
+  "song_chord_page_title": >-
+    Guitar chord %{song_name} by %{song_artist_name}
+  "song_chord_unavailable_content": >-
+    The <span class='song-lyric-unavailable'>%{song_name} chord from %{song_artist_name}</span>
+    isn't yet avaiable. Gives this song at least 2 loves <span class='glyphicon glyphicon-heart'></span>,
+    that's all we need.
+  "song_chord_unavailable_meta_description": >-
+    Here's the %{song_name} chord from %{song_artist_name} taken from the %{song_album_name}
+    album.
+  "song_chords_page_title": >-
+    %{song_name} Chords
+  "song_detail": >-
+    Song detail
+  "song_detail_page_meta_title": >-
+    %{song_name} from %{song_artist_name} song review, from the %{song_album_name}
+    album/single.
+  "song_detail_page_title": >-
+    %{song_name} Song Review
+  "song_generate_your_own_bass_backing_track": >-
+    Generate %{song_name} Bass Backing Track
+  "song_generate_your_own_drum_backing_track": >-
+    Erzeuge %{song_name} Schlagzeug-Backing-Track
+  "song_generate_your_own_karaoke": >-
+    Generate %{song_name} Karaoke File
+  "song_generate_your_own_stem_files": >-
+    Generate STEM Files For %{song_name}
+  "song_karaoke_download": >-
+    Download Karaoke Version
+  "song_karaoke_page_title": >-
+    Download %{song_name} Karaoke Version From %{song_artist_name} From %{song_album_name}
+    Album
+  "song_karaoke_title": >-
+    %{filename} Karaoke Version
+  "song_karaoke_unavailable_content": >-
+    The %{song_name} karaoke version from %{song_artist_name} is not available yet.
+  "song_karaoke_unavailable_meta_description": >-
+    Download %{song_name} Karaoke Version From %{song_artist_name} From %{song_album_name}
+    Album
+  "song_lyric_detail": >-
+    Liedtext %{title}
+  "song_lyric_page_title": >-
+    %{song_name} Liedtext von %{song_artist_name}
+  "song_lyric_unavailable_content": >-
+    The <span class='song-lyric-unavailable'>%{song_name} lyric from %{song_artist_name}</span>
+    isn't yet avaiable. Gives this song at least 2 loves <span class='glyphicon glyphicon-heart'></span>
+    or %{href} to this song so we can just focus on finding the chords.
+  "song_lyric_unavailable_content_add_lyric": >-
+    Liedtext hinzufügen
+  "song_lyric_unavailable_meta_description": >-
+    Hier ist der Liedtext %{song_name} von %{song_artist_name} aus dem Album %{song_album_name}.
+  "song_lyrics_page_title": >-
+    Liedtext %{song_name}
+  "song_menu_aside_audio": >-
+    Audio
+  "song_menu_aside_chords": >-
+    Chords
+  "song_menu_aside_info": >-
+    Info
+  "song_menu_aside_lyrics": >-
+    Text
+  "song_menu_bass_backing_track": >-
+    Bass backing track %{song_name}
+  "song_menu_bass_tab": >-
+    Bass tab %{song_name}
+  "song_menu_drum_backing_track": >-
+    Drum-Backing-Track %{song_name}
+  "song_menu_guitar_chord": >-
+    Gitarrenakkord %{song_name}
+  "song_menu_karaoke": >-
+    Karaoke Version %{song_name}
+  "song_menu_lyric": >-
+    Liedtext %{song_name}
+  "song_updated_at": >-
+    Updated: %{date}
+  "still_login": >-
+    Melden Sie sich weiterhin auf diesem Computer an
+  "top_10_albums": >-
+    Top 10 Alben
+  "top_10_artists": >-
+    Top 10 Künstler
+  "top_10_guitar_chords": >-
+    Top 10 Gitarrenakkorde
+  "top_10_song_lyrics": >-
+    Top 10 Songtexte
+  "top_10_songs": >-
+    Top 10 Songs
+  "user_profile": >-
+    Profil
+  "user_reset_password_email_heading": >-
+    Reset password link only for you, %{user_name}!
+  "user_reset_password_email_heading_p1": >-
+    You are getting this email because you are trying to access your account.
+  "user_reset_password_email_heading_p2": >-
+    Click %{href} to reset your password.
+  "user_reset_password_email_link": >-
+    this one time link
+  "user_send_reset_password_instructions_subject": >-
+    Reset password instruction
+  "user_signup_email_heading": >-
+    Danke für die Anmeldung, %{user_name}!
+  "user_signup_email_heading_p1": >-
+    Danke für den Beitritt zu uns!
+  "user_signup_email_heading_p2": >-
+    Wir haben es uns zur Aufgabe gemacht, weltweit unterrepräsentierte Musik zu digitalisieren.
+    %{href} und beginne mitzumachen :)
+  "user_signup_email_subject": >-
+    Willkommen bei Musik88!
+  "welcome_user": >-
+    Herzlich willkommen, %{user_name}!

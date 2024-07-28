@@ -1,0 +1,2 @@
+class ChordShape < ApplicationRecord
+end

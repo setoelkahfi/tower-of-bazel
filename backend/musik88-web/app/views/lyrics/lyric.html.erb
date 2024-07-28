@@ -1,0 +1,91 @@
+<% content_for :meta_head do %>
+  <%= render('shared/partial_meta_tag', title: @meta_title, description: @meta_description) %>
+<% end %>
+<% content_for :breadcrumb do %>
+  <%= render 'shared/partial_breadcrumbs_schema' do %>
+    {
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+    "@id": "<%= artist_url %>",
+    "name": "<%= t("nav_artists") %>"
+    }
+    },
+    <% if @song.artists.first.present? %>
+    {
+    "@type": "ListItem",
+    "position": 3,
+    "item": {
+    "@id": "<%= artist_detail_url(@song.artists.first&.slug || 'NaN') %>",
+    "name": "<%= @song.artists.first&.name || 'NaN' %>"
+    }
+    },
+    <% end %>
+    {
+    "@type": "ListItem",
+    "position": 4,
+    "item": {
+    "@id": "<%= album_detail_url(@song.album.slug) %>",
+    "name": "<%= @song.album.name %>"
+    }
+    },{
+    "@type": "ListItem",
+    "position": 5,
+    "item": {
+    "@id": "<%= lyric_detail_url(@lyric.slug) %>",
+    "name": "<%= t("song_lyric") + @song.name %>"
+    }
+    }
+  <% end %>
+<% end %>
+<main>
+  <div class="row g-5">
+    <div class="col-md-12">
+      <h1><%= @page_title %></h1>
+    </div>
+  </div>
+  <div class="row g-5">
+    <div class="col-sm-1">
+      <div class="position-sticky" style="top: 1rem;">
+        <div class="text-center mt-4">
+          <%= "<i class='bi #{@lyric.status_symbol} #{@lyric.status_color}' style='font-size: 1.5rem;'></i>".html_safe %>
+        </div>
+        <div class="text-center mt-4">
+          <i class="bi bi-graph-up-arrow"></i>
+          <span class="badge rounded-pill bg-warning text-dark"><%= @lyric.views_count %></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <%= raw @lyric_shown %>
+      <div class="row mt-3">
+        <h3 id="discussion"><%= t('discussion') %></h3>
+        <%= render "shared/flash_message", object: flash %>
+        <div class="mb-3">
+          <%= form_for [@lyric, Comment.new] do |f| %>
+            <%= f.text_area :body, placeholder: t('discussion_comment_placeholder'), rows: "4" , cols: "50%" %><br/>
+            <%= f.hidden_field :user_id, value: current_user.id if user_signed_in? %>
+            <%= f.submit t('discussion_comment_button'), class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <%= render(partial: 'comments/comment', collection: @lyric.comments) %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <%= render "partial_aside.html", song: @song do |song| %>
+        <%= link_to(
+          song.name,
+          song_detail_path(song.slug)
+        ) %>
+      <% end %>
+    </div>
+  </div>
+  <%= render "shared/partial_breadcrumbs" do %>
+    <li class="breadcrumb-item"><%= link_to t("nav_artists"), artist_url %></li>
+    <% if @song.artists.first.present? %>
+      <li class="breadcrumb-item"><%= link_to @song.artists.first&.name || 'NaN', artist_detail_url(@song.artists.first&.slug || 'NaN') %></li>
+    <% end %>
+    <li class="breadcrumb-item"><%= link_to @song.album.name, album_detail_url(@song.album.name.downcase.parameterize + '-' + @song.album.artists[0].name.downcase.parameterize + "-" + @song.album.id.to_s) %></li>
+    <li class="breadcrumb-item"><%= link_to @song.name, lyric_detail_path(@lyric.slug) %></li>
+  <% end %>
+</main>

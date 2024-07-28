@@ -1,0 +1,25 @@
+<tr style="vertical-align: middle" id="karokowe-row-<%= audio_file.id %>">
+  <td style="padding: 10px 10px 10px 0;">
+    <% if audio_file.source_file.attached? %>
+      <%= link_to(audio_file.source_file.blob.filename, my_karokowe_detail_path(audio_file.id)) %>
+    <% else %>
+      File is missing. Please delete this.
+    <% end %>
+    <%= render "my/partial_audio_file_information", audio_file: audio_file %>
+  </td>
+    <td style="padding: 10px; width: 200px">
+      <% if !audio_file.source_file.attached? %>
+        Missing file.
+      <% elsif audio_file.audio_file_karokowe_status.nil? || (!audio_file.audio_file_karokowe_status.nil? && audio_file.audio_file_karokowe_status.pending? || audio_file.audio_file_karokowe_status.cancelled?) %>
+        <%= link_to("Generate karaoke 🎤", my_karokowe_start_path(audio_file.id), data: { confirm: '"This will take time 🎤" - KaroKowe' }, method: :post) %>
+      <% elsif !audio_file.audio_file_karokowe_status.nil? && audio_file.audio_file_karokowe_status.processing? %>
+        Generating karaoke <%= image_pack_tag "fire.gif", :size => "25x25", :style => "vertical-align: bottom" %>
+        </br>
+        <%= link_to("<i class='icon-remove'></i> Cancel".html_safe, my_karokowe_cancel_path(audio_file.id), data: { confirm: 'This will cancel KaroKowe 🔥.' }, method: :patch) %>
+      <% elsif !audio_file.audio_file_karokowe_status.nil? && audio_file.audio_file_karokowe_status.done? %>
+        <%= link_to("<i class='icon-list'></i> See results".html_safe, my_karokowe_detail_path(audio_file.id)) %>
+      <% elsif !audio_file.audio_file_karokowe_status.nil? && audio_file.audio_file_karokowe_status.no_results? %>
+        <%= link_to("Generate karaoke 🎤 again?", my_karokowe_start_path(audio_file.id), data: { confirm: '"This will take time 🔥" - karokowe' }, method: :post) %>
+      <% end %>
+  </td>
+</tr>

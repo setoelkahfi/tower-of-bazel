@@ -1,0 +1,42 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= request.base_url %>/tentang-kami" />
+<% end %>
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "<%= request.base_url %>",
+          "name": "<%= t('site_name') %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "<%= request.base_url %>/tentang-kami",
+          "name": "Tentang Kami"
+        }
+      }]
+    }
+  </script>
+<% end %>
+<main>
+  <div class="row g-5">
+    <div class="col-12">
+      <h1><%= @page_title %></h1>
+      <div class="lead"><%= @page.page_content.html_safe if @page %></div>
+      <%= link_to(t('nav_what_is_this'), what_is_this_path) %>
+    </div>
+  </div>
+  <%= render "shared/partial_breadcrumbs" do %>
+    <li class="breadcrumb-item"><%= link_to t("nav_footer_about"), about_us_path %></li>
+  <% end %>
+</main>

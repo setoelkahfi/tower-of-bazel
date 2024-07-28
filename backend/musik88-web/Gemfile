@@ -1,0 +1,75 @@
+source 'https://rubygems.org'
+ruby '3.2.2'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '6.1.7.7'
+# Use postgresql as the database for Active Record
+gem 'pg'
+# Use SCSS for stylesheets
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier'
+
+gem 'mini_racer'
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder'
+# bundle exec rake doc:rails generates the API under doc/api.
+gem 'sdoc',          group: :doc
+
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring',        group: :development
+
+gem 'puma', '5.4.0'
+
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+
+# Use debugger
+# gem 'debugger', group: [:development, :test]
+
+# gem 'rails-translate-routes'
+gem 'activeadmin', '2.9.0'
+gem 'activeadmin_json_editor', '~> 0.0.7'
+gem 'activeadmin_quill_editor', '0.3.4'
+gem 'autoprefixer-rails'
+gem 'aws-sdk-s3'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'browser'
+gem 'coffee-rails'
+gem 'devise'
+gem 'devise_invitable', '~> 2.0.0'
+gem 'devise-jwt'
+gem 'fog-aws'
+gem 'font-awesome-rails'
+gem 'google-api-client', require: 'google/apis'
+gem 'httpclient'
+gem 'letter_opener', group: :development
+gem 'merit'
+gem 'omniauth-apple'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-spotify'
+gem 'rack-cors'
+gem 'redis', '4.4.0'
+gem 'route_translator'
+gem 'sass-rails'
+gem 'sentry-rails', '>= 5.4.2'
+gem 'sentry-ruby', '>= 5.4.2'
+gem 'sidekiq'
+gem 'sitemap_generator'
+gem 'split', require: 'split/dashboard'
+gem 'sprockets', '3.7.2'
+# gem 'tinymce-rails', '5.9.2'
+gem 'tolk', '4.1.0'
+gem 'webpacker'
+gem 'will_paginate', '~> 3.3.0'
+group :test, :development do
+  gem 'dotenv-rails'
+  gem 'htmlbeautifier'
+  gem 'rubocop'
+end

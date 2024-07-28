@@ -1,0 +1,25 @@
+local:
+  service: Disk
+  root: <%= Rails.root.join("../storage") %>
+
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+google:
+  service: GCS
+  credentials: <%= Rails.root.join("path/to/keyfile.json") %>
+  project: ""
+  bucket: ""
+amazon_dev:
+  service: S3
+  access_key_id: <%= Rails.application.credentials.dig(:aws, :storage_access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(:aws, :storage_secret_access_key) %>
+  region: eu-north-1
+  bucket: musik88-activestorage-dev
+amazon:
+  service: S3
+  access_key_id: <%= Rails.application.credentials.dig(:aws, :storage_access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(:aws, :storage_secret_access_key) %>
+  region: eu-north-1
+  bucket: musik88-activestorage

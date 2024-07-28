@@ -1,0 +1,34 @@
+<div class="position-sticky" style="top: 1rem;">
+  <div class="text-center mt-2">
+    <ul class="nav flex-column nav-pills">
+      <%= render(
+            'partial_menu_aside',
+            href_text: t('song_menu_aside_info'),
+            href_link: song_detail_path(@song.slug),
+            icon_class: 'bi-info-circle',
+            active: active_menu == 'info'
+        ) %>
+      <%= render(
+            'partial_menu_aside',
+            href_text: t('song_menu_aside_chords'),
+            href_link: song_chords_path(@song.slug),
+            icon_class: 'bi-music-note-list',
+            active: active_menu == 'chord'
+        ) %>
+      <%= render(
+            'partial_menu_aside',
+            href_text: t('song_menu_aside_lyrics'),
+            href_link: song_lyrics_path(@song.slug),
+            icon_class: 'bi-file-text',
+            active: active_menu == 'lyric'
+        ) %> 
+        <%= render(
+            'partial_menu_aside',
+            href_text: t('song_menu_aside_audio'),
+            href_link: song_audio_path(@song.slug),
+            icon_class: 'bi-music-note-beamed',
+            active: active_menu == 'audio'
+        ) %>
+    </ul>
+  </div>
+</div>

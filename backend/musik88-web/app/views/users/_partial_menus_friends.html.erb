@@ -1,0 +1,4 @@
+<ul class="nav flex-column">
+  <%= render("partial_menu", href_text: t("followers"), href_link: followers_path, active: active_menu == 'followers') %>
+  <%= render("partial_menu", href_text: t("following"), href_link: following_path, active: active_menu == 'following') %>
+</ul>

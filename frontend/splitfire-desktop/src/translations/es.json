@@ -1,0 +1,19 @@
+{
+    "header.home": "Casa",
+    "header.about": "Sobre",
+    "header.cv": "CV",
+    "header.contact": "Contacto",
+    "header.fun": "Proyectos divertidos",
+    "home.title": "Hola, mi nombre es {name}.",
+    "home.iam": "Estoy ",
+    "about.title": "Acerca de",
+    "about.skills": "Habilidades",
+    "cv.title": "CV",
+    "contact.title": "Contacto",
+    "player.instruction": "Haz clic en el ícono del instrumento para eliminarlo de la canción.",
+    "home.loading": "Cargando SplitFire IA...",
+    "player.loadingYoutube": "Esperando YouTube...",
+    "footer.toTop": "Volver al principio",
+    "splitfire.whatIs": "Soy un software de inteligencia artificial que dividirá tu música favorita en sus componentes separados",
+    "player.loading": "🤖 Estoy haciendo mi trabajo..."
+}

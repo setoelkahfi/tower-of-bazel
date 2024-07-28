@@ -1,0 +1,467 @@
+en:
+ locale_name: "🇺🇸 English"
+ routes:
+  search: search
+  privacy_policy: privacy-policy
+  term_of_use: term-of-use
+  contact: contact
+  about_us: about-us
+  artist: artists
+  artist_add: add-artist
+  album: albums
+  album_add: add-album
+  song: songs
+  song_add: add-song
+  most_loved_songs: most-loved-songs
+  guitar_chords: guitar-chords
+  guitar_chord_shapes: all-guitar-chords
+  guitar_chord_shape: 'guitar-chord-:slug'
+  song_lyrics: song-lyrics
+  artist_detail: artists
+  artist_bridge: artists-bridge
+  album_detail: albums
+  album_bridge: albums-bridge
+  song_detail: songs
+  song_bridge: songs-bridge
+  song_chords: song-chords
+  song_audio: song-audio
+  song_lyrics_detail: 'song-lyrics-:slug'
+  guitar_chords_detail: 'guitar-chords-:slug'
+  guitar_chords_history: 'guitar-chords-:slug/history'
+  guitar_chords_add: 'add-chord'
+  guitar_chords_review: 'guitar-chords-:slug/review-chord'
+  song_karaoke_detail: 'karaoke-song-:slug'
+  #song_bass_backing_track: 'bass-backing-track-:slug' Deprecated
+  song_bass_tab: 'bass-tab-:slug'
+  audio_files: audio-files
+  guitar_backing_track: 'guitar-backing-track-:slug'
+  bass_backing_track: 'bass-backing-track-:slug'
+  drum_backing_track: 'drum-backing-track-:slug'
+
+  # Javanese gamelan
+  javanese_gamelan: javanese-gamelan
+
+  javanese_gending: javanese-gending
+  javanese_gending_detail: javanese-gending-gamelan-:slug
+  javanese_gending_gamelan_notation: notation-for-javanese-gamelan
+  javanese_gending_gamelan_notation_detail: notation-for-javanese-gamelan-:slug
+  javanese_gending_gamelan_notation_detail_new: gending-notation-standard-:slug
+  javanese_gamelan_notation: javanese-gamelan  # Obsolete
+  add_gending: add-gending-gamelan
+  add_javanese_gamelan_notation: add-javanese-gamelan-notation
+
+  login: login
+  signup: signup
+  confirm_email: confirm-email
+  community: community
+  user_rep: reputation
+  followers: followers
+  following: following
+
+  what_is_this: what-is-this
+  what_is_this_detail: what-is-:slug
+ site_name: "Musik88.com"
+ hello: "Welcome to Musik 88"
+ nav_music_database: "Musics"
+ nav_artists: "Artists"
+ nav_albums: "Albums"
+ nav_songs: "Songs"
+ nav_new_entries: "New Entries"
+ nav_change_language: "Change Language: "
+ nav_en: "English"
+ nav_id: "Bahasa Indonesia"
+ nav_footer_about: "About Us"
+ nav_footer_term: "Term of Use"
+ nav_footer_privacy: "Privacy Policy"
+ nav_footer_contact: "Contact"
+ nav_footer_company: "Company"
+ nav_footer_follow_us: "Follow Us"
+ nav_lyrics: "Song Lyrics"
+ nav_guitar: "Guitar"
+ nav_chords_shapes: "Guitar Chords Diagram"
+ nav_chords: "Guitar Chords"
+ nav_javanese_gamelan: "Javanese Gamelan"
+ nav_javanese_gamelan_about: "About Javanese Gamelan"
+ nav_javanese_gending: "Javanese Gendings"
+ nav_javanese_gending_notation:  "Javanese Gending Notation"
+ nav_ukulele_chords: "Ukulele Chords (soon)"
+ nav_login_dropdown: "Account"
+ nav_community: "Community"
+ nav_login: "Login (web3 Ready!)"
+ nav_logout: "Log out"
+ nav_signup: "Signup"
+ nav_confirm_email: "Confirm email"
+ nav_onboarding: "Onboarding"
+ nav_what_is_this: 'What Is This?'
+ nav_buy_bach: 'Buy €BACH'
+ home_new_entries: "New Entries"
+ home_popular: "Popular"
+ footer: "Created for fun by %{profile} from all around the %{instagram} &middot; &copy; 2021"
+ footer_world: "world"
+ 
+ # Homepage
+ search_result_for: 'Search result for "<span class="fst-italic fw-bold">%{keywords}</span>"'
+
+ # General
+ discussion: "Discussion"
+ added_by: "Added by"
+ discussion_comment_placeholder: "Write your comment here"
+ discussion_comment_button: "Submit"
+ like_this: "like this"
+ legacy_view: "Old design"
+ new_view: "New design"
+ change_language: "Change language"
+ search: "Search"
+ search_placeholder_title: "Search artist, song, or javanese gending..."
+ save: 'Save'
+ next: 'Next'
+ no: 'No.'
+
+ # Badges
+ badges: 'Badges'
+ pretty_badge: 'Pretty Badge'
+
+ #Models
+ JavaneseGending: 'Javanese Gending'
+ JavaneseGendingNotation: 'Javanese Gending Notation'
+ Song: 'Song'
+ Artist: 'Artist'
+ Album: 'Album'
+ SongProvider: 'Song bridge'
+ ArtistProvider: 'Artist bridge'
+ AlbumProvider: 'Album bridge'
+
+ #Breadcrumbs
+ breadcrumb_home: "Home"
+ breadcrumb_most_loved_songs: "Most Loved Songs"
+
+ #Home page
+ home_headline: "World's biggest music database!"
+ home_subheadline: "Guitar chords? Song lyrics? Album reviews? Javanese gending notation? etc! Signup, contribute (add artists, albums, lyrics, etc), and earn %{bach_link} cryptocurrency."
+ home_signup_now: "Signup now!"
+ home_see_all: "See all"
+ home_guitar_chords: "Guitar Chords"
+ home_guitar_chords_headline: "Submit your guitar chords and earn %{bach_link} crypto for your contribution."
+ home_share_now: "Share your chord!"
+ home_others: "Others"
+ home_others_headline: "Check out my other projects."
+ home_youtube_karaoke: "Youtube Karaoke"
+ home_youtube_karaoke_headline: "Karaoke version of your favorite YouTube music video powered by AI."
+ home_javanese_gending_notation: "Javanese Gending Notation"
+ home_javanese_gending_notation_subheadline: "Digitalize Javanese gamelan and earn %{bach_link} cryptocurrency for your contribution."
+ home_share_gamelan_notation_now: "Share gending notation!"
+ home_lyrics: "Song Lyrics"
+ home_songs: "Songs"
+ home_add_artist: "Add artist"
+ home_add_album: "Add album"
+ home_what_is: 'What is Musik88?'
+
+ h2_find_new_songs: "Find New Musics Here!"
+ h2_find_new_albums: "Find New Albums Here!"
+ h2_find_new_artists: "Find New Artists Here!"
+
+ #Artist page
+ find_your_artist: "Find Your Favorite Artist"
+ see_artist_detail: "See artist detail"
+ top_10_artists: "Top 10 Artists"
+ artist_profile_title: "%{artist} Profile"
+ artist_profile_album_title: "%{artist}'s Albums"
+ artist_profile_album_contribution_title: "%{artist} also appears on:"
+ #Album page
+ find_your_favorite_album: "Find Your New Favorite Album"
+ see_album_detail: "See album detail"
+ top_10_albums: "Top 10 Albums"
+ album_artists: "Artists"
+ album_song_list: "Song list"
+ #Songs page
+ find_your_favorite_songs: "Find Your Favorite Songs"
+ see_song_detail: "See song detail"
+ top_10_songs: "Top 10 Songs"
+ 10_most_loved_songs: "10 Most Loved Songs"
+ by: "Loved by"
+ somebody_to_love: "Love me"
+ song_detail_page_title: "%{song_name} Song Review"
+ song_chords_page_title: "%{song_name} Guitar Chord"
+ song_detail_page_meta_title: "%{song_name} from %{song_artist_name} song review, from the %{song_album_name} album/single."
+ need_to_logged_in: "You need to logged in before giving this love. Don't have account yet? Just signup, it's so easy. You can use your Facebook account if you want."
+ song_lyric_page_title: "%{song_name} Lyric by %{song_artist_name}"
+ song_lyric_unavailable_content: "The <span class='song-lyric-unavailable'>%{song_name} lyric from %{song_artist_name}</span> isn't yet avaiable. Gives this song at least 2 loves <span class='glyphicon glyphicon-heart'></span> or %{href} to this song so we can just focus on finding the chords."
+ song_lyric_unavailable_content_add_lyric: "Add Lyric"
+ song_menu_aside_info: "Info"
+ song_menu_aside_chords: "Chords"
+ song_menu_aside_lyrics: "Lyrics"
+ song_menu_aside_audio: "Audio"
+ song_detail: "Song detail"
+ lyric: "Song Lyric"
+ cancel: "Cancel"
+ lyric_cannot_be_empty: "Lyric can't be empty"
+ song_lyric_unavailable_meta_description: "Here's the %{song_name} lyric from %{song_artist_name} taken from the %{song_album_name} album."
+ song_chord_page_title: "Guitar Chord %{song_name}"
+ song_chord_unavailable_content: "The <span class='song-lyric-unavailable'>%{song_name} chord from %{song_artist_name}</span> isn't yet avaiable. Gives this song at least 2 loves <span class='glyphicon glyphicon-heart'></span>, that's all we need."
+ song_chord_unavailable_meta_description: "Here's the %{song_name} chord from %{song_artist_name} taken from the %{song_album_name} album."
+ song_audio_page_title: "Audio files for %{song_name}"
+ song_detail_page_from_album: "from album %{album_link}"
+ song_detail_page_by: "by %{artist_link}"
+ #Song lyrics page
+ song_lyrics_page_title: "Song Lyrics %{song_name}"
+ song_lyric_detail: "Song lyric %{title}"
+ our_newest_song_lyrics: "Our Newest Song Lyrics Collection"
+ top_10_song_lyrics: "Top 10 Song Lyrics"
+ song_menu_lyric: "Song Lyric %{song_name}"
+ song_menu_bass_backing_track: "Bass backing track %{song_name}"
+ song_menu_bass_tab: "Bass tab %{song_name}"
+ song_menu_drum_backing_track: "Drum backing track %{song_name}"
+ song_updated_at: "Updated: %{date}"
+ #Add chords page
+ add_chord_title: "Add chord"
+ add_chord_validation: "We need the title and the chord"
+ add_chord_validation_success: "Thank you for contributing!"
+ add_chord_how_to: "How to add chord"
+ add_chord_label_song: "Attach to song.."
+ add_chord_placeholder_chose_song: "Choose song"
+ add_chord_label_title: ".. or add title"
+ add_chord_placeholder_title: "Title"
+ add_chord_placeholder_artist: "Artist name"
+ add_chord_label_chord: "Chord"
+ add_chord_placeholder_chord: "Put your chord here..."
+ add_chord_warning: "You haven't signed in yet. %{href_login} and claim your contribution, or %{href} will claim your chords and contribution."
+ add_chord_share: "Share!"
+ add_chord_how_to_content: "Add your chord by writing it down line by line. Add the chord sequences on top of each line. Add spacing and paragraph if needed. Also, add song section (reff, verse, bridge) in every part of the song."
+ #Guitar chords page
+ guitar_chord_link: "Guitar chord %{slug}"
+ our_guitar_chords_collection: "Our Newest Guitar Chords Collections"
+ top_10_guitar_chords: "Top 10 Guitar Chords"
+ song_menu_guitar_chord: "Guitar Chord %{song_name}"
+ see_chord_detail: "See chord detail"
+ guitar_chords_shape: "Guitar Chords Shape"
+ guitar_chord_image: "Guitar Chord Image"
+ guitar_chord_video: "Guitar Chord Video"
+ #Javanese gamelan
+ gending_add: "Share your gending notation"
+ gending_add_explanation: "Help us digitalize Javanese gamelan online. %{href} and earn %{bach_link} cryptocurrency."
+ gending_notation: "Gending Notation "
+ gending_notation_add_explanation: "Wanna share a javanese gending notation? %{href} and earn %{bach_link} cryptocurrency."
+ gending_notation_add: "Add gending notation"
+ gending_name: "Gending Name"
+ gending_description: "Description"
+ gending_notation: "Gending Notation"
+ gending_notation_page_title: "Javanese Gending Notation %{title}"
+ gending_notation_meta_desciption: "This is the javanese gending notation for  %{title} gending."
+ gending_notation_link: "Javanese gending notation %{slug}"
+ #Login page
+ login: "Login"
+ login_omniauth_explanation: 'Login with your Spotify, Google, or Facebook account.'
+ login_web3_explanation: 'Login with your web3 wallet provider. Currently only support Phantom wallet.'
+ forgot_password: "Forgot password?"
+ confirm_email: "Confirm your email"
+ email: "Email"
+ password: "Password"
+ password_confirmation: "Password confirmation"
+ still_login: "Remember me"
+ new_user: "New user?"
+ signup_now: "Signup now!"
+ invalid_login: "Invalid email/password combination"
+ login_with_facebook: "Login with Facebook"
+ signup_with_facebook: "Signup with Facebook"
+ or: "Or"
+ resend_email_confirmation: "Resend confirmation instructions"
+ resend_email_confirmation_button: "Resend instructions"
+ unconfirmed_email: "You've already registered and need to confirm your email. Check your %{email_client_link}'s inbox or spam folder. Or %{click_here_link} to resend your email confirmation."
+ unconfirmed_email_click_here: 'click here'
+ unconfirmed_email_resend_sent: 'Email confirmation is sent to %{email}. Open your %{email_client_link}. If you cannot find it, check the junk folder. It might be detected as spam.'
+ unconfirmed_email_email_app: 'email app'
+ join_our_chord_community: "Join our community to see <span class='badge bg-primary rounded-pill fw-bold fst-italic'>%{song_name}</span> chord. You can also earn €BACH cryptocurrency by activating your wallet in Profile -> Settings."
+ join_our_lyric_community: "Join our community to see <span class='badge bg-primary rounded-pill fw-bold fst-italic'>%{song_name}</span> lyric from <span class='badge bg-primary rounded-pill fw-bold fst-italic'>%{song_artist_name}</span>. You can also earn €BACH cryptocurrency by activating your wallet in Profile -> Settings."
+ join_our_javanese_community: "Join our community to see <span class='badge bg-primary rounded-pill fw-bold fst-italic'>%{gending_name}</span> notation. You can also earn €BACH cryptocurrency by activating your wallet in Profile -> Settings."
+ #Users
+ our_community: "Our Community"
+ user_profile: "Profile"
+ signup: "Signup"
+ signup_omniauth_explanation: 'Signup with your Spotify, Google, or Facebook account.'
+ signup_omniauth_explanation_provider: 'Synching your %{provider_name} account.'
+ have_account: "Already have account?"
+ create_account: "Create account"
+ name: "Name"
+ welcome_user: "Welcome, %{user_name}!"
+ welcome_user_unconfirmed: "Welcome! Check your email to confirm your account."
+ my_profile: "My Profile"
+ my_profile_link_html: "This is your public profile. Follow %{href} to edit your profile."
+ my_profile_link_href: "this secure link"
+ my_profile_private: "This profile is private"
+ signup_to_claim: "Is this yours?"
+ need_to_logged_in_my_profile: "You need to be logged in to perform this task."
+ password_new: "Enter new password"
+ password_new_confirmation: "Confirm password"
+ password_button_update: "Update"
+ oh_hi: "Oh, hi!"
+ reputation: 'Reputation'
+ friends: "Friends"
+ find_your_friends: "Find your friends here..."
+ following: "Following"
+ followers: "Follower"
+ settings: "Settings"
+ your_wallet_address: "Your wallet address"
+ your_wallet_address_explanation: "We store your cryptocurrency in your wallet address. You can buy, sell, and stake (coming soon) your cryptocurrency in an open market, for example %{href}."
+ generating_solana_wallet: "Generating your wallet.... Refresh this page later."
+ activate_solana_wallet: "Activate your wallet"
+ your_locale: 'Language'
+ your_locale_explanation: 'Your language preference of this website'
+ your_invitees: 'Your Invitees'
+ your_invitees_explanation: 'You get 0.1 BACH for every accepted invite.'
+ invite_button: 'Invite'
+ your_invite_email: 'Email'
+ your_invite_date: 'Date'
+ your_invite_status: 'Status'
+ your_account_connections: 'Connection Settings'
+ your_account_connections_explanation: 'We sync your music providers everytime you log in.'
+ your_account_connections_spotify_token_explanation: 'Let us use your Spotify token to search content on Spotify.'
+ your_account_connections_google_explanation: 'Let us use your Google token to search content on YouTube.'  
+ onboarding_explanation: 'By verifying your email, you got 0.1 BACH! Get more BACH by following these steps.'
+ onboarding_username_heading: '@username'
+ onboarding_username_explanation: 'Create a unique @username and get another 0.1 BACH!'
+ onboarding_username_done: 'Yeay! You got your username and a %{profile_badges_link}.'
+ username_length_invalid: 'Username minimum 4 letters.'
+ username_character_invalid: 'Contains illegal character.'
+ username_letters_numbers_only: 'Username should only contain letters and numbers.'
+ username_should_starts_with_letters: 'Should start with letters.'
+ username_taken: 'Username is taken.'
+ username_available: 'Congratulations! Your username is available.'
+ onboarding_spotify_heading: 'Export your Spotify Data'
+ onboarding_spotify_explanation: 'Get up to 50 BACH when you export your playlist!'
+ onboarding_spotify_processing: 'Exporting your data. It takes sometime.'
+ onboarding_spotify_done: 'Done. You exported your Spotify data.'
+ onboarding_done: "That's it, %{user_name}!"
+ onboarding_explanation_done: 'We are done for now. Check your profile and start contributing more to the community.'
+ onboarding_sounds_good: 'Sounds good!'
+ onboarding_username_checking: 'Checking...'
+ onboarding_done_button: "I'm ready!"
+ onboarding_google_heading: 'Are you a YouTube exporter?'
+ onboarding_google_explanation: 'Export your YouTube data and get up to 50 BACH!'
+ onboarding_google_processing: 'Exporting your music data. It takes sometime.'
+ onboarding_google_done: 'Yes, you are! You exported your YouTube data for our community.'
+ #BACH
+ bach_token_name: "Token name"
+ bach_token_id: "Token ID"
+ bach_token_account: "Token Account"
+ bach_token_address: "Token Address"
+ bach_token_symbol: "Symbol"
+ bach_token_decimal: "Decimal Place"
+ bach_token_fractional: "Fractional"
+ bach_token_supply: "Current Supply"
+ bach_token_fix_supply: "Total Supply"
+ bach_token_semitone: "semitone"
+ bach_token_trillion: "trillion"
+ bach_token_supply_cycles: "Supply cycles"
+ bach_token_discussion: "What do you think? Are you interested?"
+ 
+ # Karaoke
+ song_karaoke_title: "%{filename} Karaoke Version"
+ song_karaoke_page_title: "Download %{song_name} Karaoke Version From %{song_artist_name} From %{song_album_name} Album"
+ song_karaoke_unavailable_content: "The %{song_name} karaoke version from %{song_artist_name} is not available yet."
+ song_karaoke_unavailable_meta_description: "Download %{song_name} Karaoke Version From %{song_artist_name} From %{song_album_name} Album"
+ song_karaoke_download: "Download Karaoke Version"
+ song_menu_karaoke: "Karaoke Version %{song_name}"
+ song_generate_your_own_karaoke: "Generate %{song_name} Karaoke File"
+ song_generate_your_own_bass_backing_track: "Generate %{song_name} Bass Backing Track"
+ song_generate_your_own_stem_files: "Generate STEM Files For %{song_name}"
+ song_generate_your_own_drum_backing_track: "Generate %{song_name} Drum Backing Track"
+
+ # Mailer
+ user_notifier_projects: 'Check out our other projects'
+ user_signup_email_subject: 'Welcome to Musik88!'
+ user_signup_email_heading: 'Thanks for signing up, %{user_name}!'
+ user_signup_email_heading_p1: 'Thanks for joining us!'
+ user_signup_email_heading_p2: 'We are in a mission to digitalize underrepresented musics in the world. %{href} and start contributing :)'
+ user_send_reset_password_instructions_subject: 'Reset password instruction'
+ user_reset_password_email_heading: 'Reset password link only for you, %{user_name}!'
+ user_reset_password_email_heading_p1: 'You are getting this email because you are trying to access your account.'
+ user_reset_password_email_heading_p2: 'Click %{href} to reset your password.'
+ user_reset_password_email_link: 'this one time link'
+ user_send_wallet_activation_notification_subject: 'You have a new wallet!'
+ user_send_wallet_activation_notification_heading: 'Congratulations, %{user_name}. You now have a new crypto wallet!'
+ user_send_wallet_activation_notification_p1: 'Your BACH crypto is stored on your wallet. You can see your balance in the link below.'
+ user_send_wallet_activation_notification_address: 'Your wallet address'
+ user_email_confirmation_header: 'Welcome %{email}!' 
+ user_email_confirmation_content: 'You can confirm your account email through the link below:'
+ user_email_confirmation_cta: 'Confirm my account'
+ user_email_with_love: 'With ❤️ from Stockholm,'
+
+ #General translations or partials
+ unknown_error: "Unknown error"
+ 
+ #Comments
+ ago: "ago"
+ add_comment: "Add a comment"
+ reply: "Reply"
+ add_a_reply: "Add a reply"
+
+ #Active record translation
+ activerecord:
+  errors:
+   models:
+    song:
+     attributes:
+      album:
+       too_short: "Album tidak boleh kosong"
+      name:
+       too_short: "Nama lagu tidak boleh kosong"
+      description:
+       too_short: "Deskripsi lagu tidak boleh kosong"
+    lyric:
+     attributes:
+      lyric:
+       too_short: "Lirik lagu tidak boleh kosong"
+    chord:
+     attributes:
+      chord:
+       too_short: "Chord lagu tidak boleh kosong"
+    artist:
+     attributes:
+      name:
+       too_short: "Nama artis tidak boleh kosong"
+      description:
+       too_short: "Deskripsi artis tidak boleh kosong"
+    album:
+     attributes:
+      name:
+       too_short: "Nama album tidak boleh kosong"
+      description:
+       too_short: "Deskripsi album tidak boleh kosong"
+       too_short: "Deskripsi artis tidak boleh kosong"
+    page:
+     attributes:
+      page_slug:
+       too_short: "Slug halaman tidak boleh kosong"
+      page_content:
+       too_short: "Konten halaman tidak boleh kosong"
+    user:
+     attributes:
+      name:
+       blank: "Name cannot be empty"
+      email:
+       blank: "Email cannot be empty"
+       invalid: "Email is not valid"
+       taken: "Email has already been taken"
+      password:
+       blank: "Password cannot be empty"
+       too_short: "Password is too short"
+      password_confirmation:
+       confirmation: "Password confirmation is not the same"
+
+# Activeadmin translation
+ active_admin:
+  filters:
+   predicates:
+    from: "dari tanggal"
+    to: "sampai tanggal"
+ datetime:
+  distance_in_words:
+    x_days:
+     one: 1 hour
+     other: "%{count} hours"
+
+# Devise translation
+ devise:
+  mailer:
+   confirmation_instructions:
+    user_subject: 'Email Confirmation Musik88.com'

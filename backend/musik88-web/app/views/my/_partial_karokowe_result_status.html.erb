@@ -1,0 +1,5 @@
+<% if audio_file.audio_file_karokowe_status.processing? %>
+    We are generating the karaoke file for this file</br><%= image_pack_tag('fire.gif', :size => '34x34', :style => 'vertical-align: top') %>
+<% elsif audio_file.karaoke_file.nil? %>
+    No result yet. Go back and click generate karaoke file 🎤
+<% end %>

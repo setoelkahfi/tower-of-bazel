@@ -1,0 +1,65 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= request.base_url %>" />
+<% end %>
+<% content_for :breadcrumb do %>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "<%= request.base_url %>",
+                "name": "Musik 88"
+            }
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "<%= login_url %>",
+                "name": "Masuk Log | Musik 88"
+            }
+        }]
+    }
+    </script>
+<% end %>
+<div class="page-header">
+    <h1><%= t("reset_password") %></h1>
+    <%= render "shared/flash_message", object: flash %>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <%= form_for(:session, url: login_path, :html => { :class => "form-horizontal" }) do |f| %>
+            <div class="form-group">
+                <%= f.label t("password_new"), class: "col-sm-3 control-label" %>
+                <div class="col-sm-9">
+                    <%= f.password_field :password, class: 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <%= f.label t("password_new_confirmation"), class: "col-sm-3 control-label"  %>
+                <div class="col-sm-9">
+                    <%= f.password_field :password_confirmation, class: 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-4">
+                    <%= f.submit t("password_button_update"), class: "btn btn-primary" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <ol class="breadcrumb">
+            <li><%= link_to t("breadcrumb_home"), root_path %></li>
+            <li><%= link_to t("nav_reset_password"), login_path %></li>
+        </ol>
+    </div>
+</div>

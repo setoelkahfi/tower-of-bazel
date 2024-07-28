@@ -1,0 +1,37 @@
+<% use_header = true if local_assigns[:use_header].nil? %>
+
+<div class="promo-tools">
+    <% if use_header %>
+        <h2>Try These Stupid 🤖 AI Tools</h2>
+    <% end %>
+      <ul class="nav nav-pills">
+            <%= render(
+                    "shared/partial_ai_tool",
+                    href_text: "SplitFire 🔥",
+                    href_link: splitfire_path,
+                    active: active_menu == 'splitfire'
+                )
+            %>
+            <%= render(
+                    "shared/partial_ai_tool",
+                    href_text: "KaroKowe 🎤",
+                    href_link: karokowe_branding_path,
+                    active:  active_menu == 'karokowe'
+                )
+            %>
+            <%= render(
+                    "shared/partial_ai_tool",
+                    href_text: "Bass64 🎸",
+                    href_link: bass64_branding_path,
+                    active:  active_menu == 'bass64'
+                )
+            %>
+            <%= render(
+                    "shared/partial_ai_tool",
+                    href_text: "Bonzo 🥁",
+                    href_link: bonzo_branding_path,
+                    active:  active_menu == 'bonzo'
+                )
+            %>
+      </ul>
+</div>

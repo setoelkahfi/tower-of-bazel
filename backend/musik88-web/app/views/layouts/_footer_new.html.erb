@@ -1,0 +1,32 @@
+      <footer class="pt-5 text-muted border-top">
+        <% unless current_page?(api_root_path) || current_page?(api_v1_root_path) %>
+          <div class="row mb-3 g-3 align-items-center">
+            <div class="col-auto">
+              <i class="bi bi-globe"></i>
+            </div>
+            <div class="col-auto">
+              <select id="select-locale" class="form-select" aria-label="Locale" onchange="changeLocale()">
+                    <% I18n.available_locales.each do |locale| %>
+                      <% if %i[ja id-id sv-se en].include? locale %>
+                        <option <%= 'selected' if I18n.locale == locale %> value="<%= current_domain_locale_url(locale, request.query_parameters) %>"><%= t('locale_name', locale: locale) %></option>
+                      <% end %>
+                    <% end %>
+              </select>
+              <script>
+                function changeLocale() {url = document.getElementById("select-locale").value;window.location = url;}
+              </script>
+            </div>
+          </div>
+        <% end %>
+        <div class="row g-3">
+          <div class="col-md-12">
+            <span class="fst-italic fw-light fs-6 float-end">
+                <%= link_to(t('nav_footer_about'), about_us_path) %> |
+                <%= link_to(t('nav_footer_term'), term_of_use_path) %> |
+                <%= link_to(t('nav_footer_privacy'), privacy_policy_path) %> | 
+                <%= link_to(t('nav_footer_contact'), contact_path) %> |
+                💎 <%= Date.current.year %>
+            </span>
+          </div>
+        </div>
+      </footer>

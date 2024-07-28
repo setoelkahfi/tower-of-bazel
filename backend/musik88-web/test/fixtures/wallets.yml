@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  pubkey: MyString
+  seed_phrase: MyText
+
+two:
+  user: two
+  pubkey: MyString
+  seed_phrase: MyText

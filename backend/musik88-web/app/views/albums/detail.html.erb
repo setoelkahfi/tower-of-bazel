@@ -1,0 +1,165 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= @meta_url %>" />
+<% end %>
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "<%= root_url %>",
+          "name": "<%= t("site_name") %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "<%= album_url %>",
+          "name": "<%= t("nav_albums") %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "<%= artist_url %>",
+          "name": "<%= t("nav_artists") %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "<%= artist_detail_url(@album.artists.first&.name || "NaN") %>",
+          "name": "<%= @album.artists.first&.name || "NaN" %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@id": "<%= album_detail_url %>",
+          "name": "<%= @album.name %>"
+        }
+      }]
+    }
+  </script>
+<% end %>
+<main>
+  <div class="row g-5">
+    <div class="col-md-12">
+      <h1><%= @page_title %></h1>
+      <%= render('shared/flash_message', object: flash) %>
+    </div>
+  </div>
+  <div class="row g-5">
+    <div class="col-sm-3">
+      <div class="position-sticky" style="top: 1rem;">
+        <div class="text-center mt-4 mb-4">
+            <%= image_pack_tag(
+                "image-placeholder-#{rand(0...3)}.jpg",
+                alt:"#{@album.name} image",
+                class: "img-thumbnail rounded"
+            ) %>
+        </div>
+        <%= render('partial_meta', id: @album.id, users: @album.users, author: @album.user, counter: @album.views_count) %>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <%= raw @album.description %>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <h2><%= @page_title_artist %></h1>
+          <div class="row mb-3">
+            <% @album.artists.each_with_index do |artist, index| %>
+              <div class="col-6 col-sm-3 col-md-2 text-center">
+                <div class="mt-4 mb-4">
+                    <%= image_pack_tag(
+                        "image-placeholder-#{rand(0...3)}.jpg",
+                        alt:"#{artist.name} image",
+                        class: "img-thumbnail rounded-circle"
+                    ) %>
+                </div>
+                <%= link_to(
+                      artist.name,
+                      artist_detail_path(artist.name.downcase.parameterize + "-" + artist.id.to_s),
+                      class: 'badge rounded-pill bg-warning text-dark fst-italic '
+                  ) %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2><%= @page_title_songs %></h1>
+          <ul class="list-group">
+            <% @album.songs.each_with_index do |song, index| %>
+              <li class="list-group-item <%= index % 2 == 0 ? 'list-group-item-primary' : ' list-group-item-warning' %>">
+                <%= index + 1 %>.
+                <%= link_to(
+                      song.name,
+                      song_detail_path(song.slug)
+                ) %>
+                <span class="p-2">
+                  <i class='bi bi-graph-up-arrow'></i>
+                  <span class='badge rounded-pill bg-warning text-dark'><%= song.views_count %></span>
+                </span>
+                <%= link_to(
+                    '<i class="bi bi-info-circle"></i>'.html_safe,
+                    song_detail_path(song.slug),
+                    title: t('song_menu_aside_info'),
+                    class: 'float-end p-1'
+                ) %>
+                <%= link_to(
+                    '<i class="bi bi-music-note-list"></i>'.html_safe,
+                    song_chords_path(song.slug),
+                    title: t('song_menu_aside_chords'),
+                    class: 'float-end p-1'
+                ) %>
+                <%= link_to(
+                    '<i class="bi bi-music-note-beamed"></i>'.html_safe,
+                    song_chords_path(song.slug),
+                    title: t('song_menu_aside_audio'),
+                    class: 'float-end p-1'
+                ) %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row mt-3">
+            <h3 id="discussion"><%= t('discussion') %></h3>
+            <%= render "shared/flash_message", object: flash %>
+            <div class="mb-3">
+              <%= form_for [@album, Comment.new] do |f| %>
+                <%= f.text_area :body, placeholder: t('discussion_comment_placeholder'), rows: "4" , cols: "50%" %><br/>
+                <%= f.hidden_field :user_id, value: current_user.id if user_signed_in? %>
+                <%= f.submit t('discussion_comment_button'), class: "btn btn-primary" %>
+              <% end %>
+            </div>
+            <%= render(partial: 'comments/comment', collection: @album.comments) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/partial_breadcrumbs' do %>
+    <li class="breadcrumb-item"><%= link_to t("nav_albums"), album_path %></li>
+    <li class="breadcrumb-item"><%= link_to t("nav_artists"), artist_path %></li>
+    <% if @album.artists.first.present? %>
+      <li class="breadcrumb-item"><%= link_to @album.artists[0].name, artist_detail_path(artist_friendly_url(@album.artists[0])) %></li>
+    <% end %>
+    <li class="breadcrumb-item"><%= link_to @album.name, album_detail_path %></li>
+  <% end %>
+</main>

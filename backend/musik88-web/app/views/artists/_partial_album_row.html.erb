@@ -1,0 +1,19 @@
+<% if (index == 0 || index % 3 == 0) %>
+  <div class="row content-row">
+  <% end %>
+  <div class="col-md-4">
+    <div class="album-wrap">
+        <%= image_pack_tag(
+                    "image-placeholder-#{rand(0...3)}.jpg",
+                    alt:"#{album.name} cover image.",
+                    class: "img-thumbnail rounded mx-auto d-block"
+                ) %>
+      <div class="album-caption">
+        <h4><a href="<%= album_detail_path(album.slug) %>"><%= album.name %></a></h4>
+      </div>
+      <a href="<%= album_detail_path(album.slug) %>" class="tracks-list"></a>
+    </div>
+  </div>
+  <% if (index == (@albums.length - 1) || (index + 1) % 3 == 0) %>
+  </div>
+<% end %>

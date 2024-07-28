@@ -1,0 +1,43 @@
+<% content_for :meta_head do %>
+  <%= render('shared/partial_meta_tag', title: @meta_title, description: @meta_description) %>
+<% end %>
+<% content_for :breadcrumb do %>
+  <%= render 'shared/partial_breadcrumbs_schema' do %>
+    {
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+    "@id": "<%= users_url %>",
+    "name": "<%= t("search") %>"
+    }
+    }
+  <% end %>
+<% end %>
+<main>
+  <div class="row g-5 mb-3">
+    <div class="col-md-12">
+        <%= render('search') %>
+    </div>
+  </div>
+  <div class="row g-5">
+    <div class="col-12">
+        <%= t('search_result_for', keywords: @keywords).html_safe %>
+  
+        <% @results.each do |result| %>
+            <div class="row g-5">
+                <div class="col-12">
+                    <%= link_to(result['name'], result['path']) %>
+                </div>
+            </div>
+        <% end unless @results.nil? %>
+    </div>
+  </div>
+  <%= render 'shared/partial_breadcrumbs' do %>
+    <li class="breadcrumb-item">
+      <%= link_to(
+        t('search'),
+        search_path
+      ) %>
+    </li>
+  <% end %>
+</main>

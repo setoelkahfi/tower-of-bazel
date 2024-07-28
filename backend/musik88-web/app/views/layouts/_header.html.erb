@@ -1,0 +1,63 @@
+<header>
+<nav>
+    <ul>
+        <li class="<%= current_class?(root_path) %>">
+            <a href="<%= root_url %>">
+                <i class="icon-home"></i><%= t('breadcrumb_home') %>
+            </a>
+        </li>
+        <li class="subnav <%= current_class?(splitfire_path, bass64_path, karokowe_path) %>">
+            <a href="#">🤖 Artificial Intelligence Tools</a>
+            <ul>
+                <li class="<%= current_class?(splitfire_path) %>">
+                    <%= link_to "SplitFire 🔥", splitfire_path %>
+                </li>
+                <li class="<%= current_class?(bass64_branding_path) %>">
+                    <%= link_to "Bass64 🎸", bass64_branding_path %>
+                </li>
+                <li class="<%= current_class?(karokowe_branding_path) %>">
+                    <%= link_to "KaroKowe 🎤", karokowe_branding_path %>
+                </li>
+                <li class="<%= current_class?(bonzo_branding_path) %>">
+                    <%= link_to "Bonzo 🥁", bonzo_branding_path %>
+                </li>
+            </ul>
+        </li>
+        <li class="subnav <%= current_class?(artist_path, album_path, song_path) %>">
+            <a href="#"><%= t('nav_music_database') %></a>
+            <ul>
+                <li class="<%= current_class?(artist_path) %>">
+                    <%= link_to t('nav_artists'), artist_path %>
+                </li>
+                <li class="<%= current_class?(album_path) %>">
+                    <%= link_to t('nav_albums'), album_path %>
+                </li>
+                <li class="<%= current_class?(song_path) %>">
+                    <%= link_to t('nav_songs'), song_path %>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+</header>
+
+<!-- BEGIN mobile nav -->
+<select class="bb-mobile-nav" onChange="if (this.value) window.location.href=this.value">
+    <option value="<%= root_url %>" <%= current_class_mobile?(root_path) %>><%= t('breadcrumb_home') %></option>
+    <option value="<%= splitfire_path %>" <%= current_class_mobile?(splitfire_path) %>>SplitFire 🔥</option>
+    <option value="<%= bass64_branding_path %>" <%= current_class_mobile?(bass64_branding_path) %>>Bass64 🎸</option>
+    <option value="<%= karokowe_branding_path %>" <%= current_class_mobile?(karokowe_branding_path) %>>Karokowe 🎤</option>
+    <option value="<%= bonzo_branding_path %>" <%= current_class_mobile?(bonzo_branding_path) %>>Bonzo 🥁</option>
+    <% if user_signed_in? %>
+        <option value="<%= artist_url %>" <%= current_class_mobile?(artist_path) %>><%= t('nav_artists') %></option>
+        <option value="<%= album_url %>" <%= current_class_mobile?(album_path) %>><%= t('nav_albums') %></option>
+        <option value="<%= song_url %>" <%= current_class_mobile?(song_path) %>><%= t('nav_songs') %></option>
+        <option value="<%= song_lyrics_url %>" <%= current_class_mobile?(song_lyrics_path) %>><%= t('nav_lyrics') %></option>
+        <option value="<%= guitar_chords_url %>" <%= current_class_mobile?(guitar_chords_path) %>><%= t('nav_chords') %></option>
+        <option value="<%= guitar_chord_shapes_url %>" <%= current_class_mobile?(guitar_chord_shapes_path) %>><%= t('nav_chords_shapes') %></option>
+    <% end %>
+    <option value="<%= javanese_gamelan_url %>" <%= current_class_mobile?(javanese_gamelan_path) %>><%= t('nav_javanese_gamelan') %></option>
+    <option value="<%= javanese_gending_url %>" <%= current_class_mobile?(javanese_gending_path) %>><%= t('nav_javanese_gending') %></option>
+    <option value="<%= javanese_gending_gamelan_notation_url %>" <%= current_class_mobile?(javanese_gending_gamelan_notation_path) %>><%= t('nav_javanese_gending_notation') %></option>
+</select>
+<!-- END mobile nav -->

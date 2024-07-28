@@ -1,0 +1,23 @@
+<div class="row mt-5">
+  <div class="col-md-12">
+    <%= render('partial_menus', active_menu: 'files' ) %>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-md-12">
+    <% if !@audio_files.nil? && !@audio_files.empty? %>
+      <% @audio_files.each_with_index do |audio_file, index| %>
+        <%= render "users/partial_audio_file", item: audio_file %>
+      <% end %>
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <%= render "partial_splitfire_version" %>
+        </div>
+      </div>
+    <% elsif user_signed_in? %>
+      <p>No files. <%= link_to('Check on the SplitFire website.', 'https://splitfire.ai') %></p>
+    <% elsif !user_signed_in? %>
+      <p>No public files. <%= link_to('Login', login_path) %> to see if this user shares privately.</p>
+    <% end %>
+  </div>
+</div>

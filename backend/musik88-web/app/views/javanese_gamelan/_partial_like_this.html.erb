@@ -1,0 +1,6 @@
+<div class="mt-3">
+    <% users.each_with_index do |user, index| %>
+        <span class='badge badge-pill bg-warning text-dark'>@<%= user.username_or_name %></span>
+    <% end %>
+    <%= t('like_this') %>
+</div>

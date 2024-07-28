@@ -1,0 +1,197 @@
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!-- No Masters But Ourselves -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Seto Elkahfi and Musik88 contributors">
+    <% if content_for?(:meta_head) %>
+      <%= yield(:meta_head) %>
+    <% end %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_pack_tag 'favicon.svg' %>
+    <%= action_cable_meta_tag %>
+    <% if production? %>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119885394-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+            gtag('config', 'UA-119885394-1');
+      </script>
+      <!-- Google Tag Manager -->
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PLTHXCM');
+      </script>
+      <!-- End Google Tag Manager -->
+      <script src="https://www.googleoptimize.com/optimize.js?id=GTM-NBND339"></script>
+    <% end %>
+    <% canonical_urls.each_with_index do |canonical_url, index| %>
+      <% if index == 0 %>
+        <link rel="canonical" href="<%= canonical_url.url %>">
+      <% else %>
+        <link rel="alternate" href="<%= canonical_url.url %>" hreflang="<%= canonical_url.locale %>">
+      <% end%>
+    <% end %>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "legalName": "Musik 88",
+        "url": "<%= root_url %>",
+        "contactPoint": [{
+          "@type" : "ContactPoint",
+          "telephone" : "+6281519528499",
+          "contactType" : "customer service"
+        }],
+        "logo": "/apple-icon-180x180.png",
+        "sameAs": [
+          "http://www.facebook.com/tutorialgitar88",
+          "https://www.youtube.com/user/tutorialgitar88",
+          "http://www.instagram.com/tutorialgitar88"
+        ]
+      }
+    </script>
+    <% if content_for?(:breadcrumb) %>
+      <%= yield(:breadcrumb) %>
+    <% end %>
+  </head>
+  <body>
+    <div class="col-lg-8 mx-auto p-3 py-md-5">
+      <header class="align-items-center pb-3 mb-5 border-bottom">
+        <a href="<%= root_url %>" class="d-inline-flex align-items-center text-dark text-decoration-none">
+          <span class="fs-4">Musik</span>
+          <%= image_tag('https://avatar.oxro.io/avatar.svg?name=8+8&background=FFCC00&length=3', size: '40x32') %>
+        </a>
+        <span class="fst-italic fw-lighter">beta</span>
+        <span class="d-inline-flex p-2 align-items-center float-end">
+          <%= link_to t('nav_buy_bach'), 'https://beta.raydium.io/swap/?inputMint=CTQBjyrX8pYyqbNa8vAhQfnRXfu9cUxnvrxj5PvbzTmf&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', target: '__blank' %>
+        </span>
+        <span class="d-inline-flex p-2 align-items-center float-end">
+          <%= link_to(
+            "@#{current_user.username_or_id}",
+            profile_path(current_user.username_or_id)
+          ) if user_signed_in? %>
+        </span>
+        <span class="d-inline-flex p-2 align-items-center float-end">
+          <% if user_signed_in? %>
+            <%= link_to t('nav_logout'), logout_path(redirect_to: request.path), method: :delete %>
+          <% else %>
+            <%= link_to t('nav_login'), login_path(redirect_to: request.path)  %>
+          <% end %>
+        </span>
+      </header>
+      <%= yield %>
+      <%= render 'layouts/footer_new' %>
+    </div>
+  </body>
+</html>

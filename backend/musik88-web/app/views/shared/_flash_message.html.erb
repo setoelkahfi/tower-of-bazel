@@ -1,0 +1,8 @@
+<% flash.each do |message_type, message| %>
+    <% 
+    override_message_type = message_type 
+    override_message_type = 'info' if 'notice' == message_type
+    override_message_type = 'danger' if 'alert' == message_type
+    %>
+    <div class="alert alert-<%= override_message_type %>"><%= message.html_safe %></div>
+<% end %>

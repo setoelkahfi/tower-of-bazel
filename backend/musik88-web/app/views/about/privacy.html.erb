@@ -1,0 +1,38 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= request.base_url %>/kebijakan-privasi" />
+<% end %>
+
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@id": "<%= request.base_url %>",
+        "name": "Musik 88"
+      }
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@id": "<%= request.base_url %>/kebijakan-privasi",
+        "name": "Kebijakan Privasi"
+      }
+    }]
+  }
+  </script>
+<% end %>
+
+
+<iframe src="https://termsfeed.com/privacy-policy/19b43dd840ee20e73c9e14e5184cc04a" style="border: 0; width: 100%; height: 1000px"></iframe>
+
+<%= render "shared/partial_breadcrumbs" do %>
+  <li class="breadcrumb-item"><%= link_to t("nav_footer_privacy"), privacy_policy_path %></li>
+<% end %>

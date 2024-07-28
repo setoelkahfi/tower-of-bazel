@@ -1,0 +1,78 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= @meta_url %>" />
+<% end %>
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "<%= root_url %>",
+          "name": "<%= t("site_name") %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "<%= what_is_this_url %>",
+          "name": "<%= t("nav_what_is_this") %>"
+        }
+      }]
+    }
+  </script>
+<% end %>
+<main>
+  <div class="row g-5">
+    <div class="col-sm-3">
+      <div class="position-sticky" style="top: 1rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <%= link_to(t('nav_what_is_this'), what_is_this_path) %>
+          </li>
+          <% @what_are_these.each do |page| %>
+            <li class="list-group-item">
+              <%= link_to(page.title, what_is_this_detail_path(slug: page.page_slug)) %>
+            </li>
+          <% end if @what_are_these %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-12">
+          <% if I18n.locale.to_s != @page.locale %>
+            <div class="alert alert-warning" role="alert">
+              No content in the current language.
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-10">
+          <h1><%= @page.title if @page %></h1>
+        </div>
+        <div class="col-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <%= @page.page_content.html_safe if @page %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render "shared/partial_breadcrumbs" do %>
+    <li class="breadcrumb-item"><%= link_to t('nav_what_is_this'), what_is_this_url %></li>
+  <% end %>
+</main>

@@ -1,0 +1,22 @@
+<div class="col-md-3 col-sm-6 mb-2">
+  <div class="row mb-5">
+    <div class="col-5 mb-2">
+      <%= gravatar_for user %>
+    </div>
+    <div class="col-7 mb-2">
+      <ul class="list-unstyled">
+          <li>
+      <%= link_to(
+                "@#{user.username_or_id}",
+                profile_path(user.username_or_id),
+                title: "Author: @#{user.username_or_id}"
+            ) %>
+            </li>
+      <li><%= user.name %></li>
+      &nbsp;
+      <i class="bi bi-graph-up-arrow"></i>
+      </li>
+      </ul>
+    </div>
+  </div>
+</div>

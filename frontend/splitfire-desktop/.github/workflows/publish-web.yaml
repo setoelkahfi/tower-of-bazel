@@ -1,0 +1,31 @@
+name: "Publish web"
+on:
+  push:
+    branches:
+      - main
+
+env:
+  REACT_APP_SPLITFIRE_API_HOST: ${{ secrets.REACT_APP_SPLITFIRE_API_HOST }}
+  REACT_APP_MUSIK88_BASE_URL: ${{ secrets.REACT_APP_MUSIK88_BASE_URL }}
+  REACT_APP_ACTION_CABLE_URL: ${{ secrets.REACT_APP_ACTION_CABLE_URL }}
+
+jobs:
+  publish-web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install frontend dependencies
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      - name: rsync over SSH
+        run: rsync -r ./build/ deploy@splitfire.ai:/var/www/beta.splitfire.ai/build/

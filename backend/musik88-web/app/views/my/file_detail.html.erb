@@ -1,0 +1,83 @@
+<% content_for :meta_head do %>
+    <title><%= @meta_title %> | <%= @user.name %></title>
+    <meta name="description" content="<%= @meta_description %>">
+<% end %>
+
+    <div class="row">
+      <!-- BEGIN content -->
+      <div class="col-md-12">
+        
+            <div class="page-header">
+                <h1><%= t("my") %> / Files 📁 / Detail</h1>
+            </div>
+			<%= render "shared/flash_message", object: flash %>
+        
+      </div>
+      <div class="col-md-2">
+        <%= render "my/partial_menu" %>
+      </div>
+      <div class="col-md-10">
+        
+            <div class="lead">
+                <b>File name</b>: <%= @audio_file.source_file.blob.filename unless !@audio_file.source_file.attached? %>
+            </div>
+            <div class="row">
+                <!-- BEGIN content -->
+                <div class="col-md-12">
+                    <h2>SplitFire 🔥</h2>
+                    <% if @audio_file.splitfire_results.count == 0 %>
+                        You don't have any SplitFire files.
+                    <% else %>
+                        <table style="width: 100%">
+                            <% @audio_file.splitfire_results.each_with_index do |audio_file, index| %>
+                                <tr style="vertical-align: bottom">
+                                    <td style="padding: 10px 10px 10px 0;">
+                                        <% if audio_file.source_file.attached? %>
+                                        <%= link_to(audio_file.source_file.blob.filename, my_splitfire_detail_path(@audio_file.id)) %>
+                                        <% else %>
+                                        <i>File is missing. Please delete this.</i>
+                                        <% end %>
+                                    </td>
+                                </tr>
+                            <% end %>
+                        </table>
+                    <% end %>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- BEGIN content -->
+                <div class="col-md-12">
+                    <h2>Bass64 🎸</h2>
+                    <% if @audio_file.bass_backing_track.nil? %>
+                        You don't have any Bass64 files.
+                    <% else %>
+                        <table style="width: 100%">
+                            <tr style="vertical-align: bottom">
+                                <td style="padding: 10px 10px 10px 0;">
+                                    <% if @audio_file.bass_backing_track.source_file.attached? %>
+                                    <%= link_to(@audio_file.bass_backing_track.source_file.blob.filename, my_bass64_detail_path(@audio_file.id)) %>
+                                    <% else %>
+                                    <i>File is missing. Please delete this.</i>
+                                    <% end %>
+                                </td>
+                            </tr>
+                        </table>
+                    <% end %>
+                </div>
+            </div>
+        
+      </div>
+      <!-- END content -->
+    </div>
+    
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-12">
+        
+          <ol class="breadcrumb">
+            <li><%= link_to t("breadcrumb_home"), root_path %></li>
+          </ol>
+        
+      </div>
+    </div>
+    

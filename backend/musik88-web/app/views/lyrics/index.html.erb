@@ -1,0 +1,87 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= @meta_url %>" />
+<% end %>
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "<%= root_url %>",
+          "name": "<%= t("site_name") %>"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "<%= request.url %>",
+          "name": "<%= t("nav_lyrics") %>"
+        }
+      }]
+    }
+  </script>
+<% end %>
+<main>
+  <div class="row g-5">
+    <div class="col-md-12">
+      <h1><%= @page_title %></h1>
+      <%= render('shared/flash_message', object: flash) %>
+    </div>
+  </div>
+  <div class="row g-5">
+    <div class="col-sm-3">
+      <div class="position-sticky" style="top: 1rem;">
+        <h2><%= t("top_10_song_lyrics") %></h2>
+        <% @trending_lyrics.each_with_index do |lyric, index| %>
+          <div class="row mb-3">
+            <div class="col-sm-9">
+              <%= "#{index + 1}." %>
+              <%= link_to(
+              t("song_lyric_detail", title: lyric.title_link),
+              lyric_detail_path(lyric.slug)
+            ) %>
+            </div>
+            <div class="col-sm-3">
+              <i class="bi bi-graph-up-arrow"></i>
+              <span class="badge rounded-pill bg-warning text-dark"><%= lyric.views_count %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <h2>
+        <%= t("our_newest_song_lyrics") %>
+      </h2>
+      <% @lyrics.each_with_index do |lyric, index| %>
+        <% song = lyric.song %>
+        <div class="row <%= index % 2 == 0 ? 'list-group-item-primary' : ' list-group-item-warning' %>">
+          <div class="col-11 mb-3 mt-3">
+            <%= link_to(
+              t("song_lyric_detail", title: lyric.title_link),
+              lyric_detail_path(lyric.slug)
+            ) %>
+          </div>
+          <div class="col-1 mb-3 mt-3">
+            <%= link_to(
+                      '<i class="bi bi-info-circle"></i>'.html_safe,
+                      song_lyrics_path(song.slug),
+                      title: t('song_menu_aside_lyrics')
+                  ) %>
+          </div>
+        </div>
+      <% end %>
+      <%= will_paginate @lyrics, class: 'flickr_pagination' %>
+    </div>
+  </div>
+  <%= render 'shared/partial_breadcrumbs' do %>
+    <li class="breadcrumb-item"><%= link_to t("nav_lyrics"), request.url %></li>
+  <% end %>
+</main>

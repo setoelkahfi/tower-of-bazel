@@ -1,0 +1,20 @@
+<div class="row mb-5">
+    <div class="col-md-12">
+        <ul class="nav nav-pills">
+            <%= render(
+                    "partial_menu",
+                    href_text: @song.name,
+                    href_link: song_detail_path(@song.slug),
+                    active: active_menu == 'song'
+                )
+            %>
+            <%= render(
+                    "partial_menu",
+                    href_text: t("song_menu_lyric", song_name: ''),
+                    href_link: lyric_detail_path(@song.slug),
+                    active: active_menu == 'lyric'
+                )
+            %>
+        </ul>
+    </div>
+</div>

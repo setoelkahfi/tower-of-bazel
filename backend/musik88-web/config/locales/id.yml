@@ -1,0 +1,48 @@
+---
+"id":
+  "AlbumProvider": >-
+    Jembatan album
+  "ArtistProvider": >-
+    Jembatan artis
+  "SongProvider": >-
+    Jembatan lagu
+  "invalid_login": >-
+    Email/password salah.
+  "login": >-
+    Login
+  "login_omniauth_explanation": >-
+    Login dengan akun Spotify, Google, atau Facebook kamu.
+  "login_with_facebook": >-
+    Login dengan Facebook
+  "nav_login": >-
+    Login
+  "nav_login_dropdown": >-
+    Akun
+  "nav_onboarding": >-
+    Onboarding
+  "onboarding_done": >-
+    Begitulah, %{user_name}!
+  "onboarding_explanation": >-
+    Dengan memverifikasi email, kamu mendapatkan 0,1 BACH! Dapatkan lebih banyak BACH
+    dengan mengikuti langkah-langkah ini.
+  "onboarding_explanation_done": >-
+    Selesai. Kamu mengekspor data Spotify kamu.
+  "onboarding_spotify_done": >-
+    Done. You exported your Spotify data.
+  "onboarding_spotify_explanation": >-
+    Dapatkan sampai 50 BACH saat kamu mengekspor data daftar putar kamu!
+  "onboarding_spotify_heading": >-
+    Ekspor data Spotify kamu
+  "onboarding_spotify_processing": >-
+    Mengekspor data. Butuh beberapa waktu.
+  "onboarding_username_done": >-
+    Yeay! Kamu mendapatkan username dan %{profile_badges_link}.
+  "onboarding_username_explanation": >-
+    Buat @username yang unik dan dapatkan 0.1 BACH!
+  "routes":
+    "login": >-
+      masuk
+  "signup_omniauth_explanation": >-
+    Daftar dengan akun Spotify, Google, atau Facebook kamu.
+  "still_login": >-
+    Tetap masuk

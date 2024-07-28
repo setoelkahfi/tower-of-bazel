@@ -1,0 +1,49 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %> | <%= @user.name %></title>
+  <meta name="description" content="<%= @meta_description %>">
+<% end %>
+    
+    <div class="row">
+      <!-- BEGIN content -->
+      <div class="col-md-12">
+        
+          <div class="page-header">
+              <h1><%= t("my") %>/Lyrics</h1>
+          </div>
+        
+      </div>
+      <div class="col-md-2">
+        <%= render "my/partial_menu" %>
+      </div>
+      <div class="col-md-4">
+        
+          <table>
+            <% @lyrics.each_with_index do |lyric, index| %>
+              <tr>
+                <td style="padding: 10px 10px 10px 0;">
+                  <%= "#{index + 1}." %>
+                </td>
+                <td style="padding: 10px 10px 10px 0;">
+                  <%= link_to lyric.song.name, song_detail_path(lyric.song.id) %>
+                </td>
+                <td style="padding: 10px;">
+                  <%= link_to("<i class='icon-edit'></i> Edit".html_safe, edit_lyric_path(lyric.id))%>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        
+      </div>
+      <!-- END content -->
+    </div>
+    
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-12">
+        
+          <ol class="breadcrumb">
+            <li><%= link_to t("breadcrumb_home"), root_path %></li>
+          </ol>
+        
+      </div>
+    </div>
+    

@@ -1,0 +1,254 @@
+<% content_for :meta_head do %>
+  <%= render('shared/partial_meta_tag', title: @meta_title, description: @meta_description) %>
+<% end %>
+<% content_for :breadcrumb do %>
+  <%= render 'shared/partial_breadcrumbs_schema' do %>
+    {
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+    "@id": "<%= signup_url %>",
+    "name": "<%= t("signup") %>"
+    }
+    }
+  <% end %>
+<% end %>
+<main>
+  <div class="row welcome">
+    <div class="col-md-12 text-center">
+      <h1 class="text-center"><%= t('welcome_user', user_name: @user.name) %></h1>
+      <p><%= t('onboarding_explanation') %></p>
+      <button type="button" class="btn btn-primary mt-3 welcome"><%= t('onboarding_sounds_good') %></button>
+    </div>
+  </div>
+  <div class="row username" style="display: none;">
+    <div class="col-md-6 offset-md-3 text-center">
+        <h2 class="mt-3"><%= t('onboarding_username_heading') %></h2>
+        <div class="username-content">
+          <%= t('onboarding_username_explanation') %>
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+              <%= form_for(@user, url: username_path, remote: true, method: :post, :html => { :class => "form-horizontal" }) do |f| %>
+                <div class="row mb-3">
+                  <div class="col-10 mt-2">
+                    <%= f.text_field :username, class: 'form-control username', autocomplete: 'off' %>
+                  </div>
+                  <div class="col-2 mt-2 status"></div>
+                </div>
+                <div class="message"></div>
+                <%= f.submit t("save"), class: "btn btn-primary", disabled: true %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="row spotify" style="display: none;">
+      <div class="col-md-6 offset-md-3 text-center">
+        <h2 class="mt-3"><%= t('onboarding_spotify_heading') %></h2>
+        <div class="spotify-content">
+          <%= t('onboarding_spotify_explanation') %>
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <%= link_to(
+                    '<i class="bi bi-spotify" style="font-size: 3rem; color: blue;"></i>'.html_safe,
+                    user_spotify_omniauth_authorize_path(show_dialog: true),
+                    method: :post,
+                    class: 'col-2 spotify-connect',
+                    style: 'padding: 0px',
+                    title: 'Connect with Spofity'
+                ) %>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row google" style="display: none;">
+      <div class="col-md-6 offset-md-3 text-center">
+        <h2 class="mt-3"><%= t('onboarding_google_heading') %></h2>
+        <div class="google-content">
+          <%= t('onboarding_google_explanation') %>
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <%= link_to(
+                    '<i class="bi bi-youtube" style="font-size: 3rem; color: blue;"></i>'.html_safe,
+                    user_google_oauth2_omniauth_authorize_path(show_dialog: true),
+                    method: :post,
+                    class: 'col-2 google-connect',
+                    style: 'padding: 0px',
+                    title: 'Connect with Youtube'
+                ) %>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row done" style="display: none;">
+    <div class="col-md-12 text-center">
+      <h1 class="text-center"><%= t('onboarding_done', user_name: @user.name) %></h1>
+      <p><%= t('onboarding_explanation_done') %></p>
+      <%= link_to(t('onboarding_done_button'), root_path, class: 'btn btn-primary') %>
+    </div>
+  </div>
+  <%= render 'shared/partial_breadcrumbs' do %>
+    <li class="breadcrumb-item"><%= link_to t("nav_onboarding"), onboarding_path %></li>
+  <% end %>
+</main>
+<script>
+  $(document).on('turbolinks:load', function() {
+
+    let currentStepElement = $('.welcome');
+
+    function post(url, params, successCompletion) {
+      $.ajax({
+        type: 'POST',
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        url: url,
+        data: params,
+        success: function(res) {
+          successCompletion(res)
+        }
+      })
+    }
+
+    function fadeInNextStep(nextStep) {
+      $('.' + nextStep).fadeIn('slow');
+      currentStepElement = $('.' + nextStep);
+    }
+
+    function updateProgress() {
+      let currentValue = parseFloat($('.progress-bar').attr('aria-valuenow'));
+      //console.log(currentValue)
+      if (currentValue < 95) {
+        let nextValue = currentValue + 5;
+        //console.log(nextValue)
+        $('.progress-bar')
+          .css({'width': nextValue + '%'})
+          .attr('aria-valuenow', nextValue);;
+      }
+    }
+    
+    $('button.welcome').click(function() {
+      let params = { onboarding_action: 'next' }
+      post('<%= onboarding_action_path %>', params, function(res) {
+        currentStepElement.fadeOut('slow', fadeInNextStep(res.next_step));
+      })
+    });
+
+    $('input.username').on('input', function(e) {
+        $('div.status').html('<%= t('onboarding_username_checking') %>')
+          const url = "<%= username_check_path %>?u=" + $(this).val()
+          $.ajax({
+              type: "GET",
+              url: url,
+              success: function(res) {
+                  if (res.valid) {
+                    $('div.status').html('<i class="bi bi-check2-square" style="color: green;"></i>')
+                    $('div.message').removeClass('alert alert-danger')
+                    $('div.message').addClass('alert alert-success')
+                  } else {
+                    $('div.status').html('<i class="bi bi-x-square-fill" style="color: red;"></i>')
+                    $('div.message').removeClass('alert alert-success')
+                    $('div.message').addClass('alert alert-danger')
+                  }
+                  $('input.btn-primary').prop('disabled', !res.valid)
+                  $('div.message').text(res.message)
+              }
+          })
+    })
+
+    $('.username').on('click', 'button.username', function() {
+      let params = { onboarding_action: 'report_complete', type: 'username' }
+      post('<%= onboarding_action_path %>', params, function(res) {
+        $('.username').fadeOut('slow', fadeInNextStep(res.next_step));
+      })
+    });
+
+    // Remember that we need to query Spotify data
+    $('.spotify-connect').click(function() {
+      sessionStorage.setItem('should_request_spotify_data', true);
+      return true;
+    })
+
+    function spotifyExportDataDone() {
+      $(this).replaceWith('<%= j render 'partial_onboarding_spotify_done' %>');
+      $('.spotify-content').fadeIn('slow');
+    }
+
+    $('.spotify').on('click', 'button.spotify', function() {
+      let params = { onboarding_action: 'report_complete', type: 'spotify' }
+      post('<%= onboarding_action_path %>', params, function(res) {
+        $('.spotify').fadeOut('slow', fadeInNextStep(res.next_step));
+      })
+    });
+    
+    function spotifyExportData() {
+      $('.spotify').fadeIn('slow');
+      $('.spotify-content').fadeOut("slow", function() {
+            $(this).replaceWith('<%= j render 'partial_onboarding_spotify_progress_bar' %>').hide();
+
+            $('.spotify-export-progress').hide();
+
+            $('.spotify-content').fadeIn('slow', function() {
+              $('.spotify-export-progress').show();
+
+              let refreshIntervalId = setInterval(updateProgress, 1000);
+
+              post('<%= onboarding_export_spotify_path %>', {}, function(res) {
+                clearInterval(refreshIntervalId);
+                $('.progress-bar').css('width', '100%');
+                $('.spotify-content').fadeOut("slow", spotifyExportDataDone)
+              })
+            });
+        });
+    }
+
+    if (sessionStorage.getItem('should_request_spotify_data')) {
+      sessionStorage.removeItem('should_request_spotify_data')
+      $('.welcome').fadeOut('slow', spotifyExportData);
+    }
+
+    // Youtube stuff
+    // Remember that we need to query YouTube data
+    $('.google-connect').click(function() {
+      sessionStorage.setItem('should_request_youtube_data', true);
+      return true;
+    })
+
+    $('.google').on('click', 'button.google', function() {
+      let params = { onboarding_action: 'report_complete', type: 'google' }
+      post('<%= onboarding_action_path %>', params, function(res) {
+        $('.google').fadeOut('slow', fadeInNextStep(res.next_step));
+      })
+    });
+
+    function youtubeExportDataDone() {
+      $(this).replaceWith('<%= j render 'partial_onboarding_google_done' %>');
+      $('.google-content').fadeIn('slow');
+    }
+
+    function youtubeExportData() {
+      $('.google').fadeIn('slow');
+      $('.google-content').fadeOut('slow', function() {
+            $(this).replaceWith('<%= j render 'partial_onboarding_google_progress_bar' %>').hide();
+            $('.google-export-progress').hide(); 
+            $(this).fadeIn('slow', function() {
+              $('.google-export-progress').show();
+
+              let refreshIntervalId = setInterval(updateProgress, 1000);
+
+              post('<%= onboarding_export_youtube_path %>', {}, function(res) {
+                clearInterval(refreshIntervalId);
+                $('.progress-bar').css('width', '100%');
+                $('.google-content').fadeOut("slow", youtubeExportDataDone);
+              })
+            });
+      });
+    }
+    
+    if (sessionStorage.getItem('should_request_youtube_data')) {
+      sessionStorage.removeItem('should_request_youtube_data')
+      $('.welcome').fadeOut('slow', youtubeExportData);
+    }
+  })
+</script>

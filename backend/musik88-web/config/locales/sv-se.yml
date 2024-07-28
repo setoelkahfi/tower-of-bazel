@@ -1,0 +1,604 @@
+---
+"sv-se":
+  "10_most_loved_songs": >-
+    10 mest älskade låtar
+  "Artist": >-
+    Artist
+  "JavaneseGending": >-
+    Javanesisk Gending
+  "Song": >-
+    Låt
+  "activate_solana_wallet": >-
+    Aktivera din plånbok
+  "active_admin":
+    "devise":
+      "username":
+        "title": >-
+          Username
+  "activerecord":
+    "errors":
+      "models":
+        "user":
+          "attributes":
+            "email":
+              "blank": >-
+                E-post får inte vara tom
+              "invalid": >-
+                Ogiltig e-postadress
+            "name":
+              "blank": >-
+                Namnet får inte vara tomt
+            "password":
+              "blank": >-
+                Lösenordet får inte vara tomt
+              "too_short": >-
+                Lösenordet är för kort
+            "password_confirmation":
+              "confirmation": >-
+                Bekräfta att lösenordet inte är detsamma
+  "add_chord_how_to": >-
+    Hur man lägger till ackord
+  "add_chord_how_to_content": >-
+    Lägg till ditt ackord genom att skriva ner det rad för rad. Lägg till ackordsekvenserna
+    ovanpå varje rad. Lägg till mellanrum och stycke om det behövs. Lägg också till
+    låtsektion (ref, vers, bridge) i varje del av låten.
+  "add_chord_label_chord": >-
+    Ackord
+  "add_chord_label_song": >-
+    Bifoga till låten..
+  "add_chord_label_title": >-
+    .. eller lägg till titel
+  "add_chord_placeholder_chord": >-
+    Lägg ditt ackord här...
+  "add_chord_placeholder_chose_song": >-
+    Välj låt
+  "add_chord_placeholder_title": >-
+    Titel krävs...
+  "add_chord_share": >-
+    Dela med sig!
+  "add_chord_title": >-
+    Lägg till ackord
+  "add_chord_validation": >-
+    Vi behöver titeln och ackordet
+  "add_chord_validation_success": >-
+    Tack för att du bidrar!
+  "add_chord_warning": >-
+    Du har inte loggat in än. %{href_login} och gör anspråk på ditt bidrag, eller
+    så kommer %{href} att göra anspråk på dina ackord och bidrag.
+  "album_artists": >-
+    Konstnärer
+  "artist_profile_album_contribution_title": >-
+    %{artist} visas också på
+  "artist_profile_album_title": >-
+    %{artist}s Albumer
+  "artist_profile_title": >-
+    %{artist} Profil
+  "bach_token_discussion": >-
+    Vad tror du? Är du intresserad?
+  "badges": >-
+    Märken
+  "breadcrumb_home": >-
+    Starsida
+  "breadcrumb_most_loved_songs": >-
+    Mest älskade låtar
+  "by": >-
+    Älskad av
+  "cancel": >-
+    Avbryt
+  "change_language": >-
+    Ändra språk
+  "confirm_email": >-
+    Bekräfta din email
+  "create_account": >-
+    Skapa konto
+  "devise":
+    "failure":
+      "unconfirmed": >-
+        Du måste bekräfta din e-postadress innan du fortsätter.
+    "mailer":
+      "confirmation_instructions":
+        "user_subject": >-
+          E-postbekräftelse Musik88.com
+    "registrations":
+      "signed_up_but_unconfirmed": >-
+        Ett meddelande med en bekräftelselänk har skickats till din e-postadress.
+        Vänligen följ länken för att aktivera ditt konto.
+  "discussion": >-
+    Diskussion
+  "discussion_comment_button": >-
+    Skicka in
+  "discussion_comment_placeholder": >-
+    Skriv din kommentar här
+  "email": >-
+    E-post
+  "find_your_artist": >-
+    Hitta din favoritartist
+  "find_your_favorite_album": >-
+    Hitta ditt nya favoritalbum
+  "find_your_favorite_songs": >-
+    Hitta dina favoritlåtar
+  "find_your_friends": >-
+    Hitta dina vänner här...
+  "followers": >-
+    Följare
+  "following": >-
+    Följande
+  "footer": >-
+    Skapad för skojs skull av %{profile} från hela %{instagram} &middot; &copy; 2021
+  "footer_world": >-
+    världen
+  "forgot_password": >-
+    Glömt ditt lösenord?
+  "friends": >-
+    Vänner
+  "gending_add": >-
+    Share your gending notation
+  "gending_add_explanation": >-
+    Help us digitalize Javanese gamelan online. %{href} and earn %{bach_link} kryptovaluta.
+  "gending_description": >-
+    Description
+  "gending_name": >-
+    Gending Namn
+  "gending_notation": >-
+    Gending Notation
+  "gending_notation_add": >-
+    Lägg till könsnotation
+  "gending_notation_add_explanation": >-
+    Finns det en musiknotation som du vill dela med dig av? %{href} och tjäna %{bach_link}
+    kryptovaluta.
+  "gending_notation_link": >-
+    Notasi gending Jawa %{slug}
+  "gending_notation_meta_desciption": >-
+    Här är den javanesiska gending -notationen för %{title} gending
+  "gending_notation_page_title": >-
+    Javanesisk musiknotation %{title}
+  "generating_solana_wallet": >-
+    Aktiverar din plånbok...
+  "guitar_chord_image": >-
+    Gitarrackord ritning
+  "guitar_chord_link": >-
+    Gitarr akord %{slug}
+  "guitar_chord_video": >-
+    Gitarrackord Videon
+  "guitar_chords_shape": >-
+    Gitarrkord Form
+  "h2_find_new_albums": >-
+    Hitta nya album här!
+  "h2_find_new_artists": >-
+    Hitta nya artister här!
+  "have_account": >-
+    Har du redan ett konto?
+  "hello": >-
+    Valkommen till Musik 88
+  "home_guitar_chords": >-
+    Gitarrackord
+  "home_guitar_chords_headline": >-
+    Skicka in dina gitarrackord och tjäna %{bach_link} kryptovaluta för ditt bidrag.
+  "home_headline": >-
+    Världens största musikdatabas!
+  "home_javanese_gending_notation": >-
+    Javanese Gending Notation
+  "home_javanese_gending_notation_subheadline": >-
+    Digitalize Javanese gamelan and earn %{bach_link} kryptovaluta for your contribution.
+  "home_lyrics": >-
+    Låttexter
+  "home_new_entries": >-
+    New Entries
+  "home_others": >-
+    Andra
+  "home_others_headline": >-
+    Kolla in mina andra projekt.
+  "home_popular": >-
+    Popular
+  "home_see_all": >-
+    Se alla
+  "home_share_gamelan_notation_now": >-
+    Bagikan notasi gending!
+  "home_share_now": >-
+    Dela ditt ackord!
+  "home_signup_now": >-
+    Bli Medlem nu!
+  "home_subheadline": >-
+    Gitarrackord? Låttexter? Albumrecensioner? Javanesisk gending notation? etc! Registrera
+    dig, bidra (lägg till artister, album, texter, etc) och tjäna %{bach_link} kryptovaluta.
+  "home_what_is": >-
+    Vad är Musik88?
+  "home_youtube_karaoke": >-
+    Youtube Karaoke
+  "home_youtube_karaoke_headline": >-
+    Karaokeversion av din favoritmusikvideo på YouTube som drivs av AI.
+  "invalid_login": >-
+    Ogiltig kombination av e-post / lösenord
+  "join_our_chord_community": >-
+    Gå med i vår community för att se %{song_name} ackord. Du kan också tjäna €BACH-kryptovaluta
+    genom att aktivera din plånbok i Profil -> Inställningar.
+  "join_our_javanese_community": >-
+    Gå med i vår community för att se %{gending_name} notation. Du kan också tjäna
+    €BACH-kryptovaluta genom att aktivera din plånbok i Profil -> Inställningar.
+  "join_our_lyric_community": >-
+    Gå med i vår community för att se %{song_name}-text från %{song_artist_name}.
+    Du kan också tjäna €BACH-kryptovaluta genom att aktivera din plånbok i Profil
+    -> Inställningar.
+  "legacy_view": >-
+    Gammal design
+  "like_this": >-
+    gillar det
+  "locale_name": "\U0001F1F8\U0001F1EA Svenska"
+  "login": >-
+    Logga in!
+  "login_with_facebook": >-
+    Logga in med Facebook
+  "lyric": >-
+    Sångtext
+  "lyric_cannot_be_empty": >-
+    Sångtext kan inte vara tom
+  "my_profile": >-
+    Min profil
+  "my_profile_link_href": >-
+    denna säkra länk
+  "my_profile_link_html": >-
+    Detta är din offentliga profil. Följ %{href} för att redigera din profil.
+  "my_profile_private": >-
+    Denna profil är privat
+  "name": >-
+    Namn
+  "nav_albums": >-
+    Album
+  "nav_artists": >-
+    Artister
+  "nav_buy_bach": >-
+    Köp €BACH
+  "nav_change_language": >-
+    Ändra Språk:
+  "nav_chords": >-
+    Gitarr ackord
+  "nav_chords_shapes": >-
+    Gitarr Ackord Diagram
+  "nav_community": >-
+    Gemenskap
+  "nav_en": >-
+    English
+  "nav_footer_about": >-
+    Om Oss
+  "nav_footer_company": >-
+    Företag
+  "nav_footer_contact": >-
+    Kontakt
+  "nav_footer_follow_us": >-
+    Följ oss
+  "nav_footer_privacy": >-
+    Personuppgiftspolicy
+  "nav_footer_term": >-
+    Användarvillkor
+  "nav_guitar": >-
+    Gitarr
+  "nav_id": >-
+    Bahasa Indonesia
+  "nav_javanese_gamelan": >-
+    Javanesisk Gamelan
+  "nav_javanese_gamelan_about": >-
+    Om Javanesisk Gamelan
+  "nav_javanese_gending": >-
+    Javanesisk Gending
+  "nav_javanese_gending_notation": >-
+    Javanesisk Gending Notation
+  "nav_login": >-
+    Logga in
+  "nav_login_dropdown": >-
+    Konto
+  "nav_logout": >-
+    Logga ut
+  "nav_lyrics": >-
+    Låttexter
+  "nav_music_database": >-
+    Musik
+  "nav_new_entries": >-
+    Nya Poster
+  "nav_signup": >-
+    Bli Medlem
+  "nav_songs": >-
+    Låtar
+  "nav_ukulele_chords": >-
+    Ukulele Ackord (snart)
+  "nav_what_is_this": >-
+    Vad är detta?
+  "need_to_logged_in": >-
+    Du måste logga in innan du ger denna kärlek. Har du inget konto än? Registrera
+    dig bara, det är så enkelt. Du kan använda ditt Facebook -konto om du vill.
+  "need_to_logged_in_my_profile": >-
+    You need to be logged in to perform this task.
+  "new_user": >-
+    Ny användare?
+  "new_view": >-
+    Ny design
+  "oh_hi": >-
+    Oh, hej!
+  "or": >-
+    Eller
+  "our_community": >-
+    Vår gemenskap
+  "our_guitar_chords_collection": >-
+    Våra nyaste gitarrkordsamlingar
+  "our_newest_song_lyrics": >-
+    Vår Nyaste Song Lyrics Collection
+  "password": >-
+    Lösenord
+  "password_confirmation": >-
+    Bekräfta lösenord
+  "password_new_confirmation": >-
+    Bekräfta lösenord
+  "reputation": >-
+    Rykte
+  "resend_email_confirmation": >-
+    Skicka bekräftelseinstruktioner igen
+  "resend_email_confirmation_button": >-
+    Skicka instruktioner igen
+  "routes":
+    "about_us": >-
+      om-oss
+    "add_gending": >-
+      lägg-till-gending-gamelan
+    "add_javanese_gamelan_notation": >-
+      lägg-till-javanesisk-gamelan-notation
+    "album": >-
+      musikalbum
+    "album_add": >-
+      add-album
+    "album_bridge": >-
+      albums-bridge
+    "album_detail": >-
+      musikalbum
+    "artist": >-
+      artister
+    "artist_add": >-
+      add-artist
+    "artist_bridge": >-
+      artists-bridge
+    "artist_detail": >-
+      artister
+    "audio_files": >-
+      audio-files
+    "bass_backing_track": >-
+      bass-backing-track-:slug
+    "community": >-
+      gemenskap
+    "confirm_email": >-
+      bekräftelsemail
+    "contact": >-
+      kontakt
+    "drum_backing_track": >-
+      drum-backing-track-:slug
+    "followers": >-
+      följare
+    "following": >-
+      följande
+    "guitar_backing_track": >-
+      guitar-backing-track-:slug
+    "guitar_chord_shape": >-
+      ackord-gitarr-:slug
+    "guitar_chord_shapes": >-
+      alla-gitarr-ackord
+    "guitar_chords": >-
+      gitarr-ackord
+    "guitar_chords_add": >-
+      add-ackord
+    "guitar_chords_detail": >-
+      gitarr-ackord-:slug
+    "guitar_chords_history": >-
+      gitarr-ackord-:slug/historia
+    "guitar_chords_review": >-
+      gitarr-ackord-:slug/review-ackord
+    "javanese_gamelan": >-
+      javanesisk-gamelan
+    "javanese_gamelan_notation": >-
+      javanesisk-gamelan
+    "javanese_gending": >-
+      javanesisk-gending
+    "javanese_gending_detail": >-
+      javanesisk-gending-gamelan-:slug
+    "javanese_gending_gamelan_notation": >-
+      notation-av-javanesisk-gending-gamelan
+    "javanese_gending_gamelan_notation_detail": >-
+      notation-av-javanesisk-gending-gamelan-:slug
+    "javanese_gending_gamelan_notation_detail_new": >-
+      gending-notation-standard-:slug
+    "login": >-
+      logga-in
+    "most_loved_songs": >-
+      mest-älskade-låtar
+    "privacy_policy": >-
+      personuppgiftspolicy
+    "signup": >-
+      bli-medlem
+    "song": >-
+      låtar
+    "song_add": >-
+      add-song
+    "song_audio": >-
+      song-audio
+    "song_bass_tab": >-
+      bass-tab-:slug
+    "song_bridge": >-
+      songs-bridge
+    "song_chords": >-
+      låtar-ackord
+    "song_detail": >-
+      låtar
+    "song_karaoke_detail": >-
+      sjung-karaoke-låt-:slug
+    "song_lyrics": >-
+      låttexter
+    "song_lyrics_detail": >-
+      låttexter-:slug
+    "term_of_use": >-
+      anvandarvillkor
+    "user_rep": >-
+      reputation
+    "what_is_this": >-
+      vad-är-det
+    "what_is_this_detail": >-
+      vad-är-:slug
+  "search": >-
+    Sök
+  "search_placeholder_title": >-
+    Sök efter artist, låt eller javanesisk gending...
+  "see_album_detail": >-
+    Se detaljalbum
+  "see_artist_detail": >-
+    Se detaljartist
+  "see_chord_detail": >-
+    Se detailjkord
+  "see_song_detail": >-
+    Se detaljlåt
+  "settings": >-
+    Inställningar
+  "signup": >-
+    Bli Medlem
+  "signup_now": >-
+    Anmäl dig nu!
+  "signup_to_claim": >-
+    Är den här din?
+  "signup_with_facebook": >-
+    Skappa konto med Facebook
+  "site_name": >-
+    Musik88.com
+  "somebody_to_love": >-
+    Älska mig
+  "song_audio_page_title": >-
+    Fil ljud till %{song_name}
+  "song_chord_page_title": >-
+    Gitarr Ackord %{song_name}
+  "song_chord_unavailable_content": >-
+    <span class='song-lyric-unavailable'>%{song_name} gitarrkord från %{song_artist_name}</span>
+    är ännu inte tillgänglig. Ger den här låten minst 2 kärlekar <span class = 'glyphicon
+    glyphicon-heart'> </span>, det är allt vi behöver.
+  "song_chord_unavailable_meta_description": >-
+    De är %{song_name} gitarrkord av %{song_artist_name} från %{song_album_name} albumet.
+  "song_chords_page_title": >-
+    %{song_name} Gitarr Ackord
+  "song_detail": >-
+    Låtdetaljer
+  "song_detail_page_meta_title": >-
+    %{song_name} - %{song_artist_name} recension, tar fran albumet %{song_album_name}
+  "song_detail_page_title": >-
+    %{song_name} Recension
+  "song_generate_your_own_bass_backing_track": >-
+    Generate %{song_name} Bass Backing Track
+  "song_generate_your_own_drum_backing_track": >-
+    Generate %{song_name} Drum Backing Track
+  "song_generate_your_own_karaoke": >-
+    Skapa %{song_name} karaokefil
+  "song_generate_your_own_stem_files": >-
+    Generate STEM Files For %{song_name}
+  "song_karaoke_download": >-
+    Download Karaoke Version
+  "song_karaoke_page_title": >-
+    Download %{song_name} Karaoke Version From %{song_artist_name} From %{song_album_name}
+    Album
+  "song_karaoke_title": >-
+    %{filename} Karaoke version
+  "song_karaoke_unavailable_content": >-
+    The %{song_name} karaoke version from %{song_artist_name} is not available yet.
+  "song_karaoke_unavailable_meta_description": >-
+    Download %{song_name} Karaoke Version From %{song_artist_name} From %{song_album_name}
+    Album
+  "song_lyric_detail": >-
+    Låttext %{title}
+  "song_lyric_page_title": >-
+    %{song_name} Sångtext av %{song_artist_name}
+  "song_lyric_unavailable_content": >-
+    <span class='song-lyric-unavailable'>%{song_name} sångtexten från %{song_artist_name}</span>
+    är ännu inte tillgänglig. Ger den här låten minst 2 kärlekar <span class = 'glyphicon
+    glyphicon-heart'> </span> eller %{href} så vi kan bara fokusera på att hitta ackorden.
+  "song_lyric_unavailable_content_add_lyric": >-
+    Lägg till Sångtext
+  "song_lyric_unavailable_meta_description": >-
+    De är %{song_name} sångtext av %{song_artist_name} från %{song_album_name} albumet.
+  "song_lyrics_page_title": >-
+    Låttext %{song_name}
+  "song_menu_aside_audio": >-
+    Audio
+  "song_menu_aside_chords": >-
+    Ackord
+  "song_menu_aside_info": >-
+    Info
+  "song_menu_aside_lyrics": >-
+    Text
+  "song_menu_bass_backing_track": >-
+    Bass backing track %{song_name}
+  "song_menu_bass_tab": >-
+    Bass tab %{song_name}
+  "song_menu_drum_backing_track": >-
+    Drum backing track %{song_name}
+  "song_menu_guitar_chord": >-
+    Gitarrkord %{song_name}
+  "song_menu_karaoke": >-
+    Karaoke Version %{song_name}
+  "song_menu_lyric": >-
+    Låttext %{song_name}
+  "song_updated_at": >-
+    Uppdaterad: %{date}
+  "still_login": >-
+    Kom ihåg mig
+  "top_10_albums": >-
+    Topp 10 Album
+  "top_10_artists": >-
+    Topp 10 Artister
+  "top_10_guitar_chords": >-
+    Topp 10 gitarrackord
+  "top_10_song_lyrics": >-
+    Top 10 sångtext
+  "top_10_songs": >-
+    Topp 10 Låtar
+  "user_email_confirmation_content": >-
+    Du kan bekräfta ditt kontos e-postadress via länken nedan:
+  "user_email_confirmation_cta": >-
+    Bekräfta mitt konto
+  "user_email_confirmation_header": >-
+    Välkommen, %{email}!
+  "user_email_with_love": >-
+    Med ❤️ från Stockholm,
+  "user_notifier_projects": >-
+    Kolla in våra andra projekt
+  "user_profile": >-
+    Profil
+  "user_reset_password_email_heading": >-
+    Återställ lösenordslänk endast för dig, %{user_name}!
+  "user_reset_password_email_heading_p1": >-
+    Du får det här e-postmeddelandet eftersom du försöker komma åt ditt konto.
+  "user_reset_password_email_heading_p2": >-
+    Klicka på %{href} för att återställa ditt lösenord.
+  "user_reset_password_email_link": >-
+    denna engångslänk
+  "user_send_reset_password_instructions_subject": >-
+    Återställ lösenordsinstruktioner
+  "user_send_wallet_activation_notification_address": >-
+    Din plånboksadress
+  "user_send_wallet_activation_notification_heading": >-
+    Grattis, %{user_name}. Du har nu en ny kryptoplånbok!
+  "user_send_wallet_activation_notification_p1": >-
+    Din BACH kryptovaluta lagras i din plånbok. Du kan se ditt saldo i länken nedan.
+  "user_send_wallet_activation_notification_subject": >-
+    Du har en ny plånbok!
+  "user_signup_email_heading": >-
+    Tack för att du registrerade dig, %{user_name}!
+  "user_signup_email_heading_p1": >-
+    Tack för att du är med!
+  "user_signup_email_heading_p2": >-
+    Vi har ett uppdrag att digitalisera underrepresenterad musik i världen. %{href}
+    och börja bidra :)
+  "user_signup_email_subject": >-
+    Välkommen till Musik88!
+  "welcome_user": >-
+    Valkommen, %{user_name}!
+  "welcome_user_unconfirmed": >-
+    Valkommen! Öppna din e-post för att bekräfta ditt konto.
+  "your_locale": >-
+    Språk
+  "your_locale_explanation": >-
+    Dina språkinställningar för denna webbplats
+  "your_wallet_address": >-
+    Din plånboksadress
+  "your_wallet_address_explanation": >-
+    Vi lagrar ditt kryptovaluta i din plånboksadress. Du kan köpa, sälja och satsa
+    (kommer snart) ditt kryptovaluta på en öppen marknad, till exempel %{href}.

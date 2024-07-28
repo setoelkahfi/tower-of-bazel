@@ -1,0 +1,19 @@
+ <% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= @meta_url %>" />
+<% end %>
+<main>
+  <h1 class="mb-5">
+    <i class="bi bi-tools"></i> Application Programming Interface V1
+  </h1>
+  <div class="mb-3">
+    <%= link_to("I'm", profile_path('seto')) %> still actively looking for contributors. <%= link_to('Contact me', 'mailto:hej@setoelkahfi.se') %> if you're interested.
+  </div>
+  <%= render 'shared/partial_breadcrumbs' do %>
+    <li class="breadcrumb-item"><%= link_to('API', api_root_path) %></li>
+    <li class="breadcrumb-item"><%= link_to('V1', request.url) %></li>
+  <% end %>
+</main>

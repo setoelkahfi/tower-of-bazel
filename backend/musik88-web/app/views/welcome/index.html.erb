@@ -1,0 +1,12 @@
+ <% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= @meta_url %>" />
+<% end %>
+<main>
+  <%= render "shared/flash_message", object: flash %>
+  <%= render(@template) %>
+  <%= render('shared/partial_breadcrumbs') %>
+</main>

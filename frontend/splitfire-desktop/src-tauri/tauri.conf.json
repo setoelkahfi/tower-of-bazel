@@ -1,0 +1,66 @@
+{
+  "build": {
+    "beforeBuildCommand": "bun build",
+    "beforeDevCommand": "bun start",
+    "devPath": "http://localhost:3002",
+    "distDir": "../build"
+  },
+  "package": {
+    "productName": "SplitFire",
+    "version": "0.3.4"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/SplitFire-152x152.png",
+        "icons/SplitFire-180x180.png",
+        "icons/SplitFire-1024x1024.png",
+        "icons/SplitFire167x167.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "ai.splitfire.desktop",
+      "longDescription": "",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "maximized": true,
+        "height": 600,
+        "resizable": true,
+        "title": "SplitFire",
+        "width": 800
+      }
+    ]
+  }
+}

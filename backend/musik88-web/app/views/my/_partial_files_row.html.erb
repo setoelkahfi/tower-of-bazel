@@ -1,0 +1,13 @@
+<tr style="vertical-align: top">
+    <td style="padding: 10px 10px 10px 0;">
+      <% if audio_file.source_file.attached? %>
+        <%= link_to(audio_file.source_file.blob.filename, my_file_detail_path(audio_file.id)) %>
+      <% else %>
+        <i>File is missing. Please delete this.</i>
+      <% end %>
+      <%= render "my/partial_audio_file_information", audio_file: audio_file %>
+    </td>
+    <td style="padding: 10px; width: 100px">
+      <%= link_to("<i class='icon-remove'></i> Delete".html_safe, my_delete_file_path(audio_file.id), data: { confirm: 'Warning! This will delete all SplitFire and Bass64 result files. Are you sure?' }, method: :delete) %>
+    </td>
+</tr>

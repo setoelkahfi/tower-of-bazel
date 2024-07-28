@@ -1,0 +1,9 @@
+<div class="row mt-3">
+  <div class="col-md-12">
+    <h1 class="d-inline-flex">
+      <%= @user.name %>
+    </h1>
+    <%= "<span class='fst-italic fw-lighter'>It's me!</span>".html_safe if user_signed_in? && @user.id == current_user.id  %>
+    <%= render "shared/flash_message", object: flash %>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<h2 class='fst-italic fw-light'><%= t('search') %></h2>
+<div class="row g-5">
+    <div class="col-8">
+        <%= form_with url: search_path, method: :get, html: { :class=> "row g-3" } do |form| %>
+            <div class="col-12">
+                <%= form.text_field :s, class: 'form-control search', autocomplete: 'off', placeholder: t('search_placeholder_title') %>
+                <div class="list-group result-list" style="display:none"></div>
+            </div>
+        <% end %>
+    </div>
+    <div class="col-4">
+        <%= link_to("<span class='badge bg-warning text-dark'>#{t('nav_chords').downcase}</span>".html_safe, guitar_chords_path).html_safe %>
+        <%= link_to("<span class='badge bg-warning text-dark'>#{t('nav_javanese_gending_notation').downcase}</span>".html_safe, javanese_gending_gamelan_notation_path).html_safe %>
+    </div>
+</div>
+
+<script>
+    $(document).on('turbolinks:load', function() {
+        $('input.search').on('input',function(e) {
+
+            if ($(this).val().length < 3)
+                return
+            
+            const url = "<%= api_v1_search_path %>?q=" + $(this).val() + "&client=web_beta&locale=<%= I18n.locale %>"
+            $.ajax({
+                type: "GET",
+                url: url,
+                success: function(res) {
+                    var ins = ""
+                    for (var i = 0; i < res.results.length; i++) {
+                        const item = res.results[i]
+                        ins += `<div
+                            class="item list-group-item list-group-item-action flex-column align-items-start"
+                            data-path="${item.path}" data-name="${item.name}"
+                            style="cursor: pointer;">`
+                        ins += "<div class='d-flex w-100 justify-content-between'>"
+                        ins += "<h5 class='mb-1'>" + item.name + "</h5>"
+                        ins += "<small class='text-muted fst-italic fw-light'>" + item.type + "</small>"
+                        ins += "</div>"
+                        ins += "</div>"
+                    };
+                    $('.result-list').html(ins).show();
+                }
+            })
+        })
+        $('body').on('click', 'div.item', function() {
+
+            const destination = $(this).attr('data-path')
+
+            function redirectToPath(res) {
+                // console.log(res)
+                window.location.href = destination
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '<%= api_v1_search_path %>',
+                data: 'term=' + $(this).attr('data-name'),
+                success: redirectToPath,
+                error: redirectToPath
+            })
+        });
+    })
+</script>

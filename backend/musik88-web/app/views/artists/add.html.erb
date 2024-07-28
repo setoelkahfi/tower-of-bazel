@@ -1,0 +1,55 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= @meta_url %>" />
+<% end %>
+<main>
+  <div class="row g-5">
+    <div class="col-md-12">
+      <h1><%= @page_title %></h1>
+      <%= render "shared/flash_message", object: flash %>
+    </div>
+  </div>
+  <div class="row g-5">
+    <div class="col-sm-1">
+      <div class="position-sticky" style="top: 1rem;">
+        <div class="text-center mt-4">
+          <%= link_to(
+              "<i class='bi bi-journal-check' style='font-size: 1.5rem;'></i>".html_safe,
+              artist_add_path,
+              title: "How to add chord"
+          ) %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-11">
+      <%= form_with model: @artist, url: { action: "add" }, html: { :class=> "row g-3" } do |form| %>
+        <div class="col-md-6">
+          <%= form.text_field :name, class: "form-control", placeholder: "Type your favorite artist name..." %>
+          <%= form.hidden_field :user_id, value: @user.id if @user.present? %>
+        </div>
+        <div class="col-12">
+          <%= form.text_area(:description, class: "form-control" , rows: 5, placeholder: "Who is this artist? Give it a description...") %>
+        </div>
+        <div class="col-12">
+          <%=
+              "<div class='alert alert-danger' role='alert'>
+              You are not logged in. #{link_to('@nowhereman', profile_path('nowhereman'))} is going to claim your contribution.
+              </div>".html_safe unless user_signed_in?
+          %>
+          <%= form.submit(t('home_add_artist'), class: "btn btn-primary") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'shared/partial_breadcrumbs' do %>
+    <li class="breadcrumb-item">
+      <%= link_to(
+                t('guitar_chord_add'),
+                guitar_chord_add_path
+              ) %>
+    </li>
+  <% end %>
+</main>

@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs">
+            <%= render(
+                    "partial_menu",
+                    href_text: t("legacy_view"),
+                    href_link: javanese_gending_gamelan_notation_detail_path,
+                    active: active_menu == 'legacy'
+                )
+            %>
+            <%= render(
+                    "partial_menu",
+                    href_text: t("new_view"),
+                    href_link: javanese_gending_gamelan_notation_detail_new_path(@gending.slug),
+                    active: active_menu == 'new'
+                )
+            %>
+        </ul>
+    </div>
+</div>

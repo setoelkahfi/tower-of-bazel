@@ -1,0 +1,15 @@
+<div class="row" style="padding: 10px 0 20px 10px;">
+    <div class="col-md-10" style="padding-bottom: 10px;">
+        <%= audio_file.source_file.blob.filename %>
+    </div>
+    <div class="col-md-2 text-center">
+        <span style="margin: 10px;">
+            <a href="javascript:void(0)" class="audio-file-play-pause" audio-file-url="<%= rails_blob_path(audio_file.source_file, disposition: "attachment") %>">
+                <i class="icon-play" title="Play audio"></i>
+                <i class="icon-pause" title="Play audio" style="display: none;"></i>
+                <i class="icon-time" title="Loading audio" style="display: none;"></i>
+            </a>
+        </span>
+        <%= link_to("<i class='icon-download'></i>".html_safe, rails_blob_path(audio_file.source_file, disposition: "attachment"), title: "Download") %>
+    </div>
+</div>

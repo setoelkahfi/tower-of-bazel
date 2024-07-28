@@ -1,0 +1,16 @@
+<div class="row" style="padding: 10px 0 10px 0px; ">
+  <div class="col-md-10" class="file-information" style="margin-bottom: 10px;">
+    <%= link_to(
+      audio_file.output_filename.html_safe,
+      audio_file.user.splitfire_link(audio_file),
+      target: :_blank
+    ) %>
+  </div>
+  <div class="col-md-2 text-right">
+    <%= link_to(
+      '<i class="icon-play" title="Play audio"></i>'.html_safe,
+      audio_file.user.splitfire_link(audio_file),
+      target: :_blank
+    ) %>
+  </div>
+</div>

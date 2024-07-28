@@ -1,0 +1,22 @@
+<div class="col-md-4">
+    <aside>
+        <div class="bluebox-heading">
+            <h2><%= t("top_10_albums") %></h2>
+        </div>
+        <ul class="news-list">
+            <% @trending_albums.each_with_index do |album, index| %>
+                <li>
+                    <h4>
+                        <%= link_to "#{index + 1}. #{album.name}", album_detail_path(album.name.downcase.parameterize + "-" + album.id.to_s) %>
+                    </h4>
+                    <%= link_to t("see_album_detail"),
+                          album_detail_path(album.name.downcase.parameterize + "-" + album.id.to_s),
+                          class: "badge rounded-pill bg-warning" %>
+                    <span style="text-transform: capitalize;font-style: italic;">
+                        <%= t("song_updated_at", date: album.updated_at.strftime("%B %-d, %Y")) %>
+                    </span>
+                </li>
+            <% end %>
+        </ul>
+    </aside>
+</div>

@@ -1,0 +1,116 @@
+ <% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= @meta_url %>" />
+<% end %>
+<main>
+  <div class="row g-5 mb-5">
+    <div class="col-md-12">
+      <h1>BACH Tokenomics</h1>
+    </div>
+  </div>
+  <div class="row g-5">
+    <div class="col-sm-4">
+      <div class="position-sticky" style="top: 1rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <span class="fst-italic fw-light"><%= t('bach_token_name') %></span><br/>
+            BACH Token</li>
+          <li class="list-group-item">
+            <span class="fst-italic fw-light"><%= t('bach_token_id') %></span><br/>
+            <div class="badge bg-primary text-wrap text-warning" style="word-break: break-all;">
+              CTQBjyrX8pYyqbNa8vAhQfnRXfu9cUxnvrxj5PvbzTmf
+            </div>
+          </li>
+          <li class="list-group-item"><%= t('bach_token_account') %></span><br/>
+            <div class="badge bg-primary text-wrap text-warning" style="word-break: break-all;">
+              A4Dj3tzEU2V8mkRYXxcu76tQzSVbmppXByWCTFwC8ApN
+            </div>
+          </li>
+          <li class="list-group-item">
+            <span class="fst-italic fw-light"><%= t('bach_token_address') %><br/>
+            <div class="badge bg-primary text-wrap text-warning" style="word-break: break-all;">
+              <%= link_to(
+                'Solscan',
+                'https://solscan.io/token/CTQBjyrX8pYyqbNa8vAhQfnRXfu9cUxnvrxj5PvbzTmf',
+                class: 'text-warning',
+                target: :__blank
+              ) %>
+            </div></li>
+          <li class="list-group-item"><span class="fst-italic fw-light"><%= t('bach_token_symbol') %></span><br/> €BACH</li>
+          <li class="list-group-item"><span class="fst-italic fw-light"><%= t('bach_token_decimal') %></span><br/> 12</li>
+          <li class="list-group-item">
+            <span class="fst-italic fw-light"><%= t('bach_token_fractional') %></span><br/>
+            st (<%= t('bach_token_semitone') %>)<br/>
+            1 €BACH = 1 <%= t('bach_token_trillion') %> st (1.000.000.000.000)
+          </li>
+          <li class="list-group-item"><span class="fst-italic fw-light"><%= t('bach_token_supply') %></span><br/> €BACH 10,000,000</li>
+          <li class="list-group-item"><span class="fst-italic fw-light"><%= t('bach_token_fix_supply') %></span><br/> €BACH 59,103,435</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <%= @page&.page_content&.html_safe %>
+      <iframe class="rounded text-center mb-3" width="560" height="315" src="https://www.youtube.com/embed/Il5Lk3vyhlg?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <h2><%= t('bach_token_supply_cycles') %></h2>
+      <ul class="list-group mb-3">
+        <li class="list-group-item">
+          <span class="badge bg-warning rounded-pill fw-bold text-primary">Do</span> Air on the G String: 
+          <%= link_to(
+              '€ 4,788',
+              'https://solscan.io/tx/2QZxMzxNzJjw8mLeruuMEqszF976K6t3SHXqRjofwJXqMdQhvVNqdW7nVghDBMP2GJgonRcyGWquTinJJyJ7VKxn',
+              class: 'text-light badge bg-primary rounded-pill fst-italic fw-light float-end',
+              target: :__blank
+            ) %>
+        </li>
+        <li class="list-group-item"><span class="badge bg-warning rounded-pill fw-bold text-primary">Re</span> Airdrop #1
+          <%= link_to(
+              '1',
+              'https://solscan.io/account/6JvMs2ZAWLeN4bvajvnmqUwZYpKJmhbmmMd5B1VoAdPn',
+              class: 'text-light badge bg-primary rounded-pill fst-italic fw-light float-end',
+              target: :__blank
+            ) %>
+          <%= link_to(
+              '2',
+              'https://solscan.io/account/nNoMukHL6abkiNDZjAB6qiBAdsCeXCW7uASRLJqLUAf',
+              class: 'text-light badge bg-primary rounded-pill fst-italic fw-light float-end',
+              target: :__blank
+            ) %>
+          <%= link_to(
+              '3',
+              'https://solscan.io/account/2mj6s55J2tQP5V8di82NPK33t6oZzWqMmzGVcBTLjGu7',
+              class: 'text-light badge bg-primary rounded-pill fst-italic fw-light float-end',
+              target: :__blank
+            ) %>
+        </li>
+        <li class="list-group-item"><span class="badge bg-warning rounded-pill fw-bold text-primary">Mi</span> Mint
+            <%= link_to(
+              '€ 990,000',
+              'https://solscan.io/account/2mj6s55J2tQP5V8di82NPK33t6oZzWqMmzGVcBTLjGu7',
+              class: 'text-light badge bg-primary rounded-pill fst-italic fw-light float-end',
+              target: :__blank
+            ) %>
+        </li>
+        <li class="list-group-item"><span class="badge bg-warning rounded-pill fw-bold text-primary">Fa</span> Airdrop #2 TBD</li>
+        <li class="list-group-item"><span class="badge bg-warning rounded-pill fw-bold text-primary">Sol</span> TBD</li>
+        <li class="list-group-item"><span class="badge bg-warning rounded-pill fw-bold text-primary">La</span> TBD</li>
+        <li class="list-group-item"><span class="badge bg-warning rounded-pill fw-bold text-primary">Ti</span>  TBD</li>
+      </ul>
+      <% if @page.present? %>
+        <h2 class="mb-2 mt-2"><%= t('bach_token_discussion') %></h2>
+        <%= render "shared/flash_message", object: flash %>
+        <div class="mb-3">
+          <%= form_for [@page, Comment.new] do |f| %>
+            <%= f.text_area :body, placeholder: t('add_comment'), rows: "4" , cols: "50%" %><br/>
+            <%= f.hidden_field :user_id, value: current_user.id if user_signed_in? %>
+            <%= f.submit t('add_comment'), class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <%= render(partial: 'comments/comment', collection: @page&.comments) %>
+      <% end %>
+    </div>
+  </div>
+  <%= render('shared/partial_breadcrumbs') %>
+</main>

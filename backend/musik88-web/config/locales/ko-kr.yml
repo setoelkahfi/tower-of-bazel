@@ -1,0 +1,437 @@
+---
+"ko-kr":
+  "10_most_loved_songs": >-
+    가장 사랑받는 노래 10곡
+  "add_chord_validation_success": >-
+    참여해주셔서 감사합니다!
+  "album_artists": >-
+    아티스트
+  "album_song_list": >-
+    노래 목록
+  "artist_profile_album_contribution_title": >-
+    %{artist} 에도 나타납니다:
+  "artist_profile_album_title": >-
+    %{artist} 앨범
+  "artist_profile_title": >-
+    %{artist} 프로필
+  "breadcrumb_home": >-
+    집
+  "breadcrumb_most_loved_songs": >-
+    가장 사랑받은 노래
+  "by": >-
+    사랑받는 사람
+  "cancel": >-
+    취소
+  "create_account": >-
+    계정 만들기
+  "discussion": >-
+    논의
+  "email": >-
+    이메일
+  "find_your_artist": >-
+    좋아하는 아티스트 찾기
+  "find_your_favorite_album": >-
+    좋아하는 새 앨범 찾기
+  "find_your_favorite_songs": >-
+    좋아하는 노래 찾기
+  "followers": >-
+    수행원
+  "following": >-
+    수행원
+  "footer": >-
+    %{instagram} 전역에서 %{profile}이(가) 재미를 위해 만들었습니다. &middot; &copy; 2021
+  "footer_world": >-
+    세계
+  "forgot_password": >-
+    비밀번호를 잊으 셨나요?
+  "gending_add": >-
+    성별 표기법 공유
+  "gending_add_explanation": >-
+    Help us digitalize Javanese gamelan online. %{href} and earn %{bach_link} reputation
+    token.
+  "gending_description": >-
+    설명
+  "gending_name": >-
+    Gending 이름
+  "gending_notation": >-
+    Gending Notation
+  "gending_notation_add": >-
+    Add gending notation
+  "gending_notation_link": >-
+    Javanese gending notation %{slug}
+  "gending_notation_meta_desciption": >-
+    This is the javanese gending notation for  %{title} gending.
+  "gending_notation_page_title": >-
+    Javanese Gending Notation %{title}
+  "guitar_chord_image": >-
+    Guitar Chord Image
+  "guitar_chord_link": >-
+    Guitar chord %{slug}
+  "guitar_chord_video": >-
+    기타 코드 비디오
+  "guitar_chords_shape": >-
+    기타 코드 모양
+  "h2_find_new_albums": >-
+    여기에서 새 앨범을 찾으세요!
+  "h2_find_new_artists": >-
+    여기에서 새로운 아티스트를 찾으세요!
+  "have_account": >-
+    이미 계정이 있습니까?
+  "hello": >-
+    Welcome to Musik 88
+  "home_guitar_chords": >-
+    기타 코드
+  "home_guitar_chords_headline": >-
+    기타 코드를 제출하고 기여에 대한 %{bach_link} 평판 토큰을 받으세요.
+  "home_headline": >-
+    세계 최대의 음악 데이터베이스!
+  "home_javanese_gending_notation": >-
+    자바어 성별 표기법
+  "home_javanese_gending_notation_subheadline": >-
+    Javanese gamelan을 디지털화하고 기여에 대해 %{bach_link} 평판 토큰을 받으세요.
+  "home_lyrics": >-
+    노래 가사
+  "home_new_entries": >-
+    새 항목
+  "home_others": >-
+    기타
+  "home_others_headline": >-
+    내 다른 프로젝트를 확인하십시오.
+  "home_popular": >-
+    인기있는
+  "home_see_all": >-
+    모두 보기
+  "home_share_gamelan_notation_now": >-
+    성별 표기법을 공유하세요!
+  "home_share_now": >-
+    코드를 공유하세요!
+  "home_signup_now": >-
+    지금 등록하세요!
+  "home_songs": >-
+    인기곡
+  "home_subheadline": >-
+    기타 코드? 노래 가사? 앨범 리뷰? 자바어 성별 표기법? 등! 가입하고 기여(아티스트, 앨범, 가사 등 추가)하고 %{bach_link}
+    평판 토큰을 받으세요.
+  "home_youtube_karaoke": >-
+    유튜브 가라오케
+  "home_youtube_karaoke_headline": >-
+    AI가 제공하는 좋아하는 YouTube 뮤직 비디오의 가라오케 버전.
+  "invalid_login": >-
+    Invalid email/password combination
+  "locale_name": "\U0001F1F0\U0001F1F7 한국인"
+  "login": >-
+    로그인!
+  "login_with_facebook": >-
+    Login with Facebook
+  "lyric": >-
+    Song Lyric
+  "lyric_cannot_be_empty": >-
+    Lyric can't be empty
+  "my_profile": >-
+    My Profile
+  "my_profile_link_href": >-
+    this secure link
+  "my_profile_link_html": >-
+    This is your public profile. Follow %{href} to edit your profile.
+  "my_profile_private": >-
+    This profile is private
+  "name": >-
+    이름
+  "nav_albums": >-
+    앨범
+  "nav_artists": >-
+    아티스트
+  "nav_change_language": >-
+    Change Language:
+  "nav_chords": >-
+    Guitar Chords
+  "nav_chords_shapes": >-
+    Guitar Chords Diagram
+  "nav_community": >-
+    Community
+  "nav_en": >-
+    English
+  "nav_footer_about": >-
+    About Us
+  "nav_footer_company": >-
+    Company
+  "nav_footer_contact": >-
+    Contact
+  "nav_footer_follow_us": >-
+    Follow Us
+  "nav_footer_privacy": >-
+    Privacy Policy
+  "nav_footer_term": >-
+    Term of Use
+  "nav_guitar": >-
+    Guitar
+  "nav_id": >-
+    Bahasa Indonesia
+  "nav_javanese_gamelan": >-
+    Javanese Gamelan
+  "nav_javanese_gamelan_about": >-
+    About Javanese Gamelan
+  "nav_javanese_gending": >-
+    Javanese Gending
+  "nav_javanese_gending_notation": >-
+    Javanese Gending Notation
+  "nav_login": >-
+    로그인
+  "nav_login_dropdown": >-
+    Account
+  "nav_logout": >-
+    로그 아웃
+  "nav_lyrics": >-
+    Song Lyrics
+  "nav_music_database": >-
+    Musics
+  "nav_new_entries": >-
+    New Entries
+  "nav_signup": >-
+    가입하기
+  "nav_songs": >-
+    Songs
+  "nav_ukulele_chords": >-
+    Ukulele Chords (soon)
+  "need_to_logged_in": >-
+    You need to logged in before giving this love. Don't have account yet? Just signup,
+    it's so easy. You can use your Facebook account if you want.
+  "need_to_logged_in_my_profile": >-
+    You need to be logged in to perform this task.
+  "new_user": >-
+    새로운 사용자?
+  "or": >-
+    또는
+  "our_community": >-
+    Our Community
+  "our_guitar_chords_collection": >-
+    Our Newest Guitar Chords Collections
+  "our_newest_song_lyrics": >-
+    Our Newest Song Lyrics Collection
+  "password": >-
+    비밀번호
+  "password_button_update": >-
+    Update
+  "password_confirmation": >-
+    비밀번호 확인
+  "password_new": >-
+    Enter new password
+  "password_new_confirmation": >-
+    Confirm password
+  "routes":
+    "about_us": >-
+      about-us
+    "add_gending": >-
+      add-gending-gamelan
+    "add_javanese_gamelan_notation": >-
+      add-javanese-gamelan-notation
+    "album": >-
+      albums
+    "album_add": >-
+      add-album
+    "album_detail": >-
+      albums
+    "artist": >-
+      artists
+    "artist_add": >-
+      add-artist
+    "artist_detail": >-
+      artists
+    "audio_files": >-
+      audio-files
+    "bass_backing_track": >-
+      bass-backing-track-:slug
+    "community": >-
+      community
+    "contact": >-
+      contact
+    "drum_backing_track": >-
+      drum-backing-track-:slug
+    "followers": >-
+      followers
+    "following": >-
+      following
+    "guitar_backing_track": >-
+      guitar-backing-track-:slug
+    "guitar_chord_shape": >-
+      guitar-chord-:slug
+    "guitar_chord_shapes": >-
+      all-guitar-chords
+    "guitar_chords": >-
+      guitar-chords
+    "guitar_chords_add": >-
+      add-chord
+    "guitar_chords_detail": >-
+      guitar-chords-:slug
+    "guitar_chords_history": >-
+      guitar-chords-:slug/history
+    "guitar_chords_review": >-
+      guitar-chords-:slug/review-chord
+    "javanese_gamelan": >-
+      javanese-gamelan
+    "javanese_gamelan_notation": >-
+      javanese-gamelan
+    "javanese_gending": >-
+      javanese-gending
+    "javanese_gending_detail": >-
+      javanese-gending-gamelan-:slug
+    "javanese_gending_gamelan_notation": >-
+      notation-for-javanese-gamelan
+    "javanese_gending_gamelan_notation_detail": >-
+      notation-for-javanese-gamelan-:slug
+    "login": >-
+      login
+    "most_loved_songs": >-
+      most-loved-songs
+    "privacy_policy": >-
+      privacy-policy
+    "signup": >-
+      signup
+    "song": >-
+      songs
+    "song_add": >-
+      add-song
+    "song_audio": >-
+      song-audio
+    "song_bass_tab": >-
+      bass-tab-:slug
+    "song_chords": >-
+      song-chords
+    "song_detail": >-
+      songs
+    "song_karaoke_detail": >-
+      karaoke-song-:slug
+    "song_lyrics": >-
+      song-lyrics
+    "song_lyrics_detail": >-
+      song-lyrics-:slug
+    "term_of_use": >-
+      term-of-use
+    "user_rep": >-
+      reputation
+  "see_album_detail": >-
+    See album detail
+  "see_artist_detail": >-
+    See artist detail
+  "see_chord_detail": >-
+    See chord detail
+  "see_song_detail": >-
+    See song detail
+  "signup": >-
+    가입하기
+  "signup_now": >-
+    지금 등록하세요!
+  "signup_to_claim": >-
+    이거 당신 껍니까?
+  "signup_with_facebook": >-
+    페이스북으로 가입하기
+  "site_name": >-
+    Musik88.com
+  "somebody_to_love": >-
+    Love me
+  "song_audio_page_title": >-
+    Audio files for %{song_name}
+  "song_chord_page_title": >-
+    Guitar chord %{song_name} by %{song_artist_name}
+  "song_chord_unavailable_content": >-
+    The <span class='song-lyric-unavailable'>%{song_name} chord from %{song_artist_name}</span>
+    isn't yet avaiable. Gives this song at least 2 loves <span class='glyphicon glyphicon-heart'></span>,
+    that's all we need.
+  "song_chord_unavailable_meta_description": >-
+    Here's the %{song_name} chord from %{song_artist_name} taken from the %{song_album_name}
+    album.
+  "song_chords_page_title": >-
+    %{song_name} Chords
+  "song_detail": >-
+    Song detail
+  "song_detail_page_meta_title": >-
+    %{song_name} from %{song_artist_name} song review, from the %{song_album_name}
+    album/single.
+  "song_detail_page_title": >-
+    %{song_name} Song Review
+  "song_generate_your_own_bass_backing_track": >-
+    Generate %{song_name} Bass Backing Track
+  "song_generate_your_own_drum_backing_track": >-
+    Generate %{song_name} Drum Backing Track
+  "song_generate_your_own_karaoke": >-
+    Generate %{song_name} Karaoke File
+  "song_generate_your_own_stem_files": >-
+    Generate STEM Files For %{song_name}
+  "song_karaoke_download": >-
+    Download Karaoke Version
+  "song_karaoke_page_title": >-
+    Download %{song_name} Karaoke Version From %{song_artist_name} From %{song_album_name}
+    Album
+  "song_karaoke_title": >-
+    %{filename} Karaoke Version
+  "song_karaoke_unavailable_content": >-
+    The %{song_name} karaoke version from %{song_artist_name} is not available yet.
+  "song_karaoke_unavailable_meta_description": >-
+    Download %{song_name} Karaoke Version From %{song_artist_name} From %{song_album_name}
+    Album
+  "song_lyric_page_title": >-
+    %{song_name} Lyric by %{song_artist_name}
+  "song_lyric_unavailable_content": >-
+    The <span class='song-lyric-unavailable'>%{song_name} lyric from %{song_artist_name}</span>
+    isn't yet avaiable. Gives this song at least 2 loves <span class='glyphicon glyphicon-heart'></span>
+    or %{href} to this song so we can just focus on finding the chords.
+  "song_lyric_unavailable_content_add_lyric": >-
+    Add Lyric
+  "song_lyric_unavailable_meta_description": >-
+    Here's the %{song_name} lyric from %{song_artist_name} taken from the %{song_album_name}
+    album.
+  "song_menu_aside_audio": >-
+    Audio
+  "song_menu_aside_chords": >-
+    Chords
+  "song_menu_aside_info": >-
+    Info
+  "song_menu_bass_backing_track": >-
+    Bass backing track %{song_name}
+  "song_menu_bass_tab": >-
+    Bass tab %{song_name}
+  "song_menu_drum_backing_track": >-
+    Drum backing track %{song_name}
+  "song_menu_guitar_chord": >-
+    Guitar Chord %{song_name}
+  "song_menu_karaoke": >-
+    Karaoke Version %{song_name}
+  "song_menu_lyric": >-
+    Song Lyric %{song_name}
+  "song_updated_at": >-
+    Updated: %{date}
+  "still_login": >-
+    날 기억해
+  "top_10_albums": >-
+    상위 10개 앨범
+  "top_10_artists": >-
+    상위 10명의 아티스트
+  "top_10_guitar_chords": >-
+    Top 10 Guitar Chords
+  "top_10_song_lyrics": >-
+    Top 10 Song Lyrics
+  "top_10_songs": >-
+    Top 10 Songs
+  "user_profile": >-
+    Profile
+  "user_reset_password_email_heading": >-
+    Reset password link only for you, %{user_name}!
+  "user_reset_password_email_heading_p1": >-
+    You are getting this email because you are trying to access your account.
+  "user_reset_password_email_heading_p2": >-
+    Click %{href} to reset your password.
+  "user_reset_password_email_link": >-
+    this one time link
+  "user_send_reset_password_instructions_subject": >-
+    Reset password instruction
+  "user_signup_email_heading": >-
+    Thanks for signing up, %{user_name}!
+  "user_signup_email_heading_p1": >-
+    Thanks for joining us!
+  "user_signup_email_heading_p2": >-
+    We are in a mission to digitalize underrepresented musics in the world. %{href}
+    and start contributing :)
+  "user_signup_email_subject": >-
+    Welcome to Musik88!
+  "welcome_user": >-
+    Welcome, %{user_name}!

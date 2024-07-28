@@ -1,0 +1,40 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= request.base_url %>/kontak" />
+<% end %>
+<% content_for :breadcrumb do %>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "<%= request.base_url %>",
+          "name": "Musik 88"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "<%= request.base_url %>/kontak",
+          "name": "Kontak"
+        }
+      }]
+    }
+  </script>
+<% end %>
+<h1><%= @page_title %></h1>
+<div>
+  <p class="lead">Send us feedback from these social channels below</br></br>
+<a href="https://youtube.com/c/tutorialgitar88" target="__blank">YouTube</br>
+<a href="https://fb.com/tutorialgitar88" target="__blank">Facebook</a></br>
+<a href="https://instagram.com/tutorialgitar88" target="__blank">Instagram</p>
+</div>
+<%= render "shared/partial_breadcrumbs" do %>
+  <li class="breadcrumb-item"><%= link_to t("nav_footer_contact"), contact_path %></li>
+<% end %>

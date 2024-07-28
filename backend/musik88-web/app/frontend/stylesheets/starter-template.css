@@ -1,0 +1,119 @@
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.icon-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.icon-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: .25rem;
+}
+
+.icon-list li::before {
+  display: block;
+  flex-shrink: 0;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: .5rem;
+  content: "";
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+}
+
+p.chord {
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: blue;
+}
+
+.onboarding-gif-wrapper {
+  background-image: url('../images/badge-pretty.gif');
+  text-align: center;
+  line-height: 165vh;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* https://codepen.io/davidelrizzo/pen/vEYvyv */
+/* Shared */
+.vertical-separator {
+  padding-top: 1em;
+}
+
+.loginBtn {
+  box-sizing: border-box;
+  position: relative;
+  /* width: 13em;  - apply for fixed size */
+  margin-top: 0.2em;
+  margin-right: 0.2em;
+  margin-bottom: 0.2em;
+  margin-left: 0;
+  padding: 0 15px 0 46px;
+  border: none;
+  text-align: left;
+  line-height: 34px;
+  white-space: nowrap;
+  border-radius: 0.2em;
+  font-size: 16px;
+  color: #FFF;
+}
+
+.loginBtn:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 100%;
+}
+
+.loginBtn:focus {
+  outline: none;
+}
+
+.loginBtn:active {
+  box-shadow: inset 0 0 0 32px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Facebook */
+.loginBtn--facebook {
+  background-color: #4C69BA;
+  background-image: linear-gradient(#4C69BA, #3B55A0);
+  /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
+  text-shadow: 0 -1px 0 #354C8C;
+}
+
+.loginBtn--facebook:before {
+  border-right: #364e92 1px solid;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 6px 6px no-repeat;
+}
+
+.loginBtn--facebook:hover,
+.loginBtn--facebook:focus {
+  background-color: #5B7BD5;
+  background-image: linear-gradient(#5B7BD5, #4864B1);
+}
+
+.flex-wrapper {
+  display: flex;
+  min-height: 50vh;
+  flex-direction: column;
+  justify-content: space-between;
+}

@@ -1,0 +1,89 @@
+<% content_for :meta_head do %>
+  <title><%= @meta_title %></title>
+  <meta name="description" content="<%= @meta_description %>">
+  <meta property="og:title" content="<%= @meta_title %>" />
+  <meta property="og:description" content="<%= @meta_description %>" />
+  <meta property="og:url" content="<%= @meta_url %>" />
+<% end %>
+<main>
+  <div class="row g-5">
+    <div class="col-md-12">
+      <h1><%= @page_title %> / Review</h1>
+      <%= render "shared/flash_message", object: flash %>
+    </div>
+  </div>
+  <div class="row g-5">
+    <div class="col-sm-1">
+      <div class="position-sticky" style="top: 1rem;">
+        <div class="text-center mt-4">
+          <%= link_to(
+              "<i class='bi #{@chord.status_symbol} #{@chord.status_color}' style='font-size: 1.5rem;'></i>".html_safe,
+              guitar_chord_history_path,
+              title: "Status: #{@chord.status}"
+          ) %>
+        </div>
+        <div class="text-center mt-4">
+          <% if user_signed_in? && @chord.users.include?(current_user) %>
+            <%= link_to(
+                    '<i class="bi bi-heart-fill"></i>'.html_safe,
+                    chord_unvote_path(id: @chord.id),
+                    remote: true,
+                    method: :delete,
+                    :id => "ajax_trigger"
+                )
+            %>
+          <% else %>
+            <%= link_to(
+                      '<i class="bi bi-heart"></i>'.html_safe,
+                      chord_vote_path(id: @chord.id),
+                      remote: true,
+                      method: :post,
+                      title: t('somebody_to_love'),
+                      :id => "ajax_trigger"
+                  )
+              %>
+          <% end %>
+          <span class="badge rounded-pill bg-warning text-dark"><%= @chord.users.count %></span>
+        </div>
+        <div class="text-center mt-4">
+          <i class="bi bi-graph-up-arrow"></i>
+          <span class="badge rounded-pill bg-warning text-dark"><%= @chord.views_count %></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-11">
+      <div class="mb-3">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold fst-italic">
+              1. Check the chords.
+            </div>
+            Chords name are standard and no mistakes.
+          </div>
+          <span class="badge bg-success rounded-pill fst-italic fw-light">OK</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold fst-italic">
+              2. Play the song.
+            </div>
+            Chord progressions are OK. Minor mistakes are fine.
+          </div>
+          <span class="badge bg-success rounded-pill fst-italic fw-light">OK</span>
+        </li>
+      </div>
+      <%= @chord.chord.html_safe %>
+      <div class="mb-2 mt-2">
+        <%= link_to('Approve chord?', guitar_chord_review_path, method: :patch, class: 'btn btn-primary btn-lg px-4') %>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/partial_breadcrumbs' do %>
+    <li class="breadcrumb-item">
+      <%= link_to(
+                t('guitar_chord_link', slug: @chord.link_title),
+                guitar_chord_detail_path(@chord.slug)
+              ) %>
+    </li>
+  <% end %>
+</main>

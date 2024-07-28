@@ -1,0 +1,220 @@
+<% content_for :meta_head do %>
+  <%= render('shared/partial_meta_tag', title: @meta_title, description: @meta_description) %>
+<% end %>
+<% content_for :breadcrumb do %>
+  <%= render 'shared/partial_breadcrumbs_schema' do %>
+    {
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+    "@id": "<%= login_url %>",
+    "name": "<%= t("login") %>"
+    }
+    }
+  <% end %>
+<% end %>
+<main>
+  <div class="row">
+    <div class="col-md-5">
+      <div class="row mb-3">
+        <h1><%= t("login") %></h1>
+        <%= render "shared/flash_message" %>
+      </div>
+      <div class="row mb-3 text-center web3-login">
+        <p><%= t("login_web3_explanation") %></p>
+        <%=
+        link_to(
+          image_pack_tag(
+            "phantom-icon-purple.svg",
+            size: "300x100",
+            alt: "Connect with Phantom"
+          ),
+          'javascript:;',
+          class: 'connect-phantom',
+          title: 'Connect with Phantom wallet'
+        )
+        %>
+      </div>
+      <%= form_for(:session, url: login_path, :html => { :class => "form-horizontal" }) do |f| %>
+        <div class="row mb-3 text-center">
+          <p><%= t("login_omniauth_explanation") %></p>
+          <% ab_test(:only_spotify_youtube, 'old', 'only_spotify_youtube') do |exp| %>
+                <%= link_to(
+                    '<i class="bi bi-spotify" style="font-size: 3rem; color: blue;"></i>'.html_safe,
+                    user_spotify_omniauth_authorize_path,
+                    method: :post,
+                    class: exp == 'old' ? "col-2 offset-3" : "col-2 offset-4",
+                    style: "padding: 0px",
+                    title: 'Connect with Spofity'
+                ) %>
+                <%= link_to(
+                    '<i class="bi bi-google" style="font-size: 3rem; color: blue;"></i>'.html_safe,
+                    user_google_oauth2_omniauth_authorize_path,
+                    method: :post,
+                    class: 'col-2',
+                  title: 'Connect with YouTube Music'
+                ) %>
+              <% if exp == 'old' %>
+                <%= link_to(
+                    '<i class="bi bi-facebook" style="font-size: 3rem; color: blue;"></i>'.html_safe,
+                    user_facebook_omniauth_authorize_path,
+                    method: :post,
+                    class: 'col-2',
+                  title: 'Connect with Facebook'
+                ) %>
+            <% end %>
+          <% end %>
+        </div>
+        <% ab_test(:only_spotify_youtube, 'old', 'only_spotify_youtube') do |exp| %>
+          <% if exp == 'old' %>
+            <div class="row mb-3">
+              <%= f.label t("email"), class: "col-4 col-form-label" %>
+              <div class="col-8">
+                <%= f.email_field :email, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <%= f.label t("password"), class: "col-4 col-form-label"  %>
+              <div class="col-8">
+                <%= f.password_field :password, class: 'form-control' %>
+              </div>
+              <%= link_to t("forgot_password"), new_password_path('user'), class: 'col-8 offset-4' %>
+            </div>
+            <div class="row mb-3">
+              <div class="offset-4 col-8 mt-2">
+                <div class="row">
+                  <%= f.check_box :remember_me, class: "custom-control-input col-2", style: 'margin-top:auto;margin-bottom:auto;' %>
+                  <label class="custom-control-label col-10" for="customControlInline"><%= t("still_login") %></label>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="offset-4 col-8 mt-2">
+                <%= f.submit t("login"), class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="row mb-3">
+          <div class="offset-4 col-8 mt-3">
+            <p><%= t("new_user") %> <%= link_to t("signup_now"), signup_path(request.query_parameters) %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-6 offset-1 text-center p-5">
+      <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/6/6a/Johann_Sebastian_Bach.jpg", class: "img-thumbnail d-none d-md-block") %>
+    </div>
+  </div>
+  <%= render 'shared/partial_breadcrumbs' do %>
+    <li class="breadcrumb-item"><%= link_to t("nav_login"), login_path(request.query_parameters) %></li>
+  <% end %>
+</main>
+<script>
+const getProvider = () => {
+  if ('phantom' in window) {
+      const provider = window.phantom?.solana;
+
+      if (provider?.isPhantom) {
+        return provider;
+      }
+  }
+};
+
+function post(url, params, successCompletion) {
+  $.ajax({
+    type: 'POST',
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    url: url,
+    data: params,
+    success: function(res) {
+      successCompletion(res)
+    }
+  })
+}
+
+const signMessage = async () => {
+
+  let provider = getProvider();
+  const message = `Welcome to Musik88!
+  
+Click to sign in and accept the Musik88.com Terms of Service (https://musik88.com/term-of-use/).
+
+This request will not trigger a blockchain transaction or cost any gas fees.`;
+
+  const encodedMessage = new TextEncoder().encode(message);
+  try {
+    const signedMessage = await provider.signMessage(encodedMessage, "utf8");
+    console.log(signedMessage);
+    const pubkey = signedMessage.publicKey.toString();
+
+    let params = {
+      postAction: 'createAccount',
+      pubkey: pubkey
+    } 
+    post('<%= login_pubkey_path %>', params, async function(res) {
+      // Hanlde callback
+      console.log(res);
+    })
+  }
+  catch {
+    
+  }
+}
+
+const ready = async () => {
+
+  const isPhantomAvailable = () => {
+    if (window.phantom) {
+      return true;
+    }
+    return false;
+  }
+
+  $('.web3-login').hide();
+
+  if (isPhantomAvailable()) {
+    $('.web3-login').show();
+  }
+
+  $('.connect-phantom').click(async function(e) {
+    e.stopImmediatePropagation();
+    let provider = getProvider();
+
+    if (!provider) {
+      window.open('https://phantom.app/', '_blank');
+      return
+    }
+
+    try {
+      const resp = await provider.connect();
+      // console.log(resp.publicKey.toString());
+      const pubkey = resp.publicKey.toString();
+
+      let params = { 
+        postAction: 'checkPubkey',
+        pubkey: pubkey
+      }
+
+      console.log('Public key: ', pubkey);
+      post('<%= login_pubkey_path %>', params, async function(res) {
+        // Check if we need to promp messqge sign
+        console.log('Result: ', res);
+        if (res.shouldPromptMessageSign) {
+          signMessage()
+        } else {
+          // Redirect to onboarding or user page
+
+        }
+      })
+    } catch (err) {
+      // console.log(err);
+      // Add warning to sign the message
+    }
+
+  })
+}
+
+$(document).ready(ready);
+$(document).on('turbolinks:load', ready);
+</script>

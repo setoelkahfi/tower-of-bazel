@@ -1,0 +1,46 @@
+<% content_for :meta_head do %>
+  <%= render('shared/partial_meta_tag', title: @meta_title, description: @meta_description) %>
+<% end %>
+<% content_for :breadcrumb do %>
+  <%= render 'shared/partial_breadcrumbs_schema' do %>
+    {
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+    "@id": "<%= login_url %>",
+    "name": "<%= t("nav_confirm_email") %>"
+    }
+    }
+  <% end %>
+<% end %>
+<main>
+  <div class="row">
+    <div class="col-12">
+      <h1><%= t('resend_email_confirmation') %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <%= form_for(@user, url: confirmation_path(@user), remote: true, html: { method: :post, class: 'form-horizontal' }, data: { type: "json" } ) do |f| %>
+        <%= render "shared/flash_message" %>
+        <div class="row mb-3">
+          <%= f.label t("email"), class: "col-4 col-form-label" %>
+          <div class="col-8">
+            <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email", value: (@user.pending_reconfirmation? ? @user.unconfirmed_email : @user.email) %>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="offset-4 col-8 mt-2">
+            <%= f.submit t("resend_email_confirmation_button"), class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'shared/partial_breadcrumbs' do %>
+    <li class="breadcrumb-item"><%= link_to t("nav_confirm_email"), confirm_email_path(request.query_parameters) %></li>
+  <% end %>
+</main>
+<script>
+
+</script>

@@ -1,0 +1,17 @@
+<div class="row mt-5">
+  <div class="col-md-12">
+    <%= render('partial_menus', active_menu: 'show' ) %>
+  </div>
+</div>
+<div class="row mt-3">
+  <% if @show_comment_form %>
+    <div class="mb-3">
+      <%= form_for [@user, Comment.new] do |f| %>
+        <%= f.text_area :body, placeholder: t('discussion_comment_placeholder'), rows: "4" , cols: "50%" %><br/>
+        <%= f.hidden_field :user_id, value: current_user.id if user_signed_in? %>
+        <%= f.submit t('discussion_comment_button'), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  <% end %>
+  <%= render(partial: 'comments/comment', collection: @user.comments) %>
+</div>

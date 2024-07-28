@@ -1,0 +1,4 @@
+$('.username-content').fadeOut('slow', function() {
+  $(this).replaceWith('<%= j render 'partial_username_content' %>');
+  $('.username-content').fadeIn('slow');
+});

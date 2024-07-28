@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-2 text-center">
+    <%= gravatar_for @user %>
+    <div class="mb-3 mt-3">
+      <i class="bi bi-graph-up-arrow"></i>&nbsp;
+      <span class="badge bg-warning rounded-pill text-dark">
+        <%= @user.followers.count %>
+      </span>
+      <%= t('followers').downcase %>
+    </div>
+    <div class="mb-3 mt-3">
+      <i class="bi bi-graph-up-arrow"></i>&nbsp;
+      <span class="badge bg-warning rounded-pill text-dark">
+        <%= @user.following.count %>
+      </span>
+      <%= t('following').downcase %>
+    </div>
+    <% if user_signed_in? && current_user.id != @user.id %>
+      <div id="follow_form">
+        <% if current_user.following?(@user) %>
+          <%= render 'unfollow' %>
+        <% else %>
+          <%= render 'follow' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-10">
+    <%= render(page) %>
+  </div>
+</div>

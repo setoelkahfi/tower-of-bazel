@@ -1,0 +1,11 @@
+<div class='username-content'>
+    <%= t('onboarding_username_done', profile_badges_link: link_to(t('pretty_badge'), show_reputation_path(@username), target: '__blank')).html_safe %>
+    <div class='row'>
+          <div class='col-md-6 offset-md-3'>
+            <div>
+              <img src='<%= asset_pack_path('media/images/badge-pretty.gif') %>' class='img-fluid rounded' alt='Pretty badge, huh?'>
+            </div>
+            <button type='button' class='btn btn-primary mt-3 username'><%= t('next') %></button>
+          </div>
+    </div>
+</div>

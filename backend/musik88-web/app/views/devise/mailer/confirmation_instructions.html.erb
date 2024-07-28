@@ -1,0 +1,7 @@
+<p><%= t('user_email_confirmation_header', email: @email) %></p>
+</br>
+<p><%= t('user_email_confirmation_content') %></p>
+<p><%= link_to t('user_email_confirmation_cta'), confirmation_url(@resource, confirmation_token: @token, locale: I18n.locale) %></p>
+</br></br>
+<p><%= t('user_email_with_love') %></p>
+<p>Musik88 / <a href="https://<%= @host %>/@seto" target="__blank">@seto</a></p>
