@@ -1,0 +1,15 @@
+{
+    "name": "Welcome to Japan: Prague.",
+    "symbol": "WTJP",
+    "description": "Collection of 33 photos of Prague. 日本語で",
+    "image": "collection.jpg",
+    "attributes": [],
+    "properties": {
+        "files": [
+            {
+                "uri": "collection.jpg",
+                "type": "image/jpg"
+            }
+        ]
+    }
+}

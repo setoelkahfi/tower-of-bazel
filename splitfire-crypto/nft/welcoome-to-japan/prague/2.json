@@ -1,0 +1,36 @@
+{
+    "name": "プラハ #03",
+    "symbol": "WTJP",
+    "description": "Collection of 33 photos of Prague. This is the プラハ 3/33.",
+    "image": "2.jpg",
+    "attributes": [
+      {
+        "trait_type": "color",
+        "value": "yellow"
+      },
+      {
+        "trait_type": "color",
+        "value": "blue"
+      },
+      {
+        "trait_type": "color",
+        "value": "white"
+      },
+      {
+        "trait_type": "object",
+        "value": "building"
+      },
+      {
+        "trait_type": "object",
+        "value": "words"
+      }
+    ],
+    "properties": {
+      "files": [
+        {
+          "uri": "2.jpg",
+          "type": "image/jpg"
+        }
+      ]
+    }
+  }

@@ -1,0 +1,24 @@
+{
+    "name": "グランドホテル #02",
+    "symbol": "WTJGH",
+    "description": "Collection of 2 photos of Grand Hotel Stockholm. This is the 2/2.",
+    "image": "1.jpg",
+    "attributes": [
+        {
+            "trait_type": "object",
+            "value": "people"
+        },
+        {
+            "trait_type": "object",
+            "value": "lamp"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "0.jpg",
+                "type": "image/jpg"
+            }
+        ]
+    }
+}
