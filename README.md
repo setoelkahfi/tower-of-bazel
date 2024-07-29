@@ -45,6 +45,12 @@ Ruby on rails app:
 bazel run //backend/app:rails
 ```
 
+### Android
+
+```bash
+bazel mobile-install //frontend/android/src/main:app --start_app
+```
+
 ## Credits
 
 - [Tauri](https://github.com/marmos91/tauri-bazel-next-typescript).
