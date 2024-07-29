@@ -2,6 +2,13 @@
 
 SplitFire AI is an artificial intelligence app for music enthusiasts. This repo builds desktop version of SplitFire AI.
 
+## Bazel
+
+Run under bazel for more faster iteration:
+```bash
+bazel run //frontend/splitfire-desktop:dev
+```
+
 ## Local development
 
 Run only the web target:

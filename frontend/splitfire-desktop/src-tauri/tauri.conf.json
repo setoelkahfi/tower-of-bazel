@@ -1,12 +1,12 @@
 {
   "build": {
-    "beforeBuildCommand": "bun build",
-    "beforeDevCommand": "bun start",
-    "devPath": "http://localhost:3002",
+    "beforeDevCommand": "node node_modules/next/dist/bin/next dev -p 1420",
+    "beforeBuildCommand": "node node_modules/next/dist/bin/next build",
+    "devPath": "http://localhost:1420",
     "distDir": "../build"
   },
   "package": {
-    "productName": "SplitFire",
+    "productName": "SplitFire intelligent expression engine",
     "version": "0.3.4"
   },
   "tauri": {
@@ -15,7 +15,7 @@
     },
     "bundle": {
       "active": true,
-      "category": "DeveloperTool",
+      "category": "artificial intelligence, music, community",
       "copyright": "",
       "deb": {
         "depends": []
