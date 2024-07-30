@@ -21,11 +21,11 @@ export function GlobalNav() {
           onClick={close}
         >
           <div className="h-7 w-7 rounded-sm border border-white/30 group-hover:border-white/50">
-            <Image src="/logo192.png" alt="Tauri on Bazel" width={40} height={40} />
+            <Image src="/logo192.png" alt="SplitFire" width={40} height={40} />
           </div>
 
           <h3 className="font-semibold tracking-wide text-gray-400 group-hover:text-gray-50">
-            Tauri on Bazel
+            SplitFire
           </h3>
         </Link>
       </div>
@@ -60,9 +60,17 @@ export function GlobalNav() {
                     <GlobalNavItem key={item.slug} item={item} close={close} />
                   ))}
                 </div>
+                
               </div>
             );
           })}
+                <div className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-gray-400/80">
+                  <div>{"Account"}</div>
+                </div>
+
+                <div className="space-y-1">
+                  <GlobalNavItem key={"login"} item={{name: "Login", slug: "login"}} close={close} />
+                </div>
         </nav>
       </div>
     </div>

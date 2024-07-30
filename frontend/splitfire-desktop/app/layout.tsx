@@ -1,8 +1,14 @@
-'use client'
-
+import { Metadata } from 'next';
 import { AddressBar } from './_ui/address-bar';
 import { GlobalNav } from './_ui/global-nav';
 import './globals.css';
+import { cn } from '@/lib/utils';
+ 
+
+export const metadata: Metadata = {
+  title: "SplitFire",
+  description: "an intelligent exression engine.",
+};
 
 export default function RootLayout({
   children,

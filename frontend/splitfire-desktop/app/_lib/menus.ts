@@ -8,12 +8,12 @@ export const menus: { items: Item[] }[] = [
   {
     items: [
       {
-        name: 'Play',
-        slug: 'play',
+        name: 'Home',
+        slug: '',
       },
       {
-        name: 'Chat 🤖',
-        slug: 'chat',
+        name: 'Play',
+        slug: 'play',
       },
     ],
   },

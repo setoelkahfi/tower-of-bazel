@@ -4,11 +4,15 @@ SplitFire AI is an artificial intelligence app for music enthusiasts. This repo 
 
 ## Bazel
 
-Run under bazel for more faster iteration:
+Run Tauri project under bazel for more faster iteration:
 ```bash
 bazel run //frontend/splitfire-desktop:dev
 ```
 
+Run frontend from the local node:
+```bash
+npm run next-dev
+```
 ## Local development
 
 Run only the web target:
