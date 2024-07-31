@@ -1,66 +1,22 @@
 use super::{
     constants::{base_url_builder, PATH_AUDIO},
-    download_result_files::{save_result_files, ResultFile},
+    download_result_files::save_result_files,
 };
 use crate::{
     command::{
         download_result_files::{download_result_files, get_provider_id_dir_path},
         player_set_volume::Mode,
-    },
-    get_soundcard,
-    players::{BASS_SINK, DRUMS_SINK, OTHER_SINK, VOCALS_SINK},
-    record::record_instrument::AudioDevice,
+    }, get_soundcard, models::player::{AudioFile, AudioFileResponse, PreparePlayerResponse, TauriResponse}, players::{BASS_SINK, DRUMS_SINK, OTHER_SINK, VOCALS_SINK}, record::record_instrument::AudioDevice
 };
 use log::{debug, error, info};
 use reqwest::Client;
 use rodio::{Decoder, DeviceTrait, OutputStream, Sink};
-use serde::{Deserialize, Serialize};
-use serde_repr::*;
 use std::{
     fs::{self, DirEntry, File},
     io::BufReader,
     path::{Path, PathBuf},
 };
 use tauri::async_runtime::spawn;
-
-#[derive(Serialize, Deserialize)]
-enum Status {
-    #[serde(rename = "downloading")]
-    Downloading,
-    #[serde(rename = "splitting")]
-    Split,
-    #[serde(rename = "done")]
-    Done,
-}
-
-#[derive(Serialize, Deserialize)]
-struct AudioFile {
-    id: i32,
-    name: String,
-    status: Status,
-    results: Vec<ResultFile>,
-}
-
-#[derive(Serialize, Deserialize)]
-struct AudioFileResponse {
-    code: i32,
-    message: String,
-    audio_file: AudioFile,
-}
-
-#[derive(Serialize_repr)]
-#[repr(u8)]
-enum TauriResponse {
-    Error = 0,
-    Success = 1,
-}
-
-#[derive(Serialize)]
-pub struct PreparePlayerResponse {
-    status: TauriResponse,
-    message: String,
-    audio_file_name: Option<String>,
-}
 
 #[tauri::command]
 pub async fn player_prepare(provider_id: String) -> PreparePlayerResponse {

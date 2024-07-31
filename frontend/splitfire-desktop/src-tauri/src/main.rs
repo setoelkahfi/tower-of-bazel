@@ -18,6 +18,9 @@ use app::{
         player_set_volume::{__cmd__player_set_volume, player_set_volume},
         player_unmount::{__cmd__player_unmount, player_unmount},
     },
+    rest::account::{
+        __cmd__account_login, __cmd__account_register, account_login, account_register,
+    },
     sfai_home_dir_path,
 };
 use tauri_plugin_log::fern::colors::{Color, ColoredLevelConfig};
@@ -37,6 +40,8 @@ fn main() {
                 .build(),
         )
         .invoke_handler(tauri::generate_handler![
+            account_login,
+            account_register,
             open_lyrics_editor,
             open_player,
             player_record,
@@ -47,7 +52,7 @@ fn main() {
             player_paused,
             player_play,
             player_stop,
-            player_recording_length
+            player_recording_length,
         ])
         .run(tauri::generate_context!())
         .expect("Error while running tauri application.");

@@ -9,6 +9,8 @@ use std::{fs::create_dir_all, path::PathBuf};
 pub mod command;
 pub mod players;
 pub mod record;
+pub mod rest;
+pub mod models;
 
 #[cfg(debug_assertions)]
 const HOME_DIR: &str = ".sfai-dev";

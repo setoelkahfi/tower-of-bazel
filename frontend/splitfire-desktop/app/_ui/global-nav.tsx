@@ -70,6 +70,7 @@ export function GlobalNav() {
 
                 <div className="space-y-1">
                   <GlobalNavItem key={"login"} item={{name: "Login", slug: "login"}} close={close} />
+                  <GlobalNavItem key={"register"} item={{name: "Register", slug: "register"}} close={close} />
                 </div>
         </nav>
       </div>

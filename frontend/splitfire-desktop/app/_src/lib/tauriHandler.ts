@@ -10,7 +10,11 @@ export const TAURI_PLAYER_PLAY = 'player_play'
 export const TAURI_PLAYER_PAUSED = 'player_paused'
 export const TAURI_PLAYER_RESUMED = 'player_resumed'
 export const TAURI_PLAYER_STOP = 'player_stop'
-export const TAURI_PLAYER_RECORDING_LENGTH = 'player_recording_length'  // in seconds                                                                                                                                                                                                                                                                                                                                                                                       
+export const TAURI_PLAYER_RECORDING_LENGTH = 'player_recording_length'  // in seconds       
+
+// Account
+export const TAURI_ACCOUNT_LOGIN = 'account_login'
+export const TAURI_ACCOUNT_REGISTER = 'account_register'
 
 export enum TauriResponse {
     ERROR = 0,

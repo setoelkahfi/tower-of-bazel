@@ -1,4 +1,4 @@
-use crate::command::download_result_files::ResultFile;
+use models::player::ResultFile;
 use hound::WavWriter;
 use once_cell::sync::OnceCell;
 use rodio::Sink;
@@ -7,6 +7,8 @@ use std::{
     io::BufWriter,
     sync::{mpsc::Sender, Arc, Mutex},
 };
+
+use crate::models;
 
 pub static mut VOCALS_SINK: OnceCell<Sink> = OnceCell::new();
 pub static mut DRUMS_SINK: OnceCell<Sink> = OnceCell::new();

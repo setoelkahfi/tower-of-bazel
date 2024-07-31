@@ -1,39 +1,16 @@
 use crate::{
-    audio_dir_path,
-    command::player_prepare::get_mode_from_filename,
-    players::{BASS_FILE, DRUMS_FILE, OTHER_FILE, VOCALS_FILE},
+    audio_dir_path, command::player_prepare::get_mode_from_filename, models::player::ResultFile, players::{BASS_FILE, DRUMS_FILE, OTHER_FILE, VOCALS_FILE}
 };
 use anyhow::anyhow;
 use futures::future;
 use log::{debug, error, info, warn};
 use reqwest::{Client, Error, Response};
 use std::{
-    fmt::Display,
     fs::{create_dir_all, File, OpenOptions},
     io::Write,
     path::{Path, PathBuf},
 };
-
 use super::player_set_volume::Mode;
-
-#[derive(serde::Serialize, serde::Deserialize, Debug, Clone)]
-pub struct ResultFile {
-    id: i32,
-    source_file: String,
-    filename: String,
-    pub length: Option<f64>,
-    onset: Option<Vec<f64>>,
-}
-
-impl Display for ResultFile {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(
-            f,
-            "{{ id: {}, source_file: {}, filename: {}, length: {:?}, onset: {:?} }}",
-            self.id, self.source_file, self.filename, self.length, self.onset
-        )
-    }
-}
 
 pub async fn save_result_files(audio_file_id: &String, result_files: &[ResultFile]) {
     // Check if we have ~/.sfai/audio/{provider_id} folder and create it if not
