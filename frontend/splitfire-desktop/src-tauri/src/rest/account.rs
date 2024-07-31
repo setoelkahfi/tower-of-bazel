@@ -2,11 +2,11 @@ use log::debug;
 use reqwest::Client;
 use serde_json::json;
 use tauri;
-use crate::{command::constants::{base_url_builder, PATH_ACCOUNT_LOGIN, PATH_ACCOUNT_REGISTER}, models::account::LoginResponse};
+use crate::{command::constants::{base_url_builder, PATH_ACCOUNT_LOGIN, PATH_ACCOUNT_REGISTER}, models::{account::{AccountLoginResponse, LoginResponse}, player::TauriResponse}};
 
 #[tauri::command]
-pub async fn account_login(username: String, password: String) {
-    debug!("Logging in with username {}.", username);
+pub async fn account_login(username: String, password: String) -> AccountLoginResponse {
+    debug!("Logging in with username {}, password {}", username, password);
     // Login
     let body = json!( {
         "username": username,
@@ -20,18 +20,66 @@ pub async fn account_login(username: String, password: String) {
 
     match response {
         Ok(response) => {
-            debug!("Got response: {:?}", response);
-            let res: LoginResponse = match response.json().await {
-                Ok(json) => json,
-                Err(e) => {
-                    println!("Failed to parse response: {:?}", e);
-                    return;
+            let token = match response.headers().get("Authorization") {
+                Some(token) => {
+                    // Trim Bearer prefix
+                    let token = match token.to_str() {
+                        Ok(token) => {
+                            token.trim_start_matches("Bearer ")
+                        },
+                        Err(e) => {
+                            println!("Failed to get token: {:?}", e);
+                            return AccountLoginResponse {
+                                status: TauriResponse::Error,
+                                message: "Failed to get token".to_string(),
+                                access_token: None,
+                                user: None
+                            };
+                        }
+                    };
+                    Some(token.to_string())
+                },
+                None => {
+                    println!("Failed to get token");
+                    return AccountLoginResponse {
+                        status: TauriResponse::Error,
+                        message: "Failed to get token".to_string(),
+                        access_token: None,
+                        user: None
+                    };
                 }
             };
+            let res: LoginResponse = match response.json().await {
+                Ok(json) => {
+                    json
+                },
+                Err(e) => {
+                    println!("Failed to parse response: {:?}", e);
+                    return AccountLoginResponse {
+                        status: TauriResponse::Error,
+                        message: "Failed to parse response".to_string(),
+                        access_token: None,
+                        user: None
+                    };
+                }
+            };
+
             debug!("Login response: {:?}", res);
+            AccountLoginResponse {
+                status: TauriResponse::Success,
+                message: res.message,
+                access_token: token,
+                user: res.user
+            }
         }
         Err(e) => {
             println!("Failed to get response: {:?}", e);
+            AccountLoginResponse {
+                status: TauriResponse::Error,
+                message: "Failed to get response".to_string(),
+                access_token: None,
+                user: None
+            }
         }
     }
 }

@@ -6,7 +6,8 @@ export default interface User {
     gravatar_url: string,
     followers_count: number,
     following_count: number,
-    about: string
+    about: string,
+    access_token: string | null,
 }
 
 export function usernameOrId(user: User): string {

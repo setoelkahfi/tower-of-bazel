@@ -2,19 +2,30 @@
 
 import * as Form from "@radix-ui/react-form";
 import { invoke } from "@tauri-apps/api/tauri";
-import { TAURI_ACCOUNT_LOGIN } from "../_src/lib/tauriHandler";
+import { TAURI_ACCOUNT_LOGIN, TauriResponse } from "../_src/lib/tauriHandler";
 import { Button } from "../_ui/components/button";
 import { useState } from "react";
 import { UserContext } from "../_src/lib/CurrentUserContext";
 import { CurrentUser, CurrentUserType, db } from "../_src/lib/db";
 import { AccountLoginResponse } from "@/models/account";
 import { Mode } from "../_src/components/player/models/Mode";
+import { LoadingView } from "../_src/components/templates/LoadingView";
+import { useRouter } from "next/navigation";
+
+enum State {
+  LOADING,
+  LOADED,
+}
 
 export default function Page() {
+
+  const router = useRouter();
+  const [state, setState] = useState(State.LOADED);
   const [emailOrUsername, setEmailOrUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const login = async (update: (user: CurrentUser) => void) => {
+    setState(State.LOADING);
     const payload = {
       username: emailOrUsername,
       password: password,
@@ -22,15 +33,33 @@ export default function Page() {
     console.log("payload", payload);
     const response: AccountLoginResponse = await invoke(TAURI_ACCOUNT_LOGIN, payload);
     console.log("response", response);
+    if (response.status === TauriResponse.ERROR) {
+      console.error("Login failed", response);
+      return;
+    }
+    // Sanity check
+    if (response.user === null || response.accessToken === null) {
+      console.error("Login failed", response);
+      return;
+    }
+
     let currentUser: CurrentUser = {
-      accessToken: "",
+      accessToken: response.accessToken,
       type: CurrentUserType.MAIN,
       user: response.user,
       mode: Mode.Vocal
-  }
+    }
     db.currentUser.add(currentUser)
+    // Update UserContext
     update(currentUser);
+    
+    setState(State.LOADED);
+    router.push("/");
   };
+
+  if (state === State.LOADING) {
+    return <LoadingView />;
+  }
 
   return (
     <div className="prose prose-sm prose-invert max-w-none">

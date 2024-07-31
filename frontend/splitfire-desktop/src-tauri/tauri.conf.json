@@ -6,7 +6,7 @@
     "distDir": "../build"
   },
   "package": {
-    "productName": "SplitFire intelligent expression engine",
+    "productName": "SplitFire",
     "version": "0.3.4"
   },
   "tauri": {

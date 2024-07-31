@@ -29,6 +29,7 @@ serde_json = "1"
 serde_repr = "0.1"
 tauri = { version = "1.7.1", features = [] }
 tauri-plugin-log = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1", features = ["colored"] }
+tauri-plugin-store = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 url-builder = "0.1.1"
 
 [features]

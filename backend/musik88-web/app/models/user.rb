@@ -167,7 +167,7 @@ class User < ApplicationRecord   # rubocop:disable Metrics/ClassLength
   end
 
   def as_json_packed
-    as_json(only: %i[id username name about])
+    as_json(only: %i[id email username name about])
   end
 
   def followers_count

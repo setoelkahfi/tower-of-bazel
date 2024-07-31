@@ -5,12 +5,14 @@ import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { MenuAlt2Icon, XIcon } from '@heroicons/react/solid';
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Image from 'next/image';
+import { UserContext } from '../_src/lib/CurrentUserContext';
 
 export function GlobalNav() {
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
+  const user = useContext(UserContext);
 
   return (
     <div className="fixed top-0 z-10 flex w-full flex-col border-b border-gray-800 bg-black lg:bottom-0 lg:z-auto lg:w-72 lg:border-b-0 lg:border-r lg:border-gray-800">
@@ -67,13 +69,28 @@ export function GlobalNav() {
                 <div className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-gray-400/80">
                   <div>{"Account"}</div>
                 </div>
-
-                <div className="space-y-1">
-                  <GlobalNavItem key={"login"} item={{name: "Login", slug: "login"}} close={close} />
-                  <GlobalNavItem key={"register"} item={{name: "Register", slug: "register"}} close={close} />
-                </div>
+                
+                {user.user ? <LoggedInNav /> : <LoggedOutNav />}
         </nav>
       </div>
+    </div>
+  );
+}
+
+function LoggedOutNav() {
+  return (
+    <div className="space-y-1">
+      <GlobalNavItem item={{ name: 'Login', slug: 'login' }} close={() => {}} />
+      <GlobalNavItem item={{ name: 'Register', slug: 'register' }} close={() => {}} />
+    </div>
+  );
+}
+
+function LoggedInNav() {
+  return (
+    <div className="space-y-1">
+      <GlobalNavItem item={{ name: 'Profile', slug: 'profile' }} close={() => {}} />
+      <GlobalNavItem item={{ name: 'Logout', slug: 'logout' }} close={() => {}} />
     </div>
   );
 }

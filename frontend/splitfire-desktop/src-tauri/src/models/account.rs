@@ -4,27 +4,28 @@ use super::player::TauriResponse;
 #[derive(Serialize)]
 #[derive(Debug)]
 pub struct AccountLoginResponse {
-  status: TauriResponse,
-  message: String,
-  user: Option<User>,
+  pub status: TauriResponse,
+  pub message: String,
+  pub access_token: Option<String>,
+  pub user: Option<User>,
 }
 
 #[derive(Serialize, Deserialize)]
 #[derive(Debug)]
 pub struct LoginResponse {
     code: i32,
-    message: String,
-    user: User,
+    pub message: String,
+    pub user: Option<User>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct User {
   id: i32,
-  email: String,
-  username: String,
-  name: String,
-  gravatar_url: String,
-  followers_count: i32,
-  following_count: i32,
-  about: String
+  pub email: String,
+  pub username: String,
+  pub name: String,
+  pub gravatar_url: String,
+  pub followers_count: i32,
+  pub following_count: i32,
+  pub about: String
 }

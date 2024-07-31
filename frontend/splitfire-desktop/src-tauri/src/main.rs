@@ -24,6 +24,7 @@ use app::{
     sfai_home_dir_path,
 };
 use tauri_plugin_log::fern::colors::{Color, ColoredLevelConfig};
+use tauri_plugin_store::StoreBuilder;
 
 fn main() {
     // Create ~/.sfai directory if it doesn't exist
@@ -39,6 +40,21 @@ fn main() {
                 )
                 .build(),
         )
+        .plugin(
+            tauri_plugin_store::Builder::default().build(),
+        )
+        .setup(|app| {
+            let mut store = StoreBuilder::new(app.handle(), "splitfire.bin".parse()?).build();
+            match store.load() {
+                Ok(_) => {
+                    println!("Store loaded successfully.");
+                }
+                Err(e) => {
+                    println!("Failed to load store: {:?}", e);
+                }
+            }
+            Ok(())
+        })
         .invoke_handler(tauri::generate_handler![
             account_login,
             account_register,
