@@ -2,7 +2,6 @@
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
 )]
-
 use app::{
     command::{
         pages::{__cmd__open_lyrics_editor, __cmd__open_player, open_lyrics_editor, open_player},
@@ -18,8 +17,9 @@ use app::{
         player_set_volume::{__cmd__player_set_volume, player_set_volume},
         player_unmount::{__cmd__player_unmount, player_unmount},
     },
-    rest::account::{
-        __cmd__account_login, __cmd__account_register, account_login, account_register,
+    rest::{
+        account::{__cmd__account_login, __cmd__account_register, account_login, account_register},
+        content::{__cmd__content_carousel, __cmd__content_ready_to_play, content_carousel, content_ready_to_play},
     },
     sfai_home_dir_path,
 };
@@ -40,9 +40,7 @@ fn main() {
                 )
                 .build(),
         )
-        .plugin(
-            tauri_plugin_store::Builder::default().build(),
-        )
+        .plugin(tauri_plugin_store::Builder::default().build())
         .setup(|app| {
             let mut store = StoreBuilder::new(app.handle(), "splitfire.bin".parse()?).build();
             match store.load() {
@@ -69,6 +67,8 @@ fn main() {
             player_play,
             player_stop,
             player_recording_length,
+            content_carousel,
+            content_ready_to_play,
         ])
         .run(tauri::generate_context!())
         .expect("Error while running tauri application.");

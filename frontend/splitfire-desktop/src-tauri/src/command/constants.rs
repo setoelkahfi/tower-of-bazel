@@ -18,8 +18,17 @@ pub const API_HOST: &str = "api.musik88.com";
 
 // Paths
 pub const PATH_AUDIO: &str = "api/v1/splitfire";
+
+// Account Paths
 pub const PATH_ACCOUNT_LOGIN: &str = "api/v1/login";
 pub const PATH_ACCOUNT_REGISTER: &str = "api/v1/register";
+pub const PATH_ACCOUNT_LOGOUT: &str = "api/v1/logout";
+
+// Contents Paths
+pub const PATH_CAROUSEL: &str = "api/v1/carousel";
+pub const PATH_READY_TO_PLAY: &str = "api/v1/ready-to-play";
+pub const PATH_SEARCH: &str = "api/v1//search";
+pub const PATH_TOP_VOTES: &str = "api/v1/top-votes";
 
 pub fn base_url_builder() -> URLBuilder {
     let mut url_builder = URLBuilder::new();

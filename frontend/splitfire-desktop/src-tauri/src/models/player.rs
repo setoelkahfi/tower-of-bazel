@@ -23,6 +23,7 @@ impl Display for ResultFile {
 }
 
 #[derive(Serialize, Deserialize)]
+#[derive(Debug)]
 enum Status {
     #[serde(rename = "downloading")]
     Downloading,
@@ -33,6 +34,7 @@ enum Status {
 }
 
 #[derive(Serialize, Deserialize)]
+#[derive(Debug)]
 pub struct AudioFile {
     pub id: i32,
     pub name: String,
