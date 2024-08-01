@@ -96,7 +96,7 @@ pub async fn account_logout(access_token: String) {
     debug!("Logging out with access token {}", access_token);
     // Logout
     let response = Client::new()
-        .post(account_url_builder(PATH_ACCOUNT_LOGOUT))
+        .delete(account_url_builder(PATH_ACCOUNT_LOGOUT))
         .header("Authorization", format!("Bearer {}", access_token))
         .send()
         .await;
