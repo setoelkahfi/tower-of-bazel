@@ -1,13 +1,15 @@
 "use client";
 
 import { invoke } from "@tauri-apps/api";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TAURI_PLAYER_PREPARE } from "../_src/lib/tauriHandler";
 import { useSearchParams } from "next/navigation";
 import { useLogger } from "../_src/lib/logger";
 import { IconSpinner } from "../_ui/components/icons";
 import { PlayerPrepareResponse } from "@/models/content";
 import { TauriResponse } from "@/models/shared";
+import Player from "./_components/player";
+import { UserContext } from "../_src/lib/CurrentUserContext";
 
 enum State {
   LOADING,
@@ -21,6 +23,8 @@ export default function Page() {
   const audioFileId = searchParams.get("audioFileId");
   const [title, setTitle] = useState("Loading song...");
   const [state, setState] = useState(State.LOADING);
+  const user = useContext(UserContext);
+  const userId = user.user?.user.id;
 
   useEffect(() => {
     log.debug("Play page loaded.");
@@ -49,6 +53,13 @@ export default function Page() {
     fetchData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+    
+  // Sanity check
+  if (!audioFileId || !userId) {
+    log.error("Missing audio file ID or user ID");
+    return <div>Missing audio file ID</div>;
+  }
+  
   return (
     <>
       <div className="flex justify-between">
@@ -65,7 +76,7 @@ export default function Page() {
             <div className="text-red-500">Failed to load song</div>
           )}
           {state === State.LOADED && (
-            <div className="text-green-500">Song loaded</div>
+            <Player audioId={audioFileId} userId={userId} />
           )}
         </div>
       </div>

@@ -22,14 +22,14 @@ enum State {
     ERROR,
 }
 
-enum PlayerState {
+export enum PlayerState {
     STOPPED,
     PLAYING,
     PAUSED,
     RECORDING
 }
 
-interface PlayerVolume {
+export interface PlayerVolume {
     mode: ModeDemucs,
     volume: string
 }
