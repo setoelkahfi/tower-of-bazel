@@ -38,13 +38,13 @@ export default function Page() {
       return;
     }
     // Sanity check
-    if (response.user === null || response.accessToken === null) {
+    if (response.user === null || response.access_token === null) {
       console.error("Login failed", response);
       return;
     }
 
     let currentUser: CurrentUser = {
-      accessToken: response.accessToken,
+      accessToken: response.access_token,
       type: CurrentUserType.MAIN,
       user: response.user,
       mode: Mode.Vocal
@@ -53,7 +53,6 @@ export default function Page() {
     // Update UserContext
     update(currentUser);
     
-    setState(State.LOADED);
     router.push("/");
   };
 

@@ -58,6 +58,7 @@ pub async fn account_login(username: String, password: String) -> AccountLoginRe
                     };
                 }
             };
+            debug!("Token: {:?}", token);
             let res: LoginResponse = match response.json().await {
                 Ok(json) => json,
                 Err(e) => {
@@ -70,7 +71,6 @@ pub async fn account_login(username: String, password: String) -> AccountLoginRe
                     };
                 }
             };
-
             debug!("Login response: {:?}", res);
             AccountLoginResponse {
                 status: TauriResponse::Success,

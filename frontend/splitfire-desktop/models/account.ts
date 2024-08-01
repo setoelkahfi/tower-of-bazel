@@ -4,6 +4,6 @@ import User from "@/app/_src/models/user";
 export interface AccountLoginResponse {
     status: TauriResponse,
     message: string,
-    accessToken: string | null,
+    access_token: string | null,
     user: User | null
 }
