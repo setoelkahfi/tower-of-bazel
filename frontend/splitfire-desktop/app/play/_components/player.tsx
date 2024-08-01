@@ -21,6 +21,8 @@ import {
 import { invoke } from "@tauri-apps/api";
 import { useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
+import { VolumeSlider } from "./volume-slider";
+import { ControlButtons } from "./control-button";
 
 export default function Player({
   audioId,
@@ -192,7 +194,7 @@ export default function Player({
     buttonOrCounting = <CountDownView seconds={COUNTING_DOWN_NUMBER} type="" />;
   } else {
     buttonOrCounting = (
-      <ControlButtonsView
+      <ControlButtons
         isPlaying={playerState === PlayerState.PLAYING}
         isRecording={playerState === PlayerState.RECORDING}
         onClick={_togglePlayAudio}
@@ -223,8 +225,7 @@ export default function Player({
 
   return (
     <div className="prose prose-sm prose-invert max-w-none">
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        <Container>
+      <div className="grid grid-rows-4 gap-6">
           {buttonOrCounting}
           <Row className="h-100 d-inline-block">
             <Col xs={12} className="mb-3 mt-3">
@@ -245,12 +246,11 @@ export default function Player({
                 setHideVolumeSliders={setHideVolumeSliders}
               />
             </Col>
-            <VolumeSliderView
+            <VolumeSlider
               _onVolumeChange={_onVolumeChange}
               isHidden={hideVolumeSliders}
             />
           </Row>
-        </Container>
       </div>
     </div>
   );
