@@ -5,6 +5,7 @@ use crate::{
         player::TauriResponse,
     },
 };
+use log::{debug, error};
 use reqwest::Client;
 
 #[tauri::command]
@@ -17,10 +18,10 @@ pub async fn content_carousel() -> ContentCarouselResponse {
     let response = match response {
         Ok(response) => response,
         Err(e) => {
-            println!("Failed to get response: {:?}", e);
+            error!("Failed to get response: {:?}", e);
             return ContentCarouselResponse {
                 status: TauriResponse::Error,
-                message: "Failed to get response".to_string(),
+                message: e.to_string(),
                 audio_files: vec![],
             };
         }
@@ -28,15 +29,15 @@ pub async fn content_carousel() -> ContentCarouselResponse {
     let res: CarouselResponse = match response.json().await {
         Ok(json) => json,
         Err(e) => {
-            println!("Failed to parse response: {:?}", e);
+            error!("Failed to parse response: {:?}", e);
             return ContentCarouselResponse {
                 status: TauriResponse::Error,
-                message: "Failed to parse response".to_string(),
+                message: e.to_string(),
                 audio_files: vec![],
             };
         }
     };
-
+    debug!("Carousel response: {:?}", res);
     ContentCarouselResponse {
         status: TauriResponse::Success,
         message: res.message,

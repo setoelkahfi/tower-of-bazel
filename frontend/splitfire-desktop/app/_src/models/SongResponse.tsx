@@ -8,24 +8,7 @@ export interface SongResponse {
     images: ProviderImage[],
     items: SongProvider[]
 }
-/*
-{
-    "id": 1571,
-        "user_id": 1,
-            "song_id": 641,
-                "provider_id": "EYACy7jELw4",
-                    "provider_type": "youtube",
-                        "name": "Arjuna",
-                            "preview_url": null,
-                                "created_at": "2022-11-23T12:56:56.623Z",
-                                    "updated_at": "2022-11-23T12:56:56.623Z",
-                                        "album_provider_id": 1,
-                                            "artist_provider_id": null,
-                                                "path": "/songs-bridge/arjuna-1571",
-                                                    "type": "Song bridge",
-                                                        "created": "6 months ago"
-}
-*/
+
 export interface SongProvider {
     id: string,
     name: string,

@@ -71,7 +71,7 @@ module Api
       end
 
       def carousel
-        @songs = SongProvider.where(provider_type: :youtube).order(Arel.sql('random()')).limit(5)
+        @songs = SongProvider.where(provider_type: :youtube).order(Arel.sql('random()')).limit(15)
         render json: {
           code: 200,
           message: 'OK',

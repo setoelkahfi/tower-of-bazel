@@ -17,6 +17,9 @@ export const TAURI_ACCOUNT_LOGIN = 'account_login'
 export const TAURI_ACCOUNT_LOGOUT = 'account_logout'
 export const TAURI_ACCOUNT_REGISTER = 'account_register'
 
+// Contents
+export const TAURI_CONTENT_CAROUSEL = 'content_carousel'
+
 export enum TauriResponse {
     ERROR = 0,
     SUCCESS = 1
