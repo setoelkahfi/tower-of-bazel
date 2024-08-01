@@ -1,13 +1,14 @@
 'use client';
 
-import { menus, type Item } from '../_lib/menus';
 import Link from 'next/link';
+import { menus, type Item } from './menus';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { MenuAlt2Icon, XIcon } from '@heroicons/react/solid';
 import clsx from 'clsx';
 import { useContext, useState } from 'react';
 import Image from 'next/image';
 import { UserContext } from '../_src/lib/CurrentUserContext';
+
 
 
 export function GlobalNav() {

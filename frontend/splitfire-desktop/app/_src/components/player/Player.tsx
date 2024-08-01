@@ -8,11 +8,13 @@ import ErrorView from "../templates/Error"
 import { LoadingView } from "../templates/LoadingView"
 import { invoke } from '@tauri-apps/api'
 import { UserContext } from "../../lib/CurrentUserContext"
-import { PlayerPrepareResponse, TAURI_PLAYER_RECORD, TAURI_PLAYER_SET_VOLUME, TAURI_PLAYER_PAUSED, TAURI_PLAYER_UNMOUNT, TAURI_PLAYER_PREPARE, TauriResponse, TAURI_PLAYER_STOP, TAURI_PLAYER_RESUMED, TAURI_PLAYER_PLAY, TAURI_PLAYER_RECORDING_LENGTH, TAURI_PLAYER_RECORD_STOP } from "../../lib/tauriHandler"
+import { TAURI_PLAYER_RECORD, TAURI_PLAYER_SET_VOLUME, TAURI_PLAYER_PAUSED, TAURI_PLAYER_UNMOUNT, TAURI_PLAYER_PREPARE, TAURI_PLAYER_STOP, TAURI_PLAYER_RESUMED, TAURI_PLAYER_PLAY, TAURI_PLAYER_RECORDING_LENGTH, TAURI_PLAYER_RECORD_STOP } from "../../lib/tauriHandler"
 import { ControlButtonsView } from "./ControlButtons"
 import { VolumeSliderView } from "./VolumeSliderView"
 import { HideShowToggleView } from "./HideShowToggle"
 import { RecordingView } from "./RecordingView"
+import { PlayerPrepareResponse } from "@/models/content"
+import { TauriResponse } from "@/models/shared"
 
 enum State {
     LOADING,

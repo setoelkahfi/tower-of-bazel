@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { SkeletonCard, SongProviderCard } from "./_ui/skeleton-card";
+import { SkeletonCard, SongProviderCard, SongProviderPath } from "./_ui/skeleton-card";
 import { invoke } from "@tauri-apps/api";
 import { TAURI_CONTENT_CAROUSEL } from "./_src/lib/tauriHandler";
 import { ContentCarouselResponse } from "@/models/content";
@@ -39,7 +39,7 @@ export default function Page() {
               <SkeletonCard key={i} isLoading={true} />
             ))}
             { songProviders.length > 0 && songProviders.map((SongProvider, i) => (
-              <SongProviderCard key={i} songProvider={SongProvider} />
+              <SongProviderCard key={i} songProvider={SongProvider} path={SongProviderPath.SPLIT} />
             ))}
           </div>
         </div>

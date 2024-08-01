@@ -1,5 +1,5 @@
-import { TauriResponse } from "@/app/_src/lib/tauriHandler";
 import User from "@/app/_src/models/user";
+import { TauriResponse } from "./shared";
 
 export interface AccountLoginResponse {
     status: TauriResponse,

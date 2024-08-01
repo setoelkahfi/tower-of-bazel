@@ -19,15 +19,5 @@ export const TAURI_ACCOUNT_REGISTER = 'account_register'
 
 // Contents
 export const TAURI_CONTENT_CAROUSEL = 'content_carousel'
+export const TAURI_CONTENT_READY_TO_PLAY = 'content_ready_to_play'
 
-export enum TauriResponse {
-    ERROR = 0,
-    SUCCESS = 1
-}
-
-// Response from the Tauri API
-export interface PlayerPrepareResponse {
-    status: TauriResponse,
-    message: string,
-    audio_file_name?: string,
-}

@@ -2,7 +2,7 @@
 
 import * as Form from "@radix-ui/react-form";
 import { invoke } from "@tauri-apps/api/tauri";
-import { TAURI_ACCOUNT_LOGIN, TauriResponse } from "../_src/lib/tauriHandler";
+import { TAURI_ACCOUNT_LOGIN } from "../_src/lib/tauriHandler";
 import { Button } from "../_ui/components/button";
 import { useState } from "react";
 import { UserContext } from "../_src/lib/CurrentUserContext";
@@ -11,6 +11,7 @@ import { AccountLoginResponse } from "@/models/account";
 import { Mode } from "../_src/components/player/models/Mode";
 import { LoadingView } from "../_src/components/templates/LoadingView";
 import { useRouter } from "next/navigation";
+import { TauriResponse } from "@/models/shared";
 
 enum State {
   LOADING,

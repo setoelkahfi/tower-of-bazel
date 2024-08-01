@@ -12,8 +12,8 @@ export const menus: { items: Item[] }[] = [
         slug: '',
       },
       {
-        name: 'Play',
-        slug: 'play',
+        name: 'Ready to Play!',
+        slug: 'ready-to-play',
       },
     ],
   },

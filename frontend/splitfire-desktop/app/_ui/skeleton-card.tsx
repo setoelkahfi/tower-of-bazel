@@ -20,11 +20,18 @@ export const SkeletonCard = ({ isLoading }: { isLoading?: boolean }) => (
   </div>
 );
 
+export enum SongProviderPath {
+  PLAY = "play",
+  SPLIT = "split",
+}
+
 // duplicate skeleton-card.tsx
 export const SongProviderCard = ({
   songProvider,
+  path,
 }: {
   songProvider: SongProvider;
+  path: SongProviderPath;
 }) => {
   const router = useRouter();
   return (
@@ -33,7 +40,7 @@ export const SongProviderCard = ({
         "relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent":
           false,
       })}
-      onClick={() => router.push(`/split?songProviderId=${songProvider.id}`)}
+      onClick={() => router.push(`/${path}?songProviderId=${songProvider.id}`)}
     >
       <div className="space-y-3">
         <Image
