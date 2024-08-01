@@ -18,8 +18,14 @@ use app::{
         player_unmount::{__cmd__player_unmount, player_unmount},
     },
     rest::{
-        account::{__cmd__account_login, __cmd__account_register, account_login, account_register},
-        content::{__cmd__content_carousel, __cmd__content_ready_to_play, content_carousel, content_ready_to_play},
+        account::{
+            __cmd__account_login, __cmd__account_logout, __cmd__account_register, account_login,
+            account_logout, account_register,
+        },
+        content::{
+            __cmd__content_carousel, __cmd__content_ready_to_play, content_carousel,
+            content_ready_to_play,
+        },
     },
     sfai_home_dir_path,
 };
@@ -55,6 +61,7 @@ fn main() {
         })
         .invoke_handler(tauri::generate_handler![
             account_login,
+            account_logout,
             account_register,
             open_lyrics_editor,
             open_player,

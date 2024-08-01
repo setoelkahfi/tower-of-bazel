@@ -14,6 +14,7 @@ export const TAURI_PLAYER_RECORDING_LENGTH = 'player_recording_length'  // in se
 
 // Account
 export const TAURI_ACCOUNT_LOGIN = 'account_login'
+export const TAURI_ACCOUNT_LOGOUT = 'account_logout'
 export const TAURI_ACCOUNT_REGISTER = 'account_register'
 
 export enum TauriResponse {

@@ -9,7 +9,9 @@ import { useContext, useState } from 'react';
 import Image from 'next/image';
 import { UserContext } from '../_src/lib/CurrentUserContext';
 
+
 export function GlobalNav() {
+
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
   const user = useContext(UserContext);

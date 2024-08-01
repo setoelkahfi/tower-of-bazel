@@ -24,7 +24,7 @@ impl Display for ResultFile {
 
 #[derive(Serialize, Deserialize)]
 #[derive(Debug)]
-enum Status {
+pub enum Status {
     #[serde(rename = "downloading")]
     Downloading,
     #[serde(rename = "splitting")]
