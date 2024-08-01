@@ -1,11 +1,4 @@
-import { Metadata } from 'next';
-import React from 'react';
-
-export const metadata: Metadata = {
-  title: "Play",
-  description: "an intelligent exression engine.",
-};
-
+import React from "react";
 
 export default async function Layout({
   children,
@@ -16,7 +9,7 @@ export default async function Layout({
     <div className="space-y-9">
       <div className="flex justify-between">
         <div className="self-start">
-          <h1 className="text-3xl font-bold">Logging you out...</h1>
+          <h1 className="text-3xl font-bold">Logout</h1>
         </div>
       </div>
       <div>{children}</div>

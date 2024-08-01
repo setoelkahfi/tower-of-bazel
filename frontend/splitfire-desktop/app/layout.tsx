@@ -24,7 +24,7 @@ export default function RootLayout({
   const [state, setState] = useState(State.LOADING)
   const [user, setUser] = useState<CurrentUser | null>(null)
 
-  const updateUser = (newUser: CurrentUser) => {
+  const updateUser = (newUser: CurrentUser | null) => {
     setUser(newUser)
   }
 

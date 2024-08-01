@@ -16,7 +16,7 @@ enum State {
 }
 
 export default function Page() {
-  const [state, setState] = useState(State.LOADING);
+  const [state, setState] = useState(State.LOADED);
   const log = useLogger("Logout/Page");
   const router = useRouter();
   const userContext = useContext(UserContext);
