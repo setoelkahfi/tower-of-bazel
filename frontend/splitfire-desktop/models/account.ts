@@ -7,3 +7,9 @@ export interface AccountLoginResponse {
     access_token: string | null,
     user: User | null
 }
+
+export interface AccountRegisterResponse {
+    status: TauriResponse,
+    message: string,
+    user: User | null
+}

@@ -38,7 +38,7 @@ module Api
 
         if @user.save
           # Deliver the signup email.
-          UserNotifierMailer.send_signup_email(user).deliver
+          UserNotifierMailer.send_signup_email(@user).deliver
           render_success
         else
           # Get Devise proper error response.

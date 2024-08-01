@@ -3,7 +3,7 @@ use crate::{
         base_url_builder, PATH_ACCOUNT_LOGIN, PATH_ACCOUNT_LOGOUT, PATH_ACCOUNT_REGISTER,
     },
     models::{
-        account::{AccountLoginResponse, LoginResponse},
+        account::{AccountLoginResponse, AccountRegisterResponse, LoginResponse, RegisterResponse},
         player::TauriResponse,
     },
 };
@@ -112,14 +112,15 @@ pub async fn account_logout(access_token: String) {
 }
 
 #[tauri::command]
-pub async fn account_register(username: String, email: String, password: String) {
-    debug!(
-        "Registering with username {} and email {}.",
-        username, email
-    );
+pub async fn account_register(
+    name: String,
+    email: String,
+    password: String,
+) -> AccountRegisterResponse {
+    debug!("Registering with name {} and email {}.", name, email);
     // Register
     let body = json!( {
-        "username": username,
+        "name": name,
         "email": email,
         "password": password
     });
@@ -132,17 +133,31 @@ pub async fn account_register(username: String, email: String, password: String)
     match response {
         Ok(response) => {
             debug!("Got response: {:?}", response);
-            let res: LoginResponse = match response.json().await {
+            let res: RegisterResponse = match response.json().await {
                 Ok(json) => json,
                 Err(e) => {
                     println!("Failed to parse response: {:?}", e);
-                    return;
+                    return AccountRegisterResponse {
+                        status: TauriResponse::Error,
+                        message: e.to_string(),
+                        user: None,
+                    };
                 }
             };
             debug!("Register response: {:?}", res);
+            AccountRegisterResponse {
+                status: TauriResponse::Success,
+                message: res.message,
+                user: res.user,
+            }
         }
         Err(e) => {
             println!("Failed to get response: {:?}", e);
+            AccountRegisterResponse {
+                status: TauriResponse::Error,
+                message: e.to_string(),
+                user: None,
+            }
         }
     }
 }

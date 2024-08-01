@@ -29,3 +29,19 @@ pub struct User {
   pub following_count: i32,
   pub about: String
 }
+
+#[derive(Serialize)]
+#[derive(Debug)]
+pub struct AccountRegisterResponse {
+  pub status: TauriResponse,
+  pub message: String,
+  pub user: Option<User>,
+}
+
+#[derive(Serialize, Deserialize)]
+#[derive(Debug)]
+pub struct RegisterResponse {
+    pub code: i32,
+    pub message: String,
+    pub user: Option<User>,
+}

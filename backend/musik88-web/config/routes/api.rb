@@ -5,6 +5,7 @@ namespace :api do
     root to: 'welcome#index'
 
     devise_scope :user do
+      post      '/register'                     => 'user#register'
       post      '/login'                        => 'user#login'
       delete    '/logout'                       => 'user#logout'
       get       '/splitfire/:id'                => 'audio_file#splitfire_detail'
@@ -21,8 +22,7 @@ namespace :api do
     post    '/bass_backing_track',    to: 'audio_file#bass_backing_track'
     post    '/drum_backing_track',    to: 'audio_file#drum_backing_track'
 
-    post    '/register',            to: 'user#register'
-    get     '/community/:exclude',  to: 'user#community'
+    get     '/community/:exclude', to: 'user#community'
 
     get     '/lyric_synches/:audio_file_id', to: 'karaoke#lyric_synches'
     post    '/lyric_synches/:audio_file_id', to: 'karaoke#lyric_synches_post'
