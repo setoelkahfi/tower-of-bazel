@@ -1,43 +1,84 @@
-import { Col, Row } from "react-bootstrap"
-import { BsPlayBtnFill, BsStopBtnFill, BsFillRecordBtnFill, BsPauseBtnFill } from "react-icons/bs"
+import {
+  BookmarkIcon,
+  PauseIcon,
+  CircleIcon,
+  BookmarkFilledIcon,
+  ResumeIcon,
+  PlayIcon,
+  ResetIcon,
+} from "@radix-ui/react-icons";
+import { useLogger } from "@/app/_src/lib/logger";
+import { useState } from "react";
 
-export function ControlButtons(props: { isPlaying: boolean, isRecording: boolean, onClick: () => void, onStop: () => void, onRecord: () => void }) {
+export function ControlButtons(props: {
+  isPlaying: boolean;
+  isRecording: boolean;
+  onClick: () => void;
+  onStop: () => void;
+  onRecord: () => void;
+  onResume: () => void;
+}) {
+  const log = useLogger("ControlButtonsV2");
+  const { isPlaying, isRecording } = props;
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
-  const { isPlaying, isRecording, onClick, onStop, onRecord } = props
+  const toggleBookmark = () => {
+    log.debug("toggleBookmark");
+    setIsBookmarked(!isBookmarked);
+  };
 
-  const _onPlayOrPause = () => {
-    if (isRecording) return
+  const bookMarkText = isBookmarked
+    ? "Remove from bookmarks"
+    : "Add to bookmarks";
+  const recordingText = isRecording ? "Recording" : "Stop recording";
 
-    onClick()
+  let playPauseResumeIcon = isPlaying ? (
+    <PauseIcon color={"black"} width="24" height="24" />
+  ) : (
+    <PlayIcon color={"black"} width="24" height="24" />
+  );
+  if (isRecording) {
+    playPauseResumeIcon = <ResumeIcon color={"black"} width="24" height="24" />;
   }
 
-  return <>
-      <Col xs={{span: 1, offset: 4}} className="mb-3 mt-3" color="red" >
-        { isPlaying ? <BsPauseBtnFill onClick={_onPlayOrPause} size={32} style={ { cursor: isRecording ? undefined : "pointer"}} title="Pause" color={ isRecording ? "grey" : "white"}  />
-                    : <BsPlayBtnFill onClick={_onPlayOrPause} size={32} style={ { cursor: isRecording ? undefined : "pointer"}} title="Play" color={ isRecording ? "grey" : "white" } />
-        }
-      </Col>
-      <Col xs={{span: 1}} className="mb-3 mt-3">
-        <BsStopBtnFill 
-          onClick={() => {
-            if (isRecording) return
-
-            onStop()
-          }}
-          size={32} 
-          style={{ cursor: isRecording ? undefined : "pointer"}} 
-          title="Stop"
-          color={ isRecording ? "grey" : "white" }
-        />
-      </Col>
-      <Col xs={{span: 1}} className="mb-3 mt-3">
-        <BsFillRecordBtnFill
-          onClick={onRecord}
-          size={32} 
-          style={{ cursor: "pointer"}} 
-          title={ isRecording ? "Stop" : "Record"}
-          color={ isRecording ? "green" : "red" }
-        />
-      </Col>
-  </>
+  return (
+    <div className="bg-slate-50 text-slate-500 py-6 dark:bg-slate-600 dark:text-slate-200 rounded-b-xl flex items-center">
+      <div className="flex-auto flex items-center justify-evenly">
+        <button
+          type="button"
+          aria-label={bookMarkText}
+          onClick={toggleBookmark}
+          title={bookMarkText}
+        >
+          {isBookmarked ? (
+            <BookmarkFilledIcon color={"black"} width="24" height="24" />
+          ) : (
+            <BookmarkIcon color={"black"} width="24" height="24" />
+          )}
+        </button>
+        <button
+          type="button"
+          aria-label="Record"
+          disabled={isPlaying}
+          title={recordingText}
+        >
+          <CircleIcon
+            color={isRecording ? "blue" : "red"}
+            width="30"
+            height="32"
+          />
+        </button>
+        <button
+          type="button"
+          aria-label="Play/Pause/Resume"
+          disabled={isRecording}
+        >
+          {playPauseResumeIcon}
+        </button>
+        <button type="button" aria-label="Restart" disabled={isRecording}>
+          <ResetIcon color={"black"} width="24" height="24" />
+        </button>
+      </div>
+    </div>
+  );
 }

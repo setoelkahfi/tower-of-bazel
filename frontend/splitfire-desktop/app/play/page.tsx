@@ -51,15 +51,15 @@ export default function Page() {
       }
     }
     fetchData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-    
+
   // Sanity check
   if (!audioFileId || !userId) {
     log.error("Missing audio file ID or user ID");
     return <div>Missing audio file ID</div>;
   }
-  
+
   return (
     <>
       <div className="flex justify-between">
@@ -68,17 +68,15 @@ export default function Page() {
         </div>
       </div>
       <div className="prose prose-sm prose-invert max-w-none">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {state === State.LOADING && (
-            <IconSpinner className="w-10 h-10 animate-spin" />
-          )}
-          {state === State.ERROR && (
-            <div className="text-red-500">Failed to load song</div>
-          )}
-          {state === State.LOADED && (
-            <Player audioId={audioFileId} userId={userId} />
-          )}
-        </div>
+        {state === State.LOADING && (
+          <IconSpinner className="w-10 h-10 animate-spin" />
+        )}
+        {state === State.ERROR && (
+          <div className="text-red-500">Failed to load song</div>
+        )}
+        {state === State.LOADED && (
+          <Player audioId={audioFileId} userId={userId} />
+        )}
       </div>
     </>
   );

@@ -1,12 +1,7 @@
 "use client";
 
-import { ControlButtonsView } from "@/app/_src/components/player/ControlButtons";
-import { CountDownView } from "@/app/_src/components/player/CountDownView";
-import { HideShowToggleView } from "@/app/_src/components/player/HideShowToggle";
 import { ModeDemucs } from "@/app/_src/components/player/models/Mode";
 import { PlayerState, PlayerVolume } from "@/app/_src/components/player/Player";
-import { RecordingView } from "@/app/_src/components/player/RecordingView";
-import { VolumeSliderView } from "@/app/_src/components/player/VolumeSliderView";
 import { useLogger } from "@/app/_src/lib/logger";
 import {
   TAURI_PLAYER_PAUSED,
@@ -20,9 +15,9 @@ import {
 } from "@/app/_src/lib/tauriHandler";
 import { invoke } from "@tauri-apps/api";
 import { useState } from "react";
-import { Row, Col, Container } from "react-bootstrap";
-import { VolumeSlider } from "./volume-slider";
 import { ControlButtons } from "./control-button";
+import { AudioInfo } from "./audio-info";
+import { AudioInfoMiddle } from "./audio-info-middle";
 
 export default function Player({
   audioId,
@@ -50,8 +45,8 @@ export default function Player({
   const [otherVolume, setOtherVolume] = useState<string>("100");
 
   // Player functions
-  const _onVolumeChange = (mode: ModeDemucs, value: string) => {
-    log.debug("_onVolumeChange", mode, value);
+  const onVolumeChange = (mode: ModeDemucs, value: string) => {
+    log.debug("onVolumeChange", mode, value);
     switch (mode) {
       case ModeDemucs.Vocals:
         setVocalsVolume(value);
@@ -74,7 +69,7 @@ export default function Player({
     //_toggleRecording()
   };
 
-  const _toggleRecording = async () => {
+  const toggleRecording = async () => {
     try {
       // If we are playing playbacks, stop it before recording.
       if (playerState === PlayerState.PLAYING) {
@@ -88,7 +83,7 @@ export default function Player({
 
       // If we're already recording, we want to stop it and return.
       if (playerState === PlayerState.RECORDING) {
-        _stopRecording();
+        stopRecording();
         return;
       }
 
@@ -110,7 +105,7 @@ export default function Player({
         const result = await invoke(TAURI_PLAYER_RECORD, {
           audioId,
           userId,
-          playerVolumes: _playerVolumes(),
+          playerVolumes: currentPlayerVolumes(),
         });
         log.debug(TAURI_PLAYER_RECORD, result);
       }, COUNTING_DOWN_NUMBER * 1000);
@@ -119,7 +114,7 @@ export default function Player({
     }
   };
 
-  const _stopRecording = async () => {
+  const stopRecording = async () => {
     setRecordingLength(0);
     setPlayerState(PlayerState.STOPPED);
     const stop_recording_result = await invoke(TAURI_PLAYER_RECORD_STOP, {
@@ -147,7 +142,7 @@ export default function Player({
       log.error(error);
     }
   };
-  const _playerVolumes = (): PlayerVolume[] => {
+  const currentPlayerVolumes = (): PlayerVolume[] => {
     return [
       { mode: ModeDemucs.Vocals, volume: vocalsVolume },
       { mode: ModeDemucs.Drums, volume: drumsVolume },
@@ -156,7 +151,7 @@ export default function Player({
     ];
   };
 
-  const _togglePlayAudio = async () => {
+  const togglePlayAudio = async () => {
     // Should disabled when recording
     if (playerState === PlayerState.RECORDING) {
       return;
@@ -170,7 +165,7 @@ export default function Player({
             setIsCountingCountdown(false);
             setPlayerState(PlayerState.PLAYING);
             await invoke(TAURI_PLAYER_PLAY, {
-              playerVolumes: _playerVolumes(),
+              playerVolumes: currentPlayerVolumes(),
             });
           }, COUNTING_DOWN_NUMBER * 1000);
           break;
@@ -182,76 +177,28 @@ export default function Player({
         case PlayerState.PAUSED:
           log.debug(TAURI_PLAYER_RESUMED, "Resumed");
           setPlayerState(PlayerState.PLAYING);
-          await invoke(TAURI_PLAYER_PLAY, { playerVolumes: _playerVolumes() });
+          await invoke(TAURI_PLAYER_PLAY, { playerVolumes: currentPlayerVolumes() });
       }
     } catch (error) {
       log.error(error);
     }
   };
-
-  let buttonOrCounting = <></>;
-  if (isCountingCountdown) {
-    buttonOrCounting = <CountDownView seconds={COUNTING_DOWN_NUMBER} type="" />;
-  } else {
-    buttonOrCounting = (
-      <ControlButtons
-        isPlaying={playerState === PlayerState.PLAYING}
-        isRecording={playerState === PlayerState.RECORDING}
-        onClick={_togglePlayAudio}
-        onStop={_stopPlayer}
-        onRecord={_toggleRecording}
-      />
-    );
-  }
-
-  let audioWaveform = <></>;
-  if (
-    playerState === PlayerState.PLAYING ||
-    playerState === PlayerState.PAUSED
-  ) {
-    audioWaveform = (
-      <>
-        <CountDownView seconds={recordingLength} type="Practicing!!!" />
-      </>
-    );
-  } else if (playerState === PlayerState.RECORDING) {
-    audioWaveform = (
-      <RecordingView
-        length={recordingLength}
-        onRecordingEnd={onFinishedRecording}
-      />
-    );
-  }
-
+  
   return (
-    <div className="prose prose-sm prose-invert max-w-none">
-      <div className="grid grid-rows-4 gap-6">
-          {buttonOrCounting}
-          <Row className="h-100 d-inline-block">
-            <Col xs={12} className="mb-3 mt-3">
-              <Container style={{ height: 300 }}>
-                <div className="d-flex align-items-center justify-content-center h-100">
-                  <div className="d-flex flex-column">{audioWaveform}</div>
-                </div>
-              </Container>
-            </Col>
-          </Row>
-          <Row className="border border-light">
-            <Col xs={2} className="mb-3 mt-3">
-              <p color="red">Volume</p>
-            </Col>
-            <Col xs={{ span: 2, offset: 8 }} className="mb-3 mt-3">
-              <HideShowToggleView
-                hideVolumeSliders={hideVolumeSliders}
-                setHideVolumeSliders={setHideVolumeSliders}
-              />
-            </Col>
-            <VolumeSlider
-              _onVolumeChange={_onVolumeChange}
-              isHidden={hideVolumeSliders}
-            />
-          </Row>
+    <>
+      <div className="bg-black border-slate-100 dark:bg-slate-800 dark:border-slate-500 border-b rounded-t-xl p-4 pb-6 sm:p-10 sm:pb-8 lg:p-6 xl:p-10 xl:pb-8 space-y-6 sm:space-y-8 lg:space-y-6 xl:space-y-8  items-center">
+        <AudioInfo />
+        <AudioInfoMiddle counterDownTimer={COUNTING_DOWN_NUMBER} />
+        <ControlButtons
+          isPlaying={playerState === PlayerState.PLAYING}
+          isRecording={playerState === PlayerState.RECORDING}
+          onClick={togglePlayAudio}
+          onStop={_stopPlayer}
+          onRecord={toggleRecording} 
+          onResume={function (): void {
+            throw new Error("Function not implemented.");
+          } } />
       </div>
-    </div>
+    </>
   );
 }
