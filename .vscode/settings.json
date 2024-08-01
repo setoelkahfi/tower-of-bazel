@@ -1,0 +1,5 @@
+{
+  "rust-analyzer.linkedProjects": [
+    "frontend/splitfire-desktop/src-tauri/Cargo.toml",
+  ],
+}
