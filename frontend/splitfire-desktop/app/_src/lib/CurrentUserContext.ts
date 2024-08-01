@@ -3,7 +3,7 @@ import { CurrentUser } from "./db";
 
 interface CurrentUserContext {
     user: CurrentUser | null
-    updateUser: (user: CurrentUser) => void
+    updateUser: (user: CurrentUser | null) => void
 }
 
 export const UserContext = createContext<CurrentUserContext>({ user: null, updateUser: () => { } });

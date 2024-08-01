@@ -17,19 +17,13 @@ enum State {
 
 export default function Page() {
   const [state, setState] = useState(State.LOADING);
-  const [user, setUser] = useState<CurrentUser | null>(null);
   const log = useLogger("Logout/Page");
   const router = useRouter();
   const userContext = useContext(UserContext);
 
-  const updateUser = (newUser: CurrentUser | null) => {
-    setUser(newUser);
-  };
-
-  const logout = async () => {
+  const logout = async (update: (user: CurrentUser | null) => void) => {
     try {
       setState(State.LOADING);
-      log.debug("user", user);
       log.debug("userContext", userContext);
       const payload = {
         accessToken: userContext.user?.accessToken,
@@ -37,11 +31,9 @@ export default function Page() {
       log.debug("Logging out", payload);
       const res = await invoke(TAURI_ACCOUNT_LOGOUT, payload);
       log.debug(res);
-      updateUser(null);
+      update(null);
       db.currentUser.clear();
-      setState(State.LOADED);
       router.push("/");
-      router.refresh();
     } catch (error) {
       log.error(error);
       setState(State.ERROR);
@@ -51,15 +43,21 @@ export default function Page() {
   const buttonText = state === State.LOADING ? "Logging out..." : "Logout";
 
   return (
-    <UserContext.Provider value={{ user, updateUser }}>
-      <div className="prose prose-sm prose-invert max-w-none">
+    <div className="prose prose-sm prose-invert max-w-none">
+      <UserContext.Consumer>
+      {({ updateUser: update }) => (
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <Button onClick={() => logout()} variant={"outline"} size={"lg"}>
+          <Button
+            onClick={() => logout(update)}
+            variant={"outline"}
+            size={"lg"}
+          >
             {buttonText}
           </Button>
           <div>This will remove your session and caches.</div>
         </div>
-      </div>
-    </UserContext.Provider>
+      )}
+      </UserContext.Consumer>
+    </div>
   );
 }
