@@ -12,7 +12,7 @@ pub struct ContentCarouselResponse {
 #[derive(Serialize, Deserialize)]
 #[derive(Debug)]
 pub struct CarouselResponse {
-    code: i32,
+    pub code: i32,
     pub message: String,
     pub audio_files: Vec<SongProvider>,
 }

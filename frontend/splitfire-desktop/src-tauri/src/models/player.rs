@@ -39,7 +39,7 @@ pub struct AudioFile {
     pub id: i32,
     pub name: String,
     pub status: Status,
-    pub results: Vec<ResultFile>,
+    pub results: Option<Vec<ResultFile>>,
 }
 
 #[derive(Serialize, Deserialize)]

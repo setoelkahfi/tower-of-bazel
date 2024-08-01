@@ -57,13 +57,33 @@ pub async fn player_prepare(provider_id: String) -> PreparePlayerResponse {
 }
 
 async fn prepare_result_files(audio_file: AudioFile) -> PreparePlayerResponse {
-    save_result_files(&audio_file.id.to_string(), &audio_file.results).await;
-    download_result_files(audio_file.id.to_string(), audio_file.results).await;
-    prepare_players(audio_file.id.to_string()).await;
-    PreparePlayerResponse {
-        status: TauriResponse::Success,
-        message: "Success".to_string(),
-        audio_file_name: Some(audio_file.name),
+    debug!("Preparing result files: {:?}", audio_file);
+    match audio_file.results {
+        Some(results) => {
+            if results.is_empty() {
+                return PreparePlayerResponse {
+                    status: TauriResponse::Error,
+                    message: "No results found.".to_string(),
+                    audio_file_name: Some(audio_file.name),
+                };
+            }
+            save_result_files(&audio_file.id.to_string(), &results).await;
+            download_result_files(audio_file.id.to_string(), results).await;
+            prepare_players(audio_file.id.to_string()).await;
+            PreparePlayerResponse {
+                status: TauriResponse::Success,
+                message: "Success".to_string(),
+                audio_file_name: Some(audio_file.name),
+            }
+        }
+        None => {
+            return PreparePlayerResponse {
+                status: TauriResponse::Error,
+                message: "No results found.".to_string(),
+                audio_file_name: Some(audio_file.name),
+            };
+        }
+        
     }
 }
 
