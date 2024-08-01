@@ -19,12 +19,12 @@ use std::{
 use tauri::async_runtime::spawn;
 
 #[tauri::command]
-pub async fn player_prepare(provider_id: String) -> PreparePlayerResponse {
-    debug!("Preparing player for provider_id {}.", provider_id);
+pub async fn player_prepare(audio_file_id: String) -> PreparePlayerResponse {
+    debug!("Preparing player for provider_id {}.", audio_file_id);
 
     // Get audio file response
     let response = Client::new()
-        .get(build_audio_detail_url(provider_id))
+        .get(build_audio_detail_url(audio_file_id))
         .send()
         .await;
 

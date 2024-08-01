@@ -18,7 +18,7 @@ enum State {
 export default function Page() {
   const log = useLogger("Play");
   const searchParams = useSearchParams();
-  const songProviderId = searchParams.get("songProviderId");
+  const audioFileId = searchParams.get("audioFileId");
   const [title, setTitle] = useState("Loading song...");
   const [state, setState] = useState(State.LOADING);
 
@@ -28,7 +28,7 @@ export default function Page() {
       try {
         const result: PlayerPrepareResponse = await invoke(
           TAURI_PLAYER_PREPARE,
-          { providerId: songProviderId }
+          { audioFileId }
         );
         log.debug("PreparePlayerResponse", result);
         switch (result.status) {
@@ -47,6 +47,7 @@ export default function Page() {
       }
     }
     fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
@@ -62,6 +63,9 @@ export default function Page() {
           )}
           {state === State.ERROR && (
             <div className="text-red-500">Failed to load song</div>
+          )}
+          {state === State.LOADED && (
+            <div className="text-green-500">Song loaded</div>
           )}
         </div>
       </div>

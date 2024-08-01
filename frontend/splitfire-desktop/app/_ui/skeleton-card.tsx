@@ -34,13 +34,17 @@ export const SongProviderCard = ({
   path: SongProviderPath;
 }) => {
   const router = useRouter();
+  let queryString = `songProviderId=${songProvider.id}`
+  if (path === SongProviderPath.PLAY && songProvider.audio_file) {
+    queryString = `audioFileId=${songProvider.audio_file.id}`;
+  }
   return (
     <button
       className={clsx("rounded-2xl bg-gray-900/80 p-4", {
         "relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent":
           false,
       })}
-      onClick={() => router.push(`/${path}?songProviderId=${songProvider.id}`)}
+      onClick={() => router.push(`/${path}?${queryString}`)}
     >
       <div className="space-y-3">
         <Image
