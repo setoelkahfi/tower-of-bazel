@@ -19,9 +19,9 @@ export function AudioInfo(props: { }) {
           <abbr title="Track">Played:</abbr> {numberPlayed}
         </p>
         <h2 className="text-slate-500 dark:text-slate-400 text-sm leading-6 truncate">
-          Music: New Album The Lorem
+          Key: C Major
         </h2>
-        <p className="text-slate-900 dark:text-slate-50 text-lg">{difficulty}</p>
+        <p className="text-slate-500 dark:text-slate-50 text-lg">{difficulty}</p>
       </div>
     </div>
   );

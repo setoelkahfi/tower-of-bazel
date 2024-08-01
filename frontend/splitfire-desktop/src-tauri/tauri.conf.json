@@ -30,7 +30,7 @@
         "icons/icon.ico"
       ],
       "identifier": "ai.splitfire.desktop",
-      "longDescription": "",
+      "longDescription": "Community, artificial intelligence, music, community",
       "macOS": {
         "entitlements": null,
         "exceptionDomain": "",
@@ -39,7 +39,7 @@
         "signingIdentity": null
       },
       "resources": [],
-      "shortDescription": "",
+      "shortDescription": "artificial intelligence, music, community",
       "targets": "all",
       "windows": {
         "certificateThumbprint": null,
@@ -57,7 +57,7 @@
       {
         "maximized": true,
         "height": 600,
-        "resizable": true,
+        "resizable": false,
         "title": "SplitFire",
         "width": 800
       }
