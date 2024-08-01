@@ -115,6 +115,7 @@ dependencies = [
  "tauri-build",
  "tauri-plugin-log",
  "tauri-plugin-store",
+ "uri-template-system",
  "url-builder",
 ]
 
@@ -4153,6 +4154,25 @@ name = "unicode-segmentation"
 version = "1.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d4c87d22b6e3f4a18d4d40ef354e97c90fcb14dd91d7dc0aa9d8a1172ebf7202"
+
+[[package]]
+name = "uri-template-system"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "50ce47b579c9b300dd1540e30578b33854f86e7072d7ff505016705609261ca9"
+dependencies = [
+ "uri-template-system-core",
+]
+
+[[package]]
+name = "uri-template-system-core"
+version = "0.1.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "26f254395af92efc86d9a0bb0a614dc76865c8a4ea0d71ba66ccd134d7f831fb"
+dependencies = [
+ "fnv",
+ "thiserror",
+]
 
 [[package]]
 name = "url"

@@ -1,7 +1,7 @@
 use crate::{
-    command::constants::{base_url_builder, PATH_CAROUSEL, PATH_READY_TO_PLAY},
+    command::constants::{base_url_builder, PATH_CAROUSEL, PATH_READY_TO_PLAY, PATH_SONG_BRIDGE_DETAIL},
     models::{
-        content::{CarouselResponse, ContentCarouselResponse},
+        content::{CarouselResponse, ContentCarouselResponse, ContentSongBridgeResponse, SongBridgeResponse},
         player::TauriResponse,
     },
 };
@@ -80,6 +80,49 @@ pub async fn content_ready_to_play() -> ContentCarouselResponse {
         status: TauriResponse::Success,
         message: res.message,
         audio_files: res.audio_files,
+    }
+}
+
+#[tauri::command]
+pub async fn content_song_bridge_detail(song_provider_id: String) -> ContentSongBridgeResponse {
+    debug!("Song provider id: {:?}", song_provider_id);
+    let response: Result<reqwest::Response, reqwest::Error> = Client::new()
+        .get(content_url_builder(PATH_SONG_BRIDGE_DETAIL))
+        .send()
+        .await;
+
+    let response = match response {
+        Ok(response) => response,
+        Err(e) => {
+            error!("Failed to get response: {:?}", e);
+            return ContentSongBridgeResponse {
+                code: TauriResponse::Error,
+                message: e.to_string(),
+                song_provider: None,
+                votes: vec![],
+            };
+        }
+    };
+
+    let res: SongBridgeResponse= match response.json().await {
+        Ok(json) => json,
+        Err(e) => {
+            error!("Failed to parse response: {:?}", e);
+            return ContentSongBridgeResponse {
+                code: TauriResponse::Error,
+                message: e.to_string(),
+                song_provider: None,
+                votes: vec![],
+            };
+        }
+    };
+
+    debug!("Song bridge detail: {:?}", res);
+    ContentSongBridgeResponse {
+        code: TauriResponse::Success,
+        message: res.message,
+        song_provider: res.song_provider,
+        votes: res.votes,
     }
 }
 

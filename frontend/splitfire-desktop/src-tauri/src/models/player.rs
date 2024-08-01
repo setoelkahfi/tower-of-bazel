@@ -1,6 +1,6 @@
 use std::fmt::Display;
 use serde::{Deserialize, Serialize};
-use serde_repr::Serialize_repr;
+use serde_repr::{Deserialize_repr, Serialize_repr};
 
 
 #[derive(serde::Serialize, serde::Deserialize, Debug, Clone)]
@@ -49,7 +49,7 @@ pub struct AudioFileResponse {
     pub audio_file: AudioFile,
 }
 
-#[derive(Serialize_repr)]
+#[derive(Serialize_repr, Deserialize_repr)]
 #[repr(u8)]
 #[derive(Debug)]
 pub enum TauriResponse {

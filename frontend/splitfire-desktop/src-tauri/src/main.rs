@@ -23,8 +23,9 @@ use app::{
             account_logout, account_register,
         },
         content::{
-            __cmd__content_carousel, __cmd__content_ready_to_play, content_carousel,
-            content_ready_to_play,
+            __cmd__content_carousel, __cmd__content_ready_to_play,
+            __cmd__content_song_bridge_detail, content_carousel, content_ready_to_play,
+            content_song_bridge_detail,
         },
     },
     sfai_home_dir_path,
@@ -76,6 +77,7 @@ fn main() {
             player_recording_length,
             content_carousel,
             content_ready_to_play,
+            content_song_bridge_detail,
         ])
         .run(tauri::generate_context!())
         .expect("Error while running tauri application.");
