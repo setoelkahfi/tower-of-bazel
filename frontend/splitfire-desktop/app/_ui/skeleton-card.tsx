@@ -34,10 +34,23 @@ export const SongProviderCard = ({
   path: SongProviderPath;
 }) => {
   const router = useRouter();
-  let queryString = `songProviderId=${songProvider.id}`
+  let queryString = `songProviderId=${songProvider.id}`;
   if (path === SongProviderPath.PLAY && songProvider.audio_file) {
     queryString = `audioFileId=${songProvider.audio_file.id}`;
   }
+  const thumbnailView = songProvider.image_url ? (
+    <Image
+      src={songProvider.image_url}
+      alt={songProvider.name}
+      width="0"
+      height="0"
+      sizes="100vw"
+      className="w-full h-auto aspect-video"
+    />
+  ) : (
+    <div className="h-14 rounded-lg bg-gray-700" />
+  );
+
   return (
     <button
       className={clsx("rounded-2xl bg-gray-900/80 p-4", {
@@ -47,14 +60,7 @@ export const SongProviderCard = ({
       onClick={() => router.push(`/${path}?${queryString}`)}
     >
       <div className="space-y-3">
-        <Image
-          src={songProvider.image_url}
-          alt={songProvider.name}
-          width="0"
-          height="0"
-          sizes="100vw"
-          className="w-full h-auto aspect-video"
-        />
+        {thumbnailView}
         <h3 className="w-11/12">{songProvider.name}</h3>
       </div>
     </button>

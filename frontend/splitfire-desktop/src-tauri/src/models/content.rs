@@ -24,7 +24,7 @@ pub struct SongProvider {
   pub name: String,
   pub provider_id: String,
   pub provider_type: ProviderType,
-  pub image_url: String,
+  pub image_url: Option<String>,
   pub audio_file: Option<AudioFile>
 }
 
