@@ -2,6 +2,8 @@
 name: Deploy Backend Musik88 Web
 on:
   push:
+    branches:
+      - splitfire/release/musik88-web
   workflow_dispatch:
 
 env:

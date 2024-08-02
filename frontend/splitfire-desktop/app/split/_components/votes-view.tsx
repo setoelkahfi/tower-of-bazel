@@ -40,6 +40,12 @@ export interface VoteState {
   downVotes: SongProviderVote[];
 }
 
+type VotePayload = {
+  songProviderId: string;
+  voteType: string;
+  accessToken: string;
+}
+
 export default function UpDownVotesView({
   songProviderId,
   votes,
@@ -121,12 +127,12 @@ export default function UpDownVotesView({
 
     setState(State.LOADING);
     try {
-      const payload = {
+      const payload: VotePayload = {
         songProviderId,
-        type,
+        voteType: type,
         accessToken: user.accessToken,
       };
-      const response = await invoke<SongBridgeResponse>(TAURI_CONTENT_SONG_BRIDGE_VOTE, { payload });
+      const response = await invoke<SongBridgeResponse>(TAURI_CONTENT_SONG_BRIDGE_VOTE, payload);
       log.debug(response.votes);
       if (response.code === HTTPStatusCode.OK) {
         setVoteState({
@@ -163,7 +169,7 @@ export default function UpDownVotesView({
 
   if (state === State.LOADING) {
     return (
-      <div className="mb-3" style={{ minHeight: 250 }}>
+      <div className="flex justify-center max-h-full">
         <Spinner animation="border" role="status">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
