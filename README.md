@@ -1,6 +1,6 @@
 # tower-of-bazel
 
-> {fast, correct} + {no masters but ourselves} = {tower of bazel}
+> {fast, correct} + {polyglot} = {tower of bazel}
 
 This simple repo demonstrates how to set up a multi-language monorepo.
 
@@ -15,10 +15,11 @@ git lfs pull
 
 ## How to use
 
-If you're new to Bazel, read [the documentation](https://bazel.build/docs). Otherwise, query all targets:
+Main folder structure is to follow backend / frontent convention. If you're new to Bazel, read [the documentation](https://bazel.build/docs). Otherwise, query all targets in a given platform:
 
 ```bash
-bazel query //...
+bazel query //backend/...
+bazel query //frontend/...
 ```
 
 ### Tauri
@@ -35,6 +36,14 @@ Generate Xcode project:
 
 ```bash
 bazel run //frontend/apple:xcodeproj
+```
+
+### Rails
+
+Ruby on rails app:
+
+```bash
+bazel run //backend/app:rails
 ```
 
 ### Android
