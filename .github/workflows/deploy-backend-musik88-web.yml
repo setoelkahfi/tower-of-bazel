@@ -29,5 +29,5 @@ jobs:
         git init
         git add .
         git commit -m "Deploy to production"
-        git remote add prod ${{ env.GIT_USER }}@${{ env.GIT_HOST }}:${{ secrets.GIT_REPO }}
-        git push --set-upstream prod main
+        git remote add prod deploy@musik88.com:musik88-production
+        git push --set-upstream prod main --force
