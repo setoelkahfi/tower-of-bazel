@@ -24,5 +24,6 @@ jobs:
       run: |
         cd backend/musik88-web
         git init
+        git config --global init.defaultBranch main
         git remote add prod ${{ env.GIT_USER }}@${{ env.GIT_HOST }}:${{ secrets.GIT_REPO }}
-        git push prod
+        git push --set-upstream prod main
