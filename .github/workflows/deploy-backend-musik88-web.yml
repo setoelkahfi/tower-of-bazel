@@ -24,6 +24,8 @@ jobs:
       run: |
         cd backend/musik88-web
         git config --global init.defaultBranch main
+        git config --global user.email "deploy@musik88.com"
+        git config --global user.name "deploy"
         git init
         git add .
         git commit -m "Deploy to production"
