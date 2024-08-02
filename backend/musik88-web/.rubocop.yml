@@ -1,4 +1,6 @@
-Documentation:
+AllCops:
+  NewCops: disable
+Style/Documentation:
   Enabled: false
 Style/HashSyntax:
   Enabled: false

@@ -3,10 +3,11 @@
 import { invoke } from "@tauri-apps/api";
 import { useState } from "react";
 import * as Form from "@radix-ui/react-form";
-import { TAURI_ACCOUNT_REGISTER, TauriResponse } from "../_src/lib/tauriHandler";
+import { TAURI_ACCOUNT_REGISTER } from "../_src/lib/tauriHandler";
 import { Button } from "../_ui/components/button";
 import { useLogger } from "../_src/lib/logger";
 import { AccountRegisterResponse } from "@/models/account";
+import { TauriResponse } from "@/models/shared";
 
 enum State {
   LOADING,
@@ -99,7 +100,7 @@ function SignupForm({ registerCallback }: { registerCallback: (state: SignupStat
       event.preventDefault();
     }}
   >
-    <Form.Field className="FormField" name="name">
+    <Form.Field className="FormField my-6" name="name">
       <div
         style={{
           display: "flex",
@@ -151,7 +152,7 @@ function SignupForm({ registerCallback }: { registerCallback: (state: SignupStat
         />
       </Form.Control>
     </Form.Field>
-    <Form.Field className="FormField" name="password">
+    <Form.Field className="FormField my-6" name="password">
       <div
         style={{
           display: "flex",
@@ -179,7 +180,7 @@ function SignupForm({ registerCallback }: { registerCallback: (state: SignupStat
         />
       </Form.Control>
     </Form.Field>
-    <Form.Field className="FormField" name="button">
+    <Form.Field className="FormField my-6" name="button">
       <Button onClick={register} variant={"outline"} size={"lg"}>
         {buttonText}
       </Button>

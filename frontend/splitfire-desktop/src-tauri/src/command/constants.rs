@@ -27,6 +27,7 @@ pub const PATH_READY_TO_PLAY: &str = "api/v1/ready-to-play";
 pub const PATH_SEARCH: &str = "api/v1//search";
 pub const PATH_TOP_VOTES: &str = "api/v1/top-votes";
 pub const PATH_SONG_BRIDGE_DETAIL: &str = "api/v1/song-bridge/{providerId}/detail";
+pub const PATH_SONG_BRIDGE_VOTE: &str = "api/v1/song-bridge/{providerId}/vote";
 
 pub fn base_url_builder() -> URLBuilder {
     let mut url_builder = URLBuilder::new();

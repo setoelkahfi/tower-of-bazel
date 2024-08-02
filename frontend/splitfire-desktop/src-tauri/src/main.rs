@@ -22,13 +22,10 @@ use app::{
     },
     rest::{
         account::{
-            __cmd__account_login, __cmd__account_logout, __cmd__account_register, account_login,
-            account_logout, account_register,
+            __cmd__account_login, __cmd__account_logout, __cmd__account_profile, __cmd__account_register, account_login, account_logout, account_profile, account_register
         },
         content::{
-            __cmd__content_carousel, __cmd__content_ready_to_play,
-            __cmd__content_song_bridge_detail, __cmd__content_top_voted, content_carousel,
-            content_ready_to_play, content_song_bridge_detail, content_top_voted,
+            __cmd__content_carousel, __cmd__content_ready_to_play, __cmd__content_song_bridge_detail, __cmd__content_song_bridge_vote, __cmd__content_top_voted, content_carousel, content_ready_to_play, content_song_bridge_detail, content_top_voted, content_song_bridge_vote
         },
     },
     sfai_home_dir_path,
@@ -69,6 +66,7 @@ fn main() {
             account_login,
             account_logout,
             account_register,
+            account_profile,
             open_lyrics_editor,
             open_player,
             player_record,
@@ -83,7 +81,8 @@ fn main() {
             content_carousel,
             content_ready_to_play,
             content_song_bridge_detail,
-            content_top_voted
+            content_top_voted,
+            content_song_bridge_vote
         ])
         .run(tauri::generate_context!())
         .expect("Error while running tauri application.");

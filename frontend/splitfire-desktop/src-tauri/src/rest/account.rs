@@ -1,9 +1,9 @@
 use crate::{
     command::constants::{
-        base_url_builder, PATH_ACCOUNT_LOGIN, PATH_ACCOUNT_LOGOUT, PATH_ACCOUNT_REGISTER,
+        base_url_builder, PATH_ACCOUNT_LOGIN, PATH_ACCOUNT_LOGOUT, PATH_ACCOUNT_PROFILE, PATH_ACCOUNT_REGISTER
     },
     models::{
-        account::{AccountLoginResponse, AccountRegisterResponse, LoginResponse, RegisterResponse},
+        account::{AccountLoginResponse, AccountProfileResponse, AccountRegisterResponse, LoginResponse, ProfileResponse, RegisterResponse},
         player::TauriResponse,
     },
 };
@@ -159,6 +159,46 @@ pub async fn account_register(
                 user: None,
             }
         }
+    }
+}
+
+#[tauri::command]
+pub async fn account_profile(user_id: String) -> AccountProfileResponse {
+  debug!("Getting profile for user_id {}", user_id);
+    // Get profile
+    let url = account_url_builder(PATH_ACCOUNT_PROFILE).replace("{userId}", &user_id);
+    let response = Client::new()
+        .get(account_url_builder(&url))
+        .send()
+        .await;
+
+    let response = match response {
+        Ok(response) => response,
+        Err(e) => {
+            debug!("Failed to get response: {:?}", e);
+            return AccountProfileResponse {
+                status: TauriResponse::Error,
+                message: e.to_string(),
+                user: None,
+            };
+        }
+    };
+    let res: ProfileResponse = match response.json().await {
+        Ok(json) => json,
+        Err(e) => {
+            debug!("Failed to parse response: {:?}", e);
+            return AccountProfileResponse {
+                status: TauriResponse::Error,
+                message: e.to_string(),
+                user: None,
+            };
+        }
+    };
+    debug!("Profile response: {:?}", res);
+    AccountProfileResponse {
+        status: TauriResponse::Success,
+        message: res.message,
+        user: res.user,
     }
 }
 

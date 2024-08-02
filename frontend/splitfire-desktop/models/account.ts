@@ -13,3 +13,9 @@ export interface AccountRegisterResponse {
     message: string,
     user: User | null
 }
+
+export interface AccountProfileResponse {
+    status: TauriResponse,
+    message: string,
+    user: User | null
+}

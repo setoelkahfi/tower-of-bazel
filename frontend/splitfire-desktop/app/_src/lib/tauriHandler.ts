@@ -16,12 +16,14 @@ export const TAURI_PLAYER_RECORDING_LENGTH = 'player_recording_length'  // in se
 export const TAURI_ACCOUNT_LOGIN = 'account_login'
 export const TAURI_ACCOUNT_LOGOUT = 'account_logout'
 export const TAURI_ACCOUNT_REGISTER = 'account_register'
+export const TAURI_ACCOUNT_PROFILE = 'account_profile'
 
 // Contents
 export const TAURI_CONTENT_CAROUSEL = 'content_carousel'
 export const TAURI_CONTENT_READY_TO_PLAY = 'content_ready_to_play'
 export const TAURI_CONTENT_SONG_BRIDGE_DETAIL = 'content_song_bridge_detail'
 export const TAURI_CONTENT_TOP_VOTED = 'content_top_voted'
+export const TAURI_CONTENT_SONG_BRIDGE_VOTE = 'content_song_bridge_vote'
 
 // Settings
 export const TAURI_SET_ENVIRONMENT = 'set_environment'

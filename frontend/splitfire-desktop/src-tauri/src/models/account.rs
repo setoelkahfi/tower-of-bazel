@@ -51,7 +51,6 @@ pub struct RegisterResponse {
 pub struct AccountProfileResponse {
   pub status: TauriResponse,
   pub message: String,
-  pub access_token: Option<String>,
   pub user: Option<User>,
 }
 

@@ -8,11 +8,10 @@ export function VoterGravatarsViews(props: {
   type: VoteType;
 }) {
   const className =
-    props.type === VoteType.DOWN
-      ? "justify-end"
-      : "justify-start";
+    props.type === VoteType.DOWN ? "justify-end" : "justify-start";
   return (
     <div className={className}>
+      <div className="flex -space-x-2 overflow-hidden">
         {props.voters.map((x, i) => {
           return (
             <Link href={`/profile?userId=@${x.user_id}`} key={i}>
@@ -20,12 +19,13 @@ export function VoterGravatarsViews(props: {
                 src={x.voter_gravatar}
                 width={24}
                 height={24}
-                className="rounded-full"
+                className="inline-block h-8 w-8 rounded-full ring-2 ring-white"
                 alt={x.voter_username_or_id}
               />
             </Link>
           );
         })}
       </div>
+    </div>
   );
 }

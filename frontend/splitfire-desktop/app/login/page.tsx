@@ -72,7 +72,7 @@ export default function Page() {
                 event.preventDefault();
               }}
             >
-              <Form.Field className="FormField" name="email">
+              <Form.Field className="FormField my-6" name="email">
                 <div
                   style={{
                     display: "flex",
@@ -98,7 +98,7 @@ export default function Page() {
                   />
                 </Form.Control>
               </Form.Field>
-              <Form.Field className="FormField" name="password">
+              <Form.Field className="FormField my-6" name="password">
                 <div
                   style={{
                     display: "flex",
@@ -126,7 +126,7 @@ export default function Page() {
                   />
                 </Form.Control>
               </Form.Field>
-              <Form.Field className="FormField" name="password">
+              <Form.Field className="FormField my-6" name="password">
                 <Button onClick={() => login(update)} variant={"outline"} size={"lg"}>
                   Login
                 </Button>

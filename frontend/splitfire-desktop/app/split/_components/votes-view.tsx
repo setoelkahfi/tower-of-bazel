@@ -11,13 +11,15 @@ import {
 import { UserContext } from "@/app/_src/lib/CurrentUserContext";
 import { CurrentUser } from "@/app/_src/lib/db";
 import { SongProviderVote } from "@/app/_src/models/SongVotesDetailResponse";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import { CSSProperties, useState, useContext } from "react";
 import { Spinner } from "react-bootstrap";
 import ButtonGenerateBackingTracks from "./button-split";
 import MainVotesView from "./votes-view-main";
 import LetsPlayView from "./lets-play";
+import { invoke } from "@tauri-apps/api";
+import { TAURI_CONTENT_SONG_BRIDGE_VOTE } from "@/app/_src/lib/tauriHandler";
+import { useLogger } from "@/app/_src/lib/logger";
 
 enum State {
   LOADING,
@@ -39,14 +41,15 @@ export interface VoteState {
 }
 
 export default function UpDownVotesView({
-  providerId,
+  songProviderId,
   votes,
   audioFile,
 }: {
-  providerId: string;
+  songProviderId: string;
   votes: SongProviderVote[];
   audioFile: AudioFile | null;
 }) {
+  const log = useLogger("Votes view");
   const [state, setState] = useState(State.LOADED);
   const [goToLogin, setGoToLogin] = useState(false);
   const [goToPlayer, setGoToPlayer] = useState(false);
@@ -83,8 +86,6 @@ export default function UpDownVotesView({
 
     const up = votes.filter((x) => x.vote_type === VoteType.UP).length;
     const down = votes.filter((x) => x.vote_type === VoteType.DOWN).length;
-    //console.log('upvotes', up)
-    //console.log('downvotes', down)
     const votesAggregate = up - down;
     return votesAggregate;
   };
@@ -112,48 +113,41 @@ export default function UpDownVotesView({
     downVotes: votes.filter((x) => x.vote_type === VoteType.DOWN),
   });
 
-  const vote = (type: VoteType) => {
+  const vote = async (type: VoteType) => {
     if (!user || !user.accessToken || user.accessToken.length <= 1) {
       setGoToLogin(true);
       return;
     }
 
     setState(State.LOADING);
-    axios
-      .post(
-        `/song-bridge/${providerId}/vote`,
-        { vote_type: type, provider_id: providerId },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: user.accessToken,
-          },
-        }
-      )
-      .then((res) => {
-        const response: SongBridgeResponse = res.data;
-        //console.log(response.votes)
-        if (response.code === HTTPStatusCode.OK) {
-          setVoteState({
-            aggregate: calculateVotes(response.votes),
-            buttonUpStyle: buttonStyle(response.votes, VoteType.UP),
-            buttonDownStyle: buttonStyle(response.votes, VoteType.DOWN),
-            upVotes: response.votes.filter((x) => x.vote_type === VoteType.UP),
-            downVotes: response.votes.filter(
-              (x) => x.vote_type === VoteType.DOWN
-            ),
-          });
-          setState(State.LOADED);
-        } else {
-          console.log("error");
-          setState(State.ERROR);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
+    try {
+      const payload = {
+        songProviderId,
+        type,
+        accessToken: user.accessToken,
+      };
+      const response = await invoke<SongBridgeResponse>(TAURI_CONTENT_SONG_BRIDGE_VOTE, { payload });
+      log.debug(response.votes);
+      if (response.code === HTTPStatusCode.OK) {
+        setVoteState({
+          aggregate: calculateVotes(response.votes),
+          buttonUpStyle: buttonStyle(response.votes, VoteType.UP),
+          buttonDownStyle: buttonStyle(response.votes, VoteType.DOWN),
+          upVotes: response.votes.filter((x) => x.vote_type === VoteType.UP),
+          downVotes: response.votes.filter(
+            (x) => x.vote_type === VoteType.DOWN
+          ),
+        });
+        setState(State.LOADED);
+      } else {
+        console.log("error");
         setState(State.ERROR);
-      });
-  };
+      }
+    } catch (error) {
+      console.log(error);
+      setState(State.ERROR);
+    }
+  }
 
   const isDoneSplitting = audioFile && audioFile.status === Status.DONE;
 
@@ -184,10 +178,10 @@ export default function UpDownVotesView({
   );
   const mainButton = (
     <ButtonGenerateBackingTracks
-    providerId={providerId}
-    audioFile={audioFile}
-    aggregateVotes={voteState.aggregate}
-  />
+      providerId={songProviderId}
+      audioFile={audioFile}
+      aggregateVotes={voteState.aggregate}
+    />
   );
   // Votes treshold is passed, show the generate button.
   return (

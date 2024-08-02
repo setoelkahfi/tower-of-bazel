@@ -17,7 +17,7 @@ export default function SongVotes({
       <h1 className="my-2">{songProvider.name}</h1>
       <UpDownVotesView
         votes={votes}
-        providerId={songProvider.id}
+        songProviderId={songProvider.id}
         audioFile={songProvider.audio_file}
       />
       <Image

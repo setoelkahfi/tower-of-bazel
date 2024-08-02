@@ -1,17 +1,19 @@
 use crate::{
     command::constants::{
-        base_url_builder, PATH_CAROUSEL, PATH_READY_TO_PLAY, PATH_SONG_BRIDGE_DETAIL, PATH_TOP_VOTES,
+        base_url_builder, PATH_CAROUSEL, PATH_READY_TO_PLAY, PATH_SONG_BRIDGE_DETAIL,
+        PATH_SONG_BRIDGE_VOTE, PATH_TOP_VOTES,
     },
     models::{
         content::{
             CarouselResponse, ContentCarouselResponse, ContentSongBridgeResponse,
-            SongBridgeResponse,
+            SongBridgeResponse, VoteType,
         },
         player::TauriResponse,
     },
 };
 use log::{debug, error};
 use reqwest::Client;
+use serde_json::json;
 
 #[tauri::command]
 pub async fn content_carousel() -> ContentCarouselResponse {
@@ -170,6 +172,63 @@ pub async fn content_top_voted() -> ContentCarouselResponse {
         status: TauriResponse::Success,
         message: res.message,
         audio_files: res.audio_files,
+    }
+}
+
+#[tauri::command]
+pub async fn content_song_bridge_vote(
+    song_provider_id: String,
+    vote_type: VoteType,
+    access_token: String,
+) -> ContentSongBridgeResponse {
+    debug!("Song provider id: {:?}", song_provider_id);
+    let url = content_url_builder(PATH_SONG_BRIDGE_VOTE).replace("{providerId}", &song_provider_id);
+    let body = json!({ "vote_type": vote_type, "provider_id": song_provider_id }).to_string();
+    let response: Result<reqwest::Response, reqwest::Error> = Client::new()
+        .post(url)
+        .body(body)
+        .header("Authorization", format!("Bearer {}", access_token))
+        .send()
+        .await;
+
+    let response = match response {
+        Ok(response) => response,
+        Err(e) => {
+            error!("Failed to get response: {:?}", e);
+            return ContentSongBridgeResponse {
+                code: TauriResponse::Error,
+                message: e.to_string(),
+                song_provider: None,
+                votes: vec![],
+            };
+        }
+    };
+
+    let res: SongBridgeResponse = match response.json().await {
+        Ok(json) => json,
+        Err(e) => {
+            error!("Failed to parse response: {:?}", e);
+            return ContentSongBridgeResponse {
+                code: TauriResponse::Error,
+                message: e.to_string(),
+                song_provider: None,
+                votes: vec![],
+            };
+        }
+    };
+
+    debug!("Song bridge detail: {:?}", res);
+
+    let votes = match res.votes {
+        Some(votes) => votes,
+        None => vec![],
+    };
+
+    ContentSongBridgeResponse {
+        code: TauriResponse::Success,
+        message: res.message,
+        song_provider: res.song_provider,
+        votes,
     }
 }
 
