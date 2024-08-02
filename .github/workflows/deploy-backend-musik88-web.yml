@@ -15,16 +15,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Change to repo directory
-      run: cd backend/musik88-web
-    - name: Init git repo
-      run: |
-        git init
-        git remote add prod ${{ env.GIT_USER }}@${{ env.GIT_HOST }}:${{ secrets.GIT_REPO }}
     - name: Install SSH key
       uses: shimataro/ssh-key-action@v2
       with:
         key: ${{ env.SSH_PRIVATE_KEY }}
         known_hosts: ${{ env.SSH_KNOWN_HOST }}
     - name: Push to deploy
-      run: git push prod
+      run: |
+        cd backend/musik88-web
+        git config --global init.defaultBranch main
+        git config --global user.email "deploy@musik88.com"
+        git config --global user.name "deploy"
+        git init
+        git add .
+        git commit -m "Deploy to production"
+        git remote add prod ${{ env.GIT_USER }}@${{ env.GIT_HOST }}:${{ secrets.GIT_REPO }}
+        git push --set-upstream prod main
