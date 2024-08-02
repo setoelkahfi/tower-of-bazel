@@ -16,6 +16,9 @@ use app::{
         },
         player_set_volume::{__cmd__player_set_volume, player_set_volume},
         player_unmount::{__cmd__player_unmount, player_unmount},
+        settings::{
+            __cmd__get_environment, __cmd__set_environment, get_environment, set_environment,
+        },
     },
     rest::{
         account::{
@@ -61,6 +64,8 @@ fn main() {
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
+            set_environment,
+            get_environment,
             account_login,
             account_logout,
             account_register,

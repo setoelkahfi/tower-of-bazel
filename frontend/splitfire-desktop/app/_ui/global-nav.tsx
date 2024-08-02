@@ -72,6 +72,12 @@ export function GlobalNav() {
                 </div>
                 
                 {user.user ? <LoggedInNav /> : <LoggedOutNav />}
+
+                <div className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-gray-400/80">
+                  <div>{"Settings"}</div>
+                </div>
+
+                <SettingsNav />
         </nav>
       </div>
     </div>
@@ -92,6 +98,14 @@ function LoggedInNav() {
     <div className="space-y-1">
       <GlobalNavItem item={{ name: 'Profile', slug: 'profile' }} close={() => {}} />
       <GlobalNavItem item={{ name: 'Logout', slug: 'logout' }} close={() => {}} />
+    </div>
+  );
+}
+
+function SettingsNav() {
+  return (
+    <div className="space-y-1">
+      <GlobalNavItem item={{ name: 'Debug', slug: 'debug' }} close={() => {}} />
     </div>
   );
 }

@@ -6,3 +6,4 @@ pub mod player_prepare;
 pub mod player_record;
 pub mod player_set_volume;
 pub mod player_unmount;
+pub mod settings;
