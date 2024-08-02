@@ -1,5 +1,6 @@
 import { SongProvider } from "@/app/_src/models/SongResponse";
 import { TauriResponse } from "./shared";
+import { SongProviderVote } from "@/app/_src/models/SongVotesDetailResponse";
 
 // Need to be renamed into more generic name
 export interface ContentCarouselResponse {
@@ -18,4 +19,11 @@ export interface PlayerPrepareResponse {
     status: TauriResponse,
     message: string,
     audio_file_name?: string,
+}
+
+export interface SongProviderResponse {
+    status: TauriResponse,
+    message: string,
+    song_provider: SongProvider
+    votes: SongProviderVote[]
 }

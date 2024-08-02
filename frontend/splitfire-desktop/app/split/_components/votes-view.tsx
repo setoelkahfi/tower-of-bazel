@@ -20,6 +20,8 @@ import LetsPlayView from "./lets-play";
 import { invoke } from "@tauri-apps/api";
 import { TAURI_CONTENT_SONG_BRIDGE_VOTE } from "@/app/_src/lib/tauriHandler";
 import { useLogger } from "@/app/_src/lib/logger";
+import { SongProviderResponse } from "@/models/content";
+import { TauriResponse } from "@/models/shared";
 
 enum State {
   LOADING,
@@ -41,7 +43,7 @@ export interface VoteState {
 }
 
 type VotePayload = {
-  songProviderId: string;
+  songProviderId: number;
   voteType: string;
   accessToken: string;
 }
@@ -51,7 +53,7 @@ export default function UpDownVotesView({
   votes,
   audioFile,
 }: {
-  songProviderId: string;
+  songProviderId: number;
   votes: SongProviderVote[];
   audioFile: AudioFile | null;
 }) {
@@ -132,9 +134,8 @@ export default function UpDownVotesView({
         voteType: type,
         accessToken: user.accessToken,
       };
-      const response = await invoke<SongBridgeResponse>(TAURI_CONTENT_SONG_BRIDGE_VOTE, payload);
-      log.debug(response.votes);
-      if (response.code === HTTPStatusCode.OK) {
+      const response = await invoke<SongProviderResponse>(TAURI_CONTENT_SONG_BRIDGE_VOTE, payload);
+      if (response.status === TauriResponse.SUCCESS) {
         setVoteState({
           aggregate: calculateVotes(response.votes),
           buttonUpStyle: buttonStyle(response.votes, VoteType.UP),
@@ -146,11 +147,11 @@ export default function UpDownVotesView({
         });
         setState(State.LOADED);
       } else {
-        console.log("error");
+        log.error("Error voting", response);
         setState(State.ERROR);
       }
     } catch (error) {
-      console.log(error);
+      log.error(error);
       setState(State.ERROR);
     }
   }
@@ -184,7 +185,7 @@ export default function UpDownVotesView({
   );
   const mainButton = (
     <ButtonGenerateBackingTracks
-      providerId={songProviderId}
+      songProviderId={songProviderId}
       audioFile={audioFile}
       aggregateVotes={voteState.aggregate}
     />

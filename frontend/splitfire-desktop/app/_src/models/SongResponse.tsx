@@ -10,7 +10,7 @@ export interface SongResponse {
 }
 
 export interface SongProvider {
-    id: string,
+    id: number,
     name: string,
     provider_id: string,
     provider_type: ProviderType,
