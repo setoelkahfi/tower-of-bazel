@@ -1,0 +1,30 @@
+
+name: Deploy Backend Musik88 Web
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  GIT_USER: ${{ secrets.GIT_USER }}
+  GIT_HOST: ${{ secrets.GIT_HOST_MUSIK88 }}
+  GIT_REPO: ${{ secrets.GIT_REPO_MUSIK88 }}
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_MUSIK88 }}
+  SSH_KNOWN_HOST: ${{ secrets.SSH_KNOWN_HOST_MUSIK88 }}
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Change to repo directory
+      run: cd backend/musik88-web
+    - name: Init git repo
+      run: |
+        git init
+        git remote add prod ${{ env.GIT_USER }}@${{ env.GIT_HOST }}:${{ secrets.GIT_REPO }}
+    - name: Install SSH key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ env.SSH_PRIVATE_KEY }}
+        known_hosts: ${{ env.SSH_KNOWN_HOST }}
+    - name: Push to deploy
+      run: git push prod
