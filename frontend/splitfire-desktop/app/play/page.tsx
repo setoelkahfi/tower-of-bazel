@@ -3,7 +3,7 @@
 import { invoke } from "@tauri-apps/api";
 import { useContext, useEffect, useState } from "react";
 import { TAURI_PLAYER_PREPARE } from "../_src/lib/tauriHandler";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useLogger } from "../_src/lib/logger";
 import { IconSpinner } from "../_ui/components/icons";
 import { PlayerPrepareResponse } from "@/models/content";
@@ -25,6 +25,7 @@ export default function Page() {
   const [state, setState] = useState(State.LOADING);
   const user = useContext(UserContext);
   const userId = user.user?.user.id;
+  const router = useRouter();
 
   useEffect(() => {
     log.debug("Play page loaded.");
@@ -55,7 +56,12 @@ export default function Page() {
   }, []);
 
   // Sanity check
-  if (!audioFileId || !userId) {
+  if (!userId) {
+    log.error("No user context");
+    return router.push("/login");
+  }
+
+  if (!audioFileId) {
     log.error("Missing audio file ID or user ID");
     return <div>Missing audio file ID</div>;
   }

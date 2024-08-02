@@ -23,6 +23,7 @@ pub const PATH_AUDIO: &str = "api/v1/splitfire";
 pub const PATH_ACCOUNT_LOGIN: &str = "api/v1/login";
 pub const PATH_ACCOUNT_REGISTER: &str = "api/v1/register";
 pub const PATH_ACCOUNT_LOGOUT: &str = "api/v1/logout";
+pub const PATH_ACCOUNT_PROFILE: &str = "api/v1/profile/{userId}";
 
 // Contents Paths
 pub const PATH_CAROUSEL: &str = "api/v1/carousel";

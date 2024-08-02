@@ -15,6 +15,10 @@ export const menus: { items: Item[] }[] = [
         name: 'Ready to Play!',
         slug: 'ready-to-play',
       },
+      {
+        name: 'Top voted',
+        slug: 'top-voted',
+      },
     ],
   },
 ];

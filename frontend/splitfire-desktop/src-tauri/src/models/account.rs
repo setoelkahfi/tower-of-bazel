@@ -45,3 +45,20 @@ pub struct RegisterResponse {
     pub message: String,
     pub user: Option<User>,
 }
+
+#[derive(Serialize)]
+#[derive(Debug)]
+pub struct AccountProfileResponse {
+  pub status: TauriResponse,
+  pub message: String,
+  pub access_token: Option<String>,
+  pub user: Option<User>,
+}
+
+#[derive(Serialize, Deserialize)]
+#[derive(Debug)]
+pub struct ProfileResponse {
+    pub code: i32,
+    pub message: String,
+    pub user: Option<User>
+}

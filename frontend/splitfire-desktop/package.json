@@ -40,7 +40,7 @@
     "react-scripts": "5.0.0",
     "react-textarea-autosize": "^8.5.3",
     "react-transition-group": "4.x",
-    "react-youtube": "^7.14.0",
+    "react-youtube": "^10.0.0",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "tone": "^14.7.77",

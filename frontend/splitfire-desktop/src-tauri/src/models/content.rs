@@ -53,7 +53,7 @@ pub struct SongBridgeResponse {
     pub message: String,
     pub error: Option<String>,
     pub song_provider: Option<SongProvider>,
-    pub votes: Vec<SongProviderVote>
+    pub votes: Option<Vec<SongProviderVote>>
 }
 
 #[derive(Serialize, Deserialize)]

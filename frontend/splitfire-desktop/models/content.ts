@@ -1,6 +1,7 @@
 import { SongProvider } from "@/app/_src/models/SongResponse";
 import { TauriResponse } from "./shared";
 
+// Need to be renamed into more generic name
 export interface ContentCarouselResponse {
     status: TauriResponse,
     message: string,

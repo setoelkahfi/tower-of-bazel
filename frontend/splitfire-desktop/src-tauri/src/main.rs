@@ -24,8 +24,8 @@ use app::{
         },
         content::{
             __cmd__content_carousel, __cmd__content_ready_to_play,
-            __cmd__content_song_bridge_detail, content_carousel, content_ready_to_play,
-            content_song_bridge_detail,
+            __cmd__content_song_bridge_detail, __cmd__content_top_voted, content_carousel,
+            content_ready_to_play, content_song_bridge_detail, content_top_voted,
         },
     },
     sfai_home_dir_path,
@@ -78,6 +78,7 @@ fn main() {
             content_carousel,
             content_ready_to_play,
             content_song_bridge_detail,
+            content_top_voted
         ])
         .run(tauri::generate_context!())
         .expect("Error while running tauri application.");
