@@ -23,7 +23,9 @@ jobs:
     - name: Push to deploy
       run: |
         cd backend/musik88-web
-        git init
         git config --global init.defaultBranch main
+        git init
+        git add .
+        git commit -m "Deploy to production"
         git remote add prod ${{ env.GIT_USER }}@${{ env.GIT_HOST }}:${{ secrets.GIT_REPO }}
         git push --set-upstream prod main
