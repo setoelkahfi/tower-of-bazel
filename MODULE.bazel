@@ -73,20 +73,14 @@ use_repo(maven, "maven")
 # Rules rust
 rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
 rust.toolchain(edition = "2021")
-use_repo(
-    rust,
-    "rust_toolchains",
-)
+use_repo(rust, "rust_toolchains")
 
 register_toolchains("@rust_toolchains//:all")
 
-crate = use_extension(
-    "@rules_rust//crate_universe:extension.bzl",
-    "crate",
-)
+crate = use_extension("@rules_rust//crate_universe:extension.bzl", "crate")
 crate.from_cargo(
     name = "rust_axum_crates",
     cargo_lockfile = "//backend/rust-axum:Cargo.lock",
     manifests = ["//backend/rust-axum:Cargo.toml"],
 )
-use_repo(crate, "crates")
+use_repo(crate, "rust_axum_crates")
