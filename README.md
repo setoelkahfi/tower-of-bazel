@@ -15,10 +15,11 @@ git lfs pull
 
 ## How to use
 
-Main folder structure is to follow backend / frontent convention. If you're new to Bazel, read [the documentation](https://bazel.build/docs). Otherwise, query all targets:
+Main folder structure is to follow backend / frontent convention. If you're new to Bazel, read [the documentation](https://bazel.build/docs). Otherwise, query all targets in a given platform:
 
 ```bash
-bazel query //...
+bazel query //backend/...
+bazel query //frontend/...
 ```
 
 ### Tauri
