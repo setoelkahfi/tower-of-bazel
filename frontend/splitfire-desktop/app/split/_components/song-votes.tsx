@@ -2,7 +2,7 @@
 
 import { SongProvider } from "@/app/_src/models/SongResponse";
 import { SongProviderVote } from "@/app/_src/models/SongVotesDetailResponse";
-import UpDownVotesView from "./votes-view";
+import VotesView from "./votes-view";
 import SongVotesImage from "./song-votes-image";
 
 export default function SongVotes({
@@ -15,7 +15,7 @@ export default function SongVotes({
   return (
     <>
       <h1 className="my-2">{songProvider.name}</h1>
-      <UpDownVotesView
+      <VotesView
         votes={votes}
         songProviderId={songProvider.id}
         audioFile={songProvider.audio_file}

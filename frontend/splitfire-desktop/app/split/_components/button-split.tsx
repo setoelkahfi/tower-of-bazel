@@ -27,7 +27,7 @@ export default function ButtonGenerateBackingTracks({
   audioFile: AudioFile | null;
   aggregateVotes: number;
 }) {
-  
+
   const [state, setState] = useState(State.LOADED);
   const { user } = useContext(UserContext);
   const [goToLogin, setGoToLogin] = useState(false);
@@ -117,7 +117,7 @@ export default function ButtonGenerateBackingTracks({
   }
 
   return (
-    <div className="mb-3 mt-3" title="Not enough votes to generate backing tracks...">
+    <div className="" title="Not enough votes to generate backing tracks...">
       <CountdownTimerIcon width={40} height={40} className="mb-3" color="red" />
     </div>
   );
