@@ -30,4 +30,4 @@ jobs:
         git add .
         git commit -m "Deploy to production"
         git remote add prod deploy@musik88.com:musik88-production
-        git push --set-upstream prod main
+        git push --set-upstream prod main --force
