@@ -1,3 +1,5 @@
+"tower of bazel"
+
 bazel_dep(name = "bazel_skylib", version = "1.7.1")
 bazel_dep(name = "rules_ruby", version = "0.12.1")
 bazel_dep(name = "rules_apple", version = "3.6.0", repo_name = "build_bazel_rules_apple")
@@ -7,6 +9,8 @@ bazel_dep(name = "rules_swift", version = "1.18.0", repo_name = "build_bazel_rul
 # Android
 bazel_dep(name = "platforms", version = "0.0.10")
 bazel_dep(name = "rules_jvm_external", version = "5.3")
+# Rust dependencies
+bazel_dep(name = "rules_rust", version = "0.49.1")
 
 ruby = use_extension("@rules_ruby//ruby:extensions.bzl", "ruby")
 ruby.toolchain(
@@ -65,3 +69,18 @@ maven.install(
     ],
 )
 use_repo(maven, "maven")
+
+# Rules rust
+rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
+rust.toolchain(edition = "2021")
+use_repo(rust, "rust_toolchains")
+
+register_toolchains("@rust_toolchains//:all")
+
+crate = use_extension("@rules_rust//crate_universe:extension.bzl", "crate")
+crate.from_cargo(
+    name = "rust_axum_crates",
+    cargo_lockfile = "//backend/rust-axum:Cargo.lock",
+    manifests = ["//backend/rust-axum:Cargo.toml"],
+)
+use_repo(crate, "rust_axum_crates")
