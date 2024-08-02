@@ -1,0 +1,21 @@
+load("@npm_splitfire//next:index.bzl", "next")
+
+next(
+    name = "next-build",
+    data = glob([
+        "app/**",
+        "public/**",
+    ]) + [
+        "tsconfig.json",
+        "tailwind.config.ts",
+        "next.config.mjs",
+        "postcss.config.mjs",
+    ],
+    templated_args = ["build"],
+)
+
+next(
+    name = "next-dev",
+    data = glob(["**"]),
+    templated_args = ["dev"],
+)

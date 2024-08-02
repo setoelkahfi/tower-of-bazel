@@ -84,3 +84,16 @@ kotlin_repositories(
 load("@io_bazel_rules_kotlin//kotlin:core.bzl", "kt_register_toolchains")
 
 kt_register_toolchains()
+
+
+#
+# Rulesets Splitfire
+#
+npm_install(
+    name = "npm_splitfire",
+    package_json = "//frontend/splitfire-web:package.json",
+    package_lock_json = "//frontend/splitfire-web:package-lock.json",
+    package_path = "frontend/splitfire-web/",
+    quiet = False,
+    symlink_node_modules = True,
+)
