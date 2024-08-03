@@ -6,7 +6,7 @@ import "./globals.css";
 import { useEffect, useState } from "react";
 import { CurrentUser, CurrentUserType, db } from "./_src/lib/db";
 import { UserContext } from "./_src/lib/CurrentUserContext";
-import { useLogger } from "./_src/lib/logger";
+import { useLogger } from "../lib/logger";
 
 enum State {
   LOADING,

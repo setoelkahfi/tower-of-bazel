@@ -3,7 +3,7 @@
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import { HomeIcon } from '@heroicons/react/solid';
-import { useLogger } from '../_src/lib/logger';
+import { useLogger } from '../../lib/logger';
 
 export function AddressBar() {
   const log = useLogger('AddressBar');

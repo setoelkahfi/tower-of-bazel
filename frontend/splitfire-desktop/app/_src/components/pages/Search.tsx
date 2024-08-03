@@ -4,7 +4,7 @@ import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import { SearchResponse, SearchAutocompleteResult } from "./Home";
 import { SearchResultView } from "./SearchResultView";
-import { useLogger } from "../../lib/logger";
+import { useLogger } from "../../../../lib/logger";
 
 enum State {
     IDLE,

@@ -10,7 +10,7 @@ import { Button } from "../_ui/components/button";
 import { useEffect, useState } from "react";
 import { LoadingView } from "../_src/components/templates/LoadingView";
 import { TauriResponse } from "@/models/shared";
-import { useLogger } from "../_src/lib/logger";
+import { useLogger } from "../../lib/logger";
 
 enum State {
   LOADING,

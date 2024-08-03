@@ -3,7 +3,7 @@ import User, { usernameOrId } from "../../models/user"
 import { Mode } from "../player/models/Mode"
 import { Button, Col, Form, Row, Spinner, Image } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import { useLogger } from "../../lib/logger"
+import { useLogger } from "../../../../lib/logger"
 
 
 interface ProfileViewProps {

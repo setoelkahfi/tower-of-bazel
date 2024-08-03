@@ -2,7 +2,7 @@
 
 import { useContext, useState } from "react";
 import { UserContext } from "../_src/lib/CurrentUserContext";
-import { useLogger } from "../_src/lib/logger";
+import { useLogger } from "../../lib/logger";
 import { CurrentUser, db } from "../_src/lib/db";
 import { invoke } from "@tauri-apps/api/tauri";
 import { TAURI_ACCOUNT_LOGOUT } from "../_src/lib/tauriHandler";

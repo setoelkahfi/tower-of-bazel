@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { SongResponse } from "../../../models/SongResponse";
 import SongViewItems from "./SongViewItems";
 import SongViewConnectProvider from "./SongViewConnectProvider";
-import { useLogger } from "../../../lib/logger";
+import { useLogger } from "../../../../../lib/logger";
 
 export interface Payload {
     reference_id: string

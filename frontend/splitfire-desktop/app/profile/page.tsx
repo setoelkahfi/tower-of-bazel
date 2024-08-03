@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../_src/lib/CurrentUserContext";
-import { useLogger } from "../_src/lib/logger";
+import { useLogger } from "../../lib/logger";
 import { usernameOrId } from "../_src/models/user";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";

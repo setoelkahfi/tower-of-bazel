@@ -29,7 +29,7 @@ import { Container, Spinner } from 'react-bootstrap';
 import { UserContext } from './lib/CurrentUserContext';
 import { PlayerAudio } from './components/player/Player';
 import { PlayerView } from './components/player/PlayerView';
-import { useLogger } from './lib/logger';
+import { useLogger } from '../../lib/logger';
 import { LoadingView } from './components/templates/LoadingView';
 
 let i18nConfig = {

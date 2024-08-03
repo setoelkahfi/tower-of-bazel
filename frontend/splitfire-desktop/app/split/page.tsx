@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useLogger } from "../_src/lib/logger";
+import { useLogger } from "../../lib/logger";
 import { useEffect, useState } from "react";
 import { invoke } from "@tauri-apps/api";
 import { TAURI_CONTENT_SONG_BRIDGE_DETAIL } from "../_src/lib/tauriHandler";

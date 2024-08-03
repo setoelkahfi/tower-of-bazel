@@ -5,7 +5,7 @@ import { useState } from "react";
 import * as Form from "@radix-ui/react-form";
 import { TAURI_ACCOUNT_REGISTER } from "../_src/lib/tauriHandler";
 import { Button } from "../_ui/components/button";
-import { useLogger } from "../_src/lib/logger";
+import { useLogger } from "../../lib/logger";
 import { AccountRegisterResponse } from "@/models/account";
 import { TauriResponse } from "@/models/shared";
 

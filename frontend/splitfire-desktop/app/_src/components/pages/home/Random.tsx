@@ -4,7 +4,7 @@ import { Button, Carousel, Col, Row, Spinner } from "react-bootstrap";
 import { FormattedMessage } from "react-intl";
 import { Link } from "react-router-dom";
 import { SongProvider } from "../../../models/SongResponse";
-import { useLogger } from "../../../lib/logger";
+import { useLogger } from "../../../../../lib/logger";
 import ErrorView from "../../templates/Error";
 
 enum State {

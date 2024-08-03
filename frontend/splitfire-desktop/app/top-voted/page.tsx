@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { TAURI_CONTENT_TOP_VOTED } from "../_src/lib/tauriHandler";
 import { SongProvider } from "../_src/models/SongResponse";
 import { SkeletonCard, SongProviderCard, SongProviderPath } from "../_ui/skeleton-card";
-import { useLogger } from "../_src/lib/logger";
+import { useLogger } from "../../lib/logger";
 
 export default function Page() {
   const log = useLogger("TOp votes");
