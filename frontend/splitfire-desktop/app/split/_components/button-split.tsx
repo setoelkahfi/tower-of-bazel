@@ -18,20 +18,20 @@ enum State {
   ERROR,
 }
 
-export default function ButtonGenerateBackingTracks(props: {
-  providerId: string;
+export default function ButtonGenerateBackingTracks({ 
+  songProviderId, 
+  audioFile, 
+  aggregateVotes
+}: {
+  songProviderId: number;
   audioFile: AudioFile | null;
   aggregateVotes: number;
 }) {
+
   const [state, setState] = useState(State.LOADED);
   const { user } = useContext(UserContext);
   const [goToLogin, setGoToLogin] = useState(false);
-  const [audioFile, setAudioFile] = useState<AudioFile | null>(null);
   const router = useRouter();
-
-  useState(() => {
-    setAudioFile(props.audioFile);
-  });
 
   const splitRequest = () => {
     if (!user || !user.accessToken) {
@@ -40,12 +40,12 @@ export default function ButtonGenerateBackingTracks(props: {
     }
 
     setState(State.LOADING);
-    requestSplitService(props.providerId, user.accessToken)
+    requestSplitService(songProviderId, user.accessToken)
       .then((res) => {
         console.log(res);
         const response: SplitResponse = res.data;
         if (response.code === HTTPStatusCode.OK) {
-          setAudioFile(response.audio_file);
+          audioFile = response.audio_file;
           setState(State.LOADED);
         } else {
           setState(State.ERROR);
@@ -67,7 +67,7 @@ export default function ButtonGenerateBackingTracks(props: {
     audioFile &&
     (audioFile.status === Status.SPLITTING ||
       audioFile.status === Status.DOWNLOADING);
-  const isReadyToSplit = props.aggregateVotes > splitTreshold;
+  const isReadyToSplit = aggregateVotes > splitTreshold;
 
   if (goToLogin) {
     router.push("/login");
@@ -117,7 +117,7 @@ export default function ButtonGenerateBackingTracks(props: {
   }
 
   return (
-    <div className="mb-3 mt-3" title="Not enough votes to generate backing tracks...">
+    <div className="" title="Not enough votes to generate backing tracks...">
       <CountdownTimerIcon width={40} height={40} className="mb-3" color="red" />
     </div>
   );

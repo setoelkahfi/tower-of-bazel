@@ -52,7 +52,8 @@
     "next-dev": "next dev -p 1420",
     "next-build": "next build",
     "tauri-dev": "tauri dev",
-    "tauri-build": "tauri build"
+    "tauri-build": "tauri build",
+    "lint": "next lint --fix"
   },
   "eslintConfig": {
     "extends": [

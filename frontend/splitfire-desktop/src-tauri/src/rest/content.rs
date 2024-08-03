@@ -5,8 +5,8 @@ use crate::{
     },
     models::{
         content::{
-            CarouselResponse, ContentCarouselResponse, ContentSongBridgeResponse,
-            SongBridgeResponse, VoteType,
+            CarouselResponse, ContentCarouselResponse, ContentSongProviderResponse,
+            SongProviderResponse, VoteType,
         },
         player::TauriResponse,
     },
@@ -91,7 +91,10 @@ pub async fn content_ready_to_play() -> ContentCarouselResponse {
 }
 
 #[tauri::command]
-pub async fn content_song_bridge_detail(song_provider_id: String) -> ContentSongBridgeResponse {
+pub async fn content_song_bridge_detail(song_provider_id: String) -> ContentSongProviderResponse {
+    // song_provider_id is a string because it is comes from a nextjs query parameter.
+    // When we get it from the server, it actually is a number.
+    // It is Rails id convention.
     debug!("Song provider id: {:?}", song_provider_id);
     let url =
         content_url_builder(PATH_SONG_BRIDGE_DETAIL).replace("{providerId}", &song_provider_id);
@@ -101,8 +104,8 @@ pub async fn content_song_bridge_detail(song_provider_id: String) -> ContentSong
         Ok(response) => response,
         Err(e) => {
             error!("Failed to get response: {:?}", e);
-            return ContentSongBridgeResponse {
-                code: TauriResponse::Error,
+            return ContentSongProviderResponse {
+                status: TauriResponse::Error,
                 message: e.to_string(),
                 song_provider: None,
                 votes: vec![],
@@ -110,12 +113,12 @@ pub async fn content_song_bridge_detail(song_provider_id: String) -> ContentSong
         }
     };
 
-    let res: SongBridgeResponse = match response.json().await {
+    let res: SongProviderResponse = match response.json().await {
         Ok(json) => json,
         Err(e) => {
             error!("Failed to parse response: {:?}", e);
-            return ContentSongBridgeResponse {
-                code: TauriResponse::Error,
+            return ContentSongProviderResponse {
+                status: TauriResponse::Error,
                 message: e.to_string(),
                 song_provider: None,
                 votes: vec![],
@@ -130,8 +133,8 @@ pub async fn content_song_bridge_detail(song_provider_id: String) -> ContentSong
         None => vec![],
     };
 
-    ContentSongBridgeResponse {
-        code: TauriResponse::Success,
+    ContentSongProviderResponse {
+        status: TauriResponse::Success,
         message: res.message,
         song_provider: res.song_provider,
         votes,
@@ -177,16 +180,19 @@ pub async fn content_top_voted() -> ContentCarouselResponse {
 
 #[tauri::command]
 pub async fn content_song_bridge_vote(
-    song_provider_id: String,
+    song_provider_id: i32,
     vote_type: VoteType,
     access_token: String,
-) -> ContentSongBridgeResponse {
+) -> ContentSongProviderResponse {
     debug!("Song provider id: {:?}", song_provider_id);
-    let url = content_url_builder(PATH_SONG_BRIDGE_VOTE).replace("{providerId}", &song_provider_id);
-    let body = json!({ "vote_type": vote_type, "provider_id": song_provider_id }).to_string();
+    let url = content_url_builder(PATH_SONG_BRIDGE_VOTE).replace("{providerId}", &song_provider_id.to_string());
+    let body = json!({
+        "vote_type": vote_type,
+        "provider_id": song_provider_id
+    });
     let response: Result<reqwest::Response, reqwest::Error> = Client::new()
         .post(url)
-        .body(body)
+        .json(&body)
         .header("Authorization", format!("Bearer {}", access_token))
         .send()
         .await;
@@ -195,8 +201,8 @@ pub async fn content_song_bridge_vote(
         Ok(response) => response,
         Err(e) => {
             error!("Failed to get response: {:?}", e);
-            return ContentSongBridgeResponse {
-                code: TauriResponse::Error,
+            return ContentSongProviderResponse {
+                status: TauriResponse::Error,
                 message: e.to_string(),
                 song_provider: None,
                 votes: vec![],
@@ -204,12 +210,12 @@ pub async fn content_song_bridge_vote(
         }
     };
 
-    let res: SongBridgeResponse = match response.json().await {
+    let res: SongProviderResponse = match response.json().await {
         Ok(json) => json,
         Err(e) => {
             error!("Failed to parse response: {:?}", e);
-            return ContentSongBridgeResponse {
-                code: TauriResponse::Error,
+            return ContentSongProviderResponse {
+                status: TauriResponse::Error,
                 message: e.to_string(),
                 song_provider: None,
                 votes: vec![],
@@ -224,8 +230,8 @@ pub async fn content_song_bridge_vote(
         None => vec![],
     };
 
-    ContentSongBridgeResponse {
-        code: TauriResponse::Success,
+    ContentSongProviderResponse {
+        status: TauriResponse::Success,
         message: res.message,
         song_provider: res.song_provider,
         votes,

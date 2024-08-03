@@ -1,8 +1,8 @@
 import { AudioFile } from "../components/player/models/AudioFile"
 import axios from "./axios"
 
-export default function requestSplitService(providerId: string, accessToken: string): Promise<any> {
-    return axios.post(`/split`, { provider_id: providerId },
+export default function requestSplitService(songProviderId: number, accessToken: string): Promise<any> {
+    return axios.post(`/split`, { provider_id: songProviderId },
     {
         headers: {
             'Content-Type': 'application/json',

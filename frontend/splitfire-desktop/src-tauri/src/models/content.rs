@@ -24,7 +24,7 @@ pub struct SongProvider {
   pub name: String,
   pub provider_id: String,
   pub provider_type: ProviderType,
-  pub image_url: String,
+  pub image_url: Option<String>,
   pub audio_file: Option<AudioFile>
 }
 
@@ -39,8 +39,8 @@ pub enum ProviderType {
 
 #[derive(Serialize)]
 #[derive(Debug)]
-pub struct ContentSongBridgeResponse {
-  pub code: TauriResponse,
+pub struct ContentSongProviderResponse {
+  pub status: TauriResponse,
   pub message: String,
   pub song_provider: Option<SongProvider>,
   pub votes: Vec<SongProviderVote>
@@ -48,7 +48,7 @@ pub struct ContentSongBridgeResponse {
 
 #[derive(Serialize, Deserialize)]
 #[derive(Debug)]
-pub struct SongBridgeResponse {
+pub struct SongProviderResponse {
     pub code: i32, // API response code
     pub message: String,
     pub error: Option<String>,
