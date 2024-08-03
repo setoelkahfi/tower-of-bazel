@@ -4,10 +4,9 @@ import {
   AudioFile,
   Status,
 } from "@/app/_src/components/player/models/AudioFile";
-import { UserContext } from "@/app/_src/lib/CurrentUserContext";
 import { SongProviderVote } from "@/app/_src/models/SongVotesDetailResponse";
 import { useRouter } from "next/navigation";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import ButtonGenerateBackingTracks from "./button-split";
 import MainVotesView, {  } from "./votes-view-main";
 import LetsPlayView from "./lets-play";
