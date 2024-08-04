@@ -32,7 +32,7 @@ export default function VotesView({
   if (goToPlayer) {
     log.debug("Go to player");
     router.push(`/play?audioFileId=${audioFile?.id}`);
-    return;
+    return <></>;
   }
 
   const onVotesAggregateUpdate = (votesAggregate: number) => {

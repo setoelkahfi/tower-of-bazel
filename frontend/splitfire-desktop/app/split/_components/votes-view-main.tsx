@@ -99,7 +99,7 @@ export default function MainVotesView(props: {
 
   if (goToLogin) {
     router.push("/login");
-    return;
+    return <></>;
   }
 
   return (

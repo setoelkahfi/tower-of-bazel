@@ -27,3 +27,10 @@ export interface SongProviderResponse {
     song_provider: SongProvider
     votes: SongProviderVote[]
 }
+
+export interface SongBridgeResponse {
+    status: TauriResponse,
+    message: string,
+    song_provider: SongProvider
+    votes: SongProviderVote[]
+}

@@ -51,7 +51,7 @@ export default function ButtonGenerateBackingTracks({
 
   if (goToLogin) {
     router.push("/login");
-    return;
+    return <></>;
   }
 
   if (state === State.LOADING) {

@@ -2,16 +2,16 @@
 
 import * as Form from "@radix-ui/react-form";
 import { invoke } from "@tauri-apps/api/tauri";
-import { TAURI_ACCOUNT_LOGIN } from "../../lib/tauriHandler";
-import { Button } from "../_ui/components/button";
+import { TAURI_ACCOUNT_LOGIN } from "@/lib/tauriHandler";
+import { Button } from "@/app/_ui/components/button";
 import { useState } from "react";
-import { UserContext } from "../../lib/CurrentUserContext";
+import { UserContext } from "@/lib/CurrentUserContext";
 import { CurrentUser, CurrentUserType, db } from "../../lib/db";
 import { AccountLoginResponse } from "@/models/account";
-import { Mode } from "../_src/components/player/models/Mode";
-import { LoadingView } from "../_src/components/templates/LoadingView";
 import { useRouter } from "next/navigation";
 import { TauriResponse } from "@/models/shared";
+import { Mode } from "@/models/mode";
+import { LoadingView } from "../_ui/LoadingView";
 
 enum State {
   LOADING,

@@ -1,11 +1,11 @@
 import Dexie, { Table } from "dexie";
-import { Mode, ModeDemucs } from "../app/_src/components/player/models/Mode";
 import User from "../models/user";
-import { AudioFile } from "../app/_src/components/player/models/AudioFile";
-import axios from "../app/_src/lib/axios";
-import { Result } from "../app/_src/components/player/models/Result";
+import axios from "@/lib/axios"; // Move to rust
 import { Logger } from "tslog";
-import isTauri from "../app/_src/lib/isTauri";
+import { AudioFile } from "@/models/audio-file";
+import { ModeDemucs } from "@/models/mode";
+import { Mode } from "fs";
+import { Result } from "@/models/result";
 
 // Legacy Spleeter result file
 export interface AudioFiles {
@@ -48,7 +48,7 @@ export class SplitfireDB extends Dexie {
 
   log = new Logger({
     name: "SplitfireDB",
-    type: isTauri() ? "json" : "pretty",
+    type: "json",
   });
 
   constructor() {

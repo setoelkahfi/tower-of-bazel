@@ -8,9 +8,9 @@ import {
 } from "../../lib/tauriHandler";
 import { Button } from "../_ui/components/button";
 import { useEffect, useState } from "react";
-import { LoadingView } from "../_src/components/templates/LoadingView";
 import { TauriResponse } from "@/models/shared";
 import { useLogger } from "../../lib/logger";
+import { LoadingView } from "../_ui/LoadingView";
 
 enum State {
   LOADING,
