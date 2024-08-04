@@ -1,19 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useLogger } from "../../lib/logger";
-import User, { usernameOrId } from "../_src/models/user";
+import { useContext, useEffect, useState } from "react";
+import { useLogger } from "@/lib/logger";
+import User, { usernameOrId } from "@/models/user";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { invoke } from "@tauri-apps/api";
-import { TAURI_ACCOUNT_PROFILE } from "../_src/lib/tauriHandler";
+import { TAURI_ACCOUNT_PROFILE } from "@/lib/tauriHandler";
 import { AccountProfileResponse } from "@/models/account";
 import { TauriResponse } from "@/models/shared";
 import { LocationMarkerIcon } from "@heroicons/react/solid";
 import { GearIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-
-export const PARAMS_USER_ID = "userId";
+import { PARAMS_USER_ID } from "@/app/_lib/params";
+import { UserContext } from "@/lib/CurrentUserContext";
 
 enum State {
   LOADING,
@@ -21,13 +21,15 @@ enum State {
   ERROR,
 }
 
-export default function Page({ loggedInUser }: { loggedInUser: User | null }) {
+export default function Page() {
   const log = useLogger("Profile/Page");
   const searchParams = useSearchParams();
   const userId = searchParams.get(PARAMS_USER_ID);
   const [isOwnProfile, setIsOwnProfile] = useState(false);
   const [userDisplayed, setUserDisplayed] = useState<User | null>(null);
   const [state, setState] = useState(State.LOADING);
+  const userContext = useContext(UserContext);
+  const loggedInUser = userContext.user?.user;
 
   useEffect(() => {
     log.debug("Profile page loaded.");

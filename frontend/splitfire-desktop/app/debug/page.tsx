@@ -5,7 +5,7 @@ import { invoke } from "@tauri-apps/api/tauri";
 import {
   TAURI_GET_ENVIRONMENT,
   TAURI_SET_ENVIRONMENT,
-} from "../_src/lib/tauriHandler";
+} from "../../lib/tauriHandler";
 import { Button } from "../_ui/components/button";
 import { useEffect, useState } from "react";
 import { LoadingView } from "../_src/components/templates/LoadingView";

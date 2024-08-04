@@ -1,8 +1,9 @@
-import { VoteType } from "@/app/_src/components/pages/song/components/UpDownVotes";
-import { SongProviderVote } from "@/app/_src/models/SongVotesDetailResponse";
-import { PARAMS_USER_ID } from "@/app/profile/page";
+
+import { SongProviderVote } from "@/models/SongVotesDetailResponse";
+import { PARAMS_USER_ID } from '@/app/_lib/params';
 import Image from "next/image";
 import Link from "next/link";
+import { VoteType } from "./votes-view-main";
 
 export function VoterGravatarsViews(props: {
   voters: SongProviderVote[];

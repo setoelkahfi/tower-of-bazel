@@ -1,7 +1,5 @@
 "use client";
 
-import { ModeDemucs } from "@/app/_src/components/player/models/Mode";
-import { PlayerState, PlayerVolume } from "@/app/_src/components/player/Player";
 import {
   TAURI_PLAYER_PAUSED,
   TAURI_PLAYER_PLAY,
@@ -11,13 +9,27 @@ import {
   TAURI_PLAYER_RESUMED,
   TAURI_PLAYER_SET_VOLUME,
   TAURI_PLAYER_STOP,
-} from "@/app/_src/lib/tauriHandler";
+} from "@/lib/tauriHandler";
 import { invoke } from "@tauri-apps/api";
 import { useState } from "react";
 import { ControlButtons } from "./control-button";
 import { AudioInfo } from "./audio-info";
 import { AudioInfoMiddle } from "./audio-info-middle";
 import { useLogger } from "@/lib/logger";
+import { ModeDemucs } from "@/models/mode";
+
+enum PlayerState {
+  STOPPED,
+  PLAYING,
+  PAUSED,
+  RECORDING
+}
+
+export interface PlayerVolume {
+  mode: ModeDemucs,
+  volume: string
+}
+
 
 export default function Player({
   audioId,

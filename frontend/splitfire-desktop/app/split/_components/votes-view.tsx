@@ -3,8 +3,8 @@
 import {
   AudioFile,
   Status,
-} from "@/app/_src/components/player/models/AudioFile";
-import { SongProviderVote } from "@/app/_src/models/SongVotesDetailResponse";
+} from "@/models/audio-file";
+import { SongProviderVote } from "@/models/SongVotesDetailResponse";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import ButtonGenerateBackingTracks from "./button-split";

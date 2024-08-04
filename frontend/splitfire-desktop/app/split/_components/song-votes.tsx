@@ -1,7 +1,7 @@
 "use client";
 
-import { SongProvider } from "@/app/_src/models/SongResponse";
-import { SongProviderVote } from "@/app/_src/models/SongVotesDetailResponse";
+import { SongProvider } from "@/models/SongResponse";
+import { SongProviderVote } from "@/models/SongVotesDetailResponse";
 import VotesView from "./votes-view";
 import SongVotesImage from "./song-votes-image";
 

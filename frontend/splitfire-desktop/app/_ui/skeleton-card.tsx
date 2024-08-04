@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { SongProvider } from "../_src/models/SongResponse";
+import { SongProvider } from "../../models/SongResponse";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 

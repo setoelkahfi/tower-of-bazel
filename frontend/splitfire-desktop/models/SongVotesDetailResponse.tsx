@@ -1,5 +1,10 @@
-import { VoteType } from "../components/pages/song/components/UpDownVotes"
 import { SongProvider } from "./SongResponse"
+
+
+export enum VoteType {
+    UP = 'up',
+    DOWN = 'down'
+  }
 
 export default interface SongVotesDetailResponse {
     code: string

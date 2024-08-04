@@ -4,8 +4,8 @@ import { AddressBar } from "./_ui/address-bar";
 import { GlobalNav } from "./_ui/global-nav";
 import "./globals.css";
 import { useEffect, useState } from "react";
-import { CurrentUser, CurrentUserType, db } from "./_src/lib/db";
-import { UserContext } from "./_src/lib/CurrentUserContext";
+import { CurrentUser, CurrentUserType, db } from "../lib/db";
+import { UserContext } from "../lib/CurrentUserContext";
 import { useLogger } from "../lib/logger";
 
 enum State {

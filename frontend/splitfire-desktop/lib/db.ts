@@ -1,11 +1,11 @@
 import Dexie, { Table } from "dexie";
-import { Mode, ModeDemucs } from "../components/player/models/Mode";
+import { Mode, ModeDemucs } from "../app/_src/components/player/models/Mode";
 import User from "../models/user";
-import { AudioFile } from "../components/player/models/AudioFile";
-import axios from "./axios";
-import { Result } from "../components/player/models/Result";
+import { AudioFile } from "../app/_src/components/player/models/AudioFile";
+import axios from "../app/_src/lib/axios";
+import { Result } from "../app/_src/components/player/models/Result";
 import { Logger } from "tslog";
-import isTauri from "./isTauri";
+import isTauri from "../app/_src/lib/isTauri";
 
 // Legacy Spleeter result file
 export interface AudioFiles {

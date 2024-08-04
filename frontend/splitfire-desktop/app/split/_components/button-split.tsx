@@ -1,12 +1,5 @@
-import { HTTPStatusCode } from "@/app/_src/components/pages/esef/SplitFireView";
-import {
-  AudioFile,
-  Status,
-} from "@/app/_src/components/player/models/AudioFile";
-import { UserContext } from "@/app/_src/lib/CurrentUserContext";
-import requestSplitService, {
-  SplitResponse,
-} from "@/app/_src/lib/requestSplitService";
+import { UserContext } from "@/lib/CurrentUserContext";
+import { AudioFile, Status } from "@/models/audio-file";
 import { CountdownTimerIcon, LapTimerIcon, RocketIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
@@ -40,21 +33,8 @@ export default function ButtonGenerateBackingTracks({
     }
 
     setState(State.LOADING);
-    requestSplitService(songProviderId, user.accessToken)
-      .then((res) => {
-        console.log(res);
-        const response: SplitResponse = res.data;
-        if (response.code === HTTPStatusCode.OK) {
-          audioFile = response.audio_file;
-          setState(State.LOADED);
-        } else {
-          setState(State.ERROR);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        setState(State.ERROR);
-      });
+    // Split request logic here.
+
   };
 
   // Default to production value.

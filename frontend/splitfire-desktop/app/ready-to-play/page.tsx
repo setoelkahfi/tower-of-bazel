@@ -3,9 +3,9 @@
 import { ContentCarouselResponse } from "@/models/content";
 import { invoke } from "@tauri-apps/api";
 import { useEffect, useState } from "react";
-import { TAURI_CONTENT_READY_TO_PLAY } from "../_src/lib/tauriHandler";
+import { TAURI_CONTENT_READY_TO_PLAY } from "../../lib/tauriHandler";
 import { SkeletonCard, SongProviderCard, SongProviderPath } from "../_ui/skeleton-card";
-import { SongProvider } from "../_src/models/SongResponse";
+import { SongProvider } from "../../models/SongResponse";
 
 export default function Page() {
   const [songProviders, setSongProviders] = useState<SongProvider[]>([]);

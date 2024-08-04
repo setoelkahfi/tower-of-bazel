@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import { SkeletonCard, SongProviderCard, SongProviderPath } from "./_ui/skeleton-card";
 import { invoke } from "@tauri-apps/api";
-import { TAURI_CONTENT_CAROUSEL } from "./_src/lib/tauriHandler";
+import { TAURI_CONTENT_CAROUSEL } from "../lib/tauriHandler";
 import { ContentCarouselResponse } from "@/models/content";
-import { SongProvider } from "./_src/models/SongResponse";
+import { SongProvider } from "../models/SongResponse";
 
 export default function Page() {
 

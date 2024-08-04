@@ -7,9 +7,9 @@ import { MenuAlt2Icon, XIcon } from '@heroicons/react/solid';
 import clsx from 'clsx';
 import { useContext, useState } from 'react';
 import Image from 'next/image';
-import { UserContext } from '../_src/lib/CurrentUserContext';
+import { UserContext } from '../../lib/CurrentUserContext';
 import { useLogger } from '@/lib/logger';
-import { PARAMS_USER_ID } from '../profile/page';
+import { PARAMS_USER_ID } from '@/app/_lib/params';
 
 export function GlobalNav() {
 

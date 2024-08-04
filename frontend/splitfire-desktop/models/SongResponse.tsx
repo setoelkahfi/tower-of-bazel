@@ -1,4 +1,4 @@
-import { AudioFile } from "../components/player/models/AudioFile"
+import { AudioFile } from "./audio-file"
 
 export interface SongResponse {
     code: number,

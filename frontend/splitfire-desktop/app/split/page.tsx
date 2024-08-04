@@ -4,10 +4,10 @@ import { useSearchParams } from "next/navigation";
 import { useLogger } from "../../lib/logger";
 import { useEffect, useState } from "react";
 import { invoke } from "@tauri-apps/api";
-import { TAURI_CONTENT_SONG_BRIDGE_DETAIL } from "../_src/lib/tauriHandler";
-import { SongProvider } from "../_src/models/SongResponse";
+import { TAURI_CONTENT_SONG_BRIDGE_DETAIL } from "../../lib/tauriHandler";
+import { SongProvider } from "../../models/SongResponse";
 import { SongBridgeResponse } from "../_src/components/pages/esef/SplitFireView";
-import { SongProviderVote } from "../_src/models/SongVotesDetailResponse";
+import { SongProviderVote } from "../../models/SongVotesDetailResponse";
 import SongVotes from "./_components/song-votes";
 
 export default function Page() {
