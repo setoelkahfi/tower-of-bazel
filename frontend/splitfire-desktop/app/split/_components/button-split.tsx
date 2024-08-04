@@ -67,7 +67,7 @@ export default function ButtonGenerateBackingTracks({
   if (isDoneSplitting) {
     return (
       <div className="mb-3 mt-3">
-        <h1 className="">Let's Play!</h1>
+        <h1 className="">Let&apos;s Play!</h1>
       </div>
     );
   } else if (isCurrentlySplitting) {

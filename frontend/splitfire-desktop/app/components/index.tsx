@@ -6,11 +6,10 @@ import { SongProvider } from "@/models/song-response";
 import { invoke } from "@tauri-apps/api";
 import { useState, useEffect } from "react";
 import {
-  SkeletonCard,
-  SongProviderCard,
-  SongProviderPath,
-} from "../_ui/skeleton-card";
+  SkeletonCard
+} from "../../_ui/skeleton-card";
 import { useLogger } from "@/lib/logger";
+import { SongProviderCard, SongProviderPath } from "../../_ui/song-provider-card";
 
 export default function Index() {
 

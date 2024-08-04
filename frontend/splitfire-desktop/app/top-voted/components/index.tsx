@@ -1,6 +1,6 @@
 "use client";
 
-import { SkeletonCard, SongProviderCard, SongProviderPath } from "@/app/_ui/skeleton-card";
+import { SkeletonCard } from "@/_ui/skeleton-card";
 import { useLogger } from "@/lib/logger";
 import { TAURI_CONTENT_TOP_VOTED } from "@/lib/tauri-handler";
 import { ContentCarouselResponse } from "@/models/content";
@@ -34,9 +34,6 @@ export default function Index() {
       <div className="grid grid-cols-3 gap-6">
         { songProviders.length === 0 && Array.from({ length: 6 }).map((_, i) => (
           <SkeletonCard key={i} isLoading={true} />
-        ))}
-        { songProviders.length > 0 && songProviders.map((SongProvider, i) => (
-          <SongProviderCard key={i} songProvider={SongProvider} path={SongProviderPath.SPLIT} />
         ))}
       </div>
     </div>

@@ -7,7 +7,7 @@ import { TauriResponse } from "@/models/shared";
 import { invoke } from "@tauri-apps/api";
 import { useState } from "react";
 import * as Form from "@radix-ui/react-form";
-import { Button } from "@/app/_ui/components/button";
+import { Button } from "@/_ui/components/button";
 
 type SignupFormPayload = {
   name: string,

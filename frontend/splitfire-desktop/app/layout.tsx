@@ -1,9 +1,9 @@
 "use client";
 
-import { AddressBar } from "./_ui/address-bar";
-import { GlobalNav } from "./_ui/global-nav";
+import { AddressBar } from "../_ui/address-bar";
+import { GlobalNav } from "../_ui/global-nav";
 import "./globals.css";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { CurrentUser, CurrentUserType, db } from "../lib/db";
 import { UserContext } from "../lib/current-user-context";
 import { useLogger } from "../lib/logger";
@@ -72,6 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="[color-scheme:dark]">
       <body className="bg-gray-1100 overflow-none bg-[url('/grid.svg')] pb-36">
+      <Suspense>
         <UserContext.Provider value={{ user, updateUser }}>
           <GlobalNav />
           <div className="lg:pl-72">
@@ -89,6 +90,7 @@ export default function RootLayout({
             </div>
           </div>
         </UserContext.Provider>
+        </Suspense>
       </body>
     </html>
   );
