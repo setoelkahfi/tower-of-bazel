@@ -1,6 +1,6 @@
 "use client";
 
-import { TAURI_CONTENT_CAROUSEL } from "@/lib/tauriHandler";
+import { TAURI_CONTENT_CAROUSEL } from "@/lib/tauri-handler";
 import { ContentCarouselResponse } from "@/models/content";
 import { SongProvider } from "@/models/song-response";
 import { invoke } from "@tauri-apps/api";

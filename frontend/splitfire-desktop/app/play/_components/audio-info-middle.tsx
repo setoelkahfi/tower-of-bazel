@@ -1,4 +1,4 @@
-import { useCountDown } from "@/lib/useCountDown";
+import { useCountDown } from "@/lib/use-count-down";
 import { useLogger } from "@/lib/logger";
 import { useEffect } from "react";
 

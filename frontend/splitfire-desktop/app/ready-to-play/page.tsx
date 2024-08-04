@@ -3,7 +3,7 @@
 import { ContentCarouselResponse } from "@/models/content";
 import { invoke } from "@tauri-apps/api";
 import { useEffect, useState } from "react";
-import { TAURI_CONTENT_READY_TO_PLAY } from "../../lib/tauriHandler";
+import { TAURI_CONTENT_READY_TO_PLAY } from "../../lib/tauri-handler";
 import { SkeletonCard, SongProviderCard, SongProviderPath } from "../_ui/skeleton-card";
 import { SongProvider } from "../../models/song-response";
 

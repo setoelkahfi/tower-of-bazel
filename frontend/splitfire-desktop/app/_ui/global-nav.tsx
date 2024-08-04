@@ -7,7 +7,7 @@ import { MenuAlt2Icon, XIcon } from '@heroicons/react/solid';
 import clsx from 'clsx';
 import { useContext, useState } from 'react';
 import Image from 'next/image';
-import { UserContext } from '../../lib/CurrentUserContext';
+import { UserContext } from '../../lib/current-user-context';
 import { useLogger } from '@/lib/logger';
 import { PARAMS_USER_ID } from '@/app/_lib/params';
 

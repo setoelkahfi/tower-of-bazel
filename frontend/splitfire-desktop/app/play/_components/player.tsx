@@ -9,7 +9,7 @@ import {
   TAURI_PLAYER_RESUMED,
   TAURI_PLAYER_SET_VOLUME,
   TAURI_PLAYER_STOP,
-} from "@/lib/tauriHandler";
+} from "@/lib/tauri-handler";
 import { invoke } from "@tauri-apps/api";
 import { useState } from "react";
 import { ControlButtons } from "./control-button";

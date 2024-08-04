@@ -4,13 +4,13 @@ import {
   AudioFile,
   Status,
 } from "@/models/audio-file";
-import { SongProviderVote } from "@/models/SongVotesDetailResponse";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import ButtonGenerateBackingTracks from "./button-split";
 import MainVotesView, {  } from "./votes-view-main";
 import LetsPlayView from "./lets-play";
 import { useLogger } from "@/lib/logger";
+import { SongProviderVote } from "@/models/song-votes-detail-response";
 
 export default function VotesView({
   songProviderId,

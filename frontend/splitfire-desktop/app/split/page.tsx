@@ -4,11 +4,11 @@ import { useSearchParams } from "next/navigation";
 import { useLogger } from "@/lib/logger";
 import { useEffect, useState } from "react";
 import { invoke } from "@tauri-apps/api";
-import { TAURI_CONTENT_SONG_BRIDGE_DETAIL } from "@/lib/tauriHandler";
+import { TAURI_CONTENT_SONG_BRIDGE_DETAIL } from "@/lib/tauri-handler";
 import { SongProvider } from "@/models/song-response";
-import { SongProviderVote } from "@/models/SongVotesDetailResponse";
 import SongVotes from "./_components/song-votes";
 import { SongBridgeResponse } from "@/models/content";
+import { SongProviderVote } from "@/models/song-votes-detail-response";
 
 export default function Page() {
   const log = useLogger("Play");

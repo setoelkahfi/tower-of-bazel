@@ -2,7 +2,7 @@
 
 import { SkeletonCard, SongProviderCard, SongProviderPath } from "@/app/_ui/skeleton-card";
 import { useLogger } from "@/lib/logger";
-import { TAURI_CONTENT_TOP_VOTED } from "@/lib/tauriHandler";
+import { TAURI_CONTENT_TOP_VOTED } from "@/lib/tauri-handler";
 import { ContentCarouselResponse } from "@/models/content";
 import { SongProvider } from "@/models/song-response";
 import { invoke } from "@tauri-apps/api";

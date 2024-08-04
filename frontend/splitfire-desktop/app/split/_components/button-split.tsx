@@ -1,4 +1,4 @@
-import { UserContext } from "@/lib/CurrentUserContext";
+import { UserContext } from "@/lib/current-user-context";
 import { AudioFile, Status } from "@/models/audio-file";
 import { CountdownTimerIcon, LapTimerIcon, RocketIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";

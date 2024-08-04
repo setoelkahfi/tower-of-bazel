@@ -5,7 +5,7 @@ import { GlobalNav } from "./_ui/global-nav";
 import "./globals.css";
 import { useEffect, useState } from "react";
 import { CurrentUser, CurrentUserType, db } from "../lib/db";
-import { UserContext } from "../lib/CurrentUserContext";
+import { UserContext } from "../lib/current-user-context";
 import { useLogger } from "../lib/logger";
 
 enum State {

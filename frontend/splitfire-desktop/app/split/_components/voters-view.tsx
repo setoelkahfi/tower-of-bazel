@@ -1,9 +1,10 @@
+"use client";
 
-import { SongProviderVote } from "@/models/SongVotesDetailResponse";
 import { PARAMS_USER_ID } from '@/app/_lib/params';
 import Image from "next/image";
 import Link from "next/link";
 import { VoteType } from "./votes-view-main";
+import { SongProviderVote } from '@/models/song-votes-detail-response';
 
 export function VoterGravatarsViews(props: {
   voters: SongProviderVote[];

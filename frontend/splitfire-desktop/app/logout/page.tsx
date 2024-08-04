@@ -1,11 +1,11 @@
 "use client";
 
 import { useContext, useState } from "react";
-import { UserContext } from "../../lib/CurrentUserContext";
+import { UserContext } from "../../lib/current-user-context";
 import { useLogger } from "../../lib/logger";
 import { CurrentUser, db } from "../../lib/db";
 import { invoke } from "@tauri-apps/api/tauri";
-import { TAURI_ACCOUNT_LOGOUT } from "../../lib/tauriHandler";
+import { TAURI_ACCOUNT_LOGOUT } from "../../lib/tauri-handler";
 import { useRouter } from "next/navigation";
 import { Button } from "../_ui/components/button";
 

@@ -1,6 +1,6 @@
 import { SongProvider } from "@/models/song-response";
 import { TauriResponse } from "./shared";
-import { SongProviderVote } from "@/models/SongVotesDetailResponse";
+import { SongProviderVote } from "./song-votes-detail-response";
 
 // Need to be renamed into more generic name
 export interface ContentCarouselResponse {
