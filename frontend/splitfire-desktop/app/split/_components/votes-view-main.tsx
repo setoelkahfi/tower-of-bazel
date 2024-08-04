@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { CurrentUser } from "@/lib/db";
 import { useLogger } from "@/lib/logger";
 import { SongProviderVote } from "@/models/song-votes-detail-response";
-import { LoadingView } from "@/components/ui/LoadingView";
+import { LoadingView } from "@/components/ui/loading-view";
 
 export enum VoteType {
   UP = "up",
