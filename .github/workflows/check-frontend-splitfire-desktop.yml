@@ -1,0 +1,16 @@
+name: Checks
+on:
+  push:
+jobs:
+  check-next-build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: setup node
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: frontend/splitfire-desktop/.nvmrc
+    - name: Check frontend build
+      run: |
+        npm install
+        npm run next-build
