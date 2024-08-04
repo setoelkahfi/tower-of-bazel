@@ -1,7 +1,7 @@
 "use client";
 
 import { ContentCarouselResponse } from "@/models/content";
-import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api/tauri";
 import { useEffect, useState } from "react";
 import { TAURI_CONTENT_READY_TO_PLAY } from "@/lib/tauri-handler";
 import { SkeletonCard } from "@/components/ui/skeleton-card";

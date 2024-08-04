@@ -3,7 +3,7 @@
 import { TAURI_CONTENT_CAROUSEL } from "@/lib/tauri-handler";
 import { ContentCarouselResponse } from "@/models/content";
 import { SongProvider } from "@/models/song-response";
-import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api/tauri";
 import { useState, useEffect } from "react";
 import {
   SkeletonCard

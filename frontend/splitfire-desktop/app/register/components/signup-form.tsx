@@ -4,7 +4,7 @@ import { useLogger } from "@/lib/logger";
 import { TAURI_ACCOUNT_REGISTER } from "@/lib/tauri-handler";
 import { AccountRegisterResponse } from "@/models/account";
 import { TauriResponse } from "@/models/shared";
-import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api/tauri";
 import { useState } from "react";
 import * as Form from "@radix-ui/react-form";
 import { Button } from "@/components/button";

@@ -5,7 +5,7 @@ import { useLogger } from "@/lib/logger";
 import User, { usernameOrId } from "@/models/user";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
-import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api/tauri";
 import { TAURI_ACCOUNT_PROFILE } from "@/lib/tauri-handler";
 import { AccountProfileResponse } from "@/models/account";
 import { TauriResponse } from "@/models/shared";

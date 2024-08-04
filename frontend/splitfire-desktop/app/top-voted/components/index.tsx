@@ -6,7 +6,7 @@ import { useLogger } from "@/lib/logger";
 import { TAURI_CONTENT_TOP_VOTED } from "@/lib/tauri-handler";
 import { ContentCarouselResponse } from "@/models/content";
 import { SongProvider } from "@/models/song-response";
-import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api/tauri";
 import { useState, useEffect } from "react";
 
 export function Index() {
