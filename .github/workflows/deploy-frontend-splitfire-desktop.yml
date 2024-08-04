@@ -1,6 +1,8 @@
 name: Deploy Frontend Splitfire Desktop
 on:
   push:
+    branches:
+      - splitfire/release/splitfire-desktop
   workflow_dispatch:
 jobs:
   publish:
@@ -21,7 +23,7 @@ jobs:
         with:
           node-version-file: frontend/splitfire-desktop/.nvmrc
 
-      - name: Install Rust stable
+      - name: Setup Rust toolchain
         uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: 1.77.0
