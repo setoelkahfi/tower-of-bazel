@@ -168,7 +168,7 @@ pub async fn account_profile(user_id: String) -> AccountProfileResponse {
     // Get profile
     let url = account_url_builder(PATH_ACCOUNT_PROFILE).replace("{userId}", &user_id);
     let response = Client::new()
-        .get(account_url_builder(&url))
+        .get(&url)
         .send()
         .await;
 

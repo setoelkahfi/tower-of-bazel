@@ -10,7 +10,7 @@ import { useState } from "react";
 import ButtonGenerateBackingTracks from "./button-split";
 import MainVotesView, {  } from "./votes-view-main";
 import LetsPlayView from "./lets-play";
-import { useLogger } from "@/app/_src/lib/logger";
+import { useLogger } from "@/lib/logger";
 
 export default function VotesView({
   songProviderId,

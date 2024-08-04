@@ -8,6 +8,8 @@ import clsx from 'clsx';
 import { useContext, useState } from 'react';
 import Image from 'next/image';
 import { UserContext } from '../_src/lib/CurrentUserContext';
+import { useLogger } from '@/lib/logger';
+import { PARAMS_USER_ID } from '../profile/page';
 
 export function GlobalNav() {
 
@@ -94,9 +96,18 @@ function LoggedOutNav() {
 }
 
 function LoggedInNav() {
+  const log = useLogger('LoggedInNav');
+  const currentUser = useContext(UserContext);
+  const user = currentUser?.user?.user;
+  // Sanity check
+  if (!user) {
+    log.error('No user context');
+    return null;
+  }
+
   return (
     <div className="space-y-1">
-      <GlobalNavItem item={{ name: 'Profile', slug: 'profile' }} close={() => {}} />
+      <GlobalNavItem item={{ name: 'Profile', slug: `profile?${PARAMS_USER_ID}=${user.id}` }} close={() => {}} />
       <GlobalNavItem item={{ name: 'Logout', slug: 'logout' }} close={() => {}} />
     </div>
   );

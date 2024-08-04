@@ -2,7 +2,6 @@
 
 import { ModeDemucs } from "@/app/_src/components/player/models/Mode";
 import { PlayerState, PlayerVolume } from "@/app/_src/components/player/Player";
-import { useLogger } from "@/app/_src/lib/logger";
 import {
   TAURI_PLAYER_PAUSED,
   TAURI_PLAYER_PLAY,
@@ -18,6 +17,7 @@ import { useState } from "react";
 import { ControlButtons } from "./control-button";
 import { AudioInfo } from "./audio-info";
 import { AudioInfoMiddle } from "./audio-info-middle";
+import { useLogger } from "@/lib/logger";
 
 export default function Player({
   audioId,

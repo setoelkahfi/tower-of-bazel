@@ -6,11 +6,11 @@ import { TAURI_CONTENT_SONG_BRIDGE_VOTE } from "@/app/_src/lib/tauriHandler";
 import { SongProviderVote } from "@/app/_src/models/SongVotesDetailResponse";
 import { TauriResponse } from "@/models/shared";
 import { invoke } from "@tauri-apps/api";
-import { useLogger } from "@/app/_src/lib/logger";
 import { UserContext } from "@/app/_src/lib/CurrentUserContext";
 import { useRouter } from "next/navigation";
 import { CurrentUser } from "@/app/_src/lib/db";
 import { Spinner } from "react-bootstrap";
+import { useLogger } from "@/lib/logger";
 
 export enum VoteType {
   UP = "up",
