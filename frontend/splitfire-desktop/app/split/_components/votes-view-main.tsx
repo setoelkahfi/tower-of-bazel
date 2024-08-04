@@ -4,7 +4,7 @@ import { SongProviderResponse } from "@/models/content";
 import { CSSProperties, useContext, useState } from "react";
 import { TAURI_CONTENT_SONG_BRIDGE_VOTE } from "@/lib/tauri-handler";
 import { TauriResponse } from "@/models/shared";
-import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api/tauri";
 import { UserContext } from "@//lib/current-user-context";
 import { useRouter } from "next/navigation";
 import { CurrentUser } from "@/lib/db";

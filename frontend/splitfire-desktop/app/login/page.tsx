@@ -3,7 +3,6 @@
 import * as Form from "@radix-ui/react-form";
 import { invoke } from "@tauri-apps/api/tauri";
 import { TAURI_ACCOUNT_LOGIN } from "@/lib/tauri-handler";
-import { Button } from "@/_ui/components/button";
 import { useState } from "react";
 import { UserContext } from "@/lib/current-user-context";
 import { CurrentUser, CurrentUserType, db } from "@/lib/db";
@@ -11,8 +10,9 @@ import { AccountLoginResponse } from "@/models/account";
 import { useRouter } from "next/navigation";
 import { TauriResponse } from "@/models/shared";
 import { Mode } from "@/models/mode";
-import { LoadingView } from "@/_ui/LoadingView";
+import { LoadingView } from "@/components/ui/LoadingView";
 import { useLogger } from "@/lib/logger";
+import { Button } from "@/components/button";
 
 enum State {
   LOADING,

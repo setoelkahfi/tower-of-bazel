@@ -5,14 +5,14 @@ import { useLogger } from "@/lib/logger";
 import User, { usernameOrId } from "@/models/user";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
-import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api/tauri";
 import { TAURI_ACCOUNT_PROFILE } from "@/lib/tauri-handler";
 import { AccountProfileResponse } from "@/models/account";
 import { TauriResponse } from "@/models/shared";
 import { LocationMarkerIcon } from "@heroicons/react/solid";
 import { GearIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { PARAMS_USER_ID } from "@/_lib/params";
+import { PARAMS_USER_ID } from "@/lib/params";
 import { UserContext } from "@/lib/current-user-context";
 
 enum State {

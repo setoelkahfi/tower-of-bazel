@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useLogger } from "@/lib/logger";
 import { useEffect, useState } from "react";
-import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api/tauri";
 import { TAURI_CONTENT_SONG_BRIDGE_DETAIL } from "@/lib/tauri-handler";
 import { SongProvider } from "@/models/song-response";
 import SongVotes from "./_components/song-votes";

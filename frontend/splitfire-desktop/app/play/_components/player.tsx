@@ -10,7 +10,7 @@ import {
   TAURI_PLAYER_SET_VOLUME,
   TAURI_PLAYER_STOP,
 } from "@/lib/tauri-handler";
-import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api/tauri";
 import { useState } from "react";
 import { ControlButtons } from "./control-button";
 import { AudioInfo } from "./audio-info";

@@ -1,11 +1,11 @@
 "use client";
 
-import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api/tauri";
 import { useContext, useEffect, useState } from "react";
 import { TAURI_PLAYER_PREPARE } from "../../lib/tauri-handler";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useLogger } from "../../lib/logger";
-import { IconSpinner } from "../../_ui/components/icons";
+import { useLogger } from "@/lib/logger";
+import { IconSpinner } from "../../components/icons";
 import { PlayerPrepareResponse } from "@/models/content";
 import { TauriResponse } from "@/models/shared";
 import Player from "./_components/player";
