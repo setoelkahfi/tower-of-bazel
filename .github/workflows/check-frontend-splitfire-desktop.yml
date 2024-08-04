@@ -1,4 +1,4 @@
-name: Checks
+name: Checks Frontend Splitfire Desktop
 on:
   push:
 jobs:
@@ -12,5 +12,6 @@ jobs:
         node-version-file: frontend/splitfire-desktop/.nvmrc
     - name: Check frontend build
       run: |
+        cd frontend/splitfire-desktop
         npm install
         npm run next-build
