@@ -1,4 +1,4 @@
-import { SongProvider } from "@/models/SongResponse";
+import { SongProvider } from "@/models/song-response";
 import { TauriResponse } from "./shared";
 import { SongProviderVote } from "@/models/SongVotesDetailResponse";
 

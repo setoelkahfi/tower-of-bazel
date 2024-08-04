@@ -5,7 +5,7 @@ import { useLogger } from "@/lib/logger";
 import { useEffect, useState } from "react";
 import { invoke } from "@tauri-apps/api";
 import { TAURI_CONTENT_SONG_BRIDGE_DETAIL } from "@/lib/tauriHandler";
-import { SongProvider } from "@/models/SongResponse";
+import { SongProvider } from "@/models/song-response";
 import { SongProviderVote } from "@/models/SongVotesDetailResponse";
 import SongVotes from "./_components/song-votes";
 import { SongBridgeResponse } from "@/models/content";

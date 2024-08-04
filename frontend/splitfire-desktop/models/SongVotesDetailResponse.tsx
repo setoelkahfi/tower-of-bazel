@@ -1,4 +1,4 @@
-import { SongProvider } from "./SongResponse"
+import { SongProvider } from "./song-response"
 
 
 export enum VoteType {
