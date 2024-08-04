@@ -16,7 +16,7 @@ export function VoterGravatarsViews(props: {
       <div className="flex -space-x-2 overflow-hidden">
         {props.voters.map((x, i) => {
           return (
-            <Link href={`/profile?${PARAMS_USER_ID}=@${x.user_id}`} key={i}>
+            <Link href={`/profile?${PARAMS_USER_ID}=${x.user_id}`} key={i}>
               <Image
                 src={x.voter_gravatar}
                 width={24}
