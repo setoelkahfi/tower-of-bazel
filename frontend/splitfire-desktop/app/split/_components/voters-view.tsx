@@ -1,6 +1,6 @@
 "use client";
 
-import { PARAMS_USER_ID } from '@/_lib/params';
+import { PARAMS_USER_ID } from '@/lib/params';
 import Image from "next/image";
 import Link from "next/link";
 import { VoteType } from "./votes-view-main";

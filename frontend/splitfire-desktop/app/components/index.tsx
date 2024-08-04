@@ -7,9 +7,9 @@ import { invoke } from "@tauri-apps/api";
 import { useState, useEffect } from "react";
 import {
   SkeletonCard
-} from "../../_ui/skeleton-card";
+} from "../../components/ui/skeleton-card";
 import { useLogger } from "@/lib/logger";
-import { SongProviderCard, SongProviderPath } from "../../_ui/song-provider-card";
+import { SongProviderCard, SongProviderPath } from "../../components/ui/song-provider-card";
 
 export default function Index() {
 

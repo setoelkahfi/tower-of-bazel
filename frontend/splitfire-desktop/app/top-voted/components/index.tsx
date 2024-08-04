@@ -1,6 +1,6 @@
 "use client";
 
-import { SkeletonCard } from "@/_ui/skeleton-card";
+import { SkeletonCard } from "@/components/ui/skeleton-card";
 import { useLogger } from "@/lib/logger";
 import { TAURI_CONTENT_TOP_VOTED } from "@/lib/tauri-handler";
 import { ContentCarouselResponse } from "@/models/content";

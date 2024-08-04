@@ -12,7 +12,7 @@ import { TauriResponse } from "@/models/shared";
 import { LocationMarkerIcon } from "@heroicons/react/solid";
 import { GearIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { PARAMS_USER_ID } from "@/_lib/params";
+import { PARAMS_USER_ID } from "@/lib/params";
 import { UserContext } from "@/lib/current-user-context";
 
 enum State {

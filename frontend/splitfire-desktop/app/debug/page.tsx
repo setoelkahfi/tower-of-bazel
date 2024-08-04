@@ -6,11 +6,11 @@ import {
   TAURI_GET_ENVIRONMENT,
   TAURI_SET_ENVIRONMENT,
 } from "@/lib/tauri-handler";
-import { Button } from "@/_ui/components/button";
 import { useEffect, useState } from "react";
 import { TauriResponse } from "@/models/shared";
 import { useLogger } from "@/lib/logger";
-import { LoadingView } from "@/_ui/LoadingView";
+import { LoadingView } from "@/components/ui/LoadingView";
+import { Button } from "@/components/button";
 
 enum State {
   LOADING,

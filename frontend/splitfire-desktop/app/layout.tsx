@@ -1,7 +1,7 @@
 "use client";
 
-import { AddressBar } from "../_ui/address-bar";
-import { GlobalNav } from "../_ui/global-nav";
+import { AddressBar } from "../components/ui/address-bar";
+import { GlobalNav } from "../components/ui/global-nav";
 import "./globals.css";
 import { Suspense, useEffect, useState } from "react";
 import { CurrentUser, CurrentUserType, db } from "../lib/db";
