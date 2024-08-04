@@ -5,12 +5,12 @@ import { invoke } from "@tauri-apps/api/tauri";
 import {
   TAURI_GET_ENVIRONMENT,
   TAURI_SET_ENVIRONMENT,
-} from "../_src/lib/tauriHandler";
-import { Button } from "../_ui/components/button";
+} from "@/lib/tauri-handler";
+import { Button } from "@/_ui/components/button";
 import { useEffect, useState } from "react";
-import { LoadingView } from "../_src/components/templates/LoadingView";
 import { TauriResponse } from "@/models/shared";
-import { useLogger } from "../_src/lib/logger";
+import { useLogger } from "@/lib/logger";
+import { LoadingView } from "@/_ui/LoadingView";
 
 enum State {
   LOADING,

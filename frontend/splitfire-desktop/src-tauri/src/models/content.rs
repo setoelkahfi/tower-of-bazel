@@ -6,7 +6,7 @@ use super::player::{AudioFile, TauriResponse};
 pub struct ContentCarouselResponse {
   pub status: TauriResponse,
   pub message: String,
-  pub audio_files: Vec<SongProvider>,
+  pub audio_files: Vec<SongProvider>, // TODO: Change to song_providers
 }
 
 #[derive(Serialize, Deserialize)]
@@ -76,4 +76,20 @@ pub enum VoteType {
   UP,
   #[serde(rename = "down")]
   DOWN
+}
+
+#[derive(Serialize)]
+#[derive(Debug)]
+pub struct ContentSplitResponse {
+  pub status: TauriResponse,
+  pub message: String,
+  pub audio_file: Option<AudioFile>,
+}
+
+#[derive(Serialize, Deserialize)]
+#[derive(Debug)]
+pub struct SplitResponse {
+  pub code: i32,
+  pub message: String,
+  pub audio_file: Option<AudioFile>,
 }

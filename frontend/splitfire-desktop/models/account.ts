@@ -1,4 +1,4 @@
-import User from "@/app/_src/models/user";
+import User from "@/models/user";
 import { TauriResponse } from "./shared";
 
 export interface AccountLoginResponse {

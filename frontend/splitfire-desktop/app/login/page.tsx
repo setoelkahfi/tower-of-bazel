@@ -2,16 +2,17 @@
 
 import * as Form from "@radix-ui/react-form";
 import { invoke } from "@tauri-apps/api/tauri";
-import { TAURI_ACCOUNT_LOGIN } from "../_src/lib/tauriHandler";
-import { Button } from "../_ui/components/button";
+import { TAURI_ACCOUNT_LOGIN } from "@/lib/tauri-handler";
+import { Button } from "@/_ui/components/button";
 import { useState } from "react";
-import { UserContext } from "../_src/lib/CurrentUserContext";
-import { CurrentUser, CurrentUserType, db } from "../_src/lib/db";
+import { UserContext } from "@/lib/current-user-context";
+import { CurrentUser, CurrentUserType, db } from "@/lib/db";
 import { AccountLoginResponse } from "@/models/account";
-import { Mode } from "../_src/components/player/models/Mode";
-import { LoadingView } from "../_src/components/templates/LoadingView";
 import { useRouter } from "next/navigation";
 import { TauriResponse } from "@/models/shared";
+import { Mode } from "@/models/mode";
+import { LoadingView } from "@/_ui/LoadingView";
+import { useLogger } from "@/lib/logger";
 
 enum State {
   LOADING,
@@ -20,6 +21,7 @@ enum State {
 
 export default function Page() {
 
+  const log = useLogger("Login/Page");
   const router = useRouter();
   const [state, setState] = useState(State.LOADED);
   const [emailOrUsername, setEmailOrUsername] = useState("");
@@ -31,16 +33,16 @@ export default function Page() {
       username: emailOrUsername,
       password: password,
     };
-    console.log("payload", payload);
+    log.debug("payload", payload);
     const response: AccountLoginResponse = await invoke(TAURI_ACCOUNT_LOGIN, payload);
-    console.log("response", response);
+    log.debug("response", response);
     if (response.status === TauriResponse.ERROR) {
       console.error("Login failed", response);
       return;
     }
     // Sanity check
     if (response.user === null || response.access_token === null) {
-      console.error("Login failed", response);
+      log.error("Login failed", response);
       return;
     }
 

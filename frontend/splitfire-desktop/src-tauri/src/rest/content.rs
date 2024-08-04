@@ -1,12 +1,12 @@
 use crate::{
     command::constants::{
         base_url_builder, PATH_CAROUSEL, PATH_READY_TO_PLAY, PATH_SONG_BRIDGE_DETAIL,
-        PATH_SONG_BRIDGE_VOTE, PATH_TOP_VOTES,
+        PATH_SONG_BRIDGE_SPLIT, PATH_SONG_BRIDGE_VOTE, PATH_TOP_VOTES,
     },
     models::{
         content::{
             CarouselResponse, ContentCarouselResponse, ContentSongProviderResponse,
-            SongProviderResponse, VoteType,
+            ContentSplitResponse, SongProviderResponse, SplitResponse, VoteType,
         },
         player::TauriResponse,
     },
@@ -185,7 +185,8 @@ pub async fn content_song_bridge_vote(
     access_token: String,
 ) -> ContentSongProviderResponse {
     debug!("Song provider id: {:?}", song_provider_id);
-    let url = content_url_builder(PATH_SONG_BRIDGE_VOTE).replace("{providerId}", &song_provider_id.to_string());
+    let url = content_url_builder(PATH_SONG_BRIDGE_VOTE)
+        .replace("{providerId}", &song_provider_id.to_string());
     let body = json!({
         "vote_type": vote_type,
         "provider_id": song_provider_id
@@ -235,6 +236,45 @@ pub async fn content_song_bridge_vote(
         message: res.message,
         song_provider: res.song_provider,
         votes,
+    }
+}
+
+#[tauri::command]
+pub async fn content_song_bridge_split(song_provider_id: i32) -> ContentSplitResponse {
+    let url = content_url_builder(PATH_SONG_BRIDGE_SPLIT)
+        .replace("{providerId}", &song_provider_id.to_string());
+    let response: Result<reqwest::Response, reqwest::Error> = Client::new().get(url).send().await;
+
+    let response = match response {
+        Ok(response) => response,
+        Err(e) => {
+            error!("Failed to get response: {:?}", e);
+            return ContentSplitResponse {
+                status: TauriResponse::Error,
+                message: e.to_string(),
+                audio_file: None,
+            };
+        }
+    };
+
+    let res: SplitResponse = match response.json().await {
+        Ok(json) => json,
+        Err(e) => {
+            error!("Failed to parse response: {:?}", e);
+            return ContentSplitResponse {
+                status: TauriResponse::Error,
+                message: e.to_string(),
+                audio_file: None,
+            };
+        }
+    };
+
+    debug!("Song bridge split: {:?}", res);
+
+    ContentSplitResponse {
+        status: TauriResponse::Success,
+        message: res.message,
+        audio_file: res.audio_file,
     }
 }
 

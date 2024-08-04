@@ -1,14 +1,14 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useLogger } from "../_src/lib/logger";
+import { useLogger } from "@/lib/logger";
 import { useEffect, useState } from "react";
 import { invoke } from "@tauri-apps/api";
-import { TAURI_CONTENT_SONG_BRIDGE_DETAIL } from "../_src/lib/tauriHandler";
-import { SongProvider } from "../_src/models/SongResponse";
-import { SongBridgeResponse } from "../_src/components/pages/esef/SplitFireView";
-import { SongProviderVote } from "../_src/models/SongVotesDetailResponse";
+import { TAURI_CONTENT_SONG_BRIDGE_DETAIL } from "@/lib/tauri-handler";
+import { SongProvider } from "@/models/song-response";
 import SongVotes from "./_components/song-votes";
+import { SongBridgeResponse } from "@/models/content";
+import { SongProviderVote } from "@/models/song-votes-detail-response";
 
 export default function Page() {
   const log = useLogger("Play");

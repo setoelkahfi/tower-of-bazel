@@ -1,9 +1,9 @@
 "use client";
 
-import YouTube, { Options } from "react-youtube";
+import YouTube from "react-youtube";
 
 export function Video({ providerId }: { providerId: string }) {
-  const opts: Options = {
+  const opts = {
     width: "100%",
     height: "100%",
     playerVars: {

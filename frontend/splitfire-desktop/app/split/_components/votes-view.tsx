@@ -3,14 +3,14 @@
 import {
   AudioFile,
   Status,
-} from "@/app/_src/components/player/models/AudioFile";
-import { SongProviderVote } from "@/app/_src/models/SongVotesDetailResponse";
+} from "@/models/audio-file";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import ButtonGenerateBackingTracks from "./button-split";
 import MainVotesView, {  } from "./votes-view-main";
 import LetsPlayView from "./lets-play";
-import { useLogger } from "@/app/_src/lib/logger";
+import { useLogger } from "@/lib/logger";
+import { SongProviderVote } from "@/models/song-votes-detail-response";
 
 export default function VotesView({
   songProviderId,
@@ -32,7 +32,7 @@ export default function VotesView({
   if (goToPlayer) {
     log.debug("Go to player");
     router.push(`/play?audioFileId=${audioFile?.id}`);
-    return;
+    return <></>;
   }
 
   const onVotesAggregateUpdate = (votesAggregate: number) => {

@@ -1,9 +1,9 @@
 "use client";
 
-import { SongProvider } from "@/app/_src/models/SongResponse";
-import { SongProviderVote } from "@/app/_src/models/SongVotesDetailResponse";
+import { SongProvider } from "@/models/song-response";
 import VotesView from "./votes-view";
 import SongVotesImage from "./song-votes-image";
+import { SongProviderVote } from "@/models/song-votes-detail-response";
 
 export default function SongVotes({
   songProvider,

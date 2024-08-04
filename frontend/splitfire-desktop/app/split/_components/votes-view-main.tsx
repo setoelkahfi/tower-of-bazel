@@ -2,15 +2,15 @@ import { BsArrowUpCircleFill, BsArrowDownCircleFill } from "react-icons/bs";
 import { VoterGravatarsViews } from "./voters-view";
 import { SongProviderResponse } from "@/models/content";
 import { CSSProperties, useContext, useState } from "react";
-import { TAURI_CONTENT_SONG_BRIDGE_VOTE } from "@/app/_src/lib/tauriHandler";
-import { SongProviderVote } from "@/app/_src/models/SongVotesDetailResponse";
+import { TAURI_CONTENT_SONG_BRIDGE_VOTE } from "@/lib/tauri-handler";
 import { TauriResponse } from "@/models/shared";
 import { invoke } from "@tauri-apps/api";
-import { useLogger } from "@/app/_src/lib/logger";
-import { UserContext } from "@/app/_src/lib/CurrentUserContext";
+import { UserContext } from "@//lib/current-user-context";
 import { useRouter } from "next/navigation";
-import { CurrentUser } from "@/app/_src/lib/db";
+import { CurrentUser } from "@/lib/db";
 import { Spinner } from "react-bootstrap";
+import { useLogger } from "@/lib/logger";
+import { SongProviderVote } from "@/models/song-votes-detail-response";
 
 export enum VoteType {
   UP = "up",
@@ -99,7 +99,7 @@ export default function MainVotesView(props: {
 
   if (goToLogin) {
     router.push("/login");
-    return;
+    return <></>;
   }
 
   return (

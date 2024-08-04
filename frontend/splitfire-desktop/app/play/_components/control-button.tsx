@@ -1,3 +1,4 @@
+import { useLogger } from "@/lib/logger";
 import {
   BookmarkIcon,
   PauseIcon,
@@ -7,7 +8,6 @@ import {
   PlayIcon,
   ResetIcon,
 } from "@radix-ui/react-icons";
-import { useLogger } from "@/app/_src/lib/logger";
 import { useState } from "react";
 
 export function ControlButtons(props: {

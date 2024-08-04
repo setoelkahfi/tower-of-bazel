@@ -1,5 +1,5 @@
-import { useLogger } from "@/app/_src/lib/logger";
-import { useCountDown } from "@/app/_src/lib/useCountDown";
+import { useCountDown } from "@/lib/use-count-down";
+import { useLogger } from "@/lib/logger";
 import { useEffect } from "react";
 
 export function AudioInfoMiddle({

@@ -1,6 +1,6 @@
-import { SongProvider } from "@/app/_src/models/SongResponse";
+import { SongProvider } from "@/models/song-response";
 import { TauriResponse } from "./shared";
-import { SongProviderVote } from "@/app/_src/models/SongVotesDetailResponse";
+import { SongProviderVote } from "./song-votes-detail-response";
 
 // Need to be renamed into more generic name
 export interface ContentCarouselResponse {
@@ -22,6 +22,13 @@ export interface PlayerPrepareResponse {
 }
 
 export interface SongProviderResponse {
+    status: TauriResponse,
+    message: string,
+    song_provider: SongProvider
+    votes: SongProviderVote[]
+}
+
+export interface SongBridgeResponse {
     status: TauriResponse,
     message: string,
     song_provider: SongProvider

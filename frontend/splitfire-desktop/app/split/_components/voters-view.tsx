@@ -1,7 +1,10 @@
-import { VoteType } from "@/app/_src/components/pages/song/components/UpDownVotes";
-import { SongProviderVote } from "@/app/_src/models/SongVotesDetailResponse";
+"use client";
+
+import { PARAMS_USER_ID } from '@/_lib/params';
 import Image from "next/image";
 import Link from "next/link";
+import { VoteType } from "./votes-view-main";
+import { SongProviderVote } from '@/models/song-votes-detail-response';
 
 export function VoterGravatarsViews(props: {
   voters: SongProviderVote[];
@@ -14,7 +17,7 @@ export function VoterGravatarsViews(props: {
       <div className="flex -space-x-2 overflow-hidden">
         {props.voters.map((x, i) => {
           return (
-            <Link href={`/profile?userId=@${x.user_id}`} key={i}>
+            <Link href={`/profile?${PARAMS_USER_ID}=${x.user_id}`} key={i}>
               <Image
                 src={x.voter_gravatar}
                 width={24}

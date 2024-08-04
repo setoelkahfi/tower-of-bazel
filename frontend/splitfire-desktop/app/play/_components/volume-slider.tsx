@@ -1,4 +1,4 @@
-import { ModeDemucs } from "@/app/_src/components/player/models/Mode"
+import { ModeDemucs } from "@/models/mode"
 import { Container, Row, Col, Form } from "react-bootstrap"
 
 export function VolumeSlider(props: { _onVolumeChange: (mode: ModeDemucs, value: string) => void, isHidden: boolean }) {
