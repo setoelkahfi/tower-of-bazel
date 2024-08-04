@@ -8,9 +8,9 @@ import { invoke } from "@tauri-apps/api/tauri";
 import { UserContext } from "@//lib/current-user-context";
 import { useRouter } from "next/navigation";
 import { CurrentUser } from "@/lib/db";
-import { Spinner } from "react-bootstrap";
 import { useLogger } from "@/lib/logger";
 import { SongProviderVote } from "@/models/song-votes-detail-response";
+import { LoadingView } from "@/components/ui/LoadingView";
 
 export enum VoteType {
   UP = "up",
@@ -110,10 +110,7 @@ export default function MainVotesView(props: {
       <div className="w-full flex-grow pt-1 px-3 flex justify-center">
         <div className="grid-rows-3 gap-2">
           {state === State.LOADING && (
-            <div className="min-h-80">
-              <Spinner animation="border" role="status">
-              </Spinner>
-            </div>
+            <LoadingView />
           )}
           {state === State.LOADED && (
             <div>

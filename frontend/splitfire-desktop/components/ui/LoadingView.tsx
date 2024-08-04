@@ -1,12 +1,6 @@
-import { Col, Container, Spinner } from "react-bootstrap";
-
 export function LoadingView() {
-
-    return <Container>
-        <Col className="align-self-center" xs={12}>
-            <Spinner animation="grow" role="status" variant="danger">
-                <span className="visually-hidden">Loading...</span>
-            </Spinner>
-        </Col>
-    </Container>
+    // Tailwindcss loading spinner
+    return <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-red-500"></div>
+    </div>
 }

@@ -1,9 +1,9 @@
+import { LoadingView } from "@/components/ui/LoadingView";
 import { UserContext } from "@/lib/current-user-context";
 import { AudioFile, Status } from "@/models/audio-file";
 import { CountdownTimerIcon, LapTimerIcon, RocketIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
-import { Spinner } from "react-bootstrap";
 
 enum State {
   LOADING,
@@ -57,9 +57,7 @@ export default function ButtonGenerateBackingTracks({
   if (state === State.LOADING) {
     return (
       <div className="mb-3 mt-3">
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        <LoadingView />
       </div>
     );
   }

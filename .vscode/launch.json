@@ -15,8 +15,6 @@
           "--no-default-features"
         ]
       },
-      // task for the `beforeDevCommand` if used, must be configured in `.vscode/tasks.json`
-      "preLaunchTask": "ui:dev"
     },
     {
       "type": "lldb",
@@ -29,8 +27,6 @@
           "--manifest-path=./frontend/splitfire-desktop/src-tauri/Cargo.toml"
         ]
       },
-      // task for the `beforeBuildCommand` if used, must be configured in `.vscode/tasks.json`
-      "preLaunchTask": "ui:build"
     }
   ]
 }
