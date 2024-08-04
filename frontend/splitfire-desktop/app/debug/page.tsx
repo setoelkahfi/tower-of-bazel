@@ -9,7 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import { TauriResponse } from "@/models/shared";
 import { useLogger } from "@/lib/logger";
-import { LoadingView } from "@/components/ui/LoadingView";
+import { LoadingView } from "@/components/ui/loading-view";
 import { Button } from "@/components/button";
 
 enum State {

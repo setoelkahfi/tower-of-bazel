@@ -7,9 +7,11 @@ module Api
       def login
         find_user
         if @user&.valid_password?(params[:password])
+          logger.debug 'User logged in.'
           sign_in(:user, @user)
           render_success
         else
+          logger.debug 'Invalid credentials.'
           render_error 'Invalid credentials.'
         end
       end

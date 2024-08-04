@@ -1,4 +1,4 @@
-import { LoadingView } from "@/components/ui/LoadingView";
+import { LoadingView } from "@/components/ui/loading-view";
 import { UserContext } from "@/lib/current-user-context";
 import { AudioFile, Status } from "@/models/audio-file";
 import { CountdownTimerIcon, LapTimerIcon, RocketIcon } from "@radix-ui/react-icons";

@@ -10,7 +10,7 @@ import { AccountLoginResponse } from "@/models/account";
 import { useRouter } from "next/navigation";
 import { TauriResponse } from "@/models/shared";
 import { Mode } from "@/models/mode";
-import { LoadingView } from "@/components/ui/LoadingView";
+import { LoadingView } from "@/components/ui/loading-view";
 import { useLogger } from "@/lib/logger";
 import { Button } from "@/components/button";
 
