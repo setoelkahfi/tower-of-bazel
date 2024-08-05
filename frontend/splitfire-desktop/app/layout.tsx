@@ -28,7 +28,6 @@ export default function RootLayout({
   };
 
   const getCurrentUser = async () => {
-    setState(State.LOADING);
     try {
       const result = await db.currentUser
         .where({ type: CurrentUserType.MAIN })
@@ -72,6 +71,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="[color-scheme:dark]">
       <body className="bg-gray-1100 overflow-none bg-[url('/grid.svg')] pb-36">
+      {state === State.LOADED && user && (
       <Suspense>
         <UserContext.Provider value={{ user, updateUser }}>
           <GlobalNav />
@@ -90,7 +90,8 @@ export default function RootLayout({
             </div>
           </div>
         </UserContext.Provider>
-        </Suspense>
+      </Suspense>
+      )}
       </body>
     </html>
   );

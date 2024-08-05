@@ -10,7 +10,7 @@ async fn try_parsing_error_codes<T>(response: Response) -> Result<T, ErrorRespon
     let e: ErrorResponse = match response.json().await {
         Ok(json) => json,
         Err(e) => {
-            error!("Failed to parse response: {:?}", e);
+            error!("Failed to parse error response: {:?}", e);
             return Err(ErrorResponse {
                 error_code: UserError::ParseError,
                 message: e.to_string(),

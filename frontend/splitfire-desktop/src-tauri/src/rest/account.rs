@@ -5,10 +5,12 @@ use crate::{
     },
     models::{
         account::{
-            AccountLoginResponse, AccountProfileResponse, AccountRegisterResponse, ErrorResponse, LoginResponse, ProfileResponse, RegisterResponse
+            AccountLoginResponse, AccountProfileResponse, AccountRegisterResponse, ErrorResponse,
+            LoginResponse, ProfileResponse, RegisterResponse,
         },
         player::TauriResponse,
-    }, rest::try_parsing_error_codes,
+    },
+    rest::try_parsing_error_codes,
 };
 use crate_error_codes::UserError;
 use log::{debug, error};
@@ -17,7 +19,10 @@ use serde_json::json;
 use tauri;
 
 #[tauri::command]
-pub async fn account_login(username: String, password: String) -> Result<AccountLoginResponse, ErrorResponse> {
+pub async fn account_login(
+    username: String,
+    password: String,
+) -> Result<AccountLoginResponse, ErrorResponse> {
     debug!(
         "Logging in with username {}, password {}",
         username, password
@@ -27,22 +32,14 @@ pub async fn account_login(username: String, password: String) -> Result<Account
         "username": username,
         "password": password
     });
-    let response = Client::new()
+    let result = Client::new()
         .post(account_url_builder(PATH_ACCOUNT_LOGIN))
         .json(&body)
         .send()
         .await;
 
-    let ok_response = match response {
-        Ok(response) => {
-            match response.error_for_status() {
-                Ok(ok_response) => ok_response,
-                Err(e) => {
-                    debug!("Response failed: {:?}", e);
-                    return try_parsing_error_codes::<AccountLoginResponse>(response).await;
-                }
-            }
-        },
+    let response = match result {
+        Ok(ok_response) => ok_response,
         Err(e) => {
             debug!("Failed to get response: {:?}", e);
             return Err(ErrorResponse {
@@ -51,6 +48,16 @@ pub async fn account_login(username: String, password: String) -> Result<Account
             });
         }
     };
+
+    let ok_response = match response.status() {
+        reqwest::StatusCode::OK => response,
+        _ => {
+            debug!("Failed to login: {:?}", response);
+            let error_response = try_parsing_error_codes(response).await;
+            return error_response;
+        }
+    };
+
     let token = match ok_response.headers().get("Authorization") {
         Some(token) => {
             // Trim Bearer prefix

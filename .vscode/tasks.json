@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "sf-desktop:setup",
+      "type": "shell",
+      "command": "nvm",
+      "args": [
+        "use",
+      ],
+      "isBackground": true,
+      "options": {
+        "cwd": "${workspaceFolder}/frontend/splitfire-desktop/"
+      }
+    },
+    {
+      "label": "ui:dev",
+      "type": "npm",
+      "isBackground": true,
+      "script": "next-dev",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend/splitfire-desktop/"
+      },
+      "dependsOn": [
+        "sf-desktop:setup"
+      ]
+    },
+    {
+      "label": "ui:build",
+      "type": "npm",
+      "script": "next-build",
+      "isBackground": true,
+      "options": {
+        "cwd": "${workspaceFolder}/frontend/splitfire-desktop/"
+      }
+    }
+  ]
+}

@@ -18,7 +18,7 @@ module Api
           render_success
         else
           logger.debug 'Invalid credentials.'
-          render_error 'Invalid credentials.'
+          render_error(GemErrorCodes.invalid_credentials, 'Invalid credentials.', :unauthorized)
         end
       end
 

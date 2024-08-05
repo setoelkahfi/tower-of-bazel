@@ -9,6 +9,7 @@ use ts_rs::TS;
 pub enum UserError {
     // User defined error codes starts from 1000
     UserNotFound = 1000,
+    InvalidCredentials = 1001,
 
     // Generic error codes starts from 1
     InvalidRequest = 1,
@@ -23,6 +24,7 @@ impl UserError {
             UserError::InvalidRequest => "Invalid request.",
             UserError::ParseError => "Failed to parse response.",
             UserError::NetworkError => "Failed to get response.",
+            UserError::InvalidCredentials => "Invalid credentials.",
         }
     }
     

@@ -5,4 +5,7 @@
     "lib/crate_error_codes/Cargo.toml",
     "lib/gem_error_codes/ext/gem_error_codes/Cargo.toml",
   ],
+  "terminal.integrated.automationProfile.osx": {
+    "path": "/usr/local/bin/zsh-with-rc",
+  }
 }

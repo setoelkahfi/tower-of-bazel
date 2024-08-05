@@ -17,6 +17,7 @@ import { Button } from "@/components/button";
 enum State {
   LOADING,
   LOADED,
+  ERROR,
 }
 
 export default function Page() {
@@ -26,37 +27,46 @@ export default function Page() {
   const [state, setState] = useState(State.LOADED);
   const [emailOrUsername, setEmailOrUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const login = async (update: (user: CurrentUser) => void) => {
-    setState(State.LOADING);
-    const payload = {
-      username: emailOrUsername,
-      password: password,
-    };
-    log.debug("payload", payload);
-    const response: AccountLoginResponse = await invoke(TAURI_ACCOUNT_LOGIN, payload);
-    log.debug("response", response);
-    if (response.status === TauriResponse.ERROR) {
-      console.error("Login failed", response);
-      return;
-    }
-    // Sanity check
-    if (response.user === null || response.access_token === null) {
-      log.error("Login failed", response);
-      return;
-    }
+    try {
+      setState(State.LOADING);
+      const payload = {
+        username: emailOrUsername,
+        password: password,
+      };
+      log.debug("payload", payload);
+      const response: AccountLoginResponse = await invoke(TAURI_ACCOUNT_LOGIN, payload);
+      log.debug("response", response);
+      if (response.status === TauriResponse.ERROR) {
+        console.error("Login failed", response);
+        setErrorMessage(response.message);
+        return;
+      }
+      // Sanity check
+      if (response.user === null || response.access_token === null) {
+        log.error("Login failed", response);
+        setErrorMessage(response.message);
+        return;
+      }
 
-    let currentUser: CurrentUser = {
-      accessToken: response.access_token,
-      type: CurrentUserType.MAIN,
-      user: response.user,
-      mode: Mode.Vocal
+      let currentUser: CurrentUser = {
+        accessToken: response.access_token,
+        type: CurrentUserType.MAIN,
+        user: response.user,
+        mode: Mode.Vocal
+      }
+      db.currentUser.add(currentUser)
+      // Update UserContext
+      update(currentUser);
+      
+      router.push("/");
+    } catch (error) {
+      log.error("Login failed", error);
+      setErrorMessage("Login failed. Please try again.");
+      setState(State.ERROR);
     }
-    db.currentUser.add(currentUser)
-    // Update UserContext
-    update(currentUser);
-    
-    router.push("/");
   };
 
   if (state === State.LOADING) {
@@ -74,6 +84,13 @@ export default function Page() {
                 event.preventDefault();
               }}
             >
+            {state === State.ERROR && (
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <strong className="font-bold">Error!</strong>
+                <span className="block sm:inline">{errorMessage}</span>
+                </div>
+                )
+            }
               <Form.Field className="FormField my-6" name="email">
                 <div
                   style={{
