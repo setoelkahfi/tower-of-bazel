@@ -1,12 +1,12 @@
 use crate::models::account::ErrorResponse;
 use crate_error_codes::UserError;
-use log::error;
+use log::{debug, error};
 use reqwest::Response;
 
 pub mod account;
 pub mod content;
 
-async fn try_parsing_error_codes<T>(response: Response) -> Result<T, ErrorResponse> {
+async fn parse_error_response<T>(response: Response) -> Result<T, ErrorResponse> {
     let e: ErrorResponse = match response.json().await {
         Ok(json) => json,
         Err(e) => {
@@ -17,5 +17,6 @@ async fn try_parsing_error_codes<T>(response: Response) -> Result<T, ErrorRespon
             });
         }
     };
+    debug!("Error response: {:?}", e);
     return Err(e);
 }

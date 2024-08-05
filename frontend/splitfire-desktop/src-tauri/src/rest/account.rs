@@ -10,7 +10,7 @@ use crate::{
         },
         player::TauriResponse,
     },
-    rest::try_parsing_error_codes,
+    rest::parse_error_response,
 };
 use crate_error_codes::UserError;
 use log::{debug, error};
@@ -53,7 +53,7 @@ pub async fn account_login(
         reqwest::StatusCode::OK => response,
         _ => {
             debug!("Failed to login: {:?}", response);
-            let error_response = try_parsing_error_codes(response).await;
+            let error_response = parse_error_response(response).await;
             return error_response;
         }
     };
