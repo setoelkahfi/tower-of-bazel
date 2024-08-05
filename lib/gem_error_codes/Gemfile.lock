@@ -1,0 +1,25 @@
+PATH
+  remote: .
+  specs:
+    gem_error_codes (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (13.2.1)
+    rake-compiler (1.2.7)
+      rake
+    rb_sys (0.9.100)
+
+PLATFORMS
+  arm64-darwin-22
+  ruby
+
+DEPENDENCIES
+  gem_error_codes!
+  rake (~> 13.0)
+  rake-compiler
+  rb_sys (~> 0.9.63)
+
+BUNDLED WITH
+   2.5.15

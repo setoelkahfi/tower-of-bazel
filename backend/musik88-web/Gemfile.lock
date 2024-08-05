@@ -1,3 +1,8 @@
+PATH
+  remote: ../../lib/gem_error_codes
+  specs:
+    gem_error_codes (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -546,6 +551,7 @@ DEPENDENCIES
   dotenv-rails
   fog-aws
   font-awesome-rails
+  gem_error_codes!
   google-api-client
   htmlbeautifier
   httpclient

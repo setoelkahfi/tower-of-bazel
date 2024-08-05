@@ -1,0 +1,13 @@
+[package]
+name = "gem_error_codes"
+version = "0.1.0"
+edition = "2021"
+authors = ["Seto Elkahfi <setoelkahfi@gmail.com>"]
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+magnus = { version = "0.6.2" }
+crate_error_codes = { path = "../../../crate_error_codes" }

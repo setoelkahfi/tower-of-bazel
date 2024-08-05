@@ -1,6 +1,8 @@
 {
   "rust-analyzer.linkedProjects": [
-    "frontend/splitfire-desktop/src-tauri/Cargo.toml",
     "backend/rust-axum/Cargo.toml",
+    "frontend/splitfire-desktop/src-tauri/Cargo.toml",
+    "lib/crate_error_codes/Cargo.toml",
+    "lib/gem_error_codes/ext/gem_error_codes/Cargo.toml",
   ],
 }

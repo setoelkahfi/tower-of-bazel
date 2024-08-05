@@ -68,6 +68,10 @@ gem 'sprockets', '3.7.2'
 gem 'tolk', '4.1.0'
 gem 'webpacker'
 gem 'will_paginate', '~> 3.3.0'
+
+# Local gems
+gem 'gem_error_codes', path: '../../lib/gem_error_codes'
+
 group :test, :development do
   gem 'dotenv-rails'
   gem 'htmlbeautifier'

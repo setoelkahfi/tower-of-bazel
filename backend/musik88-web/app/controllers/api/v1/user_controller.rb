@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+require 'gem_error_codes'
+
 module Api
   module V1
     class UserController < Devise::SessionsController
@@ -6,6 +10,8 @@ module Api
 
       def login
         find_user
+        return render_error(GemErrorCodes.user_not_found, GemErrorCodes.user_not_found_message, :not_found) unless @user
+
         if @user&.valid_password?(params[:password])
           logger.debug 'User logged in.'
           sign_in(:user, @user)
@@ -99,14 +105,14 @@ module Api
           code: 200,
           message: 'OK.',
           user: @user.as_json_packed
-        }
+        }, status: :ok
       end
 
-      def render_error(message)
+      def render_error(error_code, message, status = :unauthorized)
         render json: {
-          code: 500,
+          error_code: error_code,
           message: message
-        }
+        }, status: status
       end
 
       def render_user_following

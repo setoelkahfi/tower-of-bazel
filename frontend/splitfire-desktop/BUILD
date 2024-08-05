@@ -4,6 +4,8 @@ tauri(
     name = "dev",
     data = glob(["**"]) + [
         "@npm//next",
+    ] + [
+        "//lib:crate_error_codes",
     ],
     templated_args = [
         "dev",
