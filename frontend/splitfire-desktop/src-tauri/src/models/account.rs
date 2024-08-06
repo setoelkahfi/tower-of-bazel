@@ -1,4 +1,4 @@
-use crate_error_codes::UserError;
+use crate_error_codes::ErrorCode;
 use serde::{Deserialize, Serialize};
 use super::player::TauriResponse;
 
@@ -14,7 +14,7 @@ pub struct AccountLoginResponse {
 #[derive(Serialize, Deserialize)]
 #[derive(Debug)]
 pub struct ErrorResponse {
-  pub error_code: UserError,
+  pub error_code: ErrorCode,
   pub message: String,
 }
 

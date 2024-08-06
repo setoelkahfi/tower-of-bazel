@@ -12,7 +12,7 @@ use crate::{
     },
     rest::parse_error_response,
 };
-use crate_error_codes::UserError;
+use crate_error_codes::ErrorCode;
 use log::{debug, error};
 use reqwest::Client;
 use serde_json::json;
@@ -41,10 +41,10 @@ pub async fn account_login(
     let response = match result {
         Ok(ok_response) => ok_response,
         Err(e) => {
-            debug!("Failed to get response: {:?}", e);
+            error!("Failed to get response: {:?}", e);
             return Err(ErrorResponse {
-                error_code: UserError::NetworkError,
-                message: UserError::NetworkError.error_message().to_string(),
+                error_code: ErrorCode::NetworkError,
+                message: ErrorCode::NetworkError.error_message().to_string(),
             });
         }
     };
@@ -52,7 +52,7 @@ pub async fn account_login(
     let ok_response = match response.status() {
         reqwest::StatusCode::OK => response,
         _ => {
-            debug!("Failed to login: {:?}", response);
+            error!("Failed to login: {:?}", response);
             let error_response = parse_error_response(response).await;
             return error_response;
         }
@@ -66,8 +66,8 @@ pub async fn account_login(
                 Err(e) => {
                     error!("Cannot convert token to str: {:?}", e);
                     return Err(ErrorResponse {
-                        error_code: UserError::ParseError,
-                        message: UserError::ParseError.error_message().to_string(),
+                        error_code: ErrorCode::ParseError,
+                        message: ErrorCode::ParseError.error_message().to_string(),
                     });
                 }
             };
@@ -76,8 +76,8 @@ pub async fn account_login(
         None => {
             error!("No Authorization header found.");
             return Err(ErrorResponse {
-                error_code: UserError::ParseError,
-                message: UserError::ParseError.error_message().to_string(),
+                error_code: ErrorCode::ParseError,
+                message: ErrorCode::ParseError.error_message().to_string(),
             });
         }
     };
@@ -87,8 +87,8 @@ pub async fn account_login(
         Err(e) => {
             error!("Failed to parse response: {:?}", e);
             return Err(ErrorResponse {
-                error_code: UserError::ParseError,
-                message: UserError::ParseError.error_message().to_string(),
+                error_code: ErrorCode::ParseError,
+                message: ErrorCode::ParseError.error_message().to_string(),
             });
         }
     };

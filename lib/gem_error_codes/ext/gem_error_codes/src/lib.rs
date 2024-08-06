@@ -1,4 +1,4 @@
-use crate_error_codes::UserError::{InvalidCredentials, UserNotFound};
+use crate_error_codes::ErrorCode::{InvalidCredentials, UserNotFound};
 use magnus::{function, prelude::*, Error, Ruby};
 
 fn user_not_found() -> i32 {

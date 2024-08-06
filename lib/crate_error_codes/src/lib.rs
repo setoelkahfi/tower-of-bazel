@@ -1,12 +1,12 @@
-use serde::{Deserialize, Serialize};
+use serde_repr::{Deserialize_repr, Serialize_repr};
 use ts_rs::TS;
 
 #[derive(TS)]
 #[ts(export)]
+#[derive(Serialize_repr, Deserialize_repr)]
 #[repr(i32)]
-#[derive(Serialize, Deserialize)]
 #[derive(Debug)]
-pub enum UserError {
+pub enum ErrorCode {
     // User defined error codes starts from 1000
     UserNotFound = 1000,
     InvalidCredentials = 1001,
@@ -17,14 +17,14 @@ pub enum UserError {
     NetworkError = 3,
 }
 
-impl UserError {
+impl ErrorCode {
     pub fn error_message(&self) -> &str {
         match self {
-            UserError::UserNotFound => "User not found.",
-            UserError::InvalidRequest => "Invalid request.",
-            UserError::ParseError => "Failed to parse response.",
-            UserError::NetworkError => "Failed to get response.",
-            UserError::InvalidCredentials => "Invalid credentials.",
+            ErrorCode::UserNotFound => "User not found.",
+            ErrorCode::InvalidRequest => "Invalid request.",
+            ErrorCode::ParseError => "Failed to parse response.",
+            ErrorCode::NetworkError => "Failed to get response.",
+            ErrorCode::InvalidCredentials => "Invalid credentials.",
         }
     }
     
